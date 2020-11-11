@@ -1,0 +1,64 @@
+@charset 'utf_8';
+
+.product_reg td {
+    border:1px solid #d6dce7;
+}
+
+.input_100 {
+    padding:5px;
+    border-radius: 2px;
+    border:1px solid #d5d5d5;
+    width:100%;
+    height:35px;
+    font-size:12px;
+}
+
+.input_radio{
+    width:15px;
+    height:15px;
+    margin: 3px auto;
+}
+
+.sel_100{
+    width: 100%;
+}
+
+.search_cal{
+    position: relative;
+}
+
+.search_cal input{
+    padding-left: 25px;
+    width: 100%;
+    font-size:12px;
+}
+
+.search_cal i{
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #959595;
+}
+
+.product_reg_table thead th {
+    border: 1px solid #60718b;
+    background-color: #6f809a;
+    color: #fff;
+    padding: 8px 5px;
+    text-align: center;
+}
+
+.product_reg_table tbody tr:nth-child(2n+1) {
+    background-color: #eff3f9;
+}
+
+.product_reg_table tbody td {
+    border: 1px solid #d6dce7;
+    padding: 8px 5px;
+    text-align: center;
+}
+
+.p_lr3{
+    padding: 0 3px;
+}

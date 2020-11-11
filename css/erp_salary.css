@@ -1,0 +1,75 @@
+@charset 'utf_8';
+
+button, input, select {
+    font-size: 12px;
+    height: 30px;
+    font-weight: normal;
+}
+.search_sel_box {
+    width: 85px;
+}
+.search_btn {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-color: #eee;
+}
+
+.search_cal{
+    position: relative;
+}
+
+.search_cal i{
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #959595;
+}
+
+.emp_info_box{
+    margin-right: 5px;
+    padding: 5px;
+    border: 1px solid #3F51B5;
+    border-radius: 3px;
+}
+
+thead th {
+    border: 1px solid #60718b;
+    background-color: #6f809a;
+    color: #fff;
+    padding: 8px 5px;
+    text-align: center;
+    font-weight: normal;
+}
+
+tbody tr:nth-child(2n+1) {
+    background-color: #eff3f9;
+}
+
+tbody td {
+    border: 1px solid #d6dce7;
+    padding: 8px 5px;
+    text-align: center;
+    font-weight: normal;
+}
+
+/* page_grp */
+.page {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    background-color: #fff;
+    font-weight: normal;
+}
+
+.page:hover {
+    background-color: #3f51b5;
+}
+
+.page:hover a {
+    color: #fff;
+}

@@ -1,0 +1,48 @@
+@charset 'UTF-8';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+table {
+    border-collapse: collapse;      /* 2줄표시 X */
+    width: 100%;
+    border: 0;
+    outline: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+select, input, textarea, button {
+    border: 0;
+    outline: 0;
+    vertical-align: top;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+button {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+img {
+    display: block;
+}
+
+.clearfix {
+    clear: both;
+}

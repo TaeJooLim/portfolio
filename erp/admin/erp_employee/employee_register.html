@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/button_style.css">
+    <link rel="stylesheet" href="../../css/board.css">
+    <link rel="stylesheet" href="../../css/employee.css">
+   
+  
+
+    <!-- FontAweSome -->
+    <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
+    <!-- FontAweSome -->
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQuery -->
+
+    <script src="../../ckeditor/ckeditor.js"></script>
+
+</head>
+<style>
+    .control_menu {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+    .main_left_menu {
+        width: 50px;
+    }
+    .left_menu_icon {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+    .menu_selected {
+        background-color: #fff;
+        color: #3F51B5;
+    }
+    .menu_hide {
+        display: none;
+    }
+    .menu_active {
+        display: block;
+    }
+    .submenu_box {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 170px;
+        height: 80%;
+        color: #000;
+        border-right: 1px solid #ccc;
+        background-color: #fff;
+    }
+
+    .member_left {
+            /*사진*/
+            width: 11%;
+            max-width: 192px;
+        }
+
+        .photo_area {
+            width: 100%;
+        }
+
+        .photo_area img {
+            width: 100%;
+            height: 240px;
+            display: inline-block;
+        }
+
+        .member_right {
+            /*내용*/
+            width: 88.7%;
+            max-width: 1728px;
+        }
+
+        .cke_style{
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 2px;
+        }
+</style>
+<body>
+    <div class="page_wrap bg_white noto font_14" style="height: 100vh;">
+        <div class="page_top flex space_between">
+            <div class="top_left bg_blue_1">
+                <div id="mainmenu_btn" class="control_menu font_16 white center flex flex_hc flex_vc">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div class="top_middle bg_blue_2 font_16 flex flex_hc flex_vc" style="width: 10%;">
+                <span class="white">ADMINISTRATOR</span>
+            </div>
+            <div class="top_right bg_blue_3 p_10" style="width: 100%;">
+                <div class="top_right_menu flex" style="justify-content: flex-end;">
+                    <div class="top_right_menu_one white" style="line-height: 30px;"><i
+                            class="fas fa-store"></i></div>
+                    <div class="top_right_menu_two white m_lr20" style="line-height: 30px;"><i
+                            class="fas fa-home"></i></div>
+                    <!-- <div class="top_right_menu_three">
+                        <button class="m_l10 white"
+                            style="display: inline-block; padding: 5px 10px; margin-left: 10px; border-radius: 3px; height: 30px;  color: #fff; background-color: rgba(250, 250, 250, 0.1);">
+                            부가서비스
+                        </button>
+                    </div> -->
+                    <div class="top_right_menu_four">
+                        <select class="white" style="background-color: rgba(250, 250, 250, 0.1); height: 30px;">
+                            <option class="bg_blue_4">관리자</option>
+                            <option class="bg_blue_4">관리자정보</option>
+                            <option class="bg_blue_4">로그아웃</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page_main flex space_between" style="border-bottom: 1px solid #ccc;">
+            <div class="main_left flex space_between" style="width: 50px;">
+                <div class="main_left_menu bg_ivory">
+
+                    <!-- FLOAT로 띄워서 버튼 JQUERY로 show&hide -->
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div id="submenu_box" class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">1번메뉴</h4>
+                        <ul class="font_12">
+                            <li class="m_b10">서브메뉴1</li>
+                            <li class="m_b10">서브메뉴2</li>
+                            <li class="m_b10">서브메뉴3</li>
+                            <li class="m_b10">서브메뉴4</li>
+                        </ul>
+                    </div>
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-user-alt"></i>
+                    </div>
+                    <div class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">2번메뉴</h4>
+                        <ul class="font_12">
+                            <li class="m_b10">서브메뉴1</li>
+                            <li class="m_b10">서브메뉴2</li>
+                            <li class="m_b10">서브메뉴3</li>
+                            <li class="m_b10">서브메뉴4</li>
+                            <li class="m_b10">서브메뉴5</li>
+                        </ul>
+                    </div>
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-user-alt"></i>
+                    </div>
+                    <div class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">3번메뉴</h4>
+                        <ul class="font_12">
+                            <li class="m_b10">서브메뉴1</li>
+                            <li class="m_b10">서브메뉴2</li>
+                            <li class="m_b10">서브메뉴3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="main_right bg_white" style="width: 100%;">
+                <div class="main_right_title p_10" style="height: 50px; border-bottom: 1px solid #ccc;">
+                    <h2>main_right_title</h2>
+                </div>
+                <div class="main_right_info p_20">
+                    <div class="info_title">
+                        info_title
+                    </div>
+                    <div class="info_table">
+                        <div class="page_content ">
+                            <form action="" name="" method="">
+                                <div class="member_info flex space_between">
+                                    <div class="member_left">
+                                        <div class="photo_area">
+                                            <img src="../../images/people1.jpg" alt="">
+                                        </div>
+                                        <div class="phoyo_btn center">
+                                            <input type="file" class="td_100">
+                                        </div>
+                                    </div>
+                                    <div class="member_right">
+                                        <table>
+                                            <tr>
+                                                <td class="td_8 center" >소속</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100" autofocus/>
+                                                   
+                                                </td>
+                                                <td class="td_8 center ">부서명</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100"  autofocus />
+                                                 
+                                                </td>
+                                                <td class="td_8 center">근무부서</td>
+                                                <td class="td_12 p_lr3">
+                                                  
+                                                    <input type="text" name="" id="" class="td_100" autofocus />
+                                                </td>
+                                                <td class="td_8 center ">입사년월일</td>
+                                                <td class="td_12 p_lr3">
+                                                    
+                                                    <input type="text" name="" id="" class="td_100" autofocus />
+                                                </td>
+                                                <td class="td_8 center  bg-gray weight700">가입년월일</td>
+                                                <td class="td_12 p_lr3">
+                                                
+                                                    <input type="text" name="" id="" class="td_100" autofocus />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td_8 center  bg-gray weight700">사번</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100" autofocus />
+                                                </td>
+                                                <td class="td_8 center  bg-gray weight700">사원명/성별</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100" autofocus />
+                                                </td>
+                                                <td class="td_8 center  bg-gray weight700">생년월일</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100" />
+                                                  
+                                                </td>
+                                                <td class="td_8 center  bg-gray weight700">CP</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100"  />
+                                                </td>
+                                                <td class="td_8 center  bg-gray weight700">내선번호</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100"  />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td_8 center bg-gray weight700">직급</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100" autofocus />
+                                                </td>
+                                                <td class="td_8 center  bg-gray weight700">직책</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100" autofocus />
+                                                </td>
+                                                <td class="td_8 center  bg-gray weight700">운전가능여부</td>
+                                                <td class="td_12 p_lr3">
+                                                    <select name="" class="td_100" id="">
+                                                        <option value="">Y</option>
+                                                        <option value="">N</option>
+                                                    </select>
+                                                </td>
+                                                <td class="td_8 center  bg-gray weight700">운전면허 종류</td>
+                                                <td class="td_12 p_lr3">
+                                                    <select name="" class="td_100" id="">
+                                                        <option value="">1종대형</option>
+                                                        <option value="">1종보통</option>
+                                                        <option value="">2종보통</option>
+                                                    </select>
+                                                </td>
+                                                <td class="td_8 center  bg-gray weight700">자차소유여부</td>
+                                                <td class="td_12 p_lr3">
+                                                    <select name="" class="td_100" id="">
+                                                        <option value="">Y</option>
+                                                        <option value="">N</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td_8 center  bg-gray weight700">최종학력</td>
+                                                <td class="td_12 p_lr3">
+                                                    <select name="" class="td_100" id="">
+                                                        <option value="">고등학교졸업</option>
+                                                        <option value="">고등학교중퇴</option>
+                                                        <option value="">전문학사</option>
+                                                        <option value="">학사</option>
+                                                        <option value="">석사</option>
+                                                        <option value="">박사</option>
+                                                        <option value="">대학교중퇴</option>
+                                                    </select>
+                                                </td>
+                                                <td class="td_8 center bg-gray weight700">학과/전공</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100" autofocus  maxlength="20"/> 
+                                                </td>
+                                                <td class="td_8 center  bg-gray weight700">학교이름</td>
+                                                <td class="td_12 p_lr3"> 
+                                                       <input type="text" name="" id="" class="td_100" autofocus />
+                                                </td>
+                                                <td class="td_8 center  bg-gray weight700">보훈대상</td>
+                                                <td class="td_12 p_lr3"> 
+                                                    <select name="" class="td_100" id="">
+                                                        <option value="">비대상</option>
+                                                        <option value="">대상</option>
+                                                    </select>
+                                                </td>
+                                                <td class="td_8 center  bg-gray weight700">장애대상</td>
+                                                <td class="td_12 p_lr3"> 
+                                                    <select name="" class="td_100" id="">
+                                                        <option value="">비대상</option>
+                                                        <option value="">대상</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td  class="td_8 center  bg-gray weight700">이메일</td>
+                                                <td class="td_12 p_lr3" colspan="3">
+                                                    <input type="text" name="" id="" class="td_100" autofocus />
+                                                 
+                                                </td>
+                                               
+                                                <td class="td_8 center  bg-gray weight700">병역구분</td>
+                                                <td class="td_12 p_lr3">
+                                      
+                                                    <select name="" class="td_100" id="">
+                                                        <option value="">군필</option>
+                                                        <option value="">미필</option>
+                                                        <option value="">해당없음</option>
+                                                    </select>
+                                                </td>
+                                                <td class="td_8 center  bg-gray weight700">종교</td>
+                                                <td class="td_12 p_lr3">
+                                                   
+                                                    <select name="" class="td_100" id="">
+                                                        <option value="">불교</option>
+                                                        <option value="">기독교</option>
+                                                        <option value="">천주교</option>
+                                                        <option value="">기타</option>
+                                                    </select>
+                                                </td>
+                                                <td class="td_8 center  bg-gray weight700">결혼여부</td>
+                                                <td class="td_12 p_lr3">
+                                                   
+                                                    <select name="" class="td_100" id="">
+                                                        <option value="">미혼</option>
+                                                        <option value="">기혼</option>
+                                                        
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td_8 center  bg-gray weight700">보유자격 1</td>
+                                                <td class="td_12 p_lr3"> <input type="text" name="" id=""
+                                                        class="td_100" autofocus /></td>
+                                                <td class="td_8 center  bg-gray weight700">보유자격 2</td>
+                                                <td class="td_12 p_lr3"> <input type="text" name="" id=""
+                                                        class="td_100" autofocus /></td>
+                                                <td class="td_8 center  bg-gray weight700">보유자격 3</td>
+                                                <td class="td_12 p_lr3"> <input type="text" name="" id=""
+                                                        class="td_100" autofocus /></td>
+                                                <td class="td_8 center  bg-gray weight700">어학자격 1</td>
+                                                <td class="td_12 p_lr3"> <input type="text" name="" id=""
+                                                        class="td_100" autofocus /></td>
+                                                <td class="td_8 center  bg-gray weight700">어학자격 2</td>
+                                                <td class="td_12 p_lr3"> <input type="text" name="" id=""
+                                                        class="td_100" autofocus /></td>
+                                            </tr>
+                                            <tr>
+                                                
+                                                <td class="td_8 center  bg-gray weight700">국적</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100" autofocus />
+                                                    
+                                                </td>
+                                                <td class="td_8 center  bg-gray weight700">우편번호</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100" autofocus />
+                                                
+                                                </td>
+                                                
+                                                <td  class="td_8 center  bg-gray weight700">주소</td>
+                                                <td colspan="5" class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100" autofocus />
+                                                 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td_8 center  bg-gray weight700">거래은행</td>
+                                                <td class="td_12 p_lr3">
+                                                    <select name="" class="td_100" id="">
+                                                        <option value="">NH농협</option>
+                                                        <option value="">KB국민</option>
+                                                        <option value="">우리</option>
+                                                        <option value="">하나</option>
+                                                        <option value="">IBK기업</option>
+                                                        <option value="">SC제일</option>
+                                                        <option value="">시티</option>
+                                                        <option value="">KDB기업</option>
+                                                        <option value="">SBI저축은행</option>
+                                                        <option value="">새마을</option>
+                                                        <option value="">대구</option>
+                                                        <option value="">광주</option>
+                                                        <option value="">우체국</option>
+                                                        <option value="">신협</option>
+                                                        <option value="">전북</option>
+                                                        <option value="">경남</option>
+                                                        <option value="">부산</option>
+                                                        <option value="">수협</option>
+                                                        <option value="">제주</option>
+                                                        <option value="">저축은행</option>
+                                                        <option value="">산림조합</option>
+                                                        <option value="">케이뱅크</option>
+                                                        <option value="">카카오뱅크</option>
+                                                        <option value="">HSBC</option>
+                                                        <option value="">중국공상</option>
+                                                        <option value="">JP모간</option>
+                                                        <option value="">도이치</option>
+                                                        <option value="">BNP파리바</option>
+                                                        <option value="">BOA</option>
+                                                        <option value="">중국건설</option>
+                                                    </select>
+                                                </td>
+                                                <td  class="td_8 center  bg-gray weight700">계좌번호</td>
+                                                <td colspan="7" class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100" autofocus />
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+                                </div>
+                                <div class="comment">
+                                        <div class="title">
+                                            <h3 class="tomato font_14 noto mt20">
+                                                경력사항(비고) 입력
+                                            </h3>
+                                        </div>
+                                        <div class="content">
+                                          
+                                                <textarea name="" id="editor" class="cke_style"></textarea>
+                                                <script>
+                                                        CKEDITOR.replace('editor');
+                                                        CKEDITOR.config.height = 250;
+                                                </script>
+                                            
+                                        </div>
+                                        <div class="btn_grp center m_t10 " > 
+                                            <button type="submit" class="btn_normal">내용저장</button> <!-- action 찾아감-->
+                                            <button type="reset" class="btn_red" >새로고침</button>
+                                        </div>
+                                    </div>    
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="copyright center">
+            <span class="copy"> &copy;Copyright All rights reserved.</span>
+            <span class="history">2020 - 2030</span>
+        </div>
+    </footer>
+    <div class="clearfix"></div>
+    
+</body>
+<script>
+    $(function() {
+        $(".left_menu_icon").click(function() {
+            $(this).next().toggleClass("menu_hide");
+            $(this).toggleClass("menu_selected");
+        });
+        $("#mainmenu_btn").click(function() {
+            $("#submenu_box").toggleClass("menu_hide");
+        });
+    });
+</script> 
+</html>

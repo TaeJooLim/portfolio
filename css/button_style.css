@@ -1,0 +1,63 @@
+@charset 'UTF-8';
+
+/* button, input, select */
+button, input, select {
+    font-size: 14px;
+    height: 35px;
+    width: 80px;
+    border-radius: 2px;
+}
+
+button, input, select {
+    border: 1px solid #ccc;
+}
+
+button {
+    font-weight: 700;
+}
+
+input {
+    width: 150px;
+    vertical-align: top;
+    padding-left: 10px;
+}
+.btn_blue {
+    background-color: #3f51b5;
+    border: 1px solid transparent;
+    font-size: 12px;
+    color: #fff;
+}
+.btn_ivory {
+    background-color: #e7e7e7;
+    font-size: 12px;
+}
+.btn_red {
+    background-color: crimson;
+    border: 1px solid transparent;
+    font-size: 12px;
+    color: #fff;
+}
+
+/* s-btn */
+.s_btn_blue {
+    width: 35px;
+    height: 25px;
+    background-color: #3f51b5;
+    border: 1px solid transparent;
+    font-size: 12px;
+    color: #fff;
+}
+.s_btn_ivory {
+    width: 35px;
+    height: 25px;
+    background-color: #e7e7e7;
+    font-size: 12px;
+}
+.s_btn_red {
+    width: 35px;
+    height: 25px;
+    background-color: crimson;
+    border: 1px solid transparent;
+    font-size: 12px;
+    color: #fff;
+}
