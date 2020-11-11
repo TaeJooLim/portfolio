@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../css/reset.css">
-    <link rel="stylesheet" href="../../css/common.css">
-    <link rel="stylesheet" href="../../css/button_style.css">
-    <link rel="stylesheet" href="../../css/board.css">
-    <link rel="stylesheet" href="../../css/employee.css">
-    <link rel="stylesheet" href="../../css/table_style.css">
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/common_table.css">
+    <link rel="stylesheet" href="../../../css/button_style.css">
+    <link rel="stylesheet" href="../../../css/employee.css">
+    <link rel="stylesheet" href="../../../css/table_style.css">
    
   
 
@@ -26,13 +26,19 @@
 </head>
 <style>
 
+    .reg_tbl tr {
+        background-color: #f6f6f6;
+    }
+    .reg_tbl td {
+        border: 1px solid #e7e7e7;
+    }
 
-    .tr-even {
+    .list_tbl tr:nth-child(2n) {
         background-color:#eff3f9;
     }
    
    
-    .tb_tr:first-child {
+    .list_tbl tr:first-child {
          background-color:#6f809a;
     }
  
@@ -72,17 +78,16 @@
     }
 
 
-        .member_right {
-            /*내용*/
-            width: 100%;
-            
-        }
+    .member_right {
+        /*내용*/
+        width: 100%;       
+    }
 
-        .cke_style{
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 2px;
-        }
+    .cke_style{
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 2px;
+    }
 </style>
 <body>
     <div class="page_wrap bg_white noto font_14" style="height: 100vh;">
@@ -163,7 +168,7 @@
             </div>
             <div class="main_right bg_white" style="width: 100%;">
                 <div class="main_right_title p_10" style="height: 50px; border-bottom: 1px solid #ccc;">
-                    <h2>견적서 등록</h2>
+                    <h2 class="font_18">견적서 등록</h2>
                 </div>
                 <div class="main_right_info p_20">
                     <div class="info_title">
@@ -175,9 +180,9 @@
                                 <div class="member_info ">
                                     
                                     <div class="member_right">
-                                        <table>
+                                        <table class="reg_tbl">
                                             <tr>
-                                                <td class="td_8 center tb_f6 "  >회사</td>
+                                                <td class="td_8 center"  >회사</td>
                                                 <td class="td_12 p_lr3">
                                                     <select name="" class="td_100 weight_700" id="" >
                                                         <option value="">(주)캐피탈크리에이터</option>
@@ -190,7 +195,7 @@
                                                     </select>
                                                 </td>
                                                
-                                                <td class="td_8 center tb_f6" >사업장</td>
+                                                <td class="td_8 center" >사업장</td>
                                                 <td class="td_12 p_lr3 ">
                                                     <select name="" class="td_100 weight_700" id="" >
                                                         <option value="">한국본사</option>
@@ -202,34 +207,34 @@
                                                    
                                                 </td>
                                                 
-                                                <td class="td_8 center  bg-gray  tb_f6">견적일자</td>
+                                                <td class="td_8 center  bg-gray ">견적일자</td>
                                                 <td class="td_12 p_lr3 ">
                                                     <input type="date" name="" id="now_date" class="td_100 weight_700" autofocus />
                                                 </td>
 
-                                                <td class="td_8 center  bg-gray  tb_f6">담당자직책</td>
+                                                <td class="td_8 center  bg-gray ">담당자직책</td>
                                                 <td class="td_12 p_lr3 ">
                                                     <input type="text" name="" id="" class="td_100" autofocus />
                                                 </td>
                                                 
-                                                <td class="td_8 center  bg-gray  tb_f6">담당자부서</td>
+                                                <td class="td_8 center  bg-gray ">담당자부서</td>
                                                 <td class="td_12 p_lr3 ">
                                                     <input type="text" name="" id="" class="td_100" autofocus />
                                                 </td>
                                                 
                                             </tr>
                                             <tr>
-                                                <td class="td_8 center tb_f6" >거래처코드</td>
+                                                <td class="td_8 center" >거래처코드</td>
                                                 <td class="td_12 p_lr3 ">
                                                     <input typ`e="text" name="" id="" class="td_100"  autofocus  placeholder="숫자만 입력해주세요"/>
                                                    
                                                 </td>
-                                                <td class="td_8 center  bg-gray  tb_f6">단가적용</td>
+                                                <td class="td_8 center  bg-gray ">단가적용</td>
                                                 <td class="td_12 p_lr3 ">
                                                     <input type="text" name="" id="" class="td_100" autofocus placeholder="숫자만 입력해주세요"/>
                                                 </td>
                                                 
-                                                <td class="td_8 center  bg-gray  tb_f6">진행상태</td>
+                                                <td class="td_8 center  bg-gray ">진행상태</td>
                                                 <td class="td_12 p_lr3 ">
                                                     <select name="" class="td_100 weight_700" id="" >
                                                         <option value="">진행</option>
@@ -238,67 +243,67 @@
 
                                                     </select>
                                                 </td>
-                                                <td rowspan="3"  class="td_8 center  bg-gray  tb_f6">비고</td>
+                                                <td rowspan="3" class="td_8 center bg-gray">비고</td>
                                                 <td rowspan="3" colspan="3" class="td_12 p_lr3 ">
-                                                    <p><textarea cols="80" rows="7"></textarea></p>
+                                                    <p><textarea cols="80" rows="7" class="cke_style"></textarea></p>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="td_8 center  bg-gray  tb_f6">담당자</td>
+                                                <td class="td_8 center  bg-gray ">담당자</td>
                                                 <td class="td_12 p_lr3">
                                                     <input type="text" name="" id="" class="td_100"  />
                                                 </td>
-                                                <td class="td_8 center  bg-gray  tb_f6">담당자연락처</td>
+                                                <td class="td_8 center  bg-gray ">담당자연락처</td>
                                                 <td class="td_12 p_lr3">
                                                     <input type="text" name="" id="" class="td_100"  />
                                                 </td>
-                                                <td class="td_8 center  bg-gray  tb_f6">담당자이메일</td>
-                                                <td class="td_12 p_lr3">
-                                                    <input type="text" name="" id="" class="td_100"  />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="td_8 center  bg-gray  tb_f6">거래처</td>
-                                                <td class="td_12 p_lr3">
-                                                    <input type="text" name="" id="" class="td_100"  />
-                                                </td>
-                                                <td class="td_8 center  bg-gray  tb_f6">거래처연락처</td>
-                                                <td class="td_12 p_lr3">
-                                                    <input type="text" name="" id="" class="td_100"  />
-                                                </td>
-                                                <td class="td_8 center  bg-gray  tb_f6">거래처이메일</td>
+                                                <td class="td_8 center  bg-gray ">담당자이메일</td>
                                                 <td class="td_12 p_lr3">
                                                     <input type="text" name="" id="" class="td_100"  />
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="td_8 center  bg-gray  tb_f6">팩스번호</td>
+                                                <td class="td_8 center  bg-gray ">거래처</td>
                                                 <td class="td_12 p_lr3">
                                                     <input type="text" name="" id="" class="td_100"  />
                                                 </td>
-                                                <td class="td_8 center  bg-gray  tb_f6">수신</td>
+                                                <td class="td_8 center  bg-gray ">거래처연락처</td>
                                                 <td class="td_12 p_lr3">
                                                     <input type="text" name="" id="" class="td_100"  />
                                                 </td>
-                                                <td class="td_8 center  bg-gray  tb_f6">참조</td>
+                                                <td class="td_8 center  bg-gray ">거래처이메일</td>
                                                 <td class="td_12 p_lr3">
                                                     <input type="text" name="" id="" class="td_100"  />
                                                 </td>
-                                                <td class="td_8 center  bg-gray  tb_f6">납기</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td_8 center  bg-gray ">팩스번호</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100"  />
+                                                </td>
+                                                <td class="td_8 center  bg-gray ">수신</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100"  />
+                                                </td>
+                                                <td class="td_8 center  bg-gray ">참조</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100"  />
+                                                </td>
+                                                <td class="td_8 center  bg-gray ">납기</td>
                                                 <td class="td_12 p_lr3">
                                                     <input type="date" name="" id="" class="td_100 weight_700"  />
                                                 </td>
-                                                <td class="td_8 center  bg-gray  tb_f6">유효기간</td>
+                                                <td class="td_8 center  bg-gray ">유효기간</td>
                                                 <td class="td_12 p_lr3 ">
                                                     <input type="date" name=""  class="td_100 weight_700" autofocus />
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="td_8 center  bg-gray  tb_f6">제목</td>
+                                                <td class="td_8 center  bg-gray ">제목</td>
                                                 <td colspan="3" class="td_12 p_lr3 ">
                                                     <input type="text" name="" id="" class="td_100"  />
                                                 </td>
-                                                <td class="td_8 center  bg-gray  tb_f6">부가세</td>
+                                                <td class="td_8 center  bg-gray ">부가세</td>
                                                 <td class="td_12 p_lr3">
                                                     <select name="" class="td_100 weight_700" id="" >
                                                         <option value="">별도</option>
@@ -306,11 +311,11 @@
 
                                                     </select>
                                                 </td>
-                                                <td class="td_8 center  bg-gray  tb_f6">공급가액</td>
+                                                <td class="td_8 center  bg-gray ">공급가액</td>
                                                 <td class="td_12 p_lr3">
                                                     <input type="text" name="" id="" class="td_100"  placeholder="숫자만 입력해주세요"/>
                                                 </td>
-                                                <td class="td_8 center  bg-gray  tb_f6">세액</td>
+                                                <td class="td_8 center  bg-gray ">세액</td>
                                                 <td class="td_12 p_lr3">
                                                     <input type="text" name="" id="" class="td_100"  placeholder="숫자만 입력해주세요" />
                                                 </td>
@@ -322,8 +327,8 @@
                                         </div>
                                     </div>
                                     <div class="m_t20">
-                                        <table class="tb_list center">
-                                            <tr class="tb_tr white weight_normal">
+                                        <table class="list_tbl center">
+                                            <tr class="white weight_normal">
                                                 <td class="td_4 center "  >번호</td>
                                                 <td class="td_10 center " >회사</td>
                                                 <td class="td_7 center " >담당자</td>
@@ -335,59 +340,59 @@
                                                 <td class="td_10 center  bg-gray ">유효기간</td>
                                             </tr>
                                             <tr>
-                                                <td class="td_4 p_lr3">5</td>
-                                                <td class="td_10 p_lr3">(주)캐피탈크리에이터 </td>
-                                                <td class="td_7 p_lr3"> 관리자</td>
-                                                <td class="td_7 p_lr3"> 3030100</td>
-                                                <td class=" p_lr3 ">컨테이너 3동 제작 </td>
-                                                <td class="td_7 p_lr3 "> 1000000</td>
-                                                <td class="td_7 p_lr3 ">330000</td>
-                                                <td class="td_10 p_lr3 ">2020-11-06</td>
-                                                <td class="td_10 p_lr3 "> 2020-11-30</td>
+                                                <td class="p_lr3">5</td>
+                                                <td class="p_lr3">(주)캐피탈크리에이터 </td>
+                                                <td class="p_lr3"> 관리자</td>
+                                                <td class="p_lr3"> 3030100</td>
+                                                <td class="p_lr3 ">컨테이너 3동 제작 </td>
+                                                <td class="p_lr3 "> 1000000</td>
+                                                <td class="p_lr3 ">330000</td>
+                                                <td class="p_lr3 ">2020-11-06</td>
+                                                <td class="p_lr3 "> 2020-11-30</td>
                                             </tr>
                                             <tr>
-                                                <td class="td_4 p_lr3">4</td>
-                                                <td class="td_10 p_lr3">(주)캐피탈크리에이터 </td>
-                                                <td class="td_7 p_lr3"> 관리자</td>
-                                                <td class="td_7 p_lr3"> 3030100</td>
-                                                <td class=" p_lr3 ">컨테이너 3동 제작 </td>
-                                                <td class="td_7 p_lr3 "> 1000000</td>
-                                                <td class="td_7 p_lr3 ">330000</td>
-                                                <td class="td_10 p_lr3 ">2020-11-06</td>
-                                                <td class="td_10 p_lr3 "> 2020-11-30</td>
+                                                <td class="p_lr3">4</td>
+                                                <td class="p_lr3">(주)캐피탈크리에이터 </td>
+                                                <td class="p_lr3"> 관리자</td>
+                                                <td class="p_lr3"> 3030100</td>
+                                                <td class="p_lr3 ">컨테이너 3동 제작 </td>
+                                                <td class="p_lr3 "> 1000000</td>
+                                                <td class="p_lr3 ">330000</td>
+                                                <td class="p_lr3 ">2020-11-06</td>
+                                                <td class="p_lr3 "> 2020-11-30</td>
                                             </tr>
                                             <tr>
-                                                <td class="td_4 p_lr3">3</td>
-                                                <td class="td_10 p_lr3">(주)캐피탈크리에이터 </td>
-                                                <td class="td_7 p_lr3"> 관리자</td>
-                                                <td class="td_7 p_lr3"> 3030100</td>
-                                                <td class=" p_lr3 ">컨테이너 3동 제작 </td>
-                                                <td class="td_7 p_lr3 "> 1000000</td>
-                                                <td class="td_7 p_lr3 ">330000</td>
-                                                <td class="td_10 p_lr3 ">2020-11-06</td>
-                                                <td class="td_10 p_lr3 "> 2020-11-30</td>
+                                                <td class="p_lr3">3</td>
+                                                <td class="p_lr3">(주)캐피탈크리에이터 </td>
+                                                <td class="p_lr3"> 관리자</td>
+                                                <td class="p_lr3"> 3030100</td>
+                                                <td class="p_lr3 ">컨테이너 3동 제작 </td>
+                                                <td class="p_lr3 "> 1000000</td>
+                                                <td class="p_lr3 ">330000</td>
+                                                <td class="p_lr3 ">2020-11-06</td>
+                                                <td class="p_lr3 "> 2020-11-30</td>
                                             </tr>
                                             <tr>
-                                                <td class="td_4 p_lr3">2</td>
-                                                <td class="td_10 p_lr3">(주)캐피탈크리에이터 </td>
-                                                <td class="td_7 p_lr3"> 관리자</td>
-                                                <td class="td_7 p_lr3"> 3030100</td>
-                                                <td class=" p_lr3 ">컨테이너 3동 제작 </td>
-                                                <td class="td_7 p_lr3 "> 1000000</td>
-                                                <td class="td_7 p_lr3 ">330000</td>
-                                                <td class="td_10 p_lr3 ">2020-11-06</td>
-                                                <td class="td_10 p_lr3 "> 2020-11-30</td>
+                                                <td class="p_lr3">2</td>
+                                                <td class="p_lr3">(주)캐피탈크리에이터 </td>
+                                                <td class="p_lr3"> 관리자</td>
+                                                <td class="p_lr3"> 3030100</td>
+                                                <td class="p_lr3 ">컨테이너 3동 제작 </td>
+                                                <td class="p_lr3 "> 1000000</td>
+                                                <td class="p_lr3 ">330000</td>
+                                                <td class="p_lr3 ">2020-11-06</td>
+                                                <td class="p_lr3 "> 2020-11-30</td>
                                             </tr>
                                             <tr>
-                                                <td class="td_4 p_lr3">1</td>
-                                                <td class="td_10 p_lr3">(주)캐피탈크리에이터 </td>
-                                                <td class="td_7 p_lr3"> 관리자</td>
-                                                <td class="td_7 p_lr3"> 3030100</td>
-                                                <td class=" p_lr3 ">컨테이너 3동 제작 </td>
-                                                <td class="td_7 p_lr3 "> 1000000</td>
-                                                <td class="td_7 p_lr3 ">330000</td>
-                                                <td class="td_10 p_lr3 ">2020-11-06</td>
-                                                <td class="td_10 p_lr3 "> 2020-11-30</td>
+                                                <td class="p_lr3">1</td>
+                                                <td class="p_lr3">(주)캐피탈크리에이터 </td>
+                                                <td class="p_lr3"> 관리자</td>
+                                                <td class="p_lr3"> 3030100</td>
+                                                <td class="p_lr3 ">컨테이너 3동 제작 </td>
+                                                <td class="p_lr3 "> 1000000</td>
+                                                <td class="p_lr3 ">330000</td>
+                                                <td class="p_lr3 ">2020-11-06</td>
+                                                <td class="p_lr3 "> 2020-11-30</td>
                                             </tr>
                                         </table>
                                     </div>

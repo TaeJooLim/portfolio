@@ -1,0 +1,516 @@
+@charset 'utf-8';
+
+/************************ RESET ************************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration:none;
+    color: inherit;
+}
+
+ul li {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+select,
+input,
+textarea,
+button {
+    border: 0;
+    outline: 0;
+    vertical-align: top;
+}
+
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+img {
+    display: inline-block;
+}
+
+button {
+    cursor: pointer;
+}
+/*******************************************************/
+
+/************************ COMMON ************************/
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.wrap {
+    width: 75%;
+}
+
+/* font size */
+.font12 {
+    font-size: 12px;
+}
+
+.font14 {
+    font-size: 14px;
+}
+
+.font16 {
+    font-size: 16px;
+}
+
+.font18 {
+    font-size: 18px;
+}
+
+.font20 {
+    font-size: 20px;
+}
+
+/* font color */
+
+.f6 {
+    color: #fff;
+}
+
+.e6 {
+    color: #eee
+}
+
+.gray5 {
+    color: #555;
+}
+
+.tomato {
+    color: tomato;
+}
+
+.red {
+    color: #d92550;
+}
+
+/* font weight */
+
+.weight300 {
+    font-weight: 300;
+}
+
+.weight400 {
+    font-weight: 400;
+}
+
+.weight500 {
+    font-weight: 500;
+}
+
+.weight700 {
+    font-weight: 700;
+}
+
+/* background color */
+
+.bg-white {
+    background-color: #fff;
+}
+
+.bg-gray {
+    background-color: #eee;
+}
+
+/* flex */
+
+.flex {
+    display: flex;
+}
+
+.flex-justify {
+    justify-content: space-between;
+}
+
+/* float */
+
+.float-l {
+    float: left;
+}
+
+.float-r {
+    float: right;
+}
+
+.clearfix {
+    clear: both;
+    display: block;
+    content: '';
+}
+
+/* margin : 개체 사이를 띄울 때 */
+.m-t5 {
+    margin-top: 5px;
+}
+
+.m-t10 {
+    margin-top: 10px;
+}
+
+.m-t15 {
+    margin-top: 15px;
+}
+
+.m-t20 {
+    margin-top: 20px;
+}
+
+.m-t30 {
+    margin-top: 30px;
+}
+
+.m-t40 {
+    margin-top: 40px;
+}
+
+.m-t50 {
+    margin-top: 50px;
+}
+
+.m-b5 {
+    margin-bottom: 5px;
+}
+
+.m-b10 {
+    margin-bottom: 10px;
+}
+
+.m-b15 {
+    margin-bottom: 15px;
+}
+
+.m-b20 {
+    margin-bottom: 20px;
+}
+
+.m-tb10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.m-tb20 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.m-tb30 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.m-lr3 {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.m-lr5 {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.m-lr10 {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.m-lr20 {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.m-lr30 {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+/* padding : 개체 자신의 두께를 크게 만들어 띄울 때 */
+.p-tb10 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.p-tb15 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.p-tb20 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.p-tb30 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.p-tb40 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.p-lr3 {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.p-lr5 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.p-lr10 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.p-lr20 {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.p-lr30 {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.p10 {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.p15 {
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+}
+
+.p20 {
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
+/* align */
+
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+/* underline */
+
+.under {
+    text-decoration: underline;
+}
+
+/********************************************************/
+
+/********************** ADMIN CSS **********************/
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+}
+
+header {
+    width: 100%;
+    height: 50px;
+    background-color: #673AB7;
+    display: flex;
+    color: #fff;
+    align-items: center;
+}
+
+.nav-icon,
+.logo {
+    height: inherit;
+    line-height: 50px;
+}
+
+.nav-icon {
+    width: 50px;
+    background-color: #555;
+    cursor: pointer;
+}
+
+.logo {
+    width: 200px;
+    height: inherit;
+    background-color: #512DA8;
+    box-shadow: 2px 0 3px -2px rgba(0, 0, 0, 0.3);
+}
+
+.option {
+    width: calc(100% - 250px);
+    text-align: right;
+    padding-right: 15px;
+}
+
+.home {
+    display: inline-block;
+}
+
+.admin, .admin-sub{
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 5px;
+    font-size: 14px;
+    text-align: left;
+}
+
+
+.admin {
+    display: inline-block;
+    background-color: #B39DDB;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+}
+
+.admin:hover {
+    background-color: #D1C4E9;
+}
+
+.admin-sub {
+    display: block;
+    margin-top:1px;
+    background-color: #D1C4E9;
+    position: absolute;
+    left: 0;
+    display: none;
+}
+
+.admin-sub a {
+    display: inline-block;
+    width: 100%;
+}
+
+.btn-down {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    background-color: #e0e0e0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+}
+
+/**/
+.main {
+    min-height: calc(100% - 50px);
+}
+
+nav {
+    min-height: calc(100% - 50px);
+}
+
+.active {
+    background-color: #fff;
+}
+
+.main-menu {
+    width: 50px;
+    min-height: calc(100% - 50px);
+    background-color: #eee;
+}
+
+.menu-tab {
+    display: inline-block;
+    width: inherit;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: #555;
+}
+
+.sub-menu {
+    width: 200px;
+    min-height: calc(100% - 50px);
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 2px 0 3px -2px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+
+.menu {
+    position: absolute;
+    display: none;
+}
+
+.menu h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.menu li {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.menu li:hover {
+    color: #512DA8;
+}
+
+.select {
+    display: block;
+}
+
+/* main-content */
+.main-wrap {
+    width: 100%;
+    height: 100%;
+    background-color: #fafafa;
+}
+
+/* footer */
+
+footer {
+    margin-top: 15px;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    background-color: #eee;
+    color: #555;
+}
+
+/*******************************************************/

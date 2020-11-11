@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMINISTRATOR | PROJECT</title>
-    <link rel="stylesheet" href="./css/test.css">
+    <link rel="stylesheet" href="../../css/admin_main.css">
 
     <script src="https://kit.fontawesome.com/d53c7b0373.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -52,53 +52,71 @@
         <div class="main flex">
             <nav class="flex">
                 <div class="main-menu font14">
-                    <a class="menu-tab active" href="#set">
+                    <a class="menu-tab active" href="#company">
                         <i class="fas fa-cog"></i>
                     </a>
-                    <a class="menu-tab" href="#user">
+                    <a class="menu-tab" href="#correspondent">
                         <i class="fas fa-user"></i>
                     </a>
-                    <a class="menu-tab" href="#board">
+                    <a class="menu-tab" href="#employee">
                         <i class="fas fa-list"></i>
                     </a>
-                    <a class="menu-tab" href="#attendance">
+                    <a class="menu-tab" href="#product">
                         <i class="fas fa-briefcase"></i>
                     </a>
-                    <a class="menu-tab" href="#approval">
+                    <a class="menu-tab" href="#salary">
+                        <i class="fas fa-file-alt"></i>
+                    </a>
+                    <a class="menu-tab" href="#stock">
+                        <i class="fas fa-file-alt"></i>
+                    </a>
+                    <a class="menu-tab" href="#vacation">
                         <i class="fas fa-file-alt"></i>
                     </a>
                 </div>
                 <div class="sub-menu">
-                    <ul id="set" class="menu select">
-                        <h3>기본설정</h3>
-                        <li><a href="#">관리자정보</a></li>
-                        <li><a href="#">기본정보설정</a></li>
-                        <li><a href="#">관리자계정설정</a></li>
-                        <li><a href="#">파비콘설정</a></li>
+                    <ul id="company" class="menu select">
+                        <h3>회사정보수정</h3>
+                        <li><a href="erp_company/erp_company_info.html">회사정보수정</a></li>
+                        <li><a href="#">NOT FOUND</a></li>
+                        <li><a href="#">NOT FOUND</a></li>
+                        <li><a href="#">NOT FOUND</a></li>
                     </ul>
 
-                    <ul id="user" class="menu">
-                        <h3>사용자관리</h3>
-                        <li><a href="#">사용자관리</a></li>
-                        <li><a href="#">사용자등록</a></li>
-                        <li><a href="#">조직관리</a></li>
-                        <li><a href="#">메일발송</a></li>
+                    <ul id="correspondent" class="menu">
+                        <h3>거래처관리</h3>
+                        <li><a href="erp_correspondent/correspondent_list.html">거래처목록</a></li>
+                        <li><a href="erp_correspondent/correspondent_reg.html">거래처등록</a></li>
+                        <li><a href="#">NOT FOUND</a></li>
+                        <li><a href="#">NOT FOUND</a></li>
                     </ul>
-                    <ul id="board" class="menu">
-                        <h3>게시판관리</h3>
-                        <li><a href="#">게시판관리</a></li>
-                        <li><a href="#">게시판그룹관리</a></li>
-                        <li><a href="#">내용관리</a></li>
+                    <ul id="employee" class="menu">
+                        <h3>사원관리</h3>
+                        <li><a href="erp_employee/employee_list.html">사원목록</a></li>
+                        <li><a href="erp_employee/employee_register.html">사원 상세정보등록/수정</a></li>
+                        <li><a href="#">NOT FOUND</a></li>
                     </ul>
-                    <ul id="attendance" class="menu">
-                        <h3>근태관리</h3>
-                        <li><a href="#" target="_blank">근태관리시스템</a></li>
-                    </ul>
-                    <ul id="approval" class="menu">
-                        <h3>전자결재</h3>
-                        <li><a href="#" target="_blank">전자결재시스템</a></li>
+                    <ul id="product" class="menu">
+                        <h3>상품관리</h3>
+                        <li><a href="erp_product/product_list.html">상품목록</a></li>
+                        <li><a href="erp_product/product_reg.html">상품등록</a></li>
                     </ul>
 
+                    <ul id="salary" class="menu">
+                        <h3>급여관리</h3>
+                        <li><a href="erp_salary/salary_list.html">급상여처리하기</a></li>
+                        <li><a href="#">NOT FOUND</a></li>
+                    </ul>
+
+                    <ul id="stock" class="menu">
+                        <h3>창고관리</h3>
+                        <li><a href="erp_stock/stock_list.html">창고별 재고관리</a></li>
+                    </ul>
+
+                    <ul id="vacation" class="menu">
+                        <h3>연차관리</h3>
+                        <li><a href="erp_vacation/erp_vacation_info.html">사원 연차내역 조회</a></li>
+                    </ul>
                 </div>
             </nav>
 
@@ -112,7 +130,7 @@
 
     </div>
 </body>
-<script src="js/admin.js"></script>
+<script src="../../js/admin_main.js"></script>
 <script>
 
 </script>

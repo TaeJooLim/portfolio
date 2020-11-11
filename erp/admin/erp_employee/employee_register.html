@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../css/reset.css">
-    <link rel="stylesheet" href="../../css/common.css">
-    <link rel="stylesheet" href="../../css/button_style.css">
-    <link rel="stylesheet" href="../../css/board.css">
-    <link rel="stylesheet" href="../../css/employee.css">
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/common_table.css">
+    <link rel="stylesheet" href="../../../css/button_style.css">
+    <link rel="stylesheet" href="../../../css/employee.css">
    
   
 
@@ -84,6 +84,12 @@
             border: 1px solid #ccc;
             padding: 10px;
             border-radius: 2px;
+            width: 100%;
+            height: 150px;
+        }
+
+        td {
+            border: 1px solid #d6dce7;
         }
 </style>
 <body>
@@ -165,11 +171,11 @@
             </div>
             <div class="main_right bg_white" style="width: 100%;">
                 <div class="main_right_title p_10" style="height: 50px; border-bottom: 1px solid #ccc;">
-                    <h2>main_right_title</h2>
+                    <h2 class="font_18">사원상세정보 입력/수정</h2>
                 </div>
                 <div class="main_right_info p_20">
                     <div class="info_title">
-                        info_title
+                        
                     </div>
                     <div class="info_table">
                         <div class="page_content ">
@@ -177,7 +183,7 @@
                                 <div class="member_info flex space_between">
                                     <div class="member_left">
                                         <div class="photo_area">
-                                            <img src="../../images/people1.jpg" alt="">
+                                            <img src="../../..//images/people1.jpg" alt="">
                                         </div>
                                         <div class="phoyo_btn center">
                                             <input type="file" class="td_100">
@@ -436,7 +442,7 @@
                                             
                                         </div>
                                         <div class="btn_grp center m_t10 " > 
-                                            <button type="submit" class="btn_normal">내용저장</button> <!-- action 찾아감-->
+                                            <button type="submit" class="btn_blue">내용저장</button> <!-- action 찾아감-->
                                             <button type="reset" class="btn_red" >새로고침</button>
                                         </div>
                                     </div>    

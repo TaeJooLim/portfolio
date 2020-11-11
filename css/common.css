@@ -78,6 +78,9 @@ h1, h2, h3, h4, h5 {
 .bg_white {
     background-color: #fff;
 }
+.bg_gray{
+    background-color: #F6F6F6;
+}   
 .bg_ivory {
     background-color: #EBEBEB;
 }
