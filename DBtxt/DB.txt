@@ -86,7 +86,7 @@ flush privileges;
 
 3-1. 부서테이블
 create table kind_department (
-	depart_code char(3) 
+	depart_code char(3), 
 	depart_name varchar(20)
 );
 // 중앙부서 인사 경영 기획 총무 전산 지원 영업 마케팅 생산
@@ -103,8 +103,8 @@ insert into kind_department SET depart_code='900', depart_name='생산과';
 
 3-2. 직급테이블설계
 create table kind_position (
-	position_code char(2)
-	positoin_name varchar(20)
+	position_code char(2),
+	position_name varchar(20)
 );
 // 사원 주임 대리 과장 차장 부장 이사 상무 전무 부사장 사장 회장
 insert into kind_position SET position_code='01', position_name='사원';
@@ -123,7 +123,7 @@ insert into kind_position SET position_code='12', position_name='회장';
 3-3. 소속구분설계
 // 자사 협력업체
 create table kind_compart (
-	compart_code char(1)
+	compart_code char(1),
 	compart_name varchar(20)
 );
 insert into kind_compart SET compart_code='1', compart_name='자사';
