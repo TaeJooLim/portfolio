@@ -1,0 +1,26 @@
+***DB작업****
+
+일자/사원번호/부서코드/출근시간/퇴근시간/분류(내외근)/지각/(근무시간=출퇴근시간차이)
+
+create table status_worktime(
+	wt_id int not null auto_increment,
+	wt_workdate date,
+	wt_empNum varchar(20) not null,
+	wt_department char(3),
+	wt_starttime datetime,
+	wt_endtime datetime,
+	wt_workplace char(1),
+	wt_late char(1),
+	primary key(wt_id)
+);
+
+create table status_worktime(
+	wt_id int not null auto_increment, //기본키
+	wt_workdate date, // 근무일
+	wt_empNum varchar(20) not null,  // 사원번호 join erp_employee
+	wt_department char(3), // 부서코드 join kind_department
+	wt_starttime datetime, // 출근시간
+	wt_endtime datetime, // 퇴근시간
+	wt_workplace char(1), // 내외근 - selectbox(Y/N - 내근Y)
+	wt_late char(1) // 지각 - Y/N
+);
