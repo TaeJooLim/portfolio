@@ -1,0 +1,99 @@
+@charset 'utf_8';
+.info_left{
+    width: 12%;
+    border-right: 1px solid #000;
+}
+
+.info_right{
+    width: 87%;
+    margin-left: 15px;
+}
+
+/*tree tab*/
+a.active{
+    background-color: #3F51B5;
+    line-height: 35px;
+    color: #fff;
+    border: 1px solid #3F51B5;
+    border-radius: 5px;
+}
+
+.tab{
+    margin: 0 3px;
+    width: 100px;
+    height: 35px;
+    float: left;
+    border: 1px solid #3F51B5;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 5px;
+    color: #3F51B5;
+    background-color: #fff;
+}
+/*tree tab*/
+
+.left_depart {
+    background-color: #565e8c;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 6px 5px;
+    
+}
+.left_team {
+    background-color: #9eacc6;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 6px 5px;
+    
+}
+.right_radius_btn {
+    background-color: #ededed;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 6px 5px;
+    
+}
+
+.org_info_right select{
+    height: 30px;
+    color: #3F51B5;
+    border: 1px solid #3F51B5;
+}
+
+thead th {
+    border: 1px solid #60718b;
+    background-color: #6f809a;
+    color: #fff;
+    padding: 8px 5px;
+    text-align: center;
+    font-weight: normal;
+}
+tbody tr:nth-child(4n-3), tr:nth-child(4n-2) {
+    background-color: #eff3f9;
+}
+tbody td {
+    border: 1px solid #d6dce7;
+    padding: 8px 5px;
+    text-align: center;
+    font-weight: normal;
+}
+
+/* page_grp */
+.page {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    background-color: #fff;
+    font-weight: normal;
+}
+
+.page:hover {
+    background-color: #3f51b5;
+}
+
+.page:hover a {
+    color: #fff;
+}
