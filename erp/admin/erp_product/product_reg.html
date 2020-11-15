@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인페이지</title>
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/button_style.css">
+    <link rel="stylesheet" href="../../../css/table_style.css">
+    <link rel="stylesheet" href="../../../css/product_reg.css">
+
+    <!-- calendar css -->
+    <link rel="stylesheet" href="calendar/core/main.css">
+    <link rel="stylesheet" href="calendar/daygrid/main.css">
+    <!-- calendar css -->
+
+    <!-- FontAweSome -->
+    <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
+    <!-- FontAweSome -->
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQuery -->
+
+    <!-- calendar -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+    <!-- calendar -->
+
+</head>
+<style>
+    .control_menu {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .main_left_menu {
+        width: 50px;
+    }
+
+    .left_menu_icon {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .menu_selected {
+        background-color: #fff;
+        color: #3F51B5;
+    }
+
+    .menu_hide {
+        display: none;
+    }
+
+    .menu_active {
+        display: block;
+    }
+
+    .submenu_box {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 170px;
+        height: 80%;
+        color: #000;
+        border-right: 1px solid #ccc;
+        background-color: #fff;
+    }
+</style>
+
+<body>
+    <div class="page_wrap bg_white noto font_14" style="height: 100vh;">
+        <div class="page_top flex space_between">
+            <div class="top_left bg_blue_1">
+                <div id="mainmenu_btn" class="control_menu font_16 white center flex flex_hc flex_vc">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div class="top_middle bg_blue_2 font_16 flex flex_hc flex_vc" style="width: 10%;">
+                <span class="white">ADMINISTRATOR</span>
+            </div>
+            <div class="top_right bg_blue_3 p_10" style="width: 100%;">
+                <div class="top_right_menu flex" style="justify-content: flex-end;">
+                    <div class="top_right_menu_one white" style="line-height: 30px;"><i class="fas fa-store"></i></div>
+                    <div class="top_right_menu_two white m_lr20" style="line-height: 30px;"><i class="fas fa-home"></i>
+                    </div>
+                    <!-- <div class="top_right_menu_three">
+                        <button class="m_l10 white"
+                            style="display: inline-block; padding: 5px 10px; margin-left: 10px; border-radius: 3px; height: 30px;  color: #fff; background-color: rgba(250, 250, 250, 0.1);">
+                            부가서비스
+                        </button>
+                    </div> -->
+                    <div class="top_right_menu_four">
+                        <select class="white" style="background-color: rgba(250, 250, 250, 0.1); height: 30px;">
+                            <option class="bg_blue_4">관리자</option>
+                            <option class="bg_blue_4">관리자정보</option>
+                            <option class="bg_blue_4">로그아웃</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page_main flex space_between" style="border-bottom: 1px solid #ccc;">
+            <div class="main_left flex space_between" style="width: 50px;">
+                <div class="main_left_menu bg_ivory">
+
+                    <!-- FLOAT로 띄워서 버튼 JQUERY로 show&hide -->
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div id="submenu_box" class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">1번메뉴</h4>
+                        <ul class="font_12">
+                            <li class="m_b10">서브메뉴1</li>
+                            <li class="m_b10">서브메뉴2</li>
+                            <li class="m_b10">서브메뉴3</li>
+                            <li class="m_b10">서브메뉴4</li>
+                        </ul>
+                    </div>
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-user-alt"></i>
+                    </div>
+                    <div class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">사원관리</h4>
+                        <ul class="font_12">
+                            <li class="m_b10"><a href="employee/erp_employee_list.html">사원목록보기</a></li>
+                            <li class="m_b10"><a href="employee/erp_employee_register.html">사원상세정보 입력/수정</a></li>
+                            <li class="m_b10">서브메뉴3</li>
+                            <li class="m_b10">서브메뉴4</li>
+                            <li class="m_b10">서브메뉴5</li>
+                        </ul>
+                    </div>
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-user-alt"></i>
+                    </div>
+                    <div class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">3번메뉴</h4>
+                        <ul class="font_12">
+                            <li class="m_b10">서브메뉴1</li>
+                            <li class="m_b10">서브메뉴2</li>
+                            <li class="m_b10">서브메뉴3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="main_right bg_white" style="width: 100%;">
+                <div class="main_right_title p_10" style="height: 50px; border-bottom: 1px solid #ccc;">
+                    <h2 class="font_18">상품등록</h2>
+                </div>
+                <div class="main_right_info" style="padding: 30px 20px;">
+                    <div class="product_reg">
+                        <table>
+                            <tr>
+                                <td class="bg_gray weight_700 td_10 center">품명</td>
+                                <td class="p_lr3" colspan="3">
+                                    <input type="text" name="" maxlength="20" id="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 td_10 center">브랜드명</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" maxlength="50" id="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 td_10 center">상품그룹명</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" maxlength="50" id="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 td_10 center">내외자구분</td>
+                                <td class="p_lr3">
+                                    <select class="sel_100">
+                                        <option value="">내자</option>
+                                        <option value="">외자</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bg_gray weight_700 td_10 center">모델번호</td>
+                                <td class="p_lr3" colspan="3">
+                                    <input type="text" name="" maxlength="20" id="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 td_10 center">품목상태</td>
+                                <td class="p_lr3">
+                                    <select class="sel_100">
+                                        <option value="">사용</option>
+                                        <option value="">임시</option>
+                                        <option value="">생산중지</option>
+                                        <option value="">거래중지</option>
+                                        <option value="">폐기</option>
+                                    </select>
+                                </td>
+                                <td class="bg_gray weight_700 td_10 center">기준단위</td>
+                                <td class="p_lr3">
+                                    <select class="sel_100">
+                                        <option value="">EA</option>
+                                        <option value="">KG</option>
+                                        <option value="">SET</option>
+                                    </select>
+                                </td>
+                                <td class="bg_gray weight_700 td_10 center">구매수량</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" maxlength="50" id="" class="input_100" required />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bg_gray weight_700 td_10 center">품목코드</td>
+                                <td class="p_lr3" colspan="3">
+                                    <input type="text" name="" maxlength="20" id="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 td_10 center">구입처</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" maxlength="20" id="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 td_10 center">발주번호</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" maxlength="50" id="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 td_10 center">바코드</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" maxlength="50" id="" class="input_100" required />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bg_gray weight_700 td_10 center">규격</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" maxlength="20" id="" class="input_100" required />
+                                </td>
+                               
+                                <td class="bg_gray weight_700 td_10 center">통화</td>
+                                <td class="p_lr3">
+                                    <select class="sel_100">
+                                        <option value="">KRW</option>
+                                        <option value="">USD</option>
+                                    </select>
+                                </td>
+                                <td class="bg_gray weight_700 td_10 center">구매단가</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" maxlength="50" id="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 td_10 center">부가가치세율</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" maxlength="50" id="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 td_10 center">부가세적용</td>
+                                <td class="p_lr3">
+                                    <input type="radio" class="input_radio"/><span class="m_lr5">적용</span>
+                                    <input type="radio" class="input_radio"/><span class="m_lr5">미적용</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bg_gray weight_700 td_10 center">보유재고</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" maxlength="20" id="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 td_10 center">재고관리</td>
+                                <td class="p_lr3">
+                                    <select class="sel_100">
+                                        <option value="">등록</option>
+                                        <option value="">추가</option>
+                                    </select>
+                                </td>
+                                <td class="bg_gray weight_700 td_10 center">재고위치</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" maxlength="50" id="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 td_10 center">구매일</td>
+                                <td class="search_cal p_lr3">
+                                    <span>
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </span>
+                                    <input type="text" name="" maxlength="50" id="searchDate" required />
+                                </td>
+                                <td class="bg_gray weight_700 td_10 center">비고</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" maxlength="50" id="" class="input_100" required />
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="btn-grp center m_t10">
+                            <button type="submit" class="btn_blue">상품등록</button>
+                            <button type="reset" class="btn_red">새로고침</button>
+                        </div>
+                    </div>
+                    <div class="product_reg_table m_t20" style="border-top: 1px solid #000;">
+                        <div class="list_comment font_12 m_tb10" style="padding: 10px 20px; background-color: #f9f9f9;">
+                            최근 등록한 <strong>10개</strong>의 상품만 보여집니다.
+                        </div>
+                        <table class="">
+                            <thead>
+                            <tr>
+                                <th>품명</th>
+                                <th >품목코드</th>
+                                <th>브랜드명</th>
+                                <th>품목상태</th>
+                                <th>기준단위</th>
+                                <th>구매수량</th>
+                                <th>통화</th>
+                                <th>구매단가</th>
+                                <th>보유재고</th>
+                                <th>구매일</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>삼성전자 갤럭시북 이온 NT950XCR-G58A</td>
+                                    <td>ABC0000000</td>
+                                    <td>삼성전자</td>
+                                    <td>사용</td>
+                                    <td>EA</td>
+                                    <td>15</td>
+                                    <td>KRW</td>
+                                    <td>1,572,620</td>
+                                    <td>120</td>
+                                    <td>2020-11-05</td>
+                                </tr>
+                                <tr>
+                                    <td>삼성전자 갤럭시북 이온 NT950XCR-G58A</td>
+                                    <td>ABC0000000</td>
+                                    <td>삼성전자</td>
+                                    <td>사용</td>
+                                    <td>EA</td>
+                                    <td>15</td>
+                                    <td>KRW</td>
+                                    <td>1,572,620</td>
+                                    <td>120</td>
+                                    <td>2020-11-05</td>
+                                </tr>
+                            </tbody> 
+                        </table>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <footer>
+        <div class="copyright center">
+            <span class="copy"> &copy;Copyright All rights reserved.</span>
+            <span class="history">2020 - 2030</span>
+        </div>
+    </footer>
+    <div class="clearfix"></div>
+</body>
+<script>
+    $(function () {
+        $(".left_menu_icon").click(function () {
+            $(this).next().toggleClass("menu_hide");
+            $(this).toggleClass("menu_selected");
+        });
+        $("#mainmenu_btn").click(function () {
+            $("#submenu_box").toggleClass("menu_hide");
+        });
+    });
+</script>
+</script>
+<!--calendar js -->
+<script src="calendar/core/main.js"></script>
+<script src="calendar/core/locales/ko.js"></script>
+<script src="calendar/interaction/main.js"></script>
+<script src="calendar/daygrid/main.js"></script>
+<!--calendar js -->
+
+<!--calendar event-->
+<script>
+    $(function () {
+        $("#searchDate").datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+    });
+</script>
+
+</html>

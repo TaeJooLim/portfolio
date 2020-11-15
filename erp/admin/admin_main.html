@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMINISTRATOR | PROJECT</title>
+    <link rel="stylesheet" href="../../css/admin_main.css">
+
+    <script src="https://kit.fontawesome.com/d53c7b0373.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <style>
+        tr:first-child {
+            background-color: #7E57C2;
+            color: #fff;
+        }
+
+        .tr-even {
+            background-color: #ede7f6;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="nav-icon center font16">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="logo center font18">
+                <a href="#">ADMINISTRATOR</a>
+            </div>
+            <div class="option">
+                <div class="home font16 p-lr10">
+                    <a href="#">
+                        <i class="fas fa-home"></i>
+                    </a>
+                </div>
+                <ul class="admin gray5">
+                    <li>관리자
+                        <ul id="logout" class="admin-sub">
+                            <li><a href="#">로그아웃</a></li>
+                        </ul>
+                        <span class="btn-down"><i class="fas fa-angle-down"></i></span>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div class="main flex">
+            <nav class="flex">
+                <div class="main-menu font14">
+                    <a class="menu-tab active" href="#company">
+                        <i class="fas fa-cog"></i>
+                    </a>
+                    <a class="menu-tab" href="#correspondent">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a class="menu-tab" href="#employee">
+                        <i class="fas fa-list"></i>
+                    </a>
+                    <a class="menu-tab" href="#product">
+                        <i class="fas fa-briefcase"></i>
+                    </a>
+                    <a class="menu-tab" href="#salary">
+                        <i class="fas fa-file-alt"></i>
+                    </a>
+                    <a class="menu-tab" href="#stock">
+                        <i class="fas fa-file-alt"></i>
+                    </a>
+                    <a class="menu-tab" href="#vacation">
+                        <i class="fas fa-file-alt"></i>
+                    </a>
+                </div>
+                <div class="sub-menu">
+                    <ul id="company" class="menu select">
+                        <h3>회사정보수정</h3>
+                        <li><a href="erp_company/erp_company_info.html">회사정보수정</a></li>
+                        <li><a href="#">NOT FOUND</a></li>
+                        <li><a href="#">NOT FOUND</a></li>
+                        <li><a href="#">NOT FOUND</a></li>
+                    </ul>
+
+                    <ul id="correspondent" class="menu">
+                        <h3>거래처관리</h3>
+                        <li><a href="erp_correspondent/correspondent_list.html">거래처목록</a></li>
+                        <li><a href="erp_correspondent/correspondent_reg.html">거래처등록</a></li>
+                        <li><a href="#">NOT FOUND</a></li>
+                        <li><a href="#">NOT FOUND</a></li>
+                    </ul>
+                    <ul id="employee" class="menu">
+                        <h3>사원관리</h3>
+                        <li><a href="erp_employee/employee_list.html">사원목록</a></li>
+                        <li><a href="erp_employee/employee_register.html">사원 상세정보등록/수정</a></li>
+                        <li><a href="#">NOT FOUND</a></li>
+                    </ul>
+                    <ul id="product" class="menu">
+                        <h3>상품관리</h3>
+                        <li><a href="erp_product/product_list.html">상품목록</a></li>
+                        <li><a href="erp_product/product_reg.html">상품등록</a></li>
+                    </ul>
+
+                    <ul id="salary" class="menu">
+                        <h3>급여관리</h3>
+                        <li><a href="erp_salary/salary_list.html">급상여처리하기</a></li>
+                        <li><a href="#">NOT FOUND</a></li>
+                    </ul>
+
+                    <ul id="stock" class="menu">
+                        <h3>창고관리</h3>
+                        <li><a href="erp_stock/stock_list.html">창고별 재고관리</a></li>
+                    </ul>
+
+                    <ul id="vacation" class="menu">
+                        <h3>연차관리</h3>
+                        <li><a href="erp_vacation/erp_vacation_info.html">사원 연차내역 조회</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="main-wrap"> 
+                <footer>
+                    <span> &copy; Copyright Project All rights reserved. </span>
+                </footer>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+<script src="../../js/admin_main.js"></script>
+<script>
+
+</script>
+</html>
