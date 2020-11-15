@@ -1,0 +1,70 @@
+@charset 'utf_8';
+
+/* table td 넓이 */
+.td_2 {
+    width: 2%;
+}
+.td_3{
+    width: 3%;
+}
+.td_4{
+    width: 4%;
+}
+.td_5{
+    width: 5%;
+}
+.td_6{
+    width: 6%;
+}
+.td_7{
+    width: 7%;
+}
+.td_8{
+    width: 8%;
+}
+.td_9{
+    width: 9%;
+}
+.td_10{
+    width: 10%;
+}
+.td_11{
+    width: 11%;
+}
+.td_12{
+    width: 12%;
+}
+.td_13{
+    width: 13%;
+}
+.td_14{
+    width: 14%;
+}
+.td_15{
+    width: 15%;
+}
+.td_20{
+    width: 20%;
+}
+.td_25{
+    width: 25%;
+}
+.td_30{
+    width: 30%;
+}
+.td_33{
+    width: 33.3%;
+}
+.td_40{
+    width: 40%;
+}
+.td_90{
+    width: 90%;
+}
+.td_100{
+    width: 100%;
+}
+
+tr {
+    height: 40px;
+}

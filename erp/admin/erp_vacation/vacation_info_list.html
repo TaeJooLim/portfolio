@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인페이지</title>
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/button_style.css">
+    <link rel="stylesheet" href="../../../css/common_table.css">
+
+    <!-- calendar css -->
+    <link rel="stylesheet" href="calendar/core/main.css">
+    <link rel="stylesheet" href="calendar/daygrid/main.css">
+    <!-- calendar css -->
+
+    <!-- FontAweSome -->
+    <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
+    <!-- FontAweSome -->
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQuery -->
+
+    <!-- calendar -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+    <!-- calendar -->
+
+</head>
+<style>
+    .control_menu {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .main_left_menu {
+        width: 50px;
+    }
+
+    .left_menu_icon {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .menu_selected {
+        background-color: #fff;
+        color: #3F51B5;
+    }
+
+    .menu_hide {
+        display: none;
+    }
+
+    .menu_active {
+        display: block;
+    }
+
+    .submenu_box {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 170px;
+        height: 80%;
+        color: #000;
+        border-right: 1px solid #ccc;
+        background-color: #fff;
+    }
+
+    .list th {
+        border: 1px solid #60718b;
+        background-color: #6f809a;
+        color: #fff;
+        padding: 8px 5px;
+        text-align: center;
+    }
+
+    .list tr:nth-child(2n) {
+        background-color: #eff3f9;
+    }
+
+    .list td {
+        border: 1px solid #d6dce7;
+        padding: 8px 5px;
+        text-align: center;
+    }
+
+    .input_list td {
+        border: 1px solid #d6dce7;
+    }
+
+    .input_100 {
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid #d5d5d5;
+        width: 100%;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .list_title {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .r_btn {
+        width: 16px;
+        text-align: center;
+        margin-left: 20px;
+    }
+
+    .r_btn:first-child {
+        margin: 0;
+    }
+
+    .s_btn_gray {
+        padding: 3px 5px;
+        height: 25px;
+        background-color: #e7e7e7;
+        font-size: 12px;
+        color: #555;
+        border: 1px solid #aaa;
+        border-radius: 2px;
+    }
+</style>
+
+<body>
+    <div class="page_wrap bg_white noto font_14" style="height: 100vh;">
+
+        <div class="main_right bg_white" style="width: 100%;">
+            <div class="main_right_title p_10" style="height: 50px; border-bottom: 1px solid #ccc;">
+                <h2 class="font_18">연차사용이력조회</h2>
+            </div>
+        </div>
+        <div class="main_right_info" style="padding: 30px 20px;">
+            <form>
+                <div class="input_list">
+                    <table>
+                        <tr>
+                            <td class="bg_gray weight_700 td_10 center">사용일자</td>
+                            <td class="p_lr3">
+                                <input type="date" name="" maxlength="20" id="" class="input_100" required />
+                            </td>
+                            <td class="bg_gray weight_700 td_10 center">휴가종류</td>
+                            <td class="p_lr3">
+                                <input type="text" name="" maxlength="20" id="" class="input_100" required />
+                            </td>
+                            <td class="bg_gray weight_700 td_10 center">사원번호</td>
+                            <td class="p_lr3">
+                                <input type="date" name="" id="" class="input_100" required />
+                            </td>
+                            <td class="bg_gray weight_700 td_10 center">사원명</td>
+                            <td class="p_lr3">
+                                <input type="text" name="" maxlength="20" id="" class="input_100" required />
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="btn-grp center m_t10">
+                        <button type="submit" class="btn_blue">검색하기</button>
+                        <button type="reset" class="btn_red">새로고침</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="m_t20" style="border-top: 1px solid #000;">
+                <div class="" style="width: 100%; white-space: nowrap; overflow-x: scroll;">
+                    <div class="list_title">
+                        <h2 class="font_18">연차사용이력조회</h2>
+                    </div>
+                    <div class="m_b5">
+                        <div class="btn_wrap float_l m_b5">
+                            <button class="btn_red">선택삭제</button>
+                        </div>
+                        <div class="tbl_wrap">
+                            <table class="list clearfix">
+                                <thead>
+                                    <th rowspan="2">
+                                        <input type="checkbox" />
+                                    </th>
+                                    <th>사용일자</th>
+                                    <th>휴가분류</th>
+                                    <th>사원번호</th>
+                                    <th>사원명</th>
+                                    <th>소속</th>
+                                    <th>직위</th>
+                                    <th>사용일수</th>
+                                    <th>잔여일수</th>
+                                    <th>결재여부</th>
+                                    <th>신청일자</th>
+                                </thead>
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>2020-01-05</td>
+                                    <td>연차</td>
+                                    <td>20201234</td>
+                                    <td>임태주</td>
+                                    <td>인사팀</td>
+                                    <td>사원</td>
+                                    <td>1일</td>
+                                    <td>14일</td>
+                                    <td>결재완료</td>
+                                    <td>2020.01.01</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>2020-01-05</td>
+                                    <td>연차</td>
+                                    <td>20201234</td>
+                                    <td>임태주</td>
+                                    <td>인사팀</td>
+                                    <td>사원</td>
+                                    <td>1일</td>
+                                    <td>14일</td>
+                                    <td>결재완료</td>
+                                    <td>2020.01.01</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>2020-01-05</td>
+                                    <td>연차</td>
+                                    <td>20201234</td>
+                                    <td>임태주</td>
+                                    <td>인사팀</td>
+                                    <td>사원</td>
+                                    <td>1일</td>
+                                    <td>14일</td>
+                                    <td>결재완료</td>
+                                    <td>2020.01.01</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

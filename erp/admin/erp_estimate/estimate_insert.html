@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/common_table.css">
+    <link rel="stylesheet" href="../../../css/button_style.css">
+    <link rel="stylesheet" href="../../../css/employee.css">
+    <link rel="stylesheet" href="../../../css/table_style.css">
+   
+  
+
+    <!-- FontAweSome -->
+    <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
+    <!-- FontAweSome -->
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQuery -->
+
+    <script src="../../ckeditor/ckeditor.js"></script>
+
+</head>
+<style>
+
+    .reg_tbl tr {
+        background-color: #f6f6f6;
+    }
+    .reg_tbl td {
+        border: 1px solid #e7e7e7;
+    }
+
+    .list_tbl tr:nth-child(2n) {
+        background-color:#eff3f9;
+    }
+   
+   
+    .list_tbl tr:first-child {
+         background-color:#6f809a;
+    }
+ 
+   
+    .control_menu {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+    .main_left_menu {
+        width: 50px;
+    }
+    .left_menu_icon {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+    .menu_selected {
+        background-color: #fff;
+        color: #3F51B5;
+    }
+    .menu_hide {
+        display: none;
+    }
+    .menu_active {
+        display: block;
+    }
+    .submenu_box {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 170px;
+        height: 80%;
+        color: #000;
+        border-right: 1px solid #ccc;
+        background-color: #fff;
+    }
+
+
+    .member_right {
+        /*내용*/
+        width: 100%;       
+    }
+
+    .cke_style{
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 2px;
+    }
+</style>
+<body>
+    <div class="page_wrap bg_white noto font_14" style="height: 100vh;">
+        <div class="page_top flex space_between">
+            <div class="top_left bg_blue_1">
+                <div id="mainmenu_btn" class="control_menu font_16 white center flex flex_hc flex_vc">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div class="top_middle bg_blue_2 font_16 flex flex_hc flex_vc" style="width: 10%;">
+                <span class="white">ADMINISTRATOR</span>
+            </div>
+            <div class="top_right bg_blue_3 p_10" style="width: 100%;">
+                <div class="top_right_menu flex" style="justify-content: flex-end;">
+                    <div class="top_right_menu_one white" style="line-height: 30px;"><i
+                            class="fas fa-store"></i></div>
+                    <div class="top_right_menu_two white m_lr20" style="line-height: 30px;"><i
+                            class="fas fa-home"></i></div>
+                    <!-- <div class="top_right_menu_three">
+                        <button class="m_l10 white"
+                            style="display: inline-block; padding: 5px 10px; margin-left: 10px; border-radius: 3px; height: 30px;  color: #fff; background-color: rgba(250, 250, 250, 0.1);">
+                            부가서비스
+                        </button>
+                    </div> -->
+                    <div class="top_right_menu_four">
+                        <select class="white" style="background-color: rgba(250, 250, 250, 0.1); height: 30px;">
+                            <option class="bg_blue_4">관리자</option>
+                            <option class="bg_blue_4">관리자정보</option>
+                            <option class="bg_blue_4">로그아웃</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page_main flex space_between" style="border-bottom: 1px solid #ccc;">
+            <div class="main_left flex space_between" style="width: 50px;">
+                <div class="main_left_menu bg_ivory">
+
+                    <!-- FLOAT로 띄워서 버튼 JQUERY로 show&hide -->
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div id="submenu_box" class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">1번메뉴</h4>
+                        <ul class="font_12">
+                            <li class="m_b10">서브메뉴1</li>
+                            <li class="m_b10">서브메뉴2</li>
+                            <li class="m_b10">서브메뉴3</li>
+                            <li class="m_b10">서브메뉴4</li>
+                        </ul>
+                    </div>
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-user-alt"></i>
+                    </div>
+                    <div class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">2번메뉴</h4>
+                        <ul class="font_12">
+                            <li class="m_b10">서브메뉴1</li>
+                            <li class="m_b10">서브메뉴2</li>
+                            <li class="m_b10">서브메뉴3</li>
+                            <li class="m_b10">서브메뉴4</li>
+                            <li class="m_b10">서브메뉴5</li>
+                        </ul>
+                    </div>
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-user-alt"></i>
+                    </div>
+                    <div class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">3번메뉴</h4>
+                        <ul class="font_12">
+                            <li class="m_b10">서브메뉴1</li>
+                            <li class="m_b10">서브메뉴2</li>
+                            <li class="m_b10">서브메뉴3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="main_right bg_white" style="width: 100%;">
+                <div class="main_right_title p_10" style="height: 50px; border-bottom: 1px solid #ccc;">
+                    <h2 class="font_18">견적서 등록</h2>
+                </div>
+                <div class="main_right_info p_20">
+                    <div class="info_title">
+                      
+                    </div>
+                    <div class="info_table">
+                        <div class="page_content ">
+                            <form action="" name="" method="">
+                                <div class="member_info ">
+                                    
+                                    <div class="member_right">
+                                        <table class="reg_tbl">
+                                            <tr>
+                                                <td class="td_8 center"  >회사</td>
+                                                <td class="td_12 p_lr3">
+                                                    <select name="" class="td_100 weight_700" id="" >
+                                                        <option value="">(주)캐피탈크리에이터</option>
+                                                        <option value="">엠스파이어프로</option>
+                                                        <option value="">(주)아이티주식회사</option>
+                                                        <option value="">(주)에이엠씨컴퍼니</option>
+                                                        <option value="">(주)아이티주식회사</option>
+                                                        <option value="">(주)루시트드리머</option>
+                                                        <option value="">(주)스페이스콘솔</option>
+                                                    </select>
+                                                </td>
+                                               
+                                                <td class="td_8 center" >사업장</td>
+                                                <td class="td_12 p_lr3 ">
+                                                    <select name="" class="td_100 weight_700" id="" >
+                                                        <option value="">한국본사</option>
+                                                        <option value="">충주공장</option>
+                                                        <option value="">포항본사</option>
+                                                        <option value="">부산본사</option>
+                                                        <option value="">서울본사</option>
+                                                    </select>
+                                                   
+                                                </td>
+                                                
+                                                <td class="td_8 center  bg-gray ">견적일자</td>
+                                                <td class="td_12 p_lr3 ">
+                                                    <input type="date" name="" id="now_date" class="td_100 weight_700" autofocus />
+                                                </td>
+
+                                                <td class="td_8 center  bg-gray ">담당자직책</td>
+                                                <td class="td_12 p_lr3 ">
+                                                    <input type="text" name="" id="" class="td_100" autofocus />
+                                                </td>
+                                                
+                                                <td class="td_8 center  bg-gray ">담당자부서</td>
+                                                <td class="td_12 p_lr3 ">
+                                                    <input type="text" name="" id="" class="td_100" autofocus />
+                                                </td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td class="td_8 center" >거래처코드</td>
+                                                <td class="td_12 p_lr3 ">
+                                                    <input typ`e="text" name="" id="" class="td_100"  autofocus  placeholder="숫자만 입력해주세요"/>
+                                                   
+                                                </td>
+                                                <td class="td_8 center  bg-gray ">단가적용</td>
+                                                <td class="td_12 p_lr3 ">
+                                                    <input type="text" name="" id="" class="td_100" autofocus placeholder="숫자만 입력해주세요"/>
+                                                </td>
+                                                
+                                                <td class="td_8 center  bg-gray ">진행상태</td>
+                                                <td class="td_12 p_lr3 ">
+                                                    <select name="" class="td_100 weight_700" id="" >
+                                                        <option value="">진행</option>
+                                                        <option value="">완료</option>
+                                                        <option value="">임시저장</option>
+
+                                                    </select>
+                                                </td>
+                                                <td rowspan="3" class="td_8 center bg-gray">비고</td>
+                                                <td rowspan="3" colspan="3" class="td_12 p_lr3 ">
+                                                    <p><textarea cols="80" rows="7" class="cke_style"></textarea></p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td_8 center  bg-gray ">담당자</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100"  />
+                                                </td>
+                                                <td class="td_8 center  bg-gray ">담당자연락처</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100"  />
+                                                </td>
+                                                <td class="td_8 center  bg-gray ">담당자이메일</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100"  />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td_8 center  bg-gray ">거래처</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100"  />
+                                                </td>
+                                                <td class="td_8 center  bg-gray ">거래처연락처</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100"  />
+                                                </td>
+                                                <td class="td_8 center  bg-gray ">거래처이메일</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100"  />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td_8 center  bg-gray ">팩스번호</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100"  />
+                                                </td>
+                                                <td class="td_8 center  bg-gray ">수신</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100"  />
+                                                </td>
+                                                <td class="td_8 center  bg-gray ">참조</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100"  />
+                                                </td>
+                                                <td class="td_8 center  bg-gray ">납기</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="date" name="" id="" class="td_100 weight_700"  />
+                                                </td>
+                                                <td class="td_8 center  bg-gray ">유효기간</td>
+                                                <td class="td_12 p_lr3 ">
+                                                    <input type="date" name=""  class="td_100 weight_700" autofocus />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td_8 center  bg-gray ">제목</td>
+                                                <td colspan="3" class="td_12 p_lr3 ">
+                                                    <input type="text" name="" id="" class="td_100"  />
+                                                </td>
+                                                <td class="td_8 center  bg-gray ">부가세</td>
+                                                <td class="td_12 p_lr3">
+                                                    <select name="" class="td_100 weight_700" id="" >
+                                                        <option value="">별도</option>
+                                                        <option value="">포함</option>
+
+                                                    </select>
+                                                </td>
+                                                <td class="td_8 center  bg-gray ">공급가액</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100"  placeholder="숫자만 입력해주세요"/>
+                                                </td>
+                                                <td class="td_8 center  bg-gray ">세액</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="td_100"  placeholder="숫자만 입력해주세요" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div class="btn_grp center m_t10 " > 
+                                            <button type="submit" class="btn_blue">내용저장</button> <!-- action 찾아감-->
+                                            <button type="reset" class="btn_red" >새로고침</button>
+                                        </div>
+                                    </div>
+                                    <div class="m_t20">
+                                        <table class="list_tbl center">
+                                            <tr class="white weight_normal">
+                                                <td class="td_4 center "  >번호</td>
+                                                <td class="td_10 center " >회사</td>
+                                                <td class="td_7 center " >담당자</td>
+                                                <td class="td_7 center  bg-gray  ">거래처코드</td>
+                                                <td class="center  bg-gray  ">제목</td>
+                                                <td class="td_7 center  bg-gray ">단가적용</td>
+                                                <td class="td_5 center  bg-gray ">부가세</td>
+                                                <td class="td_10 center  bg-gray ">견적일자</td>
+                                                <td class="td_10 center  bg-gray ">유효기간</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p_lr3">5</td>
+                                                <td class="p_lr3">(주)캐피탈크리에이터 </td>
+                                                <td class="p_lr3"> 관리자</td>
+                                                <td class="p_lr3"> 3030100</td>
+                                                <td class="p_lr3 ">컨테이너 3동 제작 </td>
+                                                <td class="p_lr3 "> 1000000</td>
+                                                <td class="p_lr3 ">330000</td>
+                                                <td class="p_lr3 ">2020-11-06</td>
+                                                <td class="p_lr3 "> 2020-11-30</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p_lr3">4</td>
+                                                <td class="p_lr3">(주)캐피탈크리에이터 </td>
+                                                <td class="p_lr3"> 관리자</td>
+                                                <td class="p_lr3"> 3030100</td>
+                                                <td class="p_lr3 ">컨테이너 3동 제작 </td>
+                                                <td class="p_lr3 "> 1000000</td>
+                                                <td class="p_lr3 ">330000</td>
+                                                <td class="p_lr3 ">2020-11-06</td>
+                                                <td class="p_lr3 "> 2020-11-30</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p_lr3">3</td>
+                                                <td class="p_lr3">(주)캐피탈크리에이터 </td>
+                                                <td class="p_lr3"> 관리자</td>
+                                                <td class="p_lr3"> 3030100</td>
+                                                <td class="p_lr3 ">컨테이너 3동 제작 </td>
+                                                <td class="p_lr3 "> 1000000</td>
+                                                <td class="p_lr3 ">330000</td>
+                                                <td class="p_lr3 ">2020-11-06</td>
+                                                <td class="p_lr3 "> 2020-11-30</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p_lr3">2</td>
+                                                <td class="p_lr3">(주)캐피탈크리에이터 </td>
+                                                <td class="p_lr3"> 관리자</td>
+                                                <td class="p_lr3"> 3030100</td>
+                                                <td class="p_lr3 ">컨테이너 3동 제작 </td>
+                                                <td class="p_lr3 "> 1000000</td>
+                                                <td class="p_lr3 ">330000</td>
+                                                <td class="p_lr3 ">2020-11-06</td>
+                                                <td class="p_lr3 "> 2020-11-30</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p_lr3">1</td>
+                                                <td class="p_lr3">(주)캐피탈크리에이터 </td>
+                                                <td class="p_lr3"> 관리자</td>
+                                                <td class="p_lr3"> 3030100</td>
+                                                <td class="p_lr3 ">컨테이너 3동 제작 </td>
+                                                <td class="p_lr3 "> 1000000</td>
+                                                <td class="p_lr3 ">330000</td>
+                                                <td class="p_lr3 ">2020-11-06</td>
+                                                <td class="p_lr3 "> 2020-11-30</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                               
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="copyright center">
+            <span class="copy"> &copy;Copyright All rights reserved.</span>
+            <span class="history">2020 - 2030</span>
+        </div>
+    </footer>
+    <div class="clearfix"></div>
+    
+</body>
+<script>
+    $(function() {
+        $(".left_menu_icon").click(function() {
+            $(this).next().toggleClass("menu_hide");
+            $(this).toggleClass("menu_selected");
+        });
+        $("#mainmenu_btn").click(function() {
+            $("#submenu_box").toggleClass("menu_hide");
+        });
+    });
+</script> 
+
+<script>
+    document.getElementById('now_date').valueAsDate = new Date();
+</script>
+<script>
+    $(function () {
+        $("tr:nth-child(2n+1)").addClass("tr-even");
+    })
+</script>
+</html>
