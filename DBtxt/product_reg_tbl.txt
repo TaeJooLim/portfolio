@@ -4,7 +4,7 @@ p_name varchar(100) not null,
 p_brand varchar(50),
 p_group varchar(50),
 p_state char(1) not null,
-p_num varchar(100),
+p_modelnum varchar(100),
 p_use char(1),
 p_unit char(1) not null,
 p_amount int not null,
@@ -31,7 +31,7 @@ p_name varchar(100) not null, //품명
 p_brand varchar(50), //브랜드명
 p_group varchar(50), //상품그룹명(ex 컴퓨터, 사무용품 ...)
 p_state char(1) not null, //내외자구분 (내자, 외자)
-p_num varchar(100), //상품의 모델번호
+p_modelnum varchar(100), //상품의 모델번호
 p_use char(1), // 품목상태 (사용, 임시, 생산중지, 거래중지, 폐기)
 p_unit char(1) not null, //기준단위(EA, KG, SET)
 p_amount int not null, //구매수량
