@@ -1,14 +1,18 @@
 @charset 'UTF-8';
 
 /* button, input, select */
-button, input, select {
+button,
+input,
+select {
     font-size: 14px;
     height: 35px;
     width: 80px;
     border-radius: 2px;
 }
 
-button, input, select {
+button,
+input,
+select {
     border: 1px solid #ccc;
 }
 
@@ -21,16 +25,19 @@ input {
     vertical-align: top;
     padding-left: 10px;
 }
+
 .btn_blue {
     background-color: #3f51b5;
     border: 1px solid transparent;
     font-size: 12px;
     color: #fff;
 }
+
 .btn_ivory {
     background-color: #e7e7e7;
     font-size: 12px;
 }
+
 .btn_red {
     background-color: crimson;
     border: 1px solid transparent;
@@ -47,12 +54,14 @@ input {
     font-size: 12px;
     color: #fff;
 }
+
 .s_btn_ivory {
     width: 35px;
     height: 25px;
     background-color: #e7e7e7;
     font-size: 12px;
 }
+
 .s_btn_red {
     width: 35px;
     height: 25px;
@@ -60,4 +69,14 @@ input {
     border: 1px solid transparent;
     font-size: 12px;
     color: #fff;
+}
+
+.s_btn_gray {
+    padding: 3px 5px;
+    height: 25px;
+    background-color: #e7e7e7;
+    font-size: 12px;
+    color: #555;
+    border: 1px solid #aaa;
+    border-radius: 2px;
 }
