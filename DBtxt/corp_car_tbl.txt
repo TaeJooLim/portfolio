@@ -1,0 +1,75 @@
+법인차량 관리
+
+create table corp_car_mng(
+    car_id int not null auto_increment primary key,
+    car_model varchar(20) not null,
+    car_name varchar(50) not null,
+    car_num varchar(20) not null,
+    car_purchase_date date not null,
+    car_purchase_price varchar(20) not null,
+    car_use_year int,
+    car_scrap_value varchar(20),
+    car_insurance_start date,
+    car_insurance_end date,
+    car_comprehensive char(1) default 'N',
+    car_inspection date,
+    car_total_mileage varchar(20)
+);
+
+create table corp_car_mng(
+    car_id int not null auto_increment primary key,  // 기본키
+    car_model varchar(20) not null, // 차종
+    car_name varchar(50) not null, // 차량명
+    car_num varchar(20) not null,  // 차량번호
+    car_purchase_date date not null,  // 구입일자
+    car_purchase_price varchar(20) not null, //구입가
+    car_use_year int, //사용년수
+    car_scrap_value varchar(20), //잔존가액
+    car_insurance_start date, //보험계약일
+    car_insurance_end date, //보험종료일
+    car_comprehensive char(1) default 'N', // 종합보험여부(Y/N)
+    car_inspection date, //최근검사일
+    car_total_mileage varchar(20) //총 운행거리
+);
+
+/**************************************************************/
+
+법인차량 사용일지
+
+create table corp_car_log(
+    car_pid int not null auto_increment primary key, 
+    car_model varchar(20) not null, 
+    car_num varchar(20) not null, 
+    car_drive_date date not null, 
+    car_destination varchar(50) not null,
+    car_purpose varchar(50) not null,
+    car_drive_start time not null,
+    car_drive_end time not null,
+    car_start_km varchar(20) not null,
+    car_end_km varchar(20) not null,
+    car_driver varchar(10) not null,
+    car_passenger varchar(10), 
+    car_key char(1) not null default  'N',
+    car_fuel varchar(20),
+    car_fuel_amount varchar(10),
+    car_remark varchar(200)
+);
+
+create table corp_car_log(
+    car_pid int not null auto_increment primary key, // 기본키
+    car_model varchar(20) not null, // 차종
+    car_num varchar(20) not null, // 차량번호
+    car_drive_date date not null, // 운행일자
+    car_destination varchar(50) not null, //행선지
+    car_purpose varchar(50) not null, //사용목적
+    car_drive_start time not null, //출발시간
+    car_drive_end time not null, //도착시간
+    car_start_km varchar(20) not null, //출발전 주행거리
+    car_end_km varchar(20) not null, //도착후 주행거리
+    car_driver varchar(10) not null, //운전자
+    car_passenger varchar(10), // 동승자
+    car_key char(1) not null default 'N' , // 키 반납여부
+    car_fuel varchar(20), // 주유사항
+    car_fuel_amount varchar(10), //주유금액
+    car_remark varchar(200) // 비고
+);
