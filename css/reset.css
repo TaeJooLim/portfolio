@@ -20,29 +20,3 @@ a {
 ul li {
     list-style: none;
 }
-
-select, input, textarea, button {
-    border: 0;
-    outline: 0;
-    vertical-align: top;
-}
-
-input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-}
-
-button {
-    border: 0;
-    outline: 0;
-    background-color: transparent;
-    cursor: pointer;
-}
-
-img {
-    display: block;
-}
-
-.clearfix {
-    clear: both;
-}
