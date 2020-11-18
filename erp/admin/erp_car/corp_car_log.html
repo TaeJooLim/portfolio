@@ -31,46 +31,6 @@
 
 </head>
 <style>
-    .control_menu {
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-    }
-
-    .main_left_menu {
-        width: 50px;
-    }
-
-    .left_menu_icon {
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-    }
-
-    .menu_selected {
-        background-color: #fff;
-        color: #3F51B5;
-    }
-
-    .menu_hide {
-        display: none;
-    }
-
-    .menu_active {
-        display: block;
-    }
-
-    .submenu_box {
-        position: absolute;
-        top: 50px;
-        left: 50px;
-        width: 170px;
-        height: 80%;
-        color: #000;
-        border-right: 1px solid #ccc;
-        background-color: #fff;
-    }
-
     .list th {
         border: 1px solid #60718b;
         background-color: #6f809a;
@@ -103,11 +63,18 @@
     }
 
     .sel_100 {
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid #d5d5d5;
         width: 100%;
+        height: 35px;
+        font-size: 12px;
     }
 
-    .p_lr3 {
-        padding: 0 3px;
+    .h_35 {
+        height: 35px;
+        border: 1px solid #d5d5d5;
+        border-radius: 2px;
     }
 
     .list_title {
@@ -251,7 +218,7 @@
             </form>
 
             <div class="m_t20" style="border-top: 1px solid #000;">
-                <div class="" style="width: 100%; white-space: nowrap; overflow-x: scroll;">
+                <div class="">
                     <div class="list_title">
                         <h2>법인차량운행일지</h2>
                     </div>
@@ -260,130 +227,132 @@
                             <button class="btn_red">선택삭제</button>
                         </div>
                         <div class="search_wrap float_r m_b5">
-                            <select class="" name="">
+                            <select class="h_35" name="">
                                 <option value="">차종</option>
                                 <option value="">차량번호</option>
                                 <option value="">운전자</option>
                                 <option value="">운행일자</option>
                             </select>
-                            <input type="text" name="" required style="margin-left:-2px" />
+                            <input type="text" class="h_35" name="" required style="margin-left:-2px" />
                             <button type="submit" class="btn_ivory" style="margin-left:-2px">검색</button>
                         </div>
                     </div>
-                    <table class="list clearfix">
-                        <thead>
-                            <tr>
-                                <th rowspan="2">
-                                    <input type="checkbox" />
-                                </th>
-                                <th rowspan="2">번호</th>
-                                <th colspan="2">차량정보</th>
-                                <th rowspan="2">운행일자</th>
-                                <th colspan="2">운행시간</th>
-                                <th colspan="2">운행목적</th>
-                                <th colspan="2">주행거리</th>
-                                <th rowspan="2">운전자</th>
-                                <th rowspan="2">동승자</th>
-                                <th rowspan="2">키반납확인</th>
-                                <th colspan="4">기타사항</th>
-                                <th rowspan="2">관리</th>
-                            </tr>
-                            <tr>
-                                <th>차종</th>
-                                <th>차량번호</th>
-                                <th>출발시간</th>
-                                <th>도착시간</th>
-                                <th>행선지</th>
-                                <th>운행목적</th>
-                                <th>출발전</th>
-                                <th>도착후</th>
-                                <th>주유 및 정비사항</th>
-                                <th>주유금액</th>
-                                <th>하이패스</th>
-                                <th>비고</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><input type="checkbox" /></td>
-                                <td>3</td>
-                                <td>카니발</td>
-                                <td>14가 9999</td>
-                                <td>2020.11.07</td>
-                                <td>09:30</td>
-                                <td>14:15</td>
-                                <td>부산 강서구</td>
-                                <td>외부업체 컨택</td>
-                                <td>32,311km</td>
-                                <td>32,323km</td>
-                                <td>은전자</td>
-                                <td>동승자</td>
-                                <td>
-                                    <span class="s_btn_gray">미확인</span>
-                                </td>
-                                <td>주유</td>
-                                <td>30,000 원</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>
-                                    <button class="s_btn_blue">수정</button>
-                                    <button class="s_btn_red">삭제</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" /></td>
-                                <td>2</td>
-                                <td>카니발</td>
-                                <td>14가 9999</td>
-                                <td>2020.11.06</td>
-                                <td>09:30</td>
-                                <td>14:15</td>
-                                <td>부산 강서구</td>
-                                <td>외부업체 컨택</td>
-                                <td>32,281km</td>
-                                <td>32,311km</td>
-                                <td>은전자</td>
-                                <td>동승자</td>
-                                <td>
-                                    <button class="s_btn_red">확인</button>
-                                </td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>
-                                    <button class="s_btn_blue">수정</button>
-                                    <button class="s_btn_red">삭제</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" /></td>
-                                <td>1</td>
-                                <td>카니발</td>
-                                <td>14가 9999</td>
-                                <td>2020.11.05</td>
-                                <td>09:30</td>
-                                <td>14:15</td>
-                                <td>경남 창원시 성산구</td>
-                                <td>외부업체 컨택</td>
-                                <td>32,224km</td>
-                                <td>32,281km</td>
-                                <td>은전자</td>
-                                <td>동승자</td>
-                                <td>
-                                    <button class="s_btn_red">확인</button>
-                                </td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>
-                                    <button class="s_btn_blue">수정</button>
-                                    <button class="s_btn_red">삭제</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="" style="width: 100%; white-space: nowrap; overflow-x: scroll;">
+                        <table class="list clearfix">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2">
+                                        <input type="checkbox" />
+                                    </th>
+                                    <th rowspan="2">번호</th>
+                                    <th colspan="2">차량정보</th>
+                                    <th rowspan="2">운행일자</th>
+                                    <th colspan="2">운행시간</th>
+                                    <th colspan="2">운행목적</th>
+                                    <th colspan="2">주행거리</th>
+                                    <th rowspan="2">운전자</th>
+                                    <th rowspan="2">동승자</th>
+                                    <th rowspan="2">키반납확인</th>
+                                    <th colspan="4">기타사항</th>
+                                    <th rowspan="2">관리</th>
+                                </tr>
+                                <tr>
+                                    <th>차종</th>
+                                    <th>차량번호</th>
+                                    <th>출발시간</th>
+                                    <th>도착시간</th>
+                                    <th>행선지</th>
+                                    <th>운행목적</th>
+                                    <th>출발전</th>
+                                    <th>도착후</th>
+                                    <th>주유 및 정비사항</th>
+                                    <th>주유금액</th>
+                                    <th>하이패스</th>
+                                    <th>비고</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>3</td>
+                                    <td>카니발</td>
+                                    <td>14가 9999</td>
+                                    <td>2020.11.07</td>
+                                    <td>09:30</td>
+                                    <td>14:15</td>
+                                    <td>부산 강서구</td>
+                                    <td>외부업체 컨택</td>
+                                    <td>32,311km</td>
+                                    <td>32,323km</td>
+                                    <td>은전자</td>
+                                    <td>동승자</td>
+                                    <td>
+                                        <span class="s_btn_gray">미확인</span>
+                                    </td>
+                                    <td>주유</td>
+                                    <td>30,000 원</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>
+                                        <button class="s_btn_blue">수정</button>
+                                        <button class="s_btn_red">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>2</td>
+                                    <td>카니발</td>
+                                    <td>14가 9999</td>
+                                    <td>2020.11.06</td>
+                                    <td>09:30</td>
+                                    <td>14:15</td>
+                                    <td>부산 강서구</td>
+                                    <td>외부업체 컨택</td>
+                                    <td>32,281km</td>
+                                    <td>32,311km</td>
+                                    <td>은전자</td>
+                                    <td>동승자</td>
+                                    <td>
+                                        <button class="s_btn_red">확인</button>
+                                    </td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>
+                                        <button class="s_btn_blue">수정</button>
+                                        <button class="s_btn_red">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td>1</td>
+                                    <td>카니발</td>
+                                    <td>14가 9999</td>
+                                    <td>2020.11.05</td>
+                                    <td>09:30</td>
+                                    <td>14:15</td>
+                                    <td>경남 창원시 성산구</td>
+                                    <td>외부업체 컨택</td>
+                                    <td>32,224km</td>
+                                    <td>32,281km</td>
+                                    <td>은전자</td>
+                                    <td>동승자</td>
+                                    <td>
+                                        <button class="s_btn_red">확인</button>
+                                    </td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>
+                                        <button class="s_btn_blue">수정</button>
+                                        <button class="s_btn_red">삭제</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
