@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인페이지</title> 
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/button_style.css">
+    <link rel="stylesheet" href="../../css/common_table.css">
+    <link rel="stylesheet" href="../../css/erp_board_reg.css">
+
+    <!-- FontAweSome -->
+    <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
+    <!-- FontAweSome -->
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQuery -->
+    
+</head>
+<style>
+    .control_menu {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+    .main_left_menu {
+        width: 50px;
+    }
+    .left_menu_icon {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+    .menu_selected {
+        background-color: #fff;
+        color: #3F51B5;
+    }
+    .menu_hide {
+        display: none;
+    }
+    .menu_active {
+        display: block;
+    }
+    .submenu_box {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 170px;
+        height: 80%;
+        color: #000;
+        border-right: 1px solid #ccc;
+        background-color: #fff;
+    }
+</style>
+
+<body>
+    <div class="page_wrap bg_white noto font_14" style="height: 100vh;">
+        <div class="page_top flex space_between">
+            <div class="top_left bg_blue_1">
+                <div id="mainmenu_btn" class="control_menu font_16 white center flex flex_hc flex_vc">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div class="top_middle bg_blue_2 font_16 flex flex_hc flex_vc" style="width: 10%;">
+                <span class="white">ADMINISTRATOR</span>
+            </div>
+            <div class="top_right bg_blue_3 p_10" style="width: 100%;">
+                <div class="top_right_menu flex" style="justify-content: flex-end;">
+                    <div class="top_right_menu_one white" style="line-height: 30px;"><i
+                            class="fas fa-store"></i></div>
+                    <div class="top_right_menu_two white m_lr20" style="line-height: 30px;"><i
+                            class="fas fa-home"></i></div>
+                    <!-- <div class="top_right_menu_three">
+                        <button class="m_l10 white"
+                            style="display: inline-block; padding: 5px 10px; margin-left: 10px; border-radius: 3px; height: 30px;  color: #fff; background-color: rgba(250, 250, 250, 0.1);">
+                            부가서비스
+                        </button>
+                    </div> -->
+                    <div class="top_right_menu_four">
+                        <select class="white" style="background-color: rgba(250, 250, 250, 0.1); height: 30px;">
+                            <option class="bg_blue_4">관리자</option>
+                            <option class="bg_blue_4">관리자정보</option>
+                            <option class="bg_blue_4">로그아웃</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page_main flex space_between" style="border-bottom: 1px solid #ccc;">
+            <div class="main_left flex space_between" style="width: 50px;">
+                <div class="main_left_menu bg_ivory">
+
+                    <!-- FLOAT로 띄워서 버튼 JQUERY로 show&hide -->
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div id="submenu_box" class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">1번메뉴</h4>
+                        <ul class="font_12">
+                            <li class="m_b10">서브메뉴1</li>
+                            <li class="m_b10">서브메뉴2</li>
+                            <li class="m_b10">서브메뉴3</li>
+                            <li class="m_b10">서브메뉴4</li>
+                        </ul>
+                    </div>
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-user-alt"></i>
+                    </div>
+                    <div class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">사원관리</h4>
+                        <ul class="font_12">
+                            <li class="m_b10"><a href="employee/erp_employee_list.html">사원목록보기</a></li>
+                            <li class="m_b10"><a href="employee/erp_employee_register.html">사원상세정보 입력/수정</a></li>
+                            <li class="m_b10">서브메뉴3</li>
+                            <li class="m_b10">서브메뉴4</li>
+                            <li class="m_b10">서브메뉴5</li>
+                        </ul>
+                    </div>
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-user-alt"></i>
+                    </div>
+                    <div class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">3번메뉴</h4>
+                        <ul class="font_12">
+                            <li class="m_b10">서브메뉴1</li>
+                            <li class="m_b10">서브메뉴2</li>
+                            <li class="m_b10">서브메뉴3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="main_right bg_white" style="width: 100%;">
+                <div class="main_right_title p_10" style="height: 50px; border-bottom: 1px solid #ccc;">
+                    <h2 class="font_18">게시판 생성</h2>
+                </div>
+                <div class="main_right_info" style="padding: 30px 20px;">
+                    <div class="main_wrap">
+                        <div class="">
+                            <span class="btn_blue">생성된 게시판 수 ${}개</span>
+                        </div>
+                        <div class="title">
+                            <h3 class="font_18 m_t20">
+                                <i class="fas fa-edit"></i> 게시판관리 > 1. 게시판생성
+                            </h3>
+                        </div>
+                        <div class="board-maker">
+                            <form method="post" id="frm">
+                                <table>
+                                    <tr class="center">
+                                        <td class="bg_gray weight_700 td_10">게시판그룹</td>
+                                        <td class="td_15 p_lr3">
+                                            <select class="td_100" name="" id="">
+                                            </select>
+                                        </td>
+                                        <td class="bg_gray weight_700 td_10">게시판코드</td>
+                                        <td class="td_15 p_lr3">
+                                            <input onBlur="chkBoardCode();" required name="boardCode" id="boardCode" type="text" class="td_100" placeholder="영어로 입력" />
+                                        </td>
+                                        <td class="bg_gray weight_700 td_10">게시판색상</td>
+                                        <td class="td_15 p_lr3">
+                                            <select class="td_100" name="boardColor" id="boardColor">
+                                                <option value="#6F809A">#6F809A</option>
+                                                <option value="#B00020">#B00020</option>
+						                        <option value="#5D1049">#5D1049</option>
+						                        <option value="#4A148C">#4A148C</option>
+						                        <option value="#2962FF">#2962FF</option>
+						                        <option value="#404E67">#404E67</option>
+						                        <option value="#FE5E71">#FE5E71</option>
+	                        					<option value="#1A237E">#1A237E</option>
+                                            </select>
+                                            <span class="color"></span>
+                                        </td>
+                                        <td class="bg_gray weight_700 td_10">게시판 관리자</td>
+                                        <td class="td_15 p_lr3">
+                                        	<input type="text" class="td_100" name="boardMaker" value="${sessionScope.empName}" />
+                                        </td>
+                                    </tr>
+                                    <tr class="center">
+                                        <td class="bg_gray weight_700 td_10">게시판제목</td>
+                                        <td colspan="5" class="td_90 p_lr3">
+                                            <input type="text" name="boardTitle" required class="td_100" />
+                                        </td>
+                                        <td class="bg_gray weight_700 td_10">게시판타입</td>
+                                        <td class="td_90 p_lr3">
+                                            <select class="td_100" name="boardType">
+                                                <option value="1">답변형 게시판</option>
+                                                <option value="2">공지사항 게시판</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr class="center">
+                                        <td class="bg_gray weight_700 td_10">읽기권한</td>
+                                        <td class="td_15 p_lr3">
+                                            <select class="td_100" name="boardRead">
+                                                <option value="0">모두</option>
+                                                <option value="1">직원</option>
+                                            </select>
+                                        </td>
+                                        <td class="bg_gray weight_700 td_10">쓰기권한</td>
+                                        <td class="td_15 p_lr3">
+                                            <select class="td_100" name="boardWrite">
+                                                <option value="0">모두</option>
+                                                <option value="1">직원</option>
+                                            </select>
+                                        </td>
+                                        <td class="bg_gray weight_700 td_10">댓글권한</td>
+                                        <td class="td_15 p_lr3">
+                                            <select class="td_100" name="boardReply">
+                                                <option value="0">모두</option>
+                                                <option value="1">직원</option>
+                                            </select>
+                                        </td>
+                                        <td class="bg_gray weight_700 td_10">다운권한</td>
+                                        <td class="td_15 p_lr3">
+                                            <select class="td_100" name="boardDownload">
+                                                <option value="0">모두</option>
+                                                <option value="1">직원</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="btn_grp center m_t10">
+                                    <button class="btn_blue" type="button" id="btn">게시판생성</button>
+                                    <button class="btn_ivory" type="reset">취소하기</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="title">
+                            <h3 class="font_18 m_t20">
+                                <i class="fas fa-edit"></i> 게시판관리 > 2. 게시판목록
+                            </h3>
+                        </div>
+                        <div class="btn_grp flex space_between">
+                            <div>
+                                <button class="btn_red" id="deleteAll">선택삭제</button>
+                            </div>
+                            
+                       
+                            <div class="search_grp flex">
+                               
+                                    <select name="searchOpt" id="" class="search_sel_box">
+                                        <option value="boardCode">게시판 코드</option>
+                                        <option value="boardTitle">게시판 제목</option>
+                                        <option value="boardGrp">게시판 그룹</option>
+                                    </select>
+                                    <input value="${words}" type="text" name="words" required
+                                        class="m_lr5"/>
+                                        <div class="search_btn flex flex_vc flex_hc">
+                                            <i class="fas fa-search font_18" style="color: #959595;"></i>
+                                        </div>
+                            </div>
+                        </div>
+                        <div class="board_list m_tb10">
+                            <table>
+                                <tr class="center weight_700 font14 tr_color" id="rowColor">
+                                    <td class="td_5"><input type="checkbox" onClick="chkAll()" /></td>
+                                    <td class="td_10">게시판그룹</td>
+                                    <td class="td_10">게시판코드</td>
+                                    <td class="td_10">게시판색상</td>
+                                    <td>게시판제목</td>
+                                    <td class="td_5">읽기권한</td>
+                                    <td class="td_5">쓰기권한</td>
+                                    <td class="td_5">댓글권한</td>
+                                    <td class="td_5">다운권한</td>
+                                    <td class="td_10">게시판관리</td>
+                                </tr>
+                           <c:forEach items="${list}" var="board">     
+                                <tr class="center font_14 weight_700">
+                                    <td>
+                                        <input autocomplete="off" type="checkbox" name="chk" class="chk" data-uid="${board.boardCode}" />
+                                    </td>
+                                    <td>${board.buseo_name}</td>
+                                    <td>
+                                        <a href="${pageContext.request.contextPath}/article/grp_article_list?boardCode=${board.boardCode}" target="_blank" class="under">${board.boardCode}</a>
+                                    </td>
+                                    <td>${board.boardColor}</td>
+                                    <td>
+                                         <a href="${pageContext.request.contextPath}/article/grp_article_list?boardCode=${board.boardCode}" target="_blank" class="under">${board.boardTitle}</a>
+                                    </td>
+                                    <td>${board.boardRead}</td>
+                                    <td>${board.boardWrite}</td>
+                                    <td>${board.boardReply}</td>
+                                    <td>${board.boardDownload}</td>
+                                    <td>
+                                        <button class="s_btn_blue" onClick="">수정</button>
+                                        <button class="s_btn_red" onClick="boardDel('${board.boardCode}');">삭제</button>
+                                    </td>
+                                </tr>
+                            </c:forEach>    
+                            </table>
+                        </div>
+                    
+                </div>
+                <div class="page_grp center">
+                    <span class="page">
+                        <a href=""><i class="fas fa-angle-double-left"></i></a>
+                    </span>
+                    <span class="page">
+                        <a href=""><i class="fas fa-angle-left"></i></a>
+                    </span>
+                    <span class="page page-active">
+                        <a href="" class="f6">1</a>
+                    </span>
+                    <span class="page"><a href="">2</a></span>
+                    <span class="page"><a href="">3</a></span>
+                    <span class="page"><a href="">4</a></span>
+                    <span class="page"><a href="">5</a></span>
+                    <span class="page">
+                        <a href=""><i class="fas fa-angle-right"></i></a>
+                    </span>
+                    <span class="page">
+                        <a href=""><i class="fas fa-angle-double-right"></i></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="copyright center">
+            <span class="copy"> &copy;Copyright All rights reserved.</span>
+            <span class="history">2020 - 2030</span>
+        </div>
+    </footer>
+    <div class="clearfix"></div>
+</body>
+<script>
+    $(function() {
+        $(".left_menu_icon").click(function() {
+            $(this).next().toggleClass("menu_hide");
+            $(this).toggleClass("menu_selected");
+        });
+        $("#mainmenu_btn").click(function() {
+            $("#submenu_box").toggleClass("menu_hide");
+        });
+    });
+</script> 
+
+</html>

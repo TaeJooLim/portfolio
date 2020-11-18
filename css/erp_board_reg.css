@@ -1,0 +1,52 @@
+@charset 'utf_8';
+
+.title{
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #3f51b5;
+}
+td {
+    border:1px solid #d6dce7;
+}
+
+.bg_gray{
+    background-color: #F6F6F6;
+} 
+
+.board_list tr:first-child {
+    background-color:#6f809a;
+}
+
+.board_list tr:nth-child(2n+1) {
+    background-color:#eff3f9;
+}
+
+.search_btn {
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    background-color: #eee;
+   
+}
+
+
+/* page_grp */
+.page {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    background-color: #fff;
+    font-weight: normal;
+}
+
+.page:hover {
+    background-color: #3f51b5;
+}
+
+.page:hover a {
+    color: #fff;
+}
