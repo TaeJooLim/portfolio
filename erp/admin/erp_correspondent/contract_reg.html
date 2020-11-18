@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMINISTRATOR | PROJECT</title>
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/common_table.css">
+    <link rel="stylesheet" href="../../../css/button_style.css">
+
+    <script src="https://kit.fontawesome.com/d53c7b0373.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <style>
+        .product_list td {
+            border: 1px solid #d6dce7;
+        }
+
+        .list th {
+            border: 1px solid #60718b;
+            background-color: #6f809a;
+            color: #fff;
+            padding: 8px 5px;
+        }
+
+
+        .list td {
+            border: 1px solid #d6dce7;
+            padding: 0 3px;
+        }
+
+        .input_49 {
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid #d5d5d5;
+        width: 49%;
+        height: 35px;
+        font-size: 12px;
+        }
+
+        .input_100 {
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid #d5d5d5;
+        width: 100%;
+        height: 35px;
+        font-size: 12px;
+        }
+
+        .sel_100 {
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid #d5d5d5;
+        width: 100%;
+        height: 35px;
+        font-size: 12px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="page_wrap bg_white noto font_14" style="height: 100vh;">
+
+        <div class="main_right bg_white" style="width: 100%;">
+            <div class="main_right_title p_10" style="height: 50px; border-bottom: 1px solid #ccc;">
+                <h2 class="font_18">계약등록</h2>
+            </div>
+        </div>
+
+        <div class="main_right_info" style="padding: 30px 20px;">
+            <form class="p_lr20">
+                <table class="product_list left">
+                    <tr>
+                        <td class="bg_gray weight_700 td_10 center">계약일</td>
+                        <td class="p_lr3">
+                            <input type="date" class="input_100">
+                        </td>
+                        <td class="bg_gray weight_700 td_10 center">납기일</td>
+                        <td class="p_lr3">
+                            <input type="date" class="input_100">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bg_gray weight_700 td_10 center">계약담당자</td>
+                        <td class="p_lr3">
+                            <div class="flex space_between">
+                                <input type="text" class="input_49" placeholder="사원번호">
+                                <input type="text" class="input_49" placeholder="사원명">
+                            </div>
+                        </td>
+                        <td class="bg_gray weight_700 td_10 center">거래처</td>
+                        <td class="p_lr3">
+                            <div class="flex space_between">
+                                <input type="text" class="input_49" placeholder="거래처코드">
+                                <input type="text" class="input_49" placeholder="거래처명">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bg_gray weight_700 td_10 center">거래유형</td>
+                        <td class="p_lr3">
+                            <select class="sel_100">
+                                <option value="">부가세포함</option>
+                                <option value="">부가세미포함</option>
+                            </select>
+                        </td>
+                        <td class="bg_gray weight_700 td_10 center">통화</td>
+                        <td class="p_lr3">
+                            <select class="sel_100">
+                                <option value="">원화</option>
+                                <option value="">달러</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bg_gray weight_700 td_10 center">첨부</td>
+                        <td colspan="3" class="p_lr3">
+                            <input type="file">
+                        </td>
+                    </tr>
+                </table>
+                <table class="list m_t10">
+                    <tr>
+                        <th class="td_4">번호</th>
+                        <th class="td_8">품목코드</th>
+                        <th class="td_10">품목명</th>
+                        <th class="td_8">바코드</th>
+                        <th class="td_5">규격</th>
+                        <th class="td_5">단위</th>
+                        <th class="td_5">통화</th>
+                        <th class="td_10">단가</th>
+                        <th class="td_10">수량</th>
+                        <th class="td_10">공급가액</th>
+                        <th class="td_10">부가세</th>
+                        <th class="td_10">부대비용</th>
+                        <th class="td_10">합계</th>
+                    </tr>
+                    <tr class="center">
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                    </tr>
+                    <tr class="center">
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                        <td>
+                            <input type="text" class="input_100">
+                        </td>
+                    </tr>
+                </table>
+                <div class="btn-grp center m_t10">
+                    <button type="submit" class="btn_blue" id="btn">저장</button>
+                    <button type="reset" class="btn_red">다시 작성</button>
+                    <button type="button" class="btn_ivory">목록 보기</button>
+                </div>
+            </form>
+
+            
+            
+        </div>
+    </div>
+</body>
+<script src="../../js/admin_main.js"></script>
+</html>
