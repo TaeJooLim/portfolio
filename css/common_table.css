@@ -58,6 +58,12 @@
 .td_40{
     width: 40%;
 }
+td_50 {
+    width: 50%;
+}
+td_60 {
+    width: 60%;
+}
 .td_90{
     width: 90%;
 }

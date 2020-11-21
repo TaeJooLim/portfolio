@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/common_table.css">
+
+    <!-- FontAweSome -->
+    <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
+    <!-- FontAweSome -->
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQuery -->
+
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+
+    /* A4 크기 */
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 2cm;
+        margin: 0 auto;
+        background: #eee;
+    }
+    .subpage {
+        border: 2px red solid;
+        background: #fff;
+        height: 257mm;
+    }
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    @media print {
+
+        html,
+        body {
+            width: 210mm;
+            height: 297mm;
+        }
+
+        .page {
+            margin: 0;
+            border: initial;
+            width: initial;
+            min-height: initial;
+            box-shadow: initial;
+            background: initial;
+            page-break-after: always;
+        }
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    .list td {
+        border: 1px solid #000;
+        padding: 0px 5px;
+        text-align: center;
+        line-height: 150%;
+    }
+
+    input {
+        border: 1px solid transparent;
+        outline: transparent;
+    }
+</style>
+
+<body>
+    <div class="page noto font_12">
+        <div class="subpage">
+            <div class="main_right" style="width: 100%;">
+                <div class="main_right_title p_10 w_100 m_b20">
+                    <h1 class="center">견 적 서</h1>
+                </div>
+            </div>
+            <div class="main_right_info w_100">
+                <div class="table_grp flex space_between">
+                    <table class="td_50 m_r10">
+                        <tr>
+                            <td>
+                                <span id="accountName">${거래처명}</span>
+                            </td>
+                            <td class="td_20"> 귀하</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <span id="accountYear">${년도}</span>
+                                <span>년 </span>
+                                <span id="accountMonth">${월}</span>
+                                <span>월 </span>
+                                <span id="accountDate">${일}</span>
+                                <span>일 </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>아래와 같이 견적합니다.</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="list w_100">
+                        <tr>
+                            <td class="td_6" rowspan="5">공급자</td>
+                            <td class="td_20">사업자<br />등록번호</td>
+                            <td colspan="3">
+                                <span>${사업자등록번호}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>상호명</span>
+                            </td>
+                            <td>
+                                <span>${자사명}</span>
+                            </td>
+                            <td class="td_20">
+                                <span>대표자</span>
+                            </td>
+                            <td>
+                                <span>${회사대표명}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>사업장<br />소재지</span>
+                            </td>
+                            <td colspan="3">
+                                <span>${자사 주소}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>업태</span>
+                            </td>
+                            <td>
+                                <span>${자사 업태}</span>
+                            </td>
+                            <td>
+                                <span>업종</span>
+                            </td>
+                            <td>
+                                <span>${자사 업종}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>담당자</span>
+                            </td>
+                            <td>
+                                <span>${담당자명}</span>
+                            </td>
+                            <td>
+                                <span>연락처</span>
+                            </td>
+                            <td>
+                                <span>${담당자 연락처}</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="m_t20">
+                    <div class="table_grp">
+                        <table class="list w_100" style="border: 2px solid #000;">
+                            <tr>
+                                <td class="td_20">
+                                    <span>품명</span>
+                                </td>
+                                <td class="td_20">
+                                    <span>규격</span>
+                                </td>
+                                <td class="td_8">
+                                    <span>수량</span>
+                                </td>
+                                <td>
+                                    <span>단가</span>
+                                </td>
+                                <td>
+                                    <span>공급가액</span>
+                                </td>
+                                <td>
+                                    <span>세액</span>
+                                </td>
+                            </tr>
+                            
+                            <!-- 반복시작 -->
+                            <c:forEach items="${list}" var=list>
+                                <tr>
+                                    <td>
+                                        <span>${품명}</span>
+                                    </td>
+                                    <td>
+                                        <span>${규격}</span>
+                                    </td>
+                                    <td>
+                                        <span>${수량}</span>
+                                    </td>
+                                    <td>
+                                        <span>${단가}</span>
+                                    </td>
+                                    <td>
+                                        <span>${세액}</span>
+                                    </td>
+                                    <td>
+                                        <span>${총액}</span>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            
+                            <!-- 계 -->
+                            <tr>
+                                <td colspan="4">
+                                    <span>계</span>
+                                </td>
+                                <td colspan="2">
+                                    <span>${공급가액 합계}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6">비고</td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" style="height: 200px;">
+                                    ${비고사항}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    window.print();
+</script>
+</html>
