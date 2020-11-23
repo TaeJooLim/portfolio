@@ -1,53 +1,24 @@
-create table product_reg(
-p_num int auto_increment primary
-p_name varchar(100) not null,
-p_brand varchar(50),
-p_group varchar(50),
-p_state char(1) not null,
-p_modelnum varchar(100),
-p_use char(1),
-p_unit char(1) not null,
-p_amount int not null,
-p_code varchar(20) not null,
-p_shop carchar(50),
-p_order_num varchar(20),
-p_barcode varchar(15),
-p_size varchar(20),
-p_currency char(1) not null,
-p_price int not null default 0,
-p_tax int,
-p_taxuse char(1) not null,
-p_stock int not null default 0,
-p_regist char(1) not null,
-p_place varchar(10),
-p_orderdata varchar(10) not null,
-p_note varchar(20)
+제품/원자재/상품
+
+
+create table product (
+  p_id int auto_increment primary key,
+  p_type char(1) not null,          // 대분류( select value=값들 / 제품(A), 원자재(B), 상품(C) )
+  p_name varchar(100) not null,     // 품명
+  p_code varchar(20) not null,      // 품목코드 ( p_대분류 +  p_소분류 + p_id(pk) 자동생성 )
+  p_brand varchar(50),              // 제조사
+  p_group char(2) not null,         // 상품그룹명( select value=값들 / 컴퓨터(01), 전자기기(02), 스마트폰(03), 사무용품(04) )
+  p_modelnum varchar(30),           // 상품의 모델번호 ( 최소 5자 이상 입력 )
+  p_use varchar(10),                // 품목상태 ( select값 그대로 한글로 저장 / 사용, 임시, 생산중지, 거래중지, 폐기 )
+  p_unit varchar(5) not null,       // 기준단위 ( select값 그대로 영어로 저장 / EA, KG, SET )
+  p_order_num varchar(20),          // 발주번호 ( YYYYMMDD_품목코드 / 자동생성하여 저장 )
+  p_size varchar(20),               // 규격
+  p_currency char(1) not null,      // 통화( KRW(1), USD(2) )
+  p_buy int,                        // 입고단가
+  p_sell int,                       // 판매단가
+  p_tax int,                        // 부가세 ( 무조건 가격의 10%로 적용 )
+  p_taxuse char(1) not null,        // 부가세적용 ( input="radio" value="값 / Y,N )
+  p_note varchar(100),              // 비고
+  
+  account_id_fk int not null        // 거래처의 pk를 fk로 저장하여 출력할때 사용
 );
-
-
-
-p_num int auto_increment primary
-p_name varchar(100) not null, //품명
-p_brand varchar(50), //브랜드명
-p_group varchar(50), //상품그룹명(ex 컴퓨터, 사무용품 ...)
-p_state char(1) not null, //내외자구분 (내자, 외자)
-p_modelnum varchar(100), //상품의 모델번호
-p_use char(1), // 품목상태 (사용, 임시, 생산중지, 거래중지, 폐기)
-p_unit char(1) not null, //기준단위(EA, KG, SET)
-p_amount int not null, //구매수량
-p_code varchar(20) not null, //품목코드
-p_shop carchar(50), // 구입처
-p_order_num varchar(20), //발주번호
-p_barcode varchar(15), //바코드
-p_size varchar(20), //규격
-p_currency char(1) not null, //통화(KRW, USD)
-p_price int not null default 0, //구매단가
-p_tax int, //부가세
-p_taxuse char(1) not null, //부가세적용
-p_stock int not null default 0, //보유재고량
-p_regist char(1) not null, //재고관리(등록, 추가)
-p_place varchar(10), //재고위치
-p_orderdata varchar(10) not null, //구입일
-p_note varchar(20) //비고
-
-
