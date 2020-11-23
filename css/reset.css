@@ -13,6 +13,11 @@ table {
     outline: 0;
 }
 
+/* 외곽선 표시 X */
+input, select {
+    outline: transparent;
+}
+
 a {
     text-decoration: none;
 }

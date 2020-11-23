@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인페이지</title>
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/button_style.css">
+    <link rel="stylesheet" href="../../../css/table_style.css">
+
+    <!-- FontAweSome -->
+    <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
+    <!-- FontAweSome -->
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQuery -->
+
+</head>
+<style>
+    .control_menu {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .main_left_menu {
+        width: 50px;
+    }
+
+    .left_menu_icon {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .menu_selected {
+        background-color: #fff;
+        color: #3F51B5;
+    }
+
+    .menu_hide {
+        display: none;
+    }
+
+    .menu_active {
+        display: block;
+    }
+
+    .submenu_box {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 170px;
+        height: 80%;
+        color: #000;
+        border-right: 1px solid #ccc;
+        background-color: #fff;
+    }
+
+    .list th {
+        border: 1px solid #60718b;
+        background-color: #6f809a;
+        color: #fff;
+        padding: 8px 5px;
+        text-align: center;
+    }
+
+    .list tr:nth-child(2n) {
+        background-color: #eff3f9;
+    }
+
+    .list td {
+        border: 1px solid #d6dce7;
+        padding: 8px 5px;
+        text-align: center;
+    }
+
+    .product_list td {
+        border: 1px solid #d6dce7;
+    }
+
+    .input_100 {
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid #d5d5d5;
+        width: 100%;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .input_50 {
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid #d5d5d5;
+        width: 100%;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .sel_100 {
+        width: 100%;
+    }
+
+    .p_lr3 {
+        padding: 0 3px;
+    }
+
+    .list_title {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+</style>
+
+<body>
+    <div class="page_wrap bg_white noto font_14" style="height: 100vh;">
+
+        <div class="main_right bg_white" style="width: 100%;">
+            <div class="main_right_title p_10" style="height: 50px; border-bottom: 1px solid #ccc;">
+                <h2 class="font_18">수입수출 품목 리스트</h2>
+            </div>
+        </div>
+        <div class="main_right_info" style="padding: 30px 20px;">
+            <div class="product_list">
+                <table>
+                    <tr>
+                        <td class="bg_gray weight_700 td_10 center">수입처</td>
+                        <td class="p_lr3">
+                            <input type="text" name="" placeholder="buyer" maxlength="20" id="" class="input_100" required />
+                        </td>
+                        <td class="bg_gray weight_700 td_10 center">수입처코드</td>
+                        <td class="p_lr3">
+                            <input type="text" name="" maxlength="20" id="" class="input_100" required />
+                        </td>
+                        <td class="bg_gray weight_700 td_10 center">수출처</td>
+                        <td class="p_lr3">
+                            <input type="text" placeholder="seller" name="" maxlength="20" id="" class="input_100" required />
+                        </td>
+                        <td class="bg_gray weight_700 td_10 center">수출처코드</td>
+                        <td class="p_lr3">
+                            <input type="text" name="" maxlength="20" id="" class="input_100" required />
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td class="bg_gray weight_700 td_10 center">상품명</td>
+                        <td class="p_lr3">
+                            <input type="text" name="" maxlength="20" id="" class="input_100" required />
+                        </td>
+                        <td class="bg_gray weight_700 td_10 center">상품코드</td>
+                        <td class="p_lr3">
+                            <input type="text" name="" maxlength="20" id="" class="input_100" required />
+                        </td>
+                        <td class="bg_gray weight_700 td_10 center">P/O No.</td>
+                        <td class="p_lr3">
+                            <input type="text" name="" maxlength="20" id="" class="input_100" required />
+                        </td>
+                        <td class="bg_gray weight_700 td_10 center">배송수단</td>
+                        <td class="p_lr3">
+                            <select class="sel_100">
+                                <option value="">AIR</option>
+                                <option value="">SHEET</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="bg_gray weight_700 td_10 center">수입일자</td>
+                        <td class="p_lr3">
+                            <input type="date" name="" maxlength="20" id="" class="input_100" required />
+                        </td>
+                        <td class="bg_gray weight_700 td_10 center">수출일자</td>
+                        <td class="p_lr3">
+                            <input type="date" name="" maxlength="20" id="" class="input_100" required />
+
+                        </td>
+                        <td class="bg_gray weight_700 td_10 center">수출확인여부</td>
+                        <td class="p_lr3">
+                            <select class="sel_100">
+                                <option value="Y">Y</option>
+                                <option value="N">N</option>
+                            </select>
+                        </td>
+                        <td class="bg_gray weight_700 td_10 center">반품여부</td>
+                        <td class="p_lr3">
+                            <select class="sel_100">
+                                <option value="Y">Y</option>
+                                <option value="N">N</option>
+                            </select>
+                        </td>
+
+                    </tr>
+                </table>
+                <div class="btn-grp center m_t10">
+                    <button type="submit" class="btn_blue">조회</button>
+                    <button type="reset" class="btn_red">새로고침</button>
+                </div>
+            </div>
+            <div class="m_t20" style="border-top: 1px solid #000;">
+                <div class="" style="width: 100%; white-space: nowrap; overflow-x: scroll;">
+                    <div class="list_title">
+                        <h2>수출입리스트</h2>
+                    </div>
+
+                    <table class="list">
+                        <thead>
+                            <tr>
+                                <th class="td_3">번호</th>
+                                <th>HS code</th>
+                                <th>P/O No.</th>
+                                <th>수입처</th>
+                                <th>수출처</th>
+                                <th>상품명</th>
+                                <th>상품코드</th>
+                                <th>단위</th>
+                                <th>통화</th>
+                                <th>판매단가</th>
+                                <th>수량</th>
+                                <th>판매금액</th>
+                                <th>수입일자</th>
+                                <th>수출일자</th>
+                                <th>배송수단</th>
+                                <th>수출여부</th>
+                                <th>반품여부</th>
+                                <th>비고</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>10</td>
+                                <td></td>
+                                <td>AB-20201110-027</td>
+                                <td>Somsong IT Co.,Ltd</td>
+                                <td>Project Co.,Ltd</td>
+                                <td>삼성전자 갤럭시북 이온 NT950XCR-G58A</td>
+                                <td>ABC0000000</td>
+                                <td>EA</td>
+                                <td>USD</td>
+                                <td>1,500</td>
+                                <td>20</td>
+                                <td>30,000.00</td>
+                                <td>2020-11-01</td>
+                                <td>2020-11-05</td>
+                                <td>AIR</td>
+                                <td>Y</td>
+                                <td>N</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td></td>
+                                <td>AB-20201110-027</td>
+                                <td>Somsong IT Co.,Ltd</td>
+                                <td>Project Co.,Ltd</td>
+                                <td>헤어드라이기 HRDRY000A</td>
+                                <td>ABC0000000</td>
+                                <td>EA</td>
+                                <td>USD</td>
+                                <td>300</td>
+                                <td>100</td>
+                                <td>30,000.00</td>
+                                <td>2020-11-01</td>
+                                <td>2020-11-05</td>
+                                <td>AIR</td>
+                                <td>N</td>
+                                <td>Y</td>
+                                <td>안전성 부적합(과열)로 통관거부</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
