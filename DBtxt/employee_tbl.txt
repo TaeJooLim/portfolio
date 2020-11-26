@@ -1,0 +1,36 @@
+create table employee(
+	emp_id int not null auto_increment primary key,	// 기본키
+	emp_department char(3) not null,		// 부서코드 Join kind_department
+	emp_position char(2) not null,			// 직책코드 Join kind_position
+	emp_num varchar(20) not null,		// 사원번호 (YY+MM+BuseoCode+emp_id 자동계산)
+	emp_enter char(10) not null,			// 입사년월일
+	emp_name varchar(30) not null,		// 사원이름
+	emp_birth char(10) not null,			// 생년월일
+	emp_password varchar(20) not null,		// 초기비밀번호(default : 생년월일 yymmdd 6자리)
+						// 비밀번호는 (6자이상 20자 이하)
+	emp_email varchar(50) not null,		// 이메일주소
+	emp_regdate Date,				// erp 회원가입일
+	emp_headcheck char(1) default 'N',		// 부서장여부(*)
+	emp_step	int,				// 호봉 (자동계산)
+	emp_auth int default 1,			// 권한
+	emp_confirm char(1) default 'N'		// 승인여부 (추후 이메일로 체크가능한지)
+	emp_photo varchar(255)			// 사진경로 (추후)
+);
+
+create table employee(
+	emp_id int not null auto_increment primary key,
+	emp_department char(3) not null,
+	emp_position char(2) not null,
+	emp_num varchar(20) not null,
+	emp_enter char(10) not null,
+	emp_name varchar(30) not null,
+	emp_birth char(10) not null,
+	emp_password varchar(20) not null,
+	emp_email varchar(50) not null,
+	emp_regdate Date,
+	emp_headcheck char(1) default 'N',
+	emp_step	int,
+	emp_auth int default 1,
+	emp_confirm char(1) default 'N'
+	emp_photo varchar(255)
+);

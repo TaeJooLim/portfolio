@@ -22,3 +22,26 @@ create table product (
   
   account_id_fk int not null        // 거래처의 pk를 fk로 저장하여 출력할때 사용
 );
+
+
+create table product (
+  p_id int auto_increment primary key,
+  p_type char(1) not null,          
+  p_name varchar(100) not null,     
+  p_code varchar(20) not null,     
+  p_brand varchar(50),              
+  p_group char(2) not null,        
+  p_modelnum varchar(30),           
+  p_use varchar(10),                
+  p_unit varchar(5) not null,      
+  p_order_num varchar(20),         
+  p_size varchar(20),             
+  p_currency char(1) not null,     
+  p_buy int,                        
+  p_sell int,                      
+  p_tax int,                        
+  p_taxuse char(1) not null,        
+  p_note varchar(100),              
+  
+  account_id_fk int not null       
+);
