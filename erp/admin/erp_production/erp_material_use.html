@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인페이지</title>
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/button_style.css">
+    <link rel="stylesheet" href="../../../css/common_table.css">
+    <link rel="stylesheet" href="../../../css/erp_material_use.css">
+
+    <!-- FontAweSome -->
+    <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
+    <!-- FontAweSome -->
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQuery -->
+
+</head>
+<style>
+    .search_wrap {
+        display: none;
+        height: 300px;
+        border: 1px solid #ccc;
+        border-top: none;
+        overflow-y: scroll;
+    }
+
+    .search_list {
+        padding: 5px;
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .search_list th,
+    td {
+        border-bottom: 1px solid #ccc;
+    }
+
+    .list th {
+        border: 1px solid #60718b;
+        background-color: #6f809a;
+        color: #fff;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .list tr:nth-child(2n) {
+        background-color: #eff3f9;
+    }
+
+    .list td {
+        border: 1px solid #d6dce7;
+        padding: 0 5px;
+        text-align: center;
+    }
+
+    .product>td {
+        border: 1px solid #d6dce7;
+    }
+
+    .input_100 {
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid #d5d5d5;
+        width: 100%;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .input_box {
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid #d5d5d5;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .sel_100 {
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid #d5d5d5;
+        width: 100%;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .sel_box {
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid #d5d5d5;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .list_title {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .open {
+        display: block;
+    }
+
+    .control_menu {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .main_left_menu {
+        width: 50px;
+    }
+
+    .left_menu_icon {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .menu_selected {
+        background-color: #fff;
+        color: #3F51B5;
+    }
+
+    .menu_hide {
+        display: none;
+    }
+
+    .menu_active {
+        display: block;
+    }
+
+    .submenu_box {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 170px;
+        height: 80%;
+        color: #000;
+        border-right: 1px solid #ccc;
+        background-color: #fff;
+    }
+</style>
+
+<body>
+    <div class="page_wrap bg_white noto font_14" style="height: 100vh;">
+        <div class="page_top flex space_between">
+            <div class="top_left bg_blue_1">
+                <div id="mainmenu_btn" class="control_menu font_16 white center flex flex_hc flex_vc">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div class="top_middle bg_blue_2 font_16 flex flex_hc flex_vc" style="width: 10%;">
+                <span class="white">ADMINISTRATOR</span>
+            </div>
+            <div class="top_right bg_blue_3 p_10" style="width: 100%;">
+                <div class="top_right_menu flex" style="justify-content: flex-end;">
+                    <div class="top_right_menu_one white" style="line-height: 30px;"><i class="fas fa-store"></i></div>
+                    <div class="top_right_menu_two white m_lr20" style="line-height: 30px;"><i class="fas fa-home"></i>
+                    </div>
+                    <!-- <div class="top_right_menu_three">
+                        <button class="m_l10 white"
+                            style="display: inline-block; padding: 5px 10px; margin-left: 10px; border-radius: 3px; height: 30px;  color: #fff; background-color: rgba(250, 250, 250, 0.1);">
+                            부가서비스
+                        </button>
+                    </div> -->
+                    <div class="top_right_menu_four">
+                        <select class="white" style="background-color: rgba(250, 250, 250, 0.1); height: 30px;">
+                            <option class="bg_blue_4">관리자</option>
+                            <option class="bg_blue_4">관리자정보</option>
+                            <option class="bg_blue_4">로그아웃</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page_main flex space_between" style="border-bottom: 1px solid #ccc;">
+            <div class="main_left flex space_between" style="width: 50px;">
+                <div class="main_left_menu bg_ivory">
+
+                    <!-- FLOAT로 띄워서 버튼 JQUERY로 show&hide -->
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div id="submenu_box" class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">1번메뉴</h4>
+                        <ul class="font_12">
+                            <li class="m_b10">서브메뉴1</li>
+                            <li class="m_b10">서브메뉴2</li>
+                            <li class="m_b10">서브메뉴3</li>
+                            <li class="m_b10">서브메뉴4</li>
+                        </ul>
+                    </div>
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-user-alt"></i>
+                    </div>
+                    <div class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">사원관리</h4>
+                        <ul class="font_12">
+                            <li class="m_b10"><a href="employee/erp_employee_list.html">사원목록보기</a></li>
+                            <li class="m_b10"><a href="employee/erp_employee_register.html">사원상세정보 입력/수정</a></li>
+                            <li class="m_b10">서브메뉴3</li>
+                            <li class="m_b10">서브메뉴4</li>
+                            <li class="m_b10">서브메뉴5</li>
+                        </ul>
+                    </div>
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-user-alt"></i>
+                    </div>
+                    <div class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">3번메뉴</h4>
+                        <ul class="font_12">
+                            <li class="m_b10">서브메뉴1</li>
+                            <li class="m_b10">서브메뉴2</li>
+                            <li class="m_b10">서브메뉴3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="main_right bg_white" style="width: 100%;">
+                <div class="main_right_title p_10" style="height: 50px; border-bottom: 1px solid #ccc;">
+                    <h2 class="font_18">제품별 소요 자재 공정 등록</h2>
+                </div>
+                <div class="main_right_info" style="padding: 30px 20px;">
+                    <div class="">
+                        <div class="table_title">
+                            <i class="fas fa-edit"></i>
+                            제품정보
+                        </div>
+                        <div class="list_comment font_12 m_b10" style="padding: 10px 20px; background-color: #f9f9f9;">
+                            제품정보는 등록된 <strong>제품명</strong>으로 검색이 가능합니다.
+                        </div>
+                        <table>
+                            <tr>
+                                <td class="bg_gray weight_700 td_7 center">제품명</td>
+                                <td class="p_lr3">
+                                    <div class="search_box">
+                                        <input type="text" name="" id="prod_name" maxlength="20" class=" prod_name input_100" disabled required />
+                                        <i class="fas fa-search font_18" style="color: #959595;" id="search"></i>
+                                    </div>
+                                </td>
+                                <td class="bg_gray weight_700 td_7 center">제품번호</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" maxlength="20" id="" class=" prod_num input_100" disabled required />
+                                </td>
+                                <td class="bg_gray weight_700 td_7 center">규격</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" maxlength="50" id="" class="input_100" required />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bg_gray weight_700 td_7 center">수량</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" maxlength="30" id="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 td_7 center">단위</td>
+                                <td class="p_lr3 ">
+                                    <select class="sel_100">
+                                        <option>EA</option>
+                                        <option>KG</option>
+                                        <option>SET</option>
+                                    </select>
+                                </td>
+                                <td class="bg_gray weight_700 td_7 center">공정차수</td>
+                                <td class="p_lr3">
+                                    <select class="sel_100">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="search_wrap p_10 " id="search_wrap">
+                            <div class="search_box center">
+                                <select class="sel_box td_7">
+                                    <option value="제품명">제품명</option>
+                                    <option value="제품번호">제품번호</option>
+                                </select>
+                                <input type="text" class="input_box" style="width: 35%;">
+                                <button type="button" class="btn_ivory" style="">검색</button>
+                            </div>
+                            <div class="m_t10">
+                                <table class="search_list">
+                                    <thead>
+                                        <tr>
+                                            <th>번호</th>
+                                            <th>품명</th>
+                                            <th>제품번호</th>
+                                            <th>선택</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td id="prod_name_01">product_01</td>
+                                            <td id="prod_num_01">product_code_01</td>
+                                            <td>
+                                                <button type="button" id="" class="proc_sel_btn s_btn_gray">선택</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td class="prod_name_01">product_01</td>
+                                            <td class="prod_num_01">product_code_01</td>
+                                            <td>
+                                                <button type="button" id="" class="proc_sel_btn s_btn_gray">선택</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td class="prod_name_01">product_01</td>
+                                            <td class="prod_num_01">product_code_01</td>
+                                            <td>
+                                                <button type="button" id="" class="proc_sel_btn s_btn_gray">선택</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td class="prod_name_01">product_01</td>
+                                            <td class="prod_num_01">product_code_01</td>
+                                            <td>
+                                                <button type="button" id="" class="proc_sel_btn s_btn_gray">선택</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td class="prod_name_01">product_01</td>
+                                            <td class="prod_num_01">product_code_01</td>
+                                            <td>
+                                                <button type="button" id="" class="proc_sel_btn s_btn_gray">선택</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td class="prod_name_01">product_01</td>
+                                            <td class="prod_num_01">product_code_01</td>
+                                            <td>
+                                                <button type="button" id="" class="proc_sel_btn s_btn_gray">선택</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="table_title m_t10">
+                            <i class="fas fa-edit"></i>
+                            소요 자재 등록
+                        </div>
+                        <div class="flex space_between">
+                            <div class="w_100 list_comment font_12 m_b10 flex" style="padding: 10px 20px; background-color: #f9f9f9;">
+                                <span>자재정보는 등록된 <strong>자재명</strong>으로 검색이 가능합니다.</span>
+
+                            </div>
+                            <div class="">
+                                <button class="btn_blue m_l3 m_t3">자재추가</button>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <table class="m_b10">
+                                <tr>
+                                    <td class="bg_gray weight_700 center td_7">자재명</td>
+                                    <td class="p_lr3">
+                                        <div class="search_box">
+                                            <input type="text" name="" maxlength="15" id="" class="input_100" required />
+                                            <i class="fas fa-search font_18"></i>
+                                        </div>
+                                    </td>
+                                    <td class="bg_gray weight_700 center td_7">자재코드</td>
+                                    <td class="p_lr3">
+                                        <input type="text" name="" maxlength="15" id="" class="input_100" required />
+                                    </td>
+                                    <td class="bg_gray weight_700 center td_7">규격</td>
+                                    <td class="p_lr3">
+                                        <input type="text" name="" maxlength="15" id="" class="input_100" required />
+                                    </td>
+                                    <td class="bg_gray weight_700 center td_7">수량</td>
+                                    <td class="p_lr3">
+                                        <input type="text" name="" maxlength="15" id="" class="input_100" required />
+                                    </td>
+                                    <td class="bg_gray weight_700 center td_7">단위</td>
+                                    <td class="p_lr3 td_10">
+                                        <select class="w_100 sel_100">
+                                            <option>EA</option>
+                                            <option>KG</option>
+                                            <option>SET</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+
+                        <table class="list_table">
+                            <thead>
+                                <tr>
+                                    <th class="td_5">번호</th>
+                                    <th>제품명</th>
+                                    <th>제품코드</th>
+                                    <th>자재명</th>
+                                    <th>자재코드</th>
+                                    <th>규격</th>
+                                    <th>수량</th>
+                                    <th>단위</th>
+                                    <th class="td_3 center">
+                                        비고
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>데스크탑-D_00_00A</td>
+                                    <td>A001</td>
+                                    <td>메인보드</td>
+                                    <td>MB_43_00A</td>
+                                    <td>30</td>
+                                    <td>1</td>
+                                    <td>EA</td>
+                                    <td>
+                                        <button class="s_btn_red">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>데스크탑-D_00_00A</td>
+                                    <td>A001</td>
+                                    <td>메인보드</td>
+                                    <td>MB_43_00A</td>
+                                    <td>30</td>
+                                    <td>1</td>
+                                    <td>EA</td>
+                                    <td>
+                                        <button class="s_btn_red">삭제</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="table_title m_t10">
+                            <i class="fas fa-edit"></i>
+                            공정 등록
+                        </div>
+                        <div class="flex space_between">
+                            <div class="w_100 list_comment font_12 m_b10 flex" style="padding: 10px 20px; background-color: #f9f9f9;">
+                                <span>제품 생산에 필요한 공정을 입력해주세요.</span>
+
+                            </div>
+                            <div class="">
+                                <button class="btn_blue m_l3 m_t3">공정추가</button>
+                            </div>
+                        </div>
+                        <table class="m_b10">
+                            <tr>
+                                <td class="bg_gray weight_700 center td_7">공정순서</td>
+                                <td class="p_lr3 td_10">
+                                    <select class="sel_100">
+                                        <option value="5">5</option>
+                                        <option value="4">4</option>
+                                        <option value="3">3</option>
+                                        <option value="2">2</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </td>
+                                <td class="bg_gray weight_700 center td_7">공정</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" maxlength="15" id="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 center td_7">워크센터</td>
+                                <td class="p_lr3 td_10">
+                                    <select class="sel_100">
+                                        <option value="5">5</option>
+                                        <option value="4">4</option>
+                                        <option value="3">3</option>
+                                        <option value="2">2</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </td>
+                                <td class="bg_gray weight_700 center td_7">작업인원</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" maxlength="15" id="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 center td_7">작업시간</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" maxlength="15" id="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 center td_7">담당자</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" maxlength="15" id="" class="input_100" required />
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table class="list m_t10">
+                            <thead>
+                                <tr>
+                                    <th class="td_5">번호</th>
+                                    <th class="td_7">공정순서</th>
+                                    <th>공정</th>
+                                    <th>워크센터</th>
+                                    <th>작업인원</th>
+                                    <th>작업시간(h)</th>
+                                    <th>담당부서</th>
+                                    <th>담당자</th>
+                                    <th>담당자연락처</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>조립</td>
+                                    <td>0</td>
+                                    <td>5</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>010-0000-0000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="copyright center">
+            <span class="copy"> &copy;Copyright All rights reserved.</span>
+            <span class="history">2020 - 2030</span>
+        </div>
+    </footer>
+    <div class="clearfix"></div>
+</body>
+
+<script>
+    $(function() {
+        $("#search").click(function() {
+            $("#search_wrap").toggle();
+        });
+
+        $(".proc_sel_btn").click(function() {
+            $(".prod_name").val($("#prod_name_01").text());
+            $(".prod_num").val($("#prod_num_01").text());
+            $("#search_wrap").hide();
+        })
+    });
+    $(function() {
+        $("#mtr_name").focus(function() {
+            $("#m_search_wrap").toggle();
+        });
+
+        $(".mtr_sel_btn").click(function() {
+            $("#mtr_name").val($("#mtr_name_01").text());
+            $("#mtr_num").val($("#mtr_num_01").text());
+            $("#m_search_wrap").hide();
+        })
+    });
+</script>
+
+<script>
+    $(function() {
+        $(".left_menu_icon").click(function() {
+            $(this).next().toggleClass("menu_hide");
+            $(this).toggleClass("menu_selected");
+        });
+        $("#mainmenu_btn").click(function() {
+            $("#submenu_box").toggleClass("menu_hide");
+        });
+    });
+</script></html>
