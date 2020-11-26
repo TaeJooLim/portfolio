@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인페이지</title>
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/button_style.css">
+    <link rel="stylesheet" href="../../../css/common_table.css">
+
+    <!-- calendar css -->
+    <link rel="stylesheet" href="calendar/core/main.css">
+    <link rel="stylesheet" href="calendar/daygrid/main.css">
+    <!-- calendar css -->
+
+    <!-- FontAweSome -->
+    <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
+    <!-- FontAweSome -->
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQuery -->
+
+    <!-- calendar -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+    <!-- calendar -->
+
+</head>
+<style>
+    .search_wrap {
+        display: none;
+        height: 300px;
+        border: 1px solid #ccc;
+        border-top: none;
+        overflow-y: scroll;
+    }
+
+    .search_list {
+        padding: 5px;
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .search_list th,
+    td {
+        border-bottom: 1px solid #ccc;
+    }
+
+    .list th {
+        border: 1px solid #60718b;
+        background-color: #6f809a;
+        color: #fff;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .list tr:nth-child(2n) {
+        background-color: #eff3f9;
+    }
+
+    .list td {
+        border: 1px solid #d6dce7;
+        padding: 0 5px;
+        text-align: center;
+    }
+
+    .product > td {
+        border: 1px solid #d6dce7;
+    }
+
+    .input_100 {
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid #d5d5d5;
+        width: 100%;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .input_box {
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid #d5d5d5;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .sel_100 {
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid #d5d5d5;
+        width: 100%;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .sel_box {
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid #d5d5d5;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .list_title {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .open {
+        display: block;
+    }
+
+</style>
+
+
+<body>
+    <div class="page_wrap bg_white noto font_14" style="height: 100vh;">
+
+        <div class="main_right bg_white" style="width: 100%;">
+            <div class="main_right_title p_10" style="height: 50px; border-bottom: 1px solid #ccc;">
+                <h2 class="font_18">상품별공정별소요자재등록</h2>
+            </div>
+        </div>
+        <div class="main_right_info" style="padding: 30px 20px;">
+            <form>
+                <div class="m_b10">
+                    <h3 class="m_b10"><i class="far fa-circle"></i> 제품정보</h3>
+                    <table>
+                        <tr class="product">
+                            <td class="bg_gray weight_700 td_10 center">제품명</td>
+                            <td class="p_lr3">
+                                <input type="text" name="" id="pd_name" maxlength="20" class="input_100" disabled required />
+                            </td>
+                            <td class="bg_gray weight_700 td_10 center">제품번호</td>
+                            <td class="p_lr3">
+                                <input type="text" name="" maxlength="20" id="pd_num" class="input_100" disabled required />
+                            </td>
+                            <td class="center" style="width: 80px">
+                                <button type="button" id="search" class="btn_ivory">검색</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="search_wrap p_10" id="search_wrap" >
+                        <div class="search_box center">
+                            <select class="sel_box td_10">
+                                <option value="제품명">제품명</option>
+                                <option value="제품번호">제품번호</option>
+                            </select>
+                            <input type="text" class="input_box" style="width: 35%;">
+                            <button type="button" class="btn_ivory" style="">검색</button>
+                        </div>
+                        <div class="m_t10">
+                            <table class="search_list">
+                                <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>품명</th>
+                                        <th>제품번호</th>
+                                        <th>선택</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td id="pd_name_01">product_01</td>
+                                        <td id="pd_num_01">product_code_01</td>
+                                        <td>
+                                            <button type="button" id="" class="sel_btn s_btn_gray">선택</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td class="pd_name_01">product_01</td>
+                                        <td class="pd_num_01">product_code_01</td>
+                                        <td>
+                                            <button type="button" id="" class="sel_btn s_btn_gray">선택</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td class="pd_name_01">product_01</td>
+                                        <td class="pd_num_01">product_code_01</td>
+                                        <td>
+                                            <button type="button" id="" class="sel_btn s_btn_gray">선택</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td class="pd_name_01">product_01</td>
+                                        <td class="pd_num_01">product_code_01</td>
+                                        <td>
+                                            <button type="button" id="" class="sel_btn s_btn_gray">선택</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td class="pd_name_01">product_01</td>
+                                        <td class="pd_num_01">product_code_01</td>
+                                        <td>
+                                            <button type="button" id="" class="sel_btn s_btn_gray">선택</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td class="pd_name_01">product_01</td>
+                                        <td class="pd_num_01">product_code_01</td>
+                                        <td>
+                                            <button type="button" id="" class="sel_btn s_btn_gray">선택</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="m_tb10">
+                    <h3><i class="far fa-circle"></i> 공정</h3>
+                    <table class="list m_t10">
+                        <thead>
+                            <tr>
+                                <th>공정순서</th>
+                                <th>공정</th>
+                                <th>워크센터</th>
+                                <th>워크센터</th>
+                                <th>워크센터</th>
+                                <th>워크센터</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" class="input_100"></td>
+                                <td><input type="text" class="input_100"></td>
+                                <td><input type="text" class="input_100"></td>
+                                <td><input type="text" class="input_100"></td>
+                                <td><input type="text" class="input_100"></td>
+                                <td><input type="text" class="input_100"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn-grp center m_t10">
+                    <button type="submit" class="btn_ivory">등록</button>
+                    <button type="reset" class="btn_red">취소</button>
+                </div>
+                
+                <h3><i class="far fa-circle"></i> 공정리스트</h3>
+                <table class="list m_t10">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>공정순서</th>
+                                <th>공정</th>
+                                <th>워크센터</th>
+                                <th>워크센터</th>
+                                <th>워크센터</th>
+                                <th>워크센터</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="m_tb10">
+                    <h3><i class="far fa-circle"></i> 소요자재</h3>
+                    <table class="list m_t10">
+                        <thead>
+                            <tr>
+                                <th>투입공정</th>
+                                <th>자재명</th>
+                                <th>자재번호</th>
+                                <th>규격</th>
+                                <th>투입단위</th>
+                                <th>소요량</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" class="input_100"></td>
+                                <td>
+                                    <input type="text" id="mtr_name" class="input_100"
+                                </td>
+                                <td><input type="text" id="mtr_num" class="input_100"></td>
+                                <td><input type="text" class="input_100"></td>
+                                <td><input type="text" class="input_100"></td>
+                                <td><input type="text" class="input_100"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="search_wrap p_10" id="m_search_wrap" >
+                        <div class="search_box center">
+                            <select class="sel_box td_10">
+                                <option value="자재명">자재명</option>
+                                <option value="자재번호">자재번호</option>
+                            </select>
+                            <input type="text" class="input_box" style="width: 35%;">
+                            <button type="button" class="btn_ivory" style="">검색</button>
+                        </div>
+                        <div class="m_t10">
+                            <table class="search_list">
+                                <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>자재명</th>
+                                        <th>자재번호</th>
+                                        <th>선택</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td id="mtr_name_01">matrial_01</td>
+                                        <td id="mtr_num_01">matrial_code_01</td>
+                                        <td>
+                                            <button type="button" id="" class="sel_btn s_btn_gray">선택</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td class="mtr_name_01">matrial_01</td>
+                                        <td class="mtr_num_01">matrial_code_01</td>
+                                        <td>
+                                            <button type="button" id="" class="sel_btn s_btn_gray">선택</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td class="mtr_name_01">matrial_01</td>
+                                        <td class="mtr_num_01">matrial_code_01</td>
+                                        <td>
+                                            <button type="button" id="" class="sel_btn s_btn_gray">선택</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="btn-grp center m_t10">
+                    <button type="submit" class="btn_ivory">등록</button>
+                    <button type="reset" class="btn_red">취소</button>
+                </div>
+                
+                <h3><i class="far fa-circle"></i> 자재리스트</h3>
+                <table class="list m_t10">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>투입공정</th>
+                                <th>자재명</th>
+                                <th>자재번호</th>
+                                <th>규격</th>
+                                <th>투입단위</th>
+                                <th>소요량</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="btn-grp center m_t10">
+                    <button type="submit" class="btn_blue">저장</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    $(function() {
+        $("#search").click(function() {
+            $("#search_wrap").toggle();
+        });
+
+        $(".sel_btn").click(function() {
+            $("#pd_name").val($("#pd_name_01").text());
+            $("#pd_num").val($("#pd_num_01").text());
+            $("#search_wrap").hide();
+        })
+    });
+$(function() {
+        $("#mtr_name").focus(function() {
+            $("#m_search_wrap").toggle();
+        });
+
+        $(".sel_btn").click(function() {
+            $("#mtr_name").val($("#mtr_name_01").text());
+            $("#mtr_num").val($("#mtr_num_01").text());
+            $("#m_search_wrap").hide();
+        })
+    });
+</script>
+
+</html>
