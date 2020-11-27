@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,8 @@
     <link rel="stylesheet" href="../../../css/common_table.css">
     <link rel="stylesheet" href="../../../css/button_style.css">
     <link rel="stylesheet" href="../../../css/employee.css">
-   
-  
+
+
 
     <!-- FontAweSome -->
     <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
@@ -29,24 +30,30 @@
         height: 50px;
         cursor: pointer;
     }
+
     .main_left_menu {
         width: 50px;
     }
+
     .left_menu_icon {
         width: 50px;
         height: 50px;
         cursor: pointer;
     }
+
     .menu_selected {
         background-color: #fff;
         color: #3F51B5;
     }
+
     .menu_hide {
         display: none;
     }
+
     .menu_active {
         display: block;
     }
+
     .submenu_box {
         position: absolute;
         top: 50px;
@@ -59,39 +66,46 @@
     }
 
     .member_left {
-            /*사진*/
-            width: 11%;
-            max-width: 192px;
-        }
+        /*사진*/
+        width: 11%;
+        max-width: 192px;
+    }
 
-        .photo_area {
-            width: 100%;
-        }
+    .photo_area {
+        width: 100%;
+    }
 
-        .photo_area img {
-            width: 100%;
-            height: 240px;
-            display: inline-block;
-        }
+    .photo_area img {
+        width: 100%;
+        height: 240px;
+        display: inline-block;
+    }
 
-        .member_right {
-            /*내용*/
-            width: 88.7%;
-            max-width: 1728px;
-        }
+    .member_right {
+        /*내용*/
+        width: 88.7%;
+        max-width: 1728px;
+    }
 
-        .cke_style{
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 2px;
-            width: 100%;
-            height: 150px;
-        }
+    .cke_style {
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 2px;
+        width: 100%;
+        height: 150px;
+    }
 
-        td {
-            border: 1px solid #d6dce7;
-        }
+    td {
+        border: 1px solid #d6dce7;
+    }
+
+    .req::after {
+        content: '*';
+        color: tomato;
+    }
+
 </style>
+
 <body>
     <div class="page_wrap bg_white noto font_14" style="height: 100vh;">
         <div class="page_top flex space_between">
@@ -105,10 +119,8 @@
             </div>
             <div class="top_right bg_blue_3 p_10" style="width: 100%;">
                 <div class="top_right_menu flex" style="justify-content: flex-end;">
-                    <div class="top_right_menu_one white" style="line-height: 30px;"><i
-                            class="fas fa-store"></i></div>
-                    <div class="top_right_menu_two white m_lr20" style="line-height: 30px;"><i
-                            class="fas fa-home"></i></div>
+                    <div class="top_right_menu_one white" style="line-height: 30px;"><i class="fas fa-store"></i></div>
+                    <div class="top_right_menu_two white m_lr20" style="line-height: 30px;"><i class="fas fa-home"></i></div>
                     <!-- <div class="top_right_menu_three">
                         <button class="m_l10 white"
                             style="display: inline-block; padding: 5px 10px; margin-left: 10px; border-radius: 3px; height: 30px;  color: #fff; background-color: rgba(250, 250, 250, 0.1);">
@@ -175,11 +187,13 @@
                 </div>
                 <div class="main_right_info p_20">
                     <div class="info_title">
-                        
+
                     </div>
                     <div class="info_table">
                         <div class="page_content ">
                             <form action="" name="" method="">
+                              <!-- 해당 사원 정보 받아오기 -->
+                               <input type="hidden" name="" id="" value=""/>
                                 <div class="member_info flex space_between">
                                     <div class="member_left">
                                         <div class="photo_area">
@@ -192,91 +206,117 @@
                                     <div class="member_right">
                                         <table>
                                             <tr>
-                                                <td class="td_8 center" >소속</td>
+                                                <td class="td_8 center bg_gray"><span class="req"></span>소속</td>
                                                 <td class="td_12 p_lr3">
-                                                    <input type="text" name="" id="" class="td_100" autofocus/>
-                                                   
+                                                    <select class="sel_100">
+                                                        <option value="">본사</option>
+                                                        <option value="">지사</option>
+                                                    </select>
                                                 </td>
-                                                <td class="td_8 center ">부서명</td>
+                                                <td class="td_8 center bg_gray"><span class="req"></span>부서명</td>
                                                 <td class="td_12 p_lr3">
-                                                    <input type="text" name="" id="" class="td_100"  autofocus />
-                                                 
+                                                    <select class="sel_100">
+                                                        <option value="000">중앙부서</option>
+                                                        <option value="100">인사과</option>
+                                                        <option value="200">경영과</option>
+                                                        <option value="300">기획과</option>
+                                                        <option value="400">총무과</option>
+                                                        <option value="500">전산과</option>
+                                                        <option value="600">지원과</option>
+                                                        <option value="700">영업과</option>
+                                                        <option value="800">마케팅과</option>
+                                                        <option value="900">생산과</option>
+                                                    </select>
                                                 </td>
-                                                <td class="td_8 center">근무부서</td>
+                                                <td class="td_8 center bg_gray"><span class="req"></span>팀명</td>
                                                 <td class="td_12 p_lr3">
-                                                  
-                                                    <input type="text" name="" id="" class="td_100" autofocus />
+                                                    <select class="sel_100">
+                                                        <option value="">1팀</option>
+                                                        <option value="">2팀</option>
+                                                        <option value="">3팀</option>
+                                                    </select>
                                                 </td>
-                                                <td class="td_8 center ">입사년월일</td>
+                                                <td class="td_8 center bg_gray"><span class="req"></span>입사년월일</td>
                                                 <td class="td_12 p_lr3">
-                                                    
-                                                    <input type="text" name="" id="" class="td_100" autofocus />
+
+                                                    <input type="text" name="" id="" class="input_100" autofocus />
                                                 </td>
-                                                <td class="td_8 center  bg-gray weight700">가입년월일</td>
+                                                <td class="td_8 center  bg_gray weight700"><span class="req"></span>가입년월일</td>
                                                 <td class="td_12 p_lr3">
-                                                
-                                                    <input type="text" name="" id="" class="td_100" autofocus />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="td_8 center  bg-gray weight700">사번</td>
-                                                <td class="td_12 p_lr3">
-                                                    <input type="text" name="" id="" class="td_100" autofocus />
-                                                </td>
-                                                <td class="td_8 center  bg-gray weight700">사원명/성별</td>
-                                                <td class="td_12 p_lr3">
-                                                    <input type="text" name="" id="" class="td_100" autofocus />
-                                                </td>
-                                                <td class="td_8 center  bg-gray weight700">생년월일</td>
-                                                <td class="td_12 p_lr3">
-                                                    <input type="text" name="" id="" class="td_100" />
-                                                  
-                                                </td>
-                                                <td class="td_8 center  bg-gray weight700">CP</td>
-                                                <td class="td_12 p_lr3">
-                                                    <input type="text" name="" id="" class="td_100"  />
-                                                </td>
-                                                <td class="td_8 center  bg-gray weight700">내선번호</td>
-                                                <td class="td_12 p_lr3">
-                                                    <input type="text" name="" id="" class="td_100"  />
+
+                                                    <input type="text" name="" id="" class="input_100" autofocus />
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="td_8 center bg-gray weight700">직급</td>
+                                                <td class="td_8 center  bg_gray weight700"><span class="req"></span>사번</td>
                                                 <td class="td_12 p_lr3">
-                                                    <input type="text" name="" id="" class="td_100" autofocus />
+                                                    <input type="text" name="" id="" class="input_100" autofocus />
                                                 </td>
-                                                <td class="td_8 center  bg-gray weight700">직책</td>
+                                                <td class="td_8 center  bg_gray weight700"><span class="req"></span>사원명/성별</td>
                                                 <td class="td_12 p_lr3">
-                                                    <input type="text" name="" id="" class="td_100" autofocus />
+                                                    <input type="text" name="" id="" class="input_box" style="width: calc(100% - 31% - 2px);" autofocus />
+                                                    <select class="input_box float_r" style="width: 30%;">
+                                                        <option value="남">남</option>
+                                                        <option value="여">여</option>
+                                                    </select>
                                                 </td>
-                                                <td class="td_8 center  bg-gray weight700">운전가능여부</td>
+                                                <td class="td_8 center clearfix bg_gray weight700"><span class="req"></span>생년월일</td>
                                                 <td class="td_12 p_lr3">
-                                                    <select name="" class="td_100" id="">
+                                                    <input type="text" name="" id="" class="input_100" />
+
+                                                </td>
+                                                <td class="td_8 center  bg_gray weight700"><span class="req"></span>CP</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="input_100" />
+                                                </td>
+                                                <td class="td_8 center  bg_gray weight700">내선번호</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="input_100" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td_8 center bg_gray weight700"><span class="req"></span>직급</td>
+                                                <td class="td_12 p_lr3">
+                                                    <select class="sel_100">
+                                                        <option value=""></option>
+                                                    </select>
+                                                </td>
+                                                <td class="td_8 center  bg_gray weight700">직책</td>
+                                                <td class="td_12 p_lr3">
+                                                    <select class="sel_100">
+                                                        <option>-</option>
+                                                        <option>부서장</option>
+                                                        <option>팀장</option>
+                                                        <option>부팀장</option>
+                                                    </select>
+                                                </td>
+                                                <td class="td_8 center  bg_gray weight700">운전가능여부</td>
+                                                <td class="td_12 p_lr3">
+                                                    <select name="" class="input_100" id="">
                                                         <option value="">Y</option>
                                                         <option value="">N</option>
                                                     </select>
                                                 </td>
-                                                <td class="td_8 center  bg-gray weight700">운전면허 종류</td>
+                                                <td class="td_8 center  bg_gray weight700">운전면허 종류</td>
                                                 <td class="td_12 p_lr3">
-                                                    <select name="" class="td_100" id="">
+                                                    <select name="" class="sel_100" id="">
                                                         <option value="">1종대형</option>
                                                         <option value="">1종보통</option>
                                                         <option value="">2종보통</option>
                                                     </select>
                                                 </td>
-                                                <td class="td_8 center  bg-gray weight700">자차소유여부</td>
+                                                <td class="td_8 center  bg_gray weight700">자차소유여부</td>
                                                 <td class="td_12 p_lr3">
-                                                    <select name="" class="td_100" id="">
+                                                    <select name="" class="sel_100" id="">
                                                         <option value="">Y</option>
                                                         <option value="">N</option>
                                                     </select>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="td_8 center  bg-gray weight700">최종학력</td>
+                                                <td class="td_8 center  bg_gray weight700">최종학력</td>
                                                 <td class="td_12 p_lr3">
-                                                    <select name="" class="td_100" id="">
+                                                    <select name="" class="sel_100" id="">
                                                         <option value="">고등학교졸업</option>
                                                         <option value="">고등학교중퇴</option>
                                                         <option value="">전문학사</option>
@@ -286,105 +326,100 @@
                                                         <option value="">대학교중퇴</option>
                                                     </select>
                                                 </td>
-                                                <td class="td_8 center bg-gray weight700">학과/전공</td>
+                                                <td class="td_8 center bg_gray weight700">학과/전공</td>
                                                 <td class="td_12 p_lr3">
-                                                    <input type="text" name="" id="" class="td_100" autofocus  maxlength="20"/> 
+                                                    <input type="text" name="" id="" class="input_100" autofocus maxlength="20" />
                                                 </td>
-                                                <td class="td_8 center  bg-gray weight700">학교이름</td>
-                                                <td class="td_12 p_lr3"> 
-                                                       <input type="text" name="" id="" class="td_100" autofocus />
+                                                <td class="td_8 center  bg_gray weight700">학교이름</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="input_100" autofocus />
                                                 </td>
-                                                <td class="td_8 center  bg-gray weight700">보훈대상</td>
-                                                <td class="td_12 p_lr3"> 
-                                                    <select name="" class="td_100" id="">
+                                                <td class="td_8 center  bg_gray weight700">보훈대상</td>
+                                                <td class="td_12 p_lr3">
+                                                    <select name="" class="sel_100" id="">
                                                         <option value="">비대상</option>
                                                         <option value="">대상</option>
                                                     </select>
                                                 </td>
-                                                <td class="td_8 center  bg-gray weight700">장애대상</td>
-                                                <td class="td_12 p_lr3"> 
-                                                    <select name="" class="td_100" id="">
+                                                <td class="td_8 center  bg_gray weight700">장애대상</td>
+                                                <td class="td_12 p_lr3">
+                                                    <select name="" class="sel_100" id="">
                                                         <option value="">비대상</option>
                                                         <option value="">대상</option>
                                                     </select>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td  class="td_8 center  bg-gray weight700">이메일</td>
+                                                <td class="td_8 center  bg_gray weight700"><span class="req"></span>이메일</td>
                                                 <td class="td_12 p_lr3" colspan="3">
-                                                    <input type="text" name="" id="" class="td_100" autofocus />
-                                                 
+                                                    <input type="text" name="" id="" class="input_100" autofocus />
+
                                                 </td>
-                                               
-                                                <td class="td_8 center  bg-gray weight700">병역구분</td>
+
+                                                <td class="td_8 center  bg_gray weight700">병역구분</td>
                                                 <td class="td_12 p_lr3">
-                                      
-                                                    <select name="" class="td_100" id="">
+
+                                                    <select name="" class="sel_100" id="">
                                                         <option value="">군필</option>
                                                         <option value="">미필</option>
                                                         <option value="">해당없음</option>
                                                     </select>
                                                 </td>
-                                                <td class="td_8 center  bg-gray weight700">종교</td>
+                                                <td class="td_8 center  bg_gray weight700">종교</td>
                                                 <td class="td_12 p_lr3">
-                                                   
-                                                    <select name="" class="td_100" id="">
+
+                                                    <select name="" class="sel_100" id="">
                                                         <option value="">불교</option>
                                                         <option value="">기독교</option>
                                                         <option value="">천주교</option>
                                                         <option value="">기타</option>
                                                     </select>
                                                 </td>
-                                                <td class="td_8 center  bg-gray weight700">결혼여부</td>
+                                                <td class="td_8 center  bg_gray weight700">결혼여부</td>
                                                 <td class="td_12 p_lr3">
-                                                   
-                                                    <select name="" class="td_100" id="">
+
+                                                    <select name="" class="sel_100" id="">
                                                         <option value="">미혼</option>
                                                         <option value="">기혼</option>
-                                                        
+
                                                     </select>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="td_8 center  bg-gray weight700">보유자격 1</td>
-                                                <td class="td_12 p_lr3"> <input type="text" name="" id=""
-                                                        class="td_100" autofocus /></td>
-                                                <td class="td_8 center  bg-gray weight700">보유자격 2</td>
-                                                <td class="td_12 p_lr3"> <input type="text" name="" id=""
-                                                        class="td_100" autofocus /></td>
-                                                <td class="td_8 center  bg-gray weight700">보유자격 3</td>
-                                                <td class="td_12 p_lr3"> <input type="text" name="" id=""
-                                                        class="td_100" autofocus /></td>
-                                                <td class="td_8 center  bg-gray weight700">어학자격 1</td>
-                                                <td class="td_12 p_lr3"> <input type="text" name="" id=""
-                                                        class="td_100" autofocus /></td>
-                                                <td class="td_8 center  bg-gray weight700">어학자격 2</td>
-                                                <td class="td_12 p_lr3"> <input type="text" name="" id=""
-                                                        class="td_100" autofocus /></td>
+                                                <td class="td_8 center  bg_gray weight700">보유자격 1</td>
+                                                <td class="td_12 p_lr3"> <input type="text" name="" id="" class="input_100" autofocus /></td>
+                                                <td class="td_8 center  bg_gray weight700">보유자격 2</td>
+                                                <td class="td_12 p_lr3"> <input type="text" name="" id="" class="input_100" autofocus /></td>
+                                                <td class="td_8 center  bg_gray weight700">보유자격 3</td>
+                                                <td class="td_12 p_lr3"> <input type="text" name="" id="" class="input_100" autofocus /></td>
+                                                <td class="td_8 center  bg_gray weight700">어학자격 1</td>
+                                                <td class="td_12 p_lr3"> <input type="text" name="" id="" class="input_100" autofocus /></td>
+                                                <td class="td_8 center  bg_gray weight700">어학자격 2</td>
+                                                <td class="td_12 p_lr3"> <input type="text" name="" id="" class="input_100" autofocus /></td>
                                             </tr>
                                             <tr>
-                                                
-                                                <td class="td_8 center  bg-gray weight700">국적</td>
+
+                                                <td class="td_8 center  bg_gray weight700">국적</td>
                                                 <td class="td_12 p_lr3">
-                                                    <input type="text" name="" id="" class="td_100" autofocus />
-                                                    
+                                                    <input type="text" name="" id="" class="input_100" autofocus />
+
                                                 </td>
-                                                <td class="td_8 center  bg-gray weight700">우편번호</td>
+                                                <td class="td_8 center  bg_gray weight700">우편번호</td>
                                                 <td class="td_12 p_lr3">
-                                                    <input type="text" name="" id="" class="td_100" autofocus />
-                                                
+                                                    <input type="text" name="" id="" class="input_100" autofocus />
+
                                                 </td>
-                                                
-                                                <td  class="td_8 center  bg-gray weight700">주소</td>
+
+                                                <td class="td_8 center  bg_gray weight700">주소</td>
                                                 <td colspan="5" class="td_12 p_lr3">
-                                                    <input type="text" name="" id="" class="td_100" autofocus />
-                                                 
+                                                    <input type="text" name="" id="" class="input_100" autofocus />
+
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="td_8 center  bg-gray weight700">거래은행</td>
+                                                <td class="td_8 center  bg_gray weight700"><span class="req"></span>거래은행</td>
                                                 <td class="td_12 p_lr3">
-                                                    <select name="" class="td_100" id="">
+                                                    <select name="" class="sel_100" id="">
                                                         <option value="">NH농협</option>
                                                         <option value="">KB국민</option>
                                                         <option value="">우리</option>
@@ -417,9 +452,14 @@
                                                         <option value="">중국건설</option>
                                                     </select>
                                                 </td>
-                                                <td  class="td_8 center  bg-gray weight700">계좌번호</td>
-                                                <td colspan="7" class="td_12 p_lr3">
-                                                    <input type="text" name="" id="" class="td_100" autofocus />
+                                                <td class="td_8 center  bg_gray weight700">
+                                                <span class="req"></span>계좌번호</td>
+                                                <td class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="input_100" autofocus />
+                                                </td>
+                                                <td class="td_8 center  bg_gray weight700">상세주소</td>
+                                                <td colspan="5" class="td_12 p_lr3">
+                                                    <input type="text" name="" id="" class="input_100" autofocus />
                                                 </td>
                                             </tr>
                                         </table>
@@ -427,25 +467,26 @@
                                     </div>
                                 </div>
                                 <div class="comment">
-                                        <div class="title">
-                                            <h3 class="tomato font_14 noto mt20">
-                                                경력사항(비고) 입력
-                                            </h3>
-                                        </div>
-                                        <div class="content">
-                                          
-                                                <textarea name="" id="editor" class="cke_style"></textarea>
-                                                <script>
-                                                        CKEDITOR.replace('editor');
-                                                        CKEDITOR.config.height = 250;
-                                                </script>
-                                            
-                                        </div>
-                                        <div class="btn_grp center m_t10 " > 
-                                            <button type="submit" class="btn_blue">내용저장</button> <!-- action 찾아감-->
-                                            <button type="reset" class="btn_red" >새로고침</button>
-                                        </div>
-                                    </div>    
+                                    <div class="title">
+                                        <h3 class="tomato font_14 noto mt20">
+                                            경력사항(비고) 입력
+                                        </h3>
+                                    </div>
+                                    <div class="content">
+
+                                        <textarea name="" id="editor" class="cke_style" style="outline: none"></textarea>
+                                        <script>
+                                            CKEDITOR.replace('editor');
+                                            CKEDITOR.config.height = 250;
+
+                                        </script>
+
+                                    </div>
+                                    <div class="btn_grp center m_t10 ">
+                                        <button type="submit" class="btn_blue">내용저장</button> <!-- action 찾아감-->
+                                        <button type="reset" class="btn_red">새로고침</button>
+                                    </div>
+                                </div>
                             </form>
 
                         </div>
@@ -461,7 +502,7 @@
         </div>
     </footer>
     <div class="clearfix"></div>
-    
+
 </body>
 <script>
     $(function() {
@@ -473,5 +514,7 @@
             $("#submenu_box").toggleClass("menu_hide");
         });
     });
-</script> 
+
+</script>
+
 </html>
