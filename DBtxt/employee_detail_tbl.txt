@@ -1,0 +1,85 @@
+create table employee_detail (
+	emp_company char(2) not null,		// 본사/지사(select박스로 구분)
+	emp_team char(2) not null, 			// 팀 명(으로수정)(select박스로 구분 / 1팀,2팀,3팀)
+
+	emp_gender char(1) not null,	 		// 성별(select박스로 구분 / 남,녀)
+	emp_CP char(13) not null, 			// 개인 휴대전화 번호
+	emp_extension varchar(4),			// 내선번호 (낫널아님)
+
+	emp_leader varchar(10) default '-',		// 직책(select박스로 구분 / 부서장, 팀장, 부팀장)
+	emp_driving char(1),				// 운전가능여부 (select박스로 구분 - Y,N)
+	emp_carlicense varchar(10),			// 운전면허 종류 (select박스로 자격증종류 선택)
+	emp_mycar char(1),				// 자차소유여부 (select박스로 구분 - Y,N)
+
+	emp_graduated char(6),	 		// 최종학력 (select박스로 구분-
+						고등학교졸업, 고등학교중퇴, 전문학사, 학사, 석사, 박사, 대학교중퇴
+	emp_major varchar(20),			// 전공(input maxlength=20)
+	emp_academy varchar(20),			// 학교이름 (API받아서 검색)
+	emp_reward char(3),				// 보훈대상여부 (select박스로 구분 - 비대상, 대상)
+	emp_disability char(3),			// 장애여부 (select박스로 구분 - 비대상, 대상)
+
+	emp_army char(4),				// 병역구분(select박스로 구분 - 필, 미필, 해당없음)
+	emp_religion char(3),			// 종교(select박스로 구분 - 불교,기독교,천주교,기타)
+	emp_married char(2),			// 결혼여부(select박스로 구분 - 미혼, 기혼)
+
+	emp_license1 varchar(20),			// 보유자격1
+	emp_license2 varchar(20),
+	emp_license3 varchar(20),
+	emp_lang1 varchar(20),			// 어학사항자격증 (input) 
+	emp_lang2 varchar(20),
+
+	emp_nation char(3),				// 내외국인여부(select박스로 구분 - 내국인 / 외국인)
+	emp_post	 char(5),				// 우편번호
+	emp_address varchar(100),			// 실거주지 주소 (API로 받을예정)
+
+	emp_bank varchar(10),			// 거래은행이름
+	emp_accountnum varchar(20) not null,		// 계좌번호
+	emp_address_detail varchar(50)		// 상세주소
+
+	emp_career text				// 경력사항(비고) 입력 (text타입)
+
+	emp_id_fk int 
+);
+
+
+create table employee_detail (
+	emp_company char(2) not null,
+	emp_team char(2) not null,
+
+	emp_gender char(1) not null,
+	emp_CP char(13) not null,
+	emp_extension varchar(4),
+
+	emp_leader varchar(10) default '-',
+	emp_driving char(1),	
+	emp_carlicense varchar(10),
+	emp_mycar char(1),
+
+	emp_graduated char(6),
+	emp_major varchar(20),
+	emp_academy varchar(20),
+	emp_reward char(3),	
+	emp_disability char(3),
+
+	emp_army char(4),
+	emp_religion char(3),
+	emp_married char(2),
+
+	emp_license1 varchar(20),
+	emp_license2 varchar(20),
+	emp_license3 varchar(20),
+	emp_lang1 varchar(20),
+	emp_lang2 varchar(20),
+
+	emp_nation char(3),
+	emp_post	 char(5),
+	emp_address varchar(100),
+
+	emp_bank varchar(10),
+	emp_accountnum varchar(20) not null,
+	emp_address_detail varchar(50),
+
+	emp_career text,
+
+	emp_id_fk int 
+);

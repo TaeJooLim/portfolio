@@ -1,0 +1,59 @@
+create table client_reg (
+	client_id int not null auto_increment primary key,		// PRIMARY KEY
+	client_code varchar(10) not null,					// 거래처코드. 등록년+월+PRIMARY KEY로 자동생성
+	client_use_state char(1) not null,					// 사용여부 (Y/N)
+	client_company varchar(30) not null,				//  거래처명
+	client_license_num char(12) not null,				// 사업자번호 (000-00-00000 형태가 기본틀)
+	client_ceo_name varchar(15) not null,				// 대표자명
+	client_business_condition varchar(30) not null,		// 업태 (업태와 종목 2개다 사업자등록증에 표시되어 있음)
+	client_business_type varchar(50) not null,			// 종목
+	client_regdate char(10) not null,					// 등록일자
+	client_company_phone varchar(12) not null,			// 회사 전화번호
+	client_company_fax varchar(12),						// 회사 팩스번호
+	client_company_page varchar(100),					// 회사 홈페이지
+	client_post char(5) char(5) not null,				// 우편번호 ( 00000 형태가 기본틀)
+	client_address varchar(100) not null,				// 회사주소
+	client_nation char(1) not null,						// 국내/외 주소지여부 (Y/N)
+	client_detail_address varchar(100) not null,		// 상세주소 입력
+	client_responsibility varchar(15) not null,			// 거래담당자
+	client_res_cp char(13) not null,					// 담당자 개인 휴대전화번호
+	client_res_email varchar(50) not null,				// 담당자 이메일주소 입력
+	client_payment_type varchar(20) not null,			// 결제방법 입력
+	client_handling varchar(50) not null,				// 취급품목
+	client_note varchar(100) not null,					// 비고
+
+	// 전자세금계산서 입력
+	client_tax_email varchar(50) not null,				// 전자세금계산서 수신 이메일주소
+	client_tax_responsibility varchar(15) not null,		// 전자세금계산서 담당자
+	client_tax_company_phone varchar(12) not null,		// 전자세금계산서 회사 전화번호
+);
+
+
+create table client_reg (
+	client_id int not null auto_increment primary key,	
+	client_code varchar(10) not null,					
+	client_use_state char(1) not null,					
+	client_company varchar(30) not null,				
+	client_license_num char(12) not null,				
+	client_ceo_name varchar(15) not null,				
+	client_business_condition varchar(30) not null,		
+	client_business_type varchar(50) not null,			
+	client_regdate char(10) not null,					
+	client_company_phone varchar(12) not null,			
+	client_company_fax varchar(12),						
+	client_company_page varchar(100),					
+	client_post char(5) char(5) not null,				
+	client_address varchar(100) not null,				
+	client_nation char(1) not null,						
+	client_detail_address varchar(100) not null,		
+	client_responsibility varchar(15) not null,			
+	client_res_cp char(13) not null,					
+	client_res_email varchar(50) not null,				
+	client_payment_type varchar(20) not null,			
+	client_handling varchar(50) not null,				
+	client_note varchar(100) not null,					
+
+	client_tax_email varchar(50) not null,	
+	client_tax_responsibility varchar(15) not null,
+	client_tax_company_phone varchar(12) not null,
+);
