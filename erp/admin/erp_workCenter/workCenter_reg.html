@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인페이지</title>
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/common_table.css">
+    <link rel="stylesheet" href="../../../css/button_style.css">
+    <link rel="stylesheet" href="../../../css/product_reg.css">
+
+    <!-- FontAweSome -->
+    <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
+    <!-- FontAweSome -->
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQuery -->
+
+</head>
+<style>
+    .control_menu {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .main_left_menu {
+        width: 50px;
+    }
+
+    .left_menu_icon {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .menu_selected {
+        background-color: #fff;
+        color: #3F51B5;
+    }
+
+    .menu_hide {
+        display: none;
+    }
+
+    .menu_active {
+        display: block;
+    }
+
+    .submenu_box {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 170px;
+        height: 80%;
+        color: #000;
+        border-right: 1px solid #ccc;
+        background-color: #fff;
+    }
+</style>
+
+<body>
+    <div class="page_wrap bg_white noto font_14" style="height: 100vh;">
+        <div class="page_top flex space_between">
+            <div class="top_left bg_blue_1">
+                <div id="mainmenu_btn" class="control_menu font_16 white center flex flex_hc flex_vc">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div class="top_middle bg_blue_2 font_16 flex flex_hc flex_vc" style="width: 10%;">
+                <span class="white">ADMINISTRATOR</span>
+            </div>
+            <div class="top_right bg_blue_3 p_10" style="width: 100%;">
+                <div class="top_right_menu flex" style="justify-content: flex-end;">
+                    <div class="top_right_menu_one white" style="line-height: 30px;"><i class="fas fa-store"></i></div>
+                    <div class="top_right_menu_two white m_lr20" style="line-height: 30px;"><i class="fas fa-home"></i>
+                    </div>
+                    <div class="top_right_menu_four">
+                        <select class="white" style="background-color: rgba(250, 250, 250, 0.1); height: 30px;">
+                            <option class="bg_blue_4">관리자</option>
+                            <option class="bg_blue_4">관리자정보</option>
+                            <option class="bg_blue_4">로그아웃</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page_main flex space_between" style="border-bottom: 1px solid #ccc;">
+            <div class="main_left flex space_between" style="width: 50px;">
+                <div class="main_left_menu bg_ivory">
+
+                    <!-- FLOAT로 띄워서 버튼 JQUERY로 show&hide -->
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div id="submenu_box" class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">1번메뉴</h4>
+                        <ul class="font_12">
+                            <li class="m_b10">서브메뉴1</li>
+                            <li class="m_b10">서브메뉴2</li>
+                            <li class="m_b10">서브메뉴3</li>
+                            <li class="m_b10">서브메뉴4</li>
+                        </ul>
+                    </div>
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-user-alt"></i>
+                    </div>
+                    <div class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">사원관리</h4>
+                        <ul class="font_12">
+                            <li class="m_b10"><a href="employee/erp_employee_list.html">사원목록보기</a></li>
+                            <li class="m_b10"><a href="employee/erp_employee_register.html">사원상세정보 입력/수정</a></li>
+                            <li class="m_b10">서브메뉴3</li>
+                            <li class="m_b10">서브메뉴4</li>
+                            <li class="m_b10">서브메뉴5</li>
+                        </ul>
+                    </div>
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-user-alt"></i>
+                    </div>
+                    <div class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">3번메뉴</h4>
+                        <ul class="font_12">
+                            <li class="m_b10">서브메뉴1</li>
+                            <li class="m_b10">서브메뉴2</li>
+                            <li class="m_b10">서브메뉴3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="main_right bg_white" style="width: 100%;">
+                <div class="main_right_title p_10" style="height: 50px; border-bottom: 1px solid #ccc;">
+                    <h2 class="font_18">워크센터 등록</h2>
+                </div>
+                <div class="main_right_info" style="padding: 30px 20px;">
+                    <div class="product_reg">
+                        <table>
+                            <tr>
+                                <td class="bg_gray weight_700 td_10 center">워크센터 이름</td>
+                                <td class="p_lr3">
+                                    <input type="text" id="" name="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 td_10 center">용도</td>
+                                <td class="p_lr3">
+                                    <input type="text" id="" name="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 td_10 center">면적</td>
+                                <td class="p_lr3">
+                                    <input type="text" id="" name="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 td_10 center">층 수</td>
+                                <td class="p_lr3">
+                                    <input type="text" id="" name="" class="input_100" required />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bg_gray weight_700 center">담당자</td>
+                                <td class="p_lr3">
+                                    <input type="text" id="" name="" class="input_100" placeholder="담당자 검색" required />
+                                </td>
+                                <td class="bg_gray weight_700 center">우편번호</td>
+                                <td class="p_lr3">
+                                    <input type="text" name="" id="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 center">소재지</td>
+                                <td class="p_lr3" colspan="3">
+                                    <input type="text" id="" name="" class="input_100" required />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bg_gray weight_700 center">계약시작일자</td>
+                                <td class="p_lr3">
+                                    <input type="text" id="" name="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 center">계약만료일자</td>
+                                <td class="p_lr3">
+                                    <input type="text" id="" name="" class="input_100" required />
+                                </td>
+                                <td class="bg_gray weight_700 center">계약서 첨부</td>
+                                <td class="p_lr3" colspan="3">
+                                    <input type="file" id="" name="" class="input_100" placeholder="계약서 파일을 첨부해주세요" />
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="btn-grp center m_t10">
+                            <button type="submit" class="btn_blue">센터등록</button>
+                            <button type="reset" class="btn_red">새로고침</button>
+                        </div>
+                    </div>
+                    <div class="product_reg_table m_t20" style="border-top: 1px solid #000;">
+                        <div class="list_comment font_12 m_tb10" style="padding: 10px 20px; background-color: #f9f9f9;">
+                            등록된 워크센터 목록입니다.
+                        </div>
+                        <table class="list">
+                            <thead>
+                                <tr>
+                                    <th>번호</th>
+                                    <th class="td_20">워크센터 이름</th>
+                                    <th class="td_8">용도</th>
+                                    <th class="td_8">면적(m2)</th>
+                                    <th class="td_8">층 수</th>
+                                    <th>담당자</th>
+                                    <th>계약시작일자</th>
+                                    <th>계약만료일자</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach items=${list} var="wc" varStatus="var">
+                                        <tr>
+                                            <td>${var}</td>
+                                            <td>${wc.wc_name}</td>
+                                            <td>${wc.wc_usage}</td>
+                                            <td>${wc.wc_area}</td>
+                                            <td>${wc.wc_floor}</td>
+                                            <td>${wc.emp_name}</td>
+                                            <td>${wc.wc_contractFromDate}</td>
+                                            <td>${wc.wc_contractToDate}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>안산 공업단지 워크센터</td>
+                                            <td>데스크톱 제작</td>
+                                            <td>400</td>
+                                            <td>2층</td>
+                                            <td>박민정 과장</td>
+                                            <td>2020-11-29</td>
+                                            <td>2022-11-28</td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody> 
+                        </table>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <footer>
+        <div class="copyright center">
+            <span class="copy"> &copy;Copyright All rights reserved.</span>
+            <span class="history">2020 - 2030</span>
+        </div>
+    </footer>
+    <div class="clearfix"></div>
+</body>
+<script>
+    $(function () {
+        $(".left_menu_icon").click(function () {
+            $(this).next().toggleClass("menu_hide");
+            $(this).toggleClass("menu_selected");
+        });
+        $("#mainmenu_btn").click(function () {
+            $("#submenu_box").toggleClass("menu_hide");
+        });
+    });
+</script>
+</html>

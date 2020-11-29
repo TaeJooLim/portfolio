@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쪽지 보내기</title>
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/common_table.css">
+    <link rel="stylesheet" href="../../../css/button_style.css">
+
+    <!-- FontAweSome -->
+    <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
+    <!-- FontAweSome -->
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQuery -->
+
+</head>
+<style>
+    .message_box_wrap {
+        width: 500px;
+        height: 400px auto;
+    }
+    .msg_btn {
+        cursor: pointer;
+        border: 1px solid #ccc;
+    }
+</style>
+
+<body>
+    <div class="message_box_wrap noto p_20" style="border: 1px solid #ccc">
+        <div class="msg_title w_100 m_b20">
+            <h2 class="font_16">쪽지함 보기</h2>
+        </div>
+        <form name="" id="" action="">
+            <div class="msg_form w_100">
+                <div class="msg_tbl_wrap m_b10">
+                    <table class="font_14" style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;">
+                        <tr>
+                            <td class="center bg_gray">받는이</td>
+                            <td class="p_l10">${emp_name}</td>
+                        </tr>
+                        <tr>
+                            <td class="center bg_gray">제목</td>
+                            <td class="p_l10">
+                                <input type="text" name="msg_subject" class="p_l5 td_60" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="msg_content_box_wrap w_100">
+                    <textarea class="w_100 font_12 p_l5" style="border: 1px solid #ccc;border-collapse: collapse;outline: none; height: 300px;"></textarea>
+                </div>
+            </div>
+            <div class="msg_form_btn_wrap font_12 flex flex_hc">
+                <div class="msg_btn p_5 weight_700 m_r5">
+                    쪽지 보내기
+                </div>
+                <div class="msg_btn p_5">
+                    닫기
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

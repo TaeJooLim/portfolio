@@ -73,11 +73,11 @@ button {
 
 /* 게시글 및 사원수 등 표시 버튼 */
 .total_list_btn {
+    cursor: pointer;
     border-radius: 5px;
     background-color: #565e8c;
     padding: 6px 7px;
     color: #fff;
-
 }
 
 .left_radius_btn {
@@ -93,3 +93,4 @@ button {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 6px 5px;
+}
