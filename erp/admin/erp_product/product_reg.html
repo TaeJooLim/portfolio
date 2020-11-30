@@ -21,6 +21,14 @@
 
 </head>
 <style>
+    .input_80 {
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid #d5d5d5;
+        width: 80%;
+        height: 35px;
+        font-size: 12px;
+    }
     .control_menu {
         width: 50px;
         height: 50px;
@@ -152,6 +160,7 @@
                                         <option value="">제품</option>
                                         <option value="">원자재</option>
                                         <option value="">상품</option>
+                                        <option value="">비품</option>
                                     </select>
                                 </td>
                                 <td class="bg_gray weight_700 td_10 center">품목그룹</td>
@@ -161,6 +170,7 @@
                                         <option value="">전자기기</option>
                                         <option value="">노트북</option>
                                         <option value="">사무용품</option>
+                                        <option value="">비품</option>
                                     </select>
                                 </td>
                                 <td class="bg_gray weight_700 td_10 center">제조사</td>
@@ -175,7 +185,10 @@
                             <tr>
                                 <td class="bg_gray weight_700 td_10 center">품명</td>
                                 <td class="p_lr3" colspan="3">
-                                    <input type="text" name="" maxlength="20" id="" class="input_100" required />
+                                    <div class="flex">
+                                        <input type="text" name="" maxlength="20" id="" class="input_80" required />
+                                        <button type="button" class="btn_ivory weight_700" style="white-space: nowrap;">코드생성</button>
+                                    </div>
                                 </td>
                                 <td class="bg_gray weight_700 td_10 center">기준단위</td>
                                 <td class="p_lr3">
@@ -219,8 +232,12 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td class="bg_gray weight_700 td_10 center">품목코드</td>
+                                <td class="p_lr3" colspan="3">
+                                    <input type="text" name="" maxlength="20" id="" class="input_100" required readonly/>
+                                </td>
                                 <td class="bg_gray weight_700 td_10 center">비고</td>
-                                <td class="p_lr3" colspan="9">
+                                <td class="p_lr3" colspan="7">
                                     <input type="text" name="" maxlength="50" id="" class="input_100" required />
                                 </td>
                             </tr>
