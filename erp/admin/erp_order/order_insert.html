@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/common_table.css">
+    <link rel="stylesheet" href="../../../css/button_style.css">
+   
+    <!-- FontAweSome -->
+    <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
+    <!-- FontAweSome -->
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQuery -->
+
+</head>
+<style> 
+   
+    .control_menu {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+    .main_left_menu {
+        width: 50px;
+    }
+    .left_menu_icon {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+    .menu_selected {
+        background-color: #fff;
+        color: #3F51B5;
+    }
+    .menu_hide {
+        display: none;
+    }
+    .menu_active {
+        display: block;
+    }
+    .submenu_box {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 170px;
+        height: 80%;
+        color: #000;
+        border-right: 1px solid #ccc;
+        background-color: #fff;
+    }
+
+    /* table */
+    .list th {
+        border: 1px solid #60718b;
+        background-color: #6f809a;
+        color: #fff;
+        padding: 8px 5px;
+        text-align: center;
+    }
+
+    .list td {
+        border: 1px solid #d6dce7;
+        text-align: center;
+    }
+
+    .product_list td {
+        border: 1px solid #d6dce7;
+    }
+
+    /* 검색박스 */
+    .search_box {
+        position: relative;
+    }
+    .search_box input{
+        background-color: #eff3f9;
+    }
+    .search_box i{
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        right: 7px;
+        transform: translateY(-50%);
+        color: #959595;
+    }
+
+</style>
+<body>
+    <div class="page_wrap bg_white noto font_14" style="height: 100vh;">
+        <div class="page_top flex space_between">
+            <div class="top_left bg_blue_1">
+                <div id="mainmenu_btn" class="control_menu font_16 white center flex flex_hc flex_vc">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div class="top_middle bg_blue_2 font_16 flex flex_hc flex_vc" style="width: 10%;">
+                <span class="white">ADMINISTRATOR</span>
+            </div>
+            <div class="top_right bg_blue_3 p_10" style="width: 100%;">
+                <div class="top_right_menu flex" style="justify-content: flex-end;">
+                    <div class="top_right_menu_one white" style="line-height: 30px;"><i
+                            class="fas fa-store"></i></div>
+                    <div class="top_right_menu_two white m_lr20" style="line-height: 30px;"><i
+                            class="fas fa-home"></i></div>
+                    <!-- <div class="top_right_menu_three">
+                        <button class="m_l10 white"
+                            style="display: inline-block; padding: 5px 10px; margin-left: 10px; border-radius: 3px; height: 30px;  color: #fff; background-color: rgba(250, 250, 250, 0.1);">
+                            부가서비스
+                        </button>
+                    </div> -->
+                    <div class="top_right_menu_four">
+                        <select class="white" style="background-color: rgba(250, 250, 250, 0.1); height: 30px;">
+                            <option class="bg_blue_4">관리자</option>
+                            <option class="bg_blue_4">관리자정보</option>
+                            <option class="bg_blue_4">로그아웃</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page_main flex space_between" style="border-bottom: 1px solid #ccc;">
+            <div class="main_left flex space_between" style="width: 50px;">
+                <div class="main_left_menu bg_ivory">
+
+                    <!-- FLOAT로 띄워서 버튼 JQUERY로 show&hide -->
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div id="submenu_box" class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">1번메뉴</h4>
+                        <ul class="font_12">
+                            <li class="m_b10">서브메뉴1</li>
+                            <li class="m_b10">서브메뉴2</li>
+                            <li class="m_b10">서브메뉴3</li>
+                            <li class="m_b10">서브메뉴4</li>
+                        </ul>
+                    </div>
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-user-alt"></i>
+                    </div>
+                    <div class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">2번메뉴</h4>
+                        <ul class="font_12">
+                            <li class="m_b10">서브메뉴1</li>
+                            <li class="m_b10">서브메뉴2</li>
+                            <li class="m_b10">서브메뉴3</li>
+                            <li class="m_b10">서브메뉴4</li>
+                            <li class="m_b10">서브메뉴5</li>
+                        </ul>
+                    </div>
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-user-alt"></i>
+                    </div>
+                    <div class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">3번메뉴</h4>
+                        <ul class="font_12">
+                            <li class="m_b10">서브메뉴1</li>
+                            <li class="m_b10">서브메뉴2</li>
+                            <li class="m_b10">서브메뉴3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="main_right bg_white" style="width: 100%;">
+                <div class="main_right_title p_10" style="height: 50px; border-bottom: 1px solid #ccc;">
+                    <h2 class="font_18">구매요청서 작성</h2>
+                </div>
+                <div class="main_right_info p_20">
+                    <div class="tbl_create_btn_grp m_b10 flex">
+                        <button class="btn_blue m_r5">요청서 작성</button>
+                        <p class="font_12" style="line-height: 35px;">구매요청서를 작성하기 전에 <u>요청서작성</u> 버튼을 먼저 눌러주세요</p>
+                    </div>
+                    <div class="form_about m_tb10 font_12">
+                        <table class="list">
+                            <tr>
+                                <td class="bg_gray td_8">제목</td>
+                                <td class="p_lr3">
+                                    <input id="" name="" type="text" class="input_100" value="${order.subject} // ex)2020-12 인사1팀 구매요청서" readonly />
+                                </td>
+                                <td class="bg_gray td_9">결재여부</td>
+                                <td class="p_lr3 td_5">
+                                    <select name="" id="" class="sel_100">
+                                        <option value="">미결</option>
+                                        <option value="">완료</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="reg_tbl_wrap font_12">
+                        <form id="" name="" action="">
+                            <table class="list">
+                                <tr>
+                                    <td class="td_8 bg_gray">문서번호</td>
+                                    <td class="p_lr3">
+                                        <div class="auto_num flex space_between">
+                                            <input type="text" id="" name="" class="input_100" readonly required />
+                                            <button type="button" class="input_100 btn_ivory noto" style="width: 120px;">코드 생성하기</button>
+                                        </div>
+                                    </td>
+                                    <td class="td_8 bg_gray">작성부서</td>
+                                    <td class="p_lr3">
+                                        <input type="text" id="" name="" class="input_100" placeholder="${sessionScope.empTeam}" />
+                                    </td>
+                                    <td class="td_8 bg_gray">작성자</td>
+                                    <td class="p_lr3">
+                                        <input type="text" id="" name="" class="input_100" placeholder="${sessionScope.empName}" />
+                                    </td>
+                                    <td class="td_8 bg_gray">작성일자</td>
+                                    <td class="p_lr3">
+                                        <input type="date" id="" name="" class="input_100" placeholder="${today} 자바스크립트로 오늘날짜 입력" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bg_gray">품명검색</td>
+                                    <td class="p_lr3">
+                                        <div class="search_box">
+                                            <input type="text" id="" name="" class="input_100" required />
+                                            <i class="fas fa-search font_18"></i>
+                                        </div>
+                                    </td>
+                                    <td class="bg_gray">수량</td>
+                                    <td class="p_lr3">
+                                        <input type="text" id="" name="" class="input_100" />
+                                    </td>
+                                    <td class="bg_gray">단위</td>
+                                    <td class="p_lr3">
+                                        <select id="" name="" class="sel_100">
+                                            <option value="EA">EA</option>
+                                            <option value="KG">KG</option>
+                                            <option value="SET">SET</option>
+                                        </select>
+                                    </td>
+                                    <td class="bg_gray">단가</td>
+                                    <td class="p_lr3">
+                                        <input type="text" id="" name="" class="input_100" value="${p_buy}" readonly />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bg_gray">용도</td>
+                                    <td class="p_lr3" colspan="7">
+                                        <input type="text" id="" name="" class="input_100" />
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="btn_grp center m_t20">
+                                <button type="submit" class="btn_blue">구매요청</button>
+                                <button type="reset" class="btn_red">새로고침</button>
+                            </div>
+                        </form>
+                    </div>
+                    <style>
+                        .list_tbl_wrap .list tbody tr:nth-child(2n) {
+                            background-color: #eff3f9;
+                        }
+                    </style>
+                    <div class="list_tbl_wrap m_tb20">
+                        <table class="list font_12">
+                            <thead>
+                                <th class="td_3">번호</th>
+                                <th class="td_30">품명</th>
+                                <th class="td_5">수량</th>
+                                <th class="td_5">단위</th>
+                                <th class="td_15">단가</th>
+                                <th class="td_15">금액</th>
+                                <th>용도</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>0</td>
+                                    <td>${list.orderPname}</td>
+                                    <td>${list.orderAmount}</td>
+                                    <td>${list.orderUnit}</td>
+                                    <td>${list.orderPrice}</td>
+                                    <td>${list.orderPrice * list.orderAmount}</td>
+                                    <td>${list.orderUsage}</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>SAMSUNG 데스크탑</td>
+                                    <td>200</td>
+                                    <td>EA</td>
+                                    <td>1000000원</td>
+                                    <td>200000000원</td>
+                                    <td>인사1팀 신입사원 지급용</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="m_t20">
+                        <p>!삭제필요!</p>
+                        <p>1. 매월 구매 후, 초기화 됨</p>
+                        <p>2. 구매요청서 작성 버튼을 누르면 매월 새로운 테이블이 작성된다. ex)인사1팀의 12월 구매요청 --> insa_2012_buy</p>
+                        <p>3. 구매요청서 테이블이 없을 경우에만 테이블을 만드는 <u>프로시저</u> 필요</p>
+                        <p>4. !결재여부-완료! 가 되면 더이상 입력불가 또는 입력기한이 만료되면 입력불가 ex)12월5일까지 입력</p>
+                        <p>4-1. 입력불가는 구매요청 버튼 / 품명검색 버튼에 disabled 속성을 부여한다</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="copyright center">
+            <span class="copy"> &copy;Copyright All rights reserved.</span>
+            <span class="history">2020 - 2030</span>
+        </div>
+    </footer>
+    <div class="clearfix"></div>
+    
+</body>
+<script>
+    $(function() {
+        $(".left_menu_icon").click(function() {
+            $(this).next().toggleClass("menu_hide");
+            $(this).toggleClass("menu_selected");
+        });
+        $("#mainmenu_btn").click(function() {
+            $("#submenu_box").toggleClass("menu_hide");
+        });
+    });
+</script> 
+
+<script>
+    document.getElementById('now_date').valueAsDate = new Date();
+</script>
+<script>
+    $(function () {
+        $("tr:nth-child(2n+1)").addClass("tr-even");
+    })
+</script>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/common_table.css">
+
+    <!-- FontAweSome -->
+    <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
+    <!-- FontAweSome -->
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQuery -->
+
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+
+    /* A4 크기 */
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 2cm;
+        margin: 0 auto;
+        background: #eee;
+    }
+    .subpage {
+        border: 2px red solid;
+        background: #fff;
+        height: 257mm;
+    }
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    @media print {
+
+        html,
+        body {
+            width: 210mm;
+            height: 297mm;
+        }
+
+        .page {
+            margin: 0;
+            border: initial;
+            width: initial;
+            min-height: initial;
+            box-shadow: initial;
+            background: initial;
+            page-break-after: always;
+        }
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    .list td {
+        border: 1px solid #000;
+        padding: 0px 5px;
+        text-align: center;
+        line-height: 150%;
+    }
+
+    input {
+        border: 1px solid transparent;
+        outline: transparent;
+    }
+</style>
+
+<body>
+    <div class="page noto font_12">
+        <div class="subpage">
+            <div class="main_right" style="width: 100%;">
+                <div class="main_right_title p_10 w_100 m_b20">
+                    <h1 class="center">${부서} 구매요청서</h1>
+                </div>
+            </div>
+            <div class="main_right_info w_100">
+                <div class="table_grp flex space_between">
+                    <table class="list">
+                        <tr>
+                            <td class="bg_gray">문서번호</td>
+                            <td>
+                                <span class="">${문서번호} !!자동계산 필요!!</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bg_gray">작성일</td>
+                            <td>
+                                <span class="">${작성일} ex)2020-12-01</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bg_gray">작성부서</td>
+                            <td>
+                                <span class="">${담당자부서} ex)인사1팀</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bg_gray">작성자</td>
+                            <td>
+                                <span class="">${담당자} ex) 김진희 대리</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="list td_20">
+                        <tr>
+                            <td class="bg_gray" rowspan="4">결<br />재</td>
+                            <td>
+                                <span class="">총무팀장</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">${서명}</td>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td>
+                                <span class="">결재일</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="form_title w_100 m_tb20">
+                    <table class="list w_100">
+                        <tr>
+                            <td class="bg_gray">제목</td>
+                            <td class="" style="text-align: left;">
+                                <span id="title" class="">ex)2020년 12월 인사1팀 구매요청서</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="">
+                    <div class="table_grp">
+                        <table class="list w_100" style="border: 2px solid #000;">
+                            <tr>
+                                <td class="td_5">
+                                    <span>번호</span>
+                                </td>
+                                <td class="td_30">
+                                    <span>요청품목</span>
+                                </td>
+                                <td class="td_8">
+                                    <span>수량</span>
+                                </td>
+                                <td class="td_8">
+                                    <span>단위</span>
+                                </td>
+                                <td>
+                                    <span>단가</span>
+                                </td>
+                                <td>
+                                    <span>금액</span>
+                                </td>
+                                <td>
+                                    <span>용도</span>
+                                </td>
+                            </tr>
+                            
+                            <!-- 반복시작 -->
+                            <c:forEach items="${list}" var=list>
+                                <tr>
+                                    <td>
+                                        <span>1</span>
+                                    </td>
+                                    <td>
+                                        <span>${상품명}</span>
+                                    </td>
+                                    <td>
+                                        <span>${수량}</span>
+                                    </td>
+                                    <td>
+                                        <span>${단위}</span>
+                                    </td>
+                                    <td>
+                                        <span>${단가}</span>
+                                    </td>
+                                    <td>
+                                        <span>${금액}</span>
+                                    </td>
+                                    <td>
+                                        <span>${용도}</span>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            
+                            <!-- 계 -->
+                            <tr>
+                                <td colspan="5">
+                                    <span class="weight_700">계</span>
+                                </td>
+                                <td colspan="2">
+                                    <span class="weight_700">${금액 합계}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7">비고사항</td>
+                            </tr>
+                            <tr>
+                                <td colspan="7" style="height: 200px;">
+                                    ${총무팀장의 개인의견 기입}
+                                    <p>ex) 총무팀에서 업체와 협의를 통해 5만원 DC</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    //window.print();
+</script>
+</html>
