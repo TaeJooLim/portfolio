@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인페이지</title>
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/button_style.css">
+    <link rel="stylesheet" href="../../../css/common_table.css">
+
+    <!-- FontAweSome -->
+    <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
+    <!-- FontAweSome -->
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQuery -->
+
+</head>
+<style>
+    .list th {
+        border: 1px solid #60718b;
+        background-color: #6f809a;
+        color: #fff;
+        padding: 8px 5px;
+        text-align: center;
+    }
+
+    .list tr:nth-child(2n) {
+        background-color: #eff3f9;
+    }
+
+    .list td {
+        border: 1px solid #d6dce7;
+        padding: 8px 5px;
+        text-align: center;
+    }
+
+    .product_list td {
+        border: 1px solid #d6dce7;
+    }
+
+    .search_sel_box {
+    width: 85px;
+    }
+
+    .search_btn {
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        background-color: #eee;
+    }
+
+     /* modal css */
+     .flex-wrap {
+	    flex-wrap: wrap;
+	}
+    .modal-wrapper {
+        background-color: rgba(0, 0, 0, 0.3);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        visibility: hidden;
+        /* 눌렀을 때 나와야 하니깐 = visibility */
+        transition: 0.3s;
+    }
+    .modal-wrapper.open {
+        visibility: visible;
+        opacity: 1;
+        transition: 0.3s;
+    }
+    .modal-wrapper.open .modal {
+        opacity: 1;
+    }
+    .modal {
+        width: 700px;
+        min-height: 260px;
+        height: 80vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        opacity: 0;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: -60px 0px 100px -90px #000,
+            60px 0px 100px -90px #000;
+    }
+    /* modal css */
+</style>
+<script>
+    $(function () {
+        $(".popup").click(function () {
+            $(".modal-wrapper").toggleClass("open");
+        });
+    });
+</script>
+<body>
+    <!-- 모달 시작-->
+	<div class="modal-wrapper">
+        <div class="modal flex space_between flex-wrap" style="align-content: flex-start;">
+            <div>
+                <h3 class="font_18">계약서 상세보기</h3>
+            </div>
+            <a href="" class="popup font_20">
+                <i class="fas fa-window-close"> 창닫기</i>
+            </a>
+            <div class="m-t20 w_100 flex" style="flex-wrap: nowrap; overflow-y: auto;">
+            	<div class="center p_10">계약서 폼</div>
+            </div>
+            <div>
+                <button class="btn_blue">인쇄</button>
+            </div>
+        </div>
+    </div>
+    <!-- 모달 끝 -->
+    <div class="page_wrap bg_white noto font_14" style="height: 100vh;">
+        <div class="main_right bg_white" style="width: 100%;">
+            <div class="main_right_title p_10" style="height: 50px; border-bottom: 1px solid #ccc;">
+                <h2 class="font_18">계약서 목록</h2>
+            </div>
+        </div>
+        <div class="main_right_info">
+        
+            <div class="p_20">
+
+                <div class="font_12 m_b10" style="padding: 10px 20px; background-color: #f9f9f9;">
+                    계약서 목록 페이지에서 <strong>생산등록</strong>을 해주어야 생산계획을 등록할 수 있습니다.
+                </div>
+
+                <div class="search_grp flex m_tb10">
+                    <select name="searchOpt" id="" class="search_sel_box">
+                        <option value="">문서번호</option>
+                        <option value="">담당자</option>
+                        <option value="">거래처</option>
+                    </select>
+                    <input type="text" class="m_lr5" id="" />
+                    <div class="search_btn flex flex_vc flex_hc">
+                        <i class="fas fa-search font_18" style="color: #959595;"></i>
+                    </div>
+                </div>
+
+                <div class="" style="width: 100%; white-space: nowrap; overflow-x: auto;">
+                    <table class="list clearfix">
+                        <thead>
+                            <tr>
+                                <th>번호</th>
+                                <th>문서번호</th>
+                                <th>담당자</th>
+                                <th>거래처</th>
+                                <th>품목</th>
+                                <th>발주일</th>
+                                <th>납기일</th>
+                                <th>관리</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2</td>
+                                <td class="popup" style="text-decoration: underline;">20201203_2133_2</td>
+                                <td>신짱구</td>
+                                <td>삼성전자</td>
+                                <td>노트북 외 5개</td>
+                                <td>2020.12.03</td>
+                                <td>2020.12.28</td>
+                                <td>
+                                    <button class="s_btn_blue">생산</button>
+                                    <button class="s_btn_gray">수정</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>20201201_0955_1</td>
+                                <td>김철수</td>
+                                <td>하이닉스</td>
+                                <td>컴퓨터 외 2개</td>
+                                <td>2020.12.01</td>
+                                <td>2021.01.24</td>
+                                <td>
+                                    <button class="s_btn_blue">생산</button>
+                                    <button class="s_btn_gray">수정</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="page_grp center">
+                <a href="">
+                    <span class="page"><i class="fas fa-angle-double-left"></i></span>
+                </a>
+                <a href="">
+                    <span class="page"><i class="fas fa-angle-left"></i></span>
+                </a>
+                <a href="">
+                    <span class="page">1</span>
+                </a>
+                <a href="">
+                    <span class="page">2</span>
+                </a>
+                <a href="">
+                    <span class="page">3</span>
+                </a>
+                <a href="">
+                    <span class="page">4</span>
+                </a>
+                <a href="">
+                    <span class="page">5</span>
+                </a>
+                <a href="">
+                    <span class="page"><i class="fas fa-angle-right"></i></span>
+                </a>
+                <a href="">
+                    <span class="page"><i class="fas fa-angle-double-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+<script></script>
+</html>

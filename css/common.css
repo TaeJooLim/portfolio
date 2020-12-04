@@ -1274,10 +1274,7 @@ a {
 
 .page:hover {
     background-color: #3f51b5;
-}
-
-.page:hover a {
-    color: #fff;
+    color:#fff;
 }
 
 /* footer 하단고정 */
