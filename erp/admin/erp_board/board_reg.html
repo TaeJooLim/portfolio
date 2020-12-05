@@ -139,11 +139,8 @@
                 </div>
                 <div class="main_right_info" style="padding: 30px 20px;">
                     <div class="main_wrap">
-                        <div class="">
-                            <span class="btn_blue">생성된 게시판 수 ${}개</span>
-                        </div>
                         <div class="title">
-                            <h3 class="font_18 m_t20">
+                            <h3 class="font_18">
                                 <i class="fas fa-edit"></i> 게시판관리 > 1. 게시판생성
                             </h3>
                         </div>
@@ -153,41 +150,39 @@
                                     <tr class="center">
                                         <td class="bg_gray weight_700 td_10">게시판그룹</td>
                                         <td class="td_15 p_lr3">
-                                            <select class="td_100" name="" id="">
+                                            <select class="sel_100" name="" id="">
+                                                <option>인사부</option>
+                                                <option>경영부</option>
+                                                <option>영업부</option>
+                                                <option>기획부</option>
+                                                <option>생산부</option>
                                             </select>
                                         </td>
                                         <td class="bg_gray weight_700 td_10">게시판코드</td>
                                         <td class="td_15 p_lr3">
-                                            <input onBlur="chkBoardCode();" required name="boardCode" id="boardCode" type="text" class="td_100" placeholder="영어로 입력" />
+                                            <input onBlur="chkBoardCode();" required name="boardCode" id="boardCode" type="text" class="input_100" placeholder="영어로 입력" />
                                         </td>
-                                        <td class="bg_gray weight_700 td_10">게시판색상</td>
+                                        <td class="bg_gray weight_700 td_10">게시판공개</td>
                                         <td class="td_15 p_lr3">
-                                            <select class="td_100" name="boardColor" id="boardColor">
-                                                <option value="#6F809A">#6F809A</option>
-                                                <option value="#B00020">#B00020</option>
-						                        <option value="#5D1049">#5D1049</option>
-						                        <option value="#4A148C">#4A148C</option>
-						                        <option value="#2962FF">#2962FF</option>
-						                        <option value="#404E67">#404E67</option>
-						                        <option value="#FE5E71">#FE5E71</option>
-	                        					<option value="#1A237E">#1A237E</option>
+                                            <select class="sel_100" name="boardColor" id="boardColor">
+                                                <option>공개</option>
+                                                <option>비공개</option>
                                             </select>
-                                            <span class="color"></span>
                                         </td>
                                         <td class="bg_gray weight_700 td_10">게시판 관리자</td>
                                         <td class="td_15 p_lr3">
-                                        	<input type="text" class="td_100" name="boardMaker" value="${sessionScope.empName}" />
+                                        	<input type="text" class="input_100" name="boardMaker" value="${sessionScope.empName}" />
                                         </td>
                                     </tr>
                                     <tr class="center">
                                         <td class="bg_gray weight_700 td_10">게시판제목</td>
                                         <td colspan="5" class="td_90 p_lr3">
-                                            <input type="text" name="boardTitle" required class="td_100" />
+                                            <input type="text" name="boardTitle" required class="input_100" />
                                         </td>
                                         <td class="bg_gray weight_700 td_10">게시판타입</td>
                                         <td class="td_90 p_lr3">
-                                            <select class="td_100" name="boardType">
-                                                <option value="1">답변형 게시판</option>
+                                            <select class="sel_100" name="boardType">
+                                                <option value="1">일반 게시판</option>
                                                 <option value="2">공지사항 게시판</option>
                                             </select>
                                         </td>
@@ -195,28 +190,28 @@
                                     <tr class="center">
                                         <td class="bg_gray weight_700 td_10">읽기권한</td>
                                         <td class="td_15 p_lr3">
-                                            <select class="td_100" name="boardRead">
+                                            <select class="sel_100" name="boardRead">
                                                 <option value="0">모두</option>
                                                 <option value="1">직원</option>
                                             </select>
                                         </td>
                                         <td class="bg_gray weight_700 td_10">쓰기권한</td>
                                         <td class="td_15 p_lr3">
-                                            <select class="td_100" name="boardWrite">
+                                            <select class="sel_100" name="boardWrite">
                                                 <option value="0">모두</option>
                                                 <option value="1">직원</option>
                                             </select>
                                         </td>
                                         <td class="bg_gray weight_700 td_10">댓글권한</td>
                                         <td class="td_15 p_lr3">
-                                            <select class="td_100" name="boardReply">
+                                            <select class="sel_100" name="boardReply">
                                                 <option value="0">모두</option>
                                                 <option value="1">직원</option>
                                             </select>
                                         </td>
                                         <td class="bg_gray weight_700 td_10">다운권한</td>
                                         <td class="td_15 p_lr3">
-                                            <select class="td_100" name="boardDownload">
+                                            <select class="sel_100" name="boardDownload">
                                                 <option value="0">모두</option>
                                                 <option value="1">직원</option>
                                             </select>
@@ -231,91 +226,109 @@
                         </div>
                         <div class="title">
                             <h3 class="font_18 m_t20">
-                                <i class="fas fa-edit"></i> 게시판관리 > 2. 게시판목록
+                                <i class="fas fa-edit"></i> 게시판관리 > 2. 게시판관리
                             </h3>
                         </div>
-                        <div class="btn_grp flex space_between">
-                            <div>
-                                <button class="btn_red" id="deleteAll">선택삭제</button>
+                        <div class="list_comment font_12 m_tb10" style="padding: 10px 20px; background-color: #f9f9f9;">
+                            게시판 수정은 <strong>하나</strong>의 게시판만 선택이 가능합니다.
+                        </div>
+                        <div class="flex space_between m_b10">
+                            <div class="">
+                                
+                                <button class="btn_blue">선택수정</button>
+                                <button class="btn_red">선택삭제</button>
                             </div>
-                            
-                       
-                            <div class="search_grp flex">
-                               
-                                    <select name="searchOpt" id="" class="search_sel_box">
-                                        <option value="boardCode">게시판 코드</option>
-                                        <option value="boardTitle">게시판 제목</option>
-                                        <option value="boardGrp">게시판 그룹</option>
-                                    </select>
-                                    <input value="${words}" type="text" name="words" required
-                                        class="m_lr5"/>
-                                        <div class="search_btn flex flex_vc flex_hc">
-                                            <i class="fas fa-search font_18" style="color: #959595;"></i>
-                                        </div>
+                            <div class="">
+                                <button class="btn_write">사내게시판</button>
                             </div>
                         </div>
                         <div class="board_list m_tb10">
-                            <table>
-                                <tr class="center weight_700 font14 tr_color" id="rowColor">
-                                    <td class="td_5"><input type="checkbox" onClick="chkAll()" /></td>
-                                    <td class="td_10">게시판그룹</td>
-                                    <td class="td_10">게시판코드</td>
-                                    <td class="td_10">게시판색상</td>
-                                    <td>게시판제목</td>
-                                    <td class="td_5">읽기권한</td>
-                                    <td class="td_5">쓰기권한</td>
-                                    <td class="td_5">댓글권한</td>
-                                    <td class="td_5">다운권한</td>
-                                    <td class="td_10">게시판관리</td>
-                                </tr>
-                           <c:forEach items="${list}" var="board">     
-                                <tr class="center font_14 weight_700">
-                                    <td>
-                                        <input autocomplete="off" type="checkbox" name="chk" class="chk" data-uid="${board.boardCode}" />
-                                    </td>
-                                    <td>${board.buseo_name}</td>
-                                    <td>
-                                        <a href="${pageContext.request.contextPath}/article/grp_article_list?boardCode=${board.boardCode}" target="_blank" class="under">${board.boardCode}</a>
-                                    </td>
-                                    <td>${board.boardColor}</td>
-                                    <td>
-                                         <a href="${pageContext.request.contextPath}/article/grp_article_list?boardCode=${board.boardCode}" target="_blank" class="under">${board.boardTitle}</a>
-                                    </td>
-                                    <td>${board.boardRead}</td>
-                                    <td>${board.boardWrite}</td>
-                                    <td>${board.boardReply}</td>
-                                    <td>${board.boardDownload}</td>
-                                    <td>
-                                        <button class="s_btn_blue" onClick="">수정</button>
-                                        <button class="s_btn_red" onClick="boardDel('${board.boardCode}');">삭제</button>
-                                    </td>
-                                </tr>
-                            </c:forEach>    
-                            </table>
+                            <div class="flex">
+                                <div class="p_30" style="border-right: 1px solid #ccc;">
+                                    <ul><span class="weight_700 font_16">인사부 게시판</span>
+                                        <li><input type="checkbox"> &nbsp; 공지사항</li>
+                                        <li><input type="checkbox"> &nbsp; 자료실</li>
+                                        <li><input type="checkbox"> &nbsp; 자유게시판</li>
+                                    </ul>
+                                </div>
+                                <div class="p_30" style="border-right: 1px solid #ccc;">
+                                    <ul><span class="weight_700 font_16">경영부 게시판</span>
+                                        <li><input type="checkbox"> &nbsp; 공지사항</li>
+                                        <li><input type="checkbox"> &nbsp; 자료실</li>
+                                        <li><input type="checkbox"> &nbsp; 자유게시판</li>
+                                        <li><input type="checkbox"> &nbsp; 연락처</li>
+                                    </ul>
+                                </div>
+                                <div class="p_30" style="border-right: 1px solid #ccc;">
+                                    <ul><span class="weight_700 font_16">총무부 게시판</span>
+                                        <li><input type="checkbox"> &nbsp; 공지사항</li>
+                                        <li><input type="checkbox"> &nbsp; 자료실</li>
+                                        <li><input type="checkbox"> &nbsp; 자유게시판</li>
+                                        <li><input type="checkbox"> &nbsp; 연락처</li>
+                                    </ul>
+                                </div>
+                                <div class="p_30" style="border-right: 1px solid #ccc;">
+                                    <ul><span class="weight_700 font_16">기획부 게시판</span>
+                                        <li><input type="checkbox"> &nbsp; 공지사항</li>
+                                        <li><input type="checkbox"> &nbsp; 자료실</li>
+                                        <li><input type="checkbox"> &nbsp; 자유게시판</li>
+                                        <li><input type="checkbox"> &nbsp; 회의기록</li>
+                                        <li><input type="checkbox"> &nbsp; 회의문서</li>
+                                    </ul>
+                                </div>
+                                <div class="p_30" style="border-right: 1px solid #ccc;">
+                                    <ul><span class="weight_700 font_16">생산부 게시판</span>
+                                        <li><input type="checkbox"> &nbsp; 공지사항</li>
+                                        <li><input type="checkbox"> &nbsp; 자료실</li>
+                                        <li><input type="checkbox"> &nbsp; 자유게시판</li>
+                                        <li><input type="checkbox"> &nbsp; 생산부 2팀 자유게시판</li>
+                                    </ul>
+                                </div>
+                                <div class="p_30" style="border-right: 1px solid #ccc;">
+                                    <ul><span class="weight_700 font_16">영업부 게시판</span>
+                                        <li><input type="checkbox"> &nbsp; 공지사항</li>
+                                        <li><input type="checkbox"> &nbsp; 자료실</li>
+                                        <li><input type="checkbox"> &nbsp; 자유게시판</li>
+                                        <li><input type="checkbox"> &nbsp; 거래처 자료</li>
+                                        <li><input type="checkbox"> &nbsp; 거래처 연락처</li>
+                                    </ul>
+                                </div>
+                                <div class="p_30" style="border-right: 1px solid #ccc;">
+                                    <ul><span class="weight_700 font_16">물류부 게시판</span>
+                                        <li><input type="checkbox"> &nbsp; 공지사항</li>
+                                        <li><input type="checkbox"> &nbsp; 자료실</li>
+                                        <li><input type="checkbox"> &nbsp; 자유게시판</li>
+                                        <li><input type="checkbox"> &nbsp; 원자재 자료실</li>
+                                    </ul>
+                                </div>
+                                <div class="p_30" style="border-right: 1px solid #ccc;">
+                                    <ul><span class="weight_700 font_16">수입부 게시판</span>
+                                        <li><input type="checkbox"> &nbsp; 공지사항</li>
+                                        <li><input type="checkbox"> &nbsp; 자료실</li>
+                                        <li><input type="checkbox"> &nbsp; 자유게시판</li>
+                                    </ul>
+                                </div>
+                                <div class="p_30" style="border-right: 1px solid #ccc;">
+                                    <ul><span class="weight_700 font_16">시스템관리부 게시판</span>
+                                        <li><input type="checkbox"> &nbsp; 공지사항</li>
+                                        <li><input type="checkbox"> &nbsp; 자료실</li>
+                                        <li><input type="checkbox"> &nbsp; 자유게시판</li>
+                                    </ul>
+                                </div>
+                                <div class="p_30">
+                                    <ul><span class="weight_700 font_16">공용 게시판</span>
+                                        <li><input type="checkbox"> &nbsp; 공지사항</li>
+                                        <li><input type="checkbox"> &nbsp; 자료실</li>
+                                        <li><input type="checkbox"> &nbsp; 자유게시판</li>
+                                        <li><input type="checkbox"> &nbsp; 문의사항</li>
+                                        <li><input type="checkbox"> &nbsp; 행사안내</li>
+                                    </ul>
+                                </div>
+                            </div>  
                         </div>
-                    
+                    </div>
                 </div>
-                <div class="page_grp center">
-                    <span class="page">
-                        <a href=""><i class="fas fa-angle-double-left"></i></a>
-                    </span>
-                    <span class="page">
-                        <a href=""><i class="fas fa-angle-left"></i></a>
-                    </span>
-                    <span class="page page-active">
-                        <a href="" class="f6">1</a>
-                    </span>
-                    <span class="page"><a href="">2</a></span>
-                    <span class="page"><a href="">3</a></span>
-                    <span class="page"><a href="">4</a></span>
-                    <span class="page"><a href="">5</a></span>
-                    <span class="page">
-                        <a href=""><i class="fas fa-angle-right"></i></a>
-                    </span>
-                    <span class="page">
-                        <a href=""><i class="fas fa-angle-double-right"></i></a>
-                    </span>
-                </div>
+                
             </div>
         </div>
     </div>

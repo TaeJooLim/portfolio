@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인페이지</title> 
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/button_style.css">
+    <link rel="stylesheet" href="../../../css/common_table.css">
+    <link rel="stylesheet" href="../../../css/erp_board_view.css">
+
+    <!-- FontAweSome -->
+    <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
+    <!-- FontAweSome -->
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQuery -->
+    
+</head>
+<style>
+    .control_menu {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+    .main_left_menu {
+        width: 50px;
+    }
+    .left_menu_icon {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+    .menu_selected {
+        background-color: #fff;
+        color: #3F51B5;
+    }
+    .menu_hide {
+        display: none;
+    }
+    .menu_active {
+        display: block;
+    }
+    .submenu_box {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 170px;
+        height: 80%;
+        color: #000;
+        border-right: 1px solid #ccc;
+        background-color: #fff;
+    }
+</style>
+
+<body>
+    <div class="page_wrap bg_white noto font_14" style="height: 100vh;">
+        <div class="page_top flex space_between">
+            <div class="top_left bg_blue_1">
+                <div id="mainmenu_btn" class="control_menu font_16 white center flex flex_hc flex_vc">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div class="top_middle bg_blue_2 font_16 flex flex_hc flex_vc" style="width: 10%;">
+                <span class="white">ADMINISTRATOR</span>
+            </div>
+            <div class="top_right bg_blue_3 p_10" style="width: 100%;">
+                <div class="top_right_menu flex" style="justify-content: flex-end;">
+                    <div class="top_right_menu_one white" style="line-height: 30px;"><i
+                            class="fas fa-store"></i></div>
+                    <div class="top_right_menu_two white m_lr20" style="line-height: 30px;"><i
+                            class="fas fa-home"></i></div>
+                    <!-- <div class="top_right_menu_three">
+                        <button class="m_l10 white"
+                            style="display: inline-block; padding: 5px 10px; margin-left: 10px; border-radius: 3px; height: 30px;  color: #fff; background-color: rgba(250, 250, 250, 0.1);">
+                            부가서비스
+                        </button>
+                    </div> -->
+                    <div class="top_right_menu_four">
+                        <select class="white" style="background-color: rgba(250, 250, 250, 0.1); height: 30px;">
+                            <option class="bg_blue_4">관리자</option>
+                            <option class="bg_blue_4">관리자정보</option>
+                            <option class="bg_blue_4">로그아웃</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page_main flex space_between" style="border-bottom: 1px solid #ccc;">
+            <div class="main_left flex space_between" style="width: 50px;">
+                <div class="main_left_menu bg_ivory">
+
+                    <!-- FLOAT로 띄워서 버튼 JQUERY로 show&hide -->
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div id="submenu_box" class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">1번메뉴</h4>
+                        <ul class="font_12">
+                            <li class="m_b10">서브메뉴1</li>
+                            <li class="m_b10">서브메뉴2</li>
+                            <li class="m_b10">서브메뉴3</li>
+                            <li class="m_b10">서브메뉴4</li>
+                        </ul>
+                    </div>
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-user-alt"></i>
+                    </div>
+                    <div class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">사원관리</h4>
+                        <ul class="font_12">
+                            <li class="m_b10"><a href="employee/erp_employee_list.html">사원목록보기</a></li>
+                            <li class="m_b10"><a href="employee/erp_employee_register.html">사원상세정보 입력/수정</a></li>
+                            <li class="m_b10">서브메뉴3</li>
+                            <li class="m_b10">서브메뉴4</li>
+                            <li class="m_b10">서브메뉴5</li>
+                        </ul>
+                    </div>
+                    <div class="left_menu_icon font_16 flex flex_vc flex_hc" style="border-bottom: 1px solid #ccc;">
+                        <i class="fas fa-user-alt"></i>
+                    </div>
+                    <div class="submenu_box menu_hide main_left_menu_sub p_20">
+                        <h4 class="menu_title m_b15">3번메뉴</h4>
+                        <ul class="font_12">
+                            <li class="m_b10">서브메뉴1</li>
+                            <li class="m_b10">서브메뉴2</li>
+                            <li class="m_b10">서브메뉴3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="main_right bg_white" style="width: 100%;">
+                <div class="main_right_title p_10" style="height: 50px; border-bottom: 1px solid #ccc;">
+                    <h2 class="font_18">사내 게시판</h2>
+                </div>
+                <div class="main_right_info flex p_10">
+                    <div class="board_left">
+                        <ul>
+                            <li><i class="fas fa-edit"></i> &nbsp; <a href="#">전체 게시글</a></li>
+                            <li><i class="fas fa-edit"></i> &nbsp; <a href="#">내가 쓴 게시글</a></li>
+                        </ul>
+                        <ul><span class="weight_700 font_16"> &nbsp; &nbsp;인사부 게시판</span>
+                            <li><i class="fas fa-edit"></i> &nbsp; <a href="#">공지사항</a></li>
+                            <li><i class="fas fa-edit"></i> &nbsp; <a href="#">자료실</a></li>
+                            <li><i class="fas fa-edit"></i> &nbsp; <a href="#">자유게시판</a></li>
+                        </ul>
+                        <ul><span class="weight_700 font_16"> &nbsp; &nbsp;경영부 게시판</span>
+                            <li><i class="fas fa-edit"></i> &nbsp; <a href="#">공지사항</a></li>
+                            <li><i class="fas fa-edit"></i> &nbsp; <a href="#">자료실</a></li>
+                            <li><i class="fas fa-edit"></i> &nbsp; <a href="#">자유게시판</a></li>
+                        </ul>
+                        <ul><span class="weight_700 font_16"> &nbsp; &nbsp;기획부 게시판</span>
+                            <li><i class="fas fa-edit"></i> &nbsp; <a href="#">공지사항</a></li>
+                            <li><i class="fas fa-edit"></i> &nbsp; <a href="#">자료실</a></li>
+                            <li><i class="fas fa-edit"></i> &nbsp; <a href="#">자유게시판</a></li>
+                        </ul>
+                        <ul><span class="weight_700 font_16"> &nbsp; &nbsp;영업부 게시판</span>
+                            <li><i class="fas fa-edit"></i> &nbsp; <a href="#">공지사항</a></li>
+                            <li><i class="fas fa-edit"></i> &nbsp; <a href="#">자료실</a></li>
+                            <li><i class="fas fa-edit"></i> &nbsp; <a href="#">자유게시판</a></li>
+                        </ul>
+                        <ul><span class="weight_700 font_16"> &nbsp; &nbsp;생산부 게시판</span>
+                            <li><i class="fas fa-edit"></i> &nbsp; <a href="#">공지사항</a></li>
+                            <li><i class="fas fa-edit"></i> &nbsp; <a href="#">자료실</a></li>
+                            <li><i class="fas fa-edit"></i> &nbsp; <a href="#">자유게시판</a></li>
+                        </ul>
+                    </div>
+                    <div class="board_right">
+                        <div class="board_right_info">
+                            <div class="table_title">
+                                <i class="fas fa-chalkboard"></i>
+                                영업부 자유게시판
+                            </div>
+                        </div>
+                        <div class="flex space_between m_b10">
+                            <div class="">
+                                
+                                <button class="btn_blue">수정</button>
+                                <button class="btn_red">삭제</button>
+                            </div>
+                            <div class="">
+                                <button class="btn_write">목록</button>
+                            </div>
+                        </div>
+                        <div class="">
+                            <table>
+                                <tr>
+                                    <td class="td_10 center weight_700 bg_gray">게시글 분류</td>
+                                    <td class="p_lr3">
+                                        <span class="btn_red">공지사항</span>
+                                    </td>
+                                    <td class="td_10 center weight_700 bg_gray">근무부서</td>
+                                    <td class="p_lr3">
+                                       영업부 1팀
+                                    </td>
+                                    <td class="td-10 center weight_700 bg_gray">작성일</td>
+                                    <td class="p_lr3">
+                                       2020.12.05
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-10 center weight_700 bg_gray">게시글 제목</td>
+                                    <td colspan="5" class="p_lr3">
+                                     <strong>안녕하세요. 그린컴퓨터학원에서 알리는 공지사항입니다.</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-10 center weight_700 bg_gray">게시글 작성자</td>
+                                    <td colspan="5" class="p_lr3">
+                                     <strong>관리자</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                 <td class="td-10 center weight_700 bg_gray">게시글 내용</td>
+                                 <td colspan="5" class="content">
+                                     안녕하세요. 그린컴퓨터학원에서 알리는 공지사항입니다.
+                                 </td>
+                             </tr>
+                             <tr>
+                                 <td class="td-10 center weight_700 bg_gray">첨부파일</td>
+                                 <td colspan="5" class="p_lr5 font_18" >
+                                    <i class="fas fa-file-powerpoint"></i>
+                                 </td>
+                             </tr>
+                             <tr>
+                                 <td class="td-10 center weight_700 bg_gray">게시물조회수</td>
+                                 <td colspan="5" class="p_lr3">
+                                     10회
+                                 </td>
+                             </tr>
+                               
+                            </table>
+                        </div>
+                        <div class="m_t10">
+                            <div class="p_b5" style="border-bottom: 1px solid #ccc;">
+                                <i class="fas fa-comment-dots"></i>
+                                <span> 댓글 <strong>2</strong></span>
+                            </div>
+                            <div>
+                                <div class="comment">
+                                    <div class="flex">
+                                        <div class="weight_700 m_r10 p_l10">
+                                            영엉부 1팀 김철수
+                                        </div>
+                                        <div class="comment_date">
+                                            2020.12.05 10:12
+                                        </div>
+                                    </div>
+                                    <div class="flex space_between">    
+                                        <div class="p_l10">
+                                            첨부파일 확인했습니다. 문의사항 연락드리겠습니다.
+                                        </div>
+                                        <div class="p_r10">
+                                            <a href="#">삭제</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment">
+                                    <div class="flex">
+                                        <div class="weight_700 m_r10 p_l10">
+                                            영엉부 1팀 김철수
+                                        </div>
+                                        <div class="comment_date">
+                                            2020.12.05 10:12
+                                        </div>
+                                    </div>
+                                    <div class="flex space_between">    
+                                        <div class="p_l10">
+                                            첨부파일 확인했습니다. 문의사항 연락드리겠습니다.
+                                        </div>
+                                        <div class="p_r10">
+                                            <a href="#">삭제</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment_box">
+                                <div class="weight_700">영업부 2팀 김사원</div>
+                                <div class="">
+                                    <input type="text" placeholder="댓글을 입력해주세요."/>   
+                                </div>
+                                <div class="float_r">
+                                    <button class="btn_write">등록</button>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>   
+                        </div>                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="copyright center">
+            <span class="copy"> &copy;Copyright All rights reserved.</span>
+            <span class="history">2020 - 2030</span>
+        </div>
+    </footer>
+    <div class="clearfix"></div>
+</body>
+<script>
+    $(function() {
+        $(".left_menu_icon").click(function() {
+            $(this).next().toggleClass("menu_hide");
+            $(this).toggleClass("menu_selected");
+        });
+        $("#mainmenu_btn").click(function() {
+            $("#submenu_box").toggleClass("menu_hide");
+        });
+    });
+</script> 
+
+</html>
