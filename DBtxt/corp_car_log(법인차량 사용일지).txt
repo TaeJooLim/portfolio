@@ -1,0 +1,41 @@
+법인차량 사용일지 입력 테이블
+
+create table corp_car_log(
+    car_pid int not null auto_increment primary key, 	// 기본키
+    car_drive_date date not null, 			// 운행일자
+    car_destination varchar(50) not null, 		// 행선지
+    car_purpose varchar(50) not null, 		// 사용목적
+    car_drive_start time not null, 			// 출발시간
+    car_drive_end time not null,			// 도착시간
+    car_start_km varchar(20) not null,	 		// 출발전 주행거리
+    car_end_km varchar(20) not null, 			// 도착후 주행거리
+    car_driver varchar(10) not null, 			// 운전자
+    car_passenger varchar(10), 			// 동승자
+    car_key char(1) not null default 'N' , 		// 키 반납여부
+    car_fuel varchar(20), 				// 주유사항
+    car_fuel_amount varchar(10),	 		// 주유금액
+    car_remark varchar(200), 			// 비고
+
+    car_id_fk int not null				// crop_car_mng 테이블의 id를 fk로 이용해서 '차종', '차량번호'를 출력
+);
+
+
+
+create table corp_car_log(
+    car_pid int not null auto_increment primary key,
+    car_drive_date date not null,
+    car_destination varchar(50) not null,
+    car_purpose varchar(50) not null,
+    car_drive_start time not null,
+    car_drive_end time not null,
+    car_start_km varchar(20) not null,
+    car_end_km varchar(20) not null,
+    car_driver varchar(10) not null,
+    car_passenger varchar(10),
+    car_key char(1) not null default 'N',
+    car_fuel varchar(20),
+    car_fuel_amount varchar(10),
+    car_remark varchar(200),
+
+    car_id_fk int not null
+);
