@@ -53,72 +53,8 @@
         background-color: #eee;
     }
 
-     /* modal css */
-     .flex-wrap {
-	    flex-wrap: wrap;
-	}
-    .modal-wrapper {
-        background-color: rgba(0, 0, 0, 0.3);
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        visibility: hidden;
-        /* 눌렀을 때 나와야 하니깐 = visibility */
-        transition: 0.3s;
-    }
-    .modal-wrapper.open {
-        visibility: visible;
-        opacity: 1;
-        transition: 0.3s;
-    }
-    .modal-wrapper.open .modal {
-        opacity: 1;
-    }
-    .modal {
-        width: 700px;
-        min-height: 260px;
-        height: 80vh;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #fff;
-        opacity: 0;
-        border-radius: 5px;
-        padding: 20px;
-        box-shadow: -60px 0px 100px -90px #000,
-            60px 0px 100px -90px #000;
-    }
-    /* modal css */
 </style>
-<script>
-    $(function () {
-        $(".popup").click(function () {
-            $(".modal-wrapper").toggleClass("open");
-        });
-    });
-</script>
 <body>
-    <!-- 모달 시작-->
-	<div class="modal-wrapper">
-        <div class="modal flex space_between flex-wrap" style="align-content: flex-start;">
-            <div>
-                <h3 class="font_18">계약서 상세보기</h3>
-            </div>
-            <a href="" class="popup font_20">
-                <i class="fas fa-window-close"> 창닫기</i>
-            </a>
-            <div class="m-t20 w_100 flex" style="flex-wrap: nowrap; overflow-y: auto;">
-            	<div class="center p_10">계약서 폼</div>
-            </div>
-            <div>
-                <button class="btn_blue">인쇄</button>
-            </div>
-        </div>
-    </div>
-    <!-- 모달 끝 -->
     <div class="page_wrap bg_white noto font_14" style="height: 100vh;">
         <div class="main_right bg_white" style="width: 100%;">
             <div class="main_right_title p_10" style="height: 50px; border-bottom: 1px solid #ccc;">
@@ -130,7 +66,9 @@
             <div class="p_20">
 
                 <div class="font_12 m_b10" style="padding: 10px 20px; background-color: #f9f9f9;">
-                    계약서 목록 페이지에서 <strong>생산등록</strong>을 해주어야 생산계획을 등록할 수 있습니다.
+                    <strong>생산등록</strong>을 누르면 해당 계약서의 생산계획 페이지로 이동합니다.<br/>
+                    <strong>품질관리</strong>을 누르면 해당 계약서의 품질관리 현황을 볼 수 있는 페이지로 이동합니다.
+                    <strong></strong>
                 </div>
 
                 <div class="search_grp flex m_tb10">
@@ -156,7 +94,8 @@
                                 <th>품목</th>
                                 <th>발주일</th>
                                 <th>납기일</th>
-                                <th>관리</th>
+                                <th>생산관리</th>
+                                <th>문서관리</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -169,8 +108,12 @@
                                 <td>2020.12.03</td>
                                 <td>2020.12.28</td>
                                 <td>
-                                    <button class="s_btn_blue">생산</button>
-                                    <button class="s_btn_gray">수정</button>
+                                    <button class="s_btn_blue">생산등록</button>
+                                    <button class="s_btn_gray">품질검사</button>
+                                </td>
+                                <td>
+                                    <button class="s_btn_blue">수정</button>
+                                    <button class="s_btn_gray">출력</button>
                                 </td>
                             </tr>
                             <tr>
@@ -182,8 +125,12 @@
                                 <td>2020.12.01</td>
                                 <td>2021.01.24</td>
                                 <td>
-                                    <button class="s_btn_blue">생산</button>
-                                    <button class="s_btn_gray">수정</button>
+                                    <button class="s_btn_blue">생산등록</button>
+                                    <button class="s_btn_gray">품질검사</button>
+                                </td>
+                                <td>
+                                    <button class="s_btn_blue">수정</button>
+                                    <button class="s_btn_gray">출력</button>
                                 </td>
                             </tr>
                         </tbody>
