@@ -1,0 +1,34 @@
+법인차량 관리
+
+create table corp_car_mng(
+    car_id int not null auto_increment primary key,  	// 기본키
+    car_model varchar(20) not null, 			// 차종
+    car_name varchar(50) not null, 			// 차량명
+    car_num varchar(20) not null,  			// 차량번호
+    car_purchase_date date not null,  		// 구입일자
+    car_purchase_price varchar(20) not null, 		// 구입가
+    car_use_year int, 				// 사용년수
+    car_scrap_value varchar(20), 			// 잔존가액
+    car_insurance_start date, 			// 보험계약일
+    car_insurance_end date, 			// 보험종료일
+    car_comprehensive char(1) default 'N', 		// 종합보험여부 (Y/N)
+    car_inspection date, 				// 최근검사일
+    car_total_mileage varchar(20) 			// 총 운행거리
+);
+
+create table corp_car_mng(
+    car_id int not null auto_increment primary key,
+    car_model varchar(20) not null,
+    car_name varchar(50) not null,
+    car_num varchar(20) not null,
+    car_purchase_date date not null,
+    car_purchase_price varchar(20) not null,
+    car_use_year int,
+    car_scrap_value varchar(20),
+    car_insurance_start date,
+    car_insurance_end date,
+    car_comprehensive char(1) default 'N',
+    car_inspection date,
+    car_total_mileage varchar(20)
+);
+
