@@ -1277,6 +1277,16 @@ a {
     color:#fff;
 }
 
+/* white-spec */
+.white_s_no {
+    white-space: nowrap;
+}
+
+/* overflow */
+.overflow_x_auto {
+    overflow-x: auto;
+}
+
 /* footer 하단고정 */
 footer {
     width: 100%;
