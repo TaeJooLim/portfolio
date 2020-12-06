@@ -193,52 +193,54 @@
                         <div class="list_comment font_12 m_tb10" style="padding: 10px 20px; background-color: #f9f9f9;">
                             출고완료된 상품 목록입니다.
                         </div>
-                        <table class="list">
-                            <thead>
-                                <tr>
-                                    <th class="td_3">번호</th>
-                                    <th class="td_10">문서번호</th>
-                                    <th class="td_10">거래처명</th>
-                                    <th class="td_5">담당자명</th>
-                                    <th class="td_10">품명</th>
-                                    <th class="td_3">단위</th>
-                                    <th class="td_8">단가</th>
-                                    <th class="td_3">수량</th>
-                                    <th class="td_8">공급가액</th>
-                                    <th class="td_10">발주일</th>
-                                    <th class="td_10">납기일</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach items=${list} var="wc" varStatus="var">
-                                        <tr>
-                                            <td>1</td>
-                                            <td>20201206_거래처코드_contD_id</td>
-                                            <td>그린컴퓨터 아카데미</td>
-                                            <td>임태주</td>
-                                            <td>데스크탑A</td>
-                                            <td>EA</td>
-                                            <td>2000000</td>
-                                            <td>10</td>
-                                            <td>20000000</td>
-                                            <td>2020-12-06</td>
-                                            <td>2020-12-11</td>
-                                        </tr><tr>
-                                            <td>2</td>
-                                            <td>20201206_거래처코드_contD_id</td>
-                                            <td>LG휘센</td>
-                                            <td>임태주</td>
-                                            <td>에어컨</td>
-                                            <td>EA</td>
-                                            <td>3000000</td>
-                                            <td>20</td>
-                                            <td>60000000</td>
-                                            <td>2020-12-04</td>
-                                            <td>2020-12-18</td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody> 
-                        </table>
+                        <div class="w_100 white_s_no overflow_x_auto">
+                            <table class="list">
+                                <thead>
+                                    <tr>
+                                        <th class="td_3">번호</th>
+                                        <th class="td_10">문서번호</th>
+                                        <th class="td_10">거래처명</th>
+                                        <th class="td_5">담당자명</th>
+                                        <th class="td_10">품명</th>
+                                        <th class="td_3">단위</th>
+                                        <th class="td_8">단가</th>
+                                        <th class="td_3">수량</th>
+                                        <th class="td_8">공급가액</th>
+                                        <th class="td_10">발주일</th>
+                                        <th class="td_10">납기일</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items=${list} var="wc" varStatus="var">
+                                            <tr>
+                                                <td>1</td>
+                                                <td>20201206_거래처코드_contD_id</td>
+                                                <td>그린컴퓨터 아카데미</td>
+                                                <td>임태주</td>
+                                                <td>데스크탑A</td>
+                                                <td>EA</td>
+                                                <td>2000000</td>
+                                                <td>10</td>
+                                                <td>20000000</td>
+                                                <td>2020-12-06</td>
+                                                <td>2020-12-11</td>
+                                            </tr><tr>
+                                                <td>2</td>
+                                                <td>20201206_거래처코드_contD_id</td>
+                                                <td>LG휘센</td>
+                                                <td>임태주</td>
+                                                <td>에어컨</td>
+                                                <td>EA</td>
+                                                <td>3000000</td>
+                                                <td>20</td>
+                                                <td>60000000</td>
+                                                <td>2020-12-04</td>
+                                                <td>2020-12-18</td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody> 
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div> 

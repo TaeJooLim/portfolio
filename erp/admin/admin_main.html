@@ -5,79 +5,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMINISTRATOR | PROJECT</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/button_style.css">
     <link rel="stylesheet" href="../../css/admin_main.css">
-
-    <script src="https://kit.fontawesome.com/d53c7b0373.js" crossorigin="anonymous"></script>
+    <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-
-    <style>
-        tr:first-child {
-            background-color: #7E57C2;
-            color: #fff;
-        }
-
-        .tr-even {
-            background-color: #ede7f6;
-        }
-    </style>
-
+    <!-- JQuery -->
+    
+    <!-- FontAweSome -->
+    <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
+    <!-- FontAweSome -->
+    
 </head>
+<style>
+    tr:first-child {
+        background-color: #7E57C2;
+        color: #fff;
+    }
 
+    .tr-even {
+        background-color: #ede7f6;
+    }
+</style>
 <body>
-    <div class="container">
+    <div class="w_100 h_100 bg_gray">
         <header>
-            <div class="nav-icon center font16">
+            <div class="nav_icon center font_16">
                 <i class="fas fa-bars"></i>
             </div>
-            <div class="logo center font18">
+            <div class="logo center font_18">
                 <a href="#">ADMINISTRATOR</a>
             </div>
             <div class="option">
-                <div class="home font16 p-lr10">
+                <div class="home font_16 p_lr10">
                     <a href="#">
                         <i class="fas fa-home"></i>
                     </a>
                 </div>
-                <ul class="admin gray5">
+                <ul class="admin">
                     <li>관리자
-                        <ul id="logout" class="admin-sub">
+                        <ul id="logout" class="admin_sub">
                             <li><a href="#">로그아웃</a></li>
                         </ul>
-                        <span class="btn-down"><i class="fas fa-angle-down"></i></span>
+                        <span class="btn_down"><i class="fas fa-angle-down"></i></span>
                     </li>
                 </ul>
             </div>
         </header>
         <div class="main flex">
             <nav class="flex">
-                <div class="main-menu font14">
-                    <a class="menu-tab active" href="#company">
+                <div class="main_menu font_14">
+                    <a class="menu_tab active" href="#company">
                         <i class="fas fa-cog"></i>
                     </a>
-                    <a class="menu-tab" href="#correspondent">
+                    <a class="menu_tab" href="#correspondent">
                         <i class="fas fa-user"></i>
                     </a>
-                    <a class="menu-tab" href="#employee">
+                    <a class="menu_tab" href="#employee">
                         <i class="fas fa-list"></i>
                     </a>
-                    <a class="menu-tab" href="#product">
+                    <a class="menu_tab" href="#product">
                         <i class="fas fa-briefcase"></i>
                     </a>
-                    <a class="menu-tab" href="#salary">
+                    <a class="menu_tab" href="#salary">
                         <i class="fas fa-file-alt"></i>
                     </a>
-                    <a class="menu-tab" href="#stock">
+                    <a class="menu_tab" href="#stock">
                         <i class="fas fa-file-alt"></i>
                     </a>
-                    <a class="menu-tab" href="#vacation">
+                    <a class="menu_tab" href="#vacation">
                         <i class="fas fa-file-alt"></i>
                     </a>
                 </div>
-                <div class="sub-menu">
+                <div class="sub_menu">
                     <ul id="company" class="menu select">
                         <h3>회사정보수정</h3>
-                        <li><a href="erp_company/erp_company_info.html">회사정보수정</a></li>
+                        <li><a href="../admin/erp_attend/worktime_list.html">회사정보수정</a></li>
                         <li><a href="#">NOT FOUND</a></li>
                         <li><a href="#">NOT FOUND</a></li>
                         <li><a href="#">NOT FOUND</a></li>
@@ -120,18 +124,14 @@
                 </div>
             </nav>
 
-            <div class="main-wrap"> 
-                <footer>
-                    <span> &copy; Copyright Project All rights reserved. </span>
-                </footer>
+            <div class="main_wrap">
+                여기에 붙여주!!
             </div>
-
         </div>
-
     </div>
+    <footer class="center">
+        <span> &copy; Copyright Project All rights reserved. </span>
+    </footer>
 </body>
-<script src="../../js/admin_main.js"></script>
-<script>
-
-</script>
+<script src="../../js/admin.js"></script>
 </html>
