@@ -1242,6 +1242,15 @@ a {
     font-size: 12px;
 }
 
+.s_sel_100 {
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    width: 100%;
+    height: 26px;
+    font-size: 12px;
+}
+
 .sel_100 {
     padding: 5px;
     border-radius: 2px;
@@ -1256,13 +1265,13 @@ a {
 }
 
 /*input style*/
-    .input_box {
-        padding: 5px;
-        border-radius: 2px;
-        border: 1px solid #d5d5d5;
-        height: 35px;
-        font-size: 12px;
-    }
+.input_box {
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    height: 35px;
+    font-size: 12px;
+}
 
 /* page_grp */
 .page {
