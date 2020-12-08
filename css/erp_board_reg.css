@@ -10,8 +10,25 @@ td {
     border:1px solid #d6dce7;
 }
 
-.board_list{
+/* .board_list{
     border: 1px solid #ccc;
+    line-height: 2;
+    padding: 10px;
+    width: 20%;
+} */
+
+.board_list td{
+    border: 1px solid #000;
+}
+
+.board_list tr:nth-child(2n-1){
+    font-weight: 700;
+    text-align: center;
+    background-color: #eee;
+}
+
+.board_list tr:nth-child(2n) td{
+    padding: 10px;
     line-height: 2;
 }
 
