@@ -5,6 +5,7 @@ create table vacation (
 	off_startDate char(10) not null,	// 휴가시작일 (input type ="date")
 	off_endDate char(10) not null,		// 휴가종료일 (input type ="date")
 	off_date char(10) not null,		// 휴가일 (input type ="date") / (자동계산)
+	off_date_cnt int not null,		// 일 수 (자동계산)
 	off_type char(1) not null,		// 휴가종류 (연차,반차,휴직)
 	off_confirm char(1) default 'N'		// 결재여부 (부서장이 결재)
 	
