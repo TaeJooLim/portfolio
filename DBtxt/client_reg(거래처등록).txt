@@ -42,7 +42,7 @@ create table client_reg (
 	client_company_phone varchar(12) not null,			
 	client_company_fax varchar(12),						
 	client_company_page varchar(100),					
-	client_post char(5) char(5) not null,				
+	client_post char(5) not null,				
 	client_address varchar(100) not null,				
 	client_nation char(1) not null,						
 	client_detail_address varchar(100) not null,		
@@ -55,5 +55,5 @@ create table client_reg (
 
 	client_tax_email varchar(50) not null,	
 	client_tax_responsibility varchar(15) not null,
-	client_tax_company_phone varchar(12) not null,
+	client_tax_company_phone varchar(12) not null
 );
