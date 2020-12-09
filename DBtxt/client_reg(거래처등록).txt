@@ -1,4 +1,4 @@
-create table client_reg (
+create table client (
 	client_id int not null auto_increment primary key,		// PRIMARY KEY
 	client_code varchar(10) not null,					// 거래처코드. 등록년+월+PRIMARY KEY로 자동생성
 	client_use_state char(1) not null,					// 사용여부 (Y/N)
@@ -29,7 +29,7 @@ create table client_reg (
 );
 
 
-create table client_reg (
+create table client (
 	client_id int not null auto_increment primary key,	
 	client_code varchar(10) not null,					
 	client_use_state char(1) not null,					
