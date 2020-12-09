@@ -1,6 +1,6 @@
 erp_import_reg
 
-create table import_reg(
+create table import(
     i_num int auto_increment primary key,
     i_name varchar(50) not null,                // 품명
     i_code varchar(30) not null,                // 품목코드
@@ -27,11 +27,11 @@ create table import_reg(
 );
 
 
-create table import_reg(
+create table import(
     i_num int auto_increment primary key,
     i_name varchar(50) not null,
     i_code varchar(30) not null,
-    i_group vachar(50),
+    i_group varchar(50),
     i_size varchar(20),
     i_PIC varchar(20),
     i_PIC_position varchar(20),
@@ -42,13 +42,13 @@ create table import_reg(
     i_orderdate varchar(10),
     i_manage_code varchar(30),
     i_po_code varchar(30),
-    i_Shipping char(1),
+    i_shipping char(1),
     i_place varchar(30) not null,
     i_division char(1),
     i_price_condition char(1),
     i_unit char(1) not null,
     i_amount int not null,
     i_price int not null,
-    i_note varchar(100)
+    i_note varchar(100),
     i_currency char(1) not null
 );

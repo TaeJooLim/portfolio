@@ -13,15 +13,16 @@ create table produce (
 
 
 create table produce (
-	prod_id int not null auto_increment primary key,	// PK
-	prod_doc_num_fk varchar(30) not null,		// 생산코드 = 문서번호 (참조키로 사용)
-	prod_process1 char(1),				// 공정1 (Y/N으로 구분)
-	prod_process2 char(1),				// 공정2 (Y/N으로 구분)
-	prod_process3 char(1),				// 공정3 (Y/N으로 구분)
-	prod_process4 char(1),				// 공정4 (Y/N으로 구분)
-	prod_process5 char(1),				// 공정5 (Y/N으로 구분)
-	prod_release char(1) default 'N',			// 출고여부 (Y/N으로 구분)
-	prod_process_cnt_fk int not null,			// 공정의 갯수
+	prod_id int not null auto_increment primary key,
+	prod_doc_num_fk varchar(30) not null,		
+	prod_process1 char(1) default 'N',				
+	prod_process2 char(1) default 'N',	
+	prod_process3 char(1) default 'N',				
+	prod_process4 char(1) default 'N',		
+	prod_process5 char(1) default 'N',		
+	prod_release char(1) default 'N',		
+	
+	prod_process_cnt_fk int not null	
 );
 
 상품의 공정차수(제일 높은 차수)를 받아서 그 공정의 갯수만큼만 N으로 입력될 수 있도록 하고, 나머지는 NULL로 받는다.

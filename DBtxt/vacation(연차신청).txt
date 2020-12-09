@@ -1,7 +1,7 @@
 연차신청 테이블
 
 create table vacation (
-	off_id int not null primary key,	// pk
+	off_id int not null auto_increment primary key,	// pk
 	off_startDate char(10) not null,	// 휴가시작일 (input type ="date")
 	off_endDate char(10) not null,		// 휴가종료일 (input type ="date")
 	off_date char(10) not null,		// 휴가일 (input type ="date") / (자동계산)
@@ -10,4 +10,16 @@ create table vacation (
 	off_confirm char(1) default 'N'		// 결재여부 (부서장이 결재)
 	
 	emp_id_fk int not null,			// employee 테이블 조인
+);
+
+create table vacation (
+	off_id int not null auto_increment primary key,
+	off_startDate char(10) not null,
+	off_endDate char(10) not null,	
+	off_date char(10) not null,		
+	off_date_cnt int not null,		
+	off_type char(1) not null,		
+	off_confirm char(1) default 'N',
+	
+	emp_id_fk int not null		
 );

@@ -36,10 +36,10 @@ create table employee(
 	emp_headcheck char(1) default 'N',
 	emp_step	int,
 	emp_auth int default 1,
-	emp_confirm char(1) default 'N'
+	emp_confirm char(1) default 'N',
 	emp_photo varchar(255),
 	
 	emp_off_total int default 12,
 	emp_off_use int default 0,
-	emp_off_remain int default 0,
+	emp_off_remain int default 0
 );

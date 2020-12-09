@@ -1,7 +1,5 @@
-***DB작업****
 
-일자/사원번호/부서코드/출근시간/퇴근시간/분류(내외근)/지각/(근무시간=출퇴근시간차이)
-// 전부 분으로 계산해야함!
+// 전부 분(m)으로 계산해야함!
 
 create table worktime(
 	wt_id int not null auto_increment primary key, //기본키
@@ -23,13 +21,17 @@ create table worktime(
 );
 
 create table worktime(
-	wt_id int not null auto_increment,
-	wt_workdate date,
-	wt_empNum varchar(20) not null,
-	wt_department char(3),
-	wt_starttime datetime,
-	wt_endtime datetime,
-	wt_workplace char(1),
-	wt_late char(1),
-	primary key(wt_id)
+	wt_id int not null auto_increment primary key, 
+	wt_workdate char(10), 		
+	wt_starttime date, 		
+	wt_endtime date, 		
+	wt_defaulttime int default 540, 
+	wt_overtime int,		
+	wt_totaltime int,		
+	wt_late char(1), 			
+	wt_workplace char(1), 		
+	
+	wt_status int,				
+
+	emp_id_fk int not null
 );
