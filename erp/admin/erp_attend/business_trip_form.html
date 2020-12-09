@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/common_table.css">
+
+    <!-- FontAweSome -->
+    <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
+    <!-- FontAweSome -->
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQuery -->
+
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+
+    /* A4 크기 */
+    .page_wrap {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 2cm;
+        margin: 0 auto;
+        background: #eee;
+    }
+    .subpage_wrap {
+        border: 2px red solid;
+        background: #fff;   
+        height: 257mm;
+    }
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    @media print {
+
+        html,
+        body {
+            width: 210mm;
+            height: 297mm;
+        }
+
+        .page_wrap {
+            margin: 0;
+            border: initial;
+            width: initial;
+            min-height: initial;
+            box-shadow: initial;
+            background: initial;
+            page-break-after: always;
+        }
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    .list td {
+        border: 1px solid #000;
+        padding: 0px 5px;
+        text-align: center;
+        line-height: 150%;
+    }
+
+    input {
+        border: 1px solid transparent;
+        outline: transparent;
+    }
+</style>
+
+<body>
+    <div class="page_wrap noto font_12">
+        <div class="subpage_wrap">
+            <div class="main_right" style="width: 100%;">
+                <div class="main_right_title p_10 w_100 m_b20">
+                    <h1 class="center">출장/외근 신청서</h1>
+                </div>
+            </div>
+            <div class="main_right_info w_100">
+                <div class="table_grp flex space_between">
+                    <table class="list">
+                        <tr>
+                            <td class="bg_gray">작성일</td>
+                            <td>
+                                <span class="">${작성일} ex)2020-12-01</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bg_gray">작성부서</td>
+                            <td>
+                                <span class="">${담당자부서} ex)인사1팀</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bg_gray">작성자</td>
+                            <td>
+                                <span class="">${담당자} ex) 김진희 대리</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="list td_20">
+                        <tr>
+                            <td class="bg_gray" rowspan="4">결<br />재</td>
+                            <td>
+                                <span class="">부서장</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">${서명}</td>
+                        </tr>
+                        <tr></tr>
+                    </table>
+                </div>
+                <div class="form_title w_100 m_tb20">
+                    <table class="list w_100">
+                        <tr>
+                            <td class="bg_gray td_15">출장/외근 명</td>
+                            <td class="left" colspan="3">
+                                <input type="text" class="font_12 w_100" placeholder="출장 및 외근 명을 입력해주세요." />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bg_gray td_15">출장/외근기간</td>
+                            <td class="left" colspan="3">
+                                <input type="text" class="font_12 w_100" placeholder="출장 및 외근 기간을 입력해주세요." />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bg_gray td_15">출장/외근인원</td>
+                            <td class="left" colspan="3">
+                                <input type="text" class="font_12 w_100" placeholder="출장 및 외근 인원명을 입력해주세요." />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bg_gray td_15">출장/외근장소</td>
+                            <td class="left" colspan="3">
+                                <input type="text" class="font_12 w_100" placeholder="출장 및 외근 장소를 입력해주세요." />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bg_gray" colspan="4">일정</td>
+                        </tr>
+                        <tr class="bg_gray center">
+                            <td class="td_20">일 시</td>
+                            <td class="td_20">위 치</td>
+                            <td class="td_40">내 용</td>
+                            <td class="td_20">비 고</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="font_12 w_100" />
+                            </td>
+                            <td>
+                                <input type="text" class="font_12 w_100" />
+                            </td>
+                            <td>
+                                <input type="text" class="font_12 w_100" />
+                            </td>
+                            <td>
+                                <input type="text" class="font_12 w_100" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="font_12 w_100" />
+                            </td>
+                            <td>
+                                <input type="text" class="font_12 w_100" />
+                            </td>
+                            <td>
+                                <input type="text" class="font_12 w_100" />
+                            </td>
+                            <td>
+                                <input type="text" class="font_12 w_100" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="font_12 w_100" />
+                            </td>
+                            <td>
+                                <input type="text" class="font_12 w_100" />
+                            </td>
+                            <td>
+                                <input type="text" class="font_12 w_100" />
+                            </td>
+                            <td>
+                                <input type="text" class="font_12 w_100" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="font_12 w_100" />
+                            </td>
+                            <td>
+                                <input type="text" class="font_12 w_100" />
+                            </td>
+                            <td>
+                                <input type="text" class="font_12 w_100" />
+                            </td>
+                            <td>
+                                <input type="text" class="font_12 w_100" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="form_txt_wrap center m_tb20">
+                    상기와 같이 출장/외근을 신청합니다.
+                </div>
+                <div class="form_footer_wrap">
+                    <div id="" class="">...................................................................................................................................................................................................................</div>
+                    <div id="p_l10" class="m_b10" style="line-height: 150%;">
+                        ※ 출장/외근 신청서 작성 시 의무사항 : 복무규정에 근거<br />
+                        <span class="p_l15">· 부서장에게 신청서를 결재를 받은 후, 출장/외근 당일 전날까지 제출해야한다.</span><br />
+                        <span class="p_l15">· 도내 출장의 경우, 출장지가 제주도 또는 대중교통편이 없는 지역으로의 출장비만 지급한다.</span><br />
+                        <span class="p_l15">· 신청서에는 신청자 전원 기재할 것</span><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    //window.print();
+</script>
+</html>

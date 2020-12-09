@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <link rel="stylesheet" href="../../../css/common_table.css">
+
+    <!-- FontAweSome -->
+    <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
+    <!-- FontAweSome -->
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQuery -->
+
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+
+    /* A4 크기 */
+    .page_wrap {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 2cm;
+        margin: 0 auto;
+        background: #eee;
+    }
+    .subpage_wrap {
+        border: 2px red solid;
+        background: #fff;
+        height: 257mm;
+    }
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    @media print {
+
+        html,
+        body {
+            width: 210mm;
+            height: 297mm;
+        }
+
+        .page_wrap {
+            margin: 0;
+            border: initial;
+            width: initial;
+            min-height: initial;
+            box-shadow: initial;
+            background: initial;
+            page-break-after: always;
+        }
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    .list td {
+        border: 1px solid #000;
+        padding: 0px 5px;
+        text-align: center;
+        line-height: 150%;
+    }
+
+    input {
+        border: 1px solid transparent;
+        outline: transparent;
+    }
+</style>
+
+<body>
+    <div class="page_wrap noto font_12">
+        <div class="subpage_wrap">
+            <div class="main_right" style="width: 100%;">
+                <div class="main_right_title p_10 w_100 m_b20">
+                    <h1 class="center">휴가신청서</h1>
+                </div>
+            </div>
+            <div class="main_right_info w_100">
+                <div class="table_grp flex space_between">
+                    <table class="list">
+                        <tr>
+                            <td class="bg_gray">작성일</td>
+                            <td>
+                                <span class="">${작성일} ex)2020-12-01</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bg_gray">작성부서</td>
+                            <td>
+                                <span class="">${담당자부서} ex)인사1팀</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bg_gray">작성자</td>
+                            <td>
+                                <span class="">${담당자} ex) 김진희 대리</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="list td_20">
+                        <tr>
+                            <td class="bg_gray" rowspan="4">결<br />재</td>
+                            <td>
+                                <span class="">부서장</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">${서명}</td>
+                        </tr>
+                        <tr></tr>
+                    </table>
+                </div>
+                <div class="form_title w_100 m_tb20">
+                    <table class="list w_100">
+                        <tr>
+                            <td class="bg_gray td_10">제목</td>
+                            <td class="" style="text-align: left;" colspan="3">
+                                <span id="title" class="">ex)인사1팀 김진희 대리 휴가신청서 (자동완성)</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bg_gray">구분</td>
+                            <td>
+                                <span id="" class="">연차</span>
+                            </td>
+                            <td class="bg_gray td_10">휴가기간</td>
+                            <td>
+                                <span id="" class="">ex)2020-12-09 ~ 2020-12-10</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="form_txt_wrap center m_tb20">
+                    상기와 같이 휴가를 신청합니다.
+                </div>
+                <div class="form_footer_wrap">
+                    <div id="" class="">...................................................................................................................................................................................................................</div>
+                    <div id="p_l10" class="">
+                        ※ 휴가 신청서 작성 시 의무사항 : 복무규정에 근거
+                    </div>
+                    <div class="p_l20">
+                        · 회사는 1년간 8할 이상 출근한 사원에 대하여는 16일의 연차유급휴가를 지급한다.
+                    </div>
+                    <div class="p_l20">
+                        · 근로연수가 1년 미만인 사원에 대해서는 1개월간 개근 시 1일의 연차유급휴가를 부여하되, 1년 근속 시 연차휴가 16일에서 그간 사용한 휴가를 공제한 일 수를 휴가로 부여한다.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    //window.print();
+</script>
+</html>
