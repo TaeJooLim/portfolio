@@ -16,6 +16,20 @@ create table salary_calculation (
 	salary_totalcost int		// 공제액 소계
 );
 
+create table salary_calculation (
+	starting_range int,
+	end_range int,	
+	net_pay int,		
+	salary_nps int,		
+	salary_h_insurance int,	
+	salary_care int,		
+	salary_e_insurance int,	
+	salary_income int,		
+	salary_l_income int, 	
+	salary_totalcost int		
+);
+
+
 2. 10만원 구간별 실수령액 및 공제액 데이터 입력
 
 INSERT INTO salary_calculation SET starting_range=1000000, end_range=1100000, net_pay=923500, salary_nps=40500, salary_h_insurance=28080, salary_care=2070, salary_e_insurance=5850, salary_income=0, salary_l_income=0, salary_totalcost=76500;

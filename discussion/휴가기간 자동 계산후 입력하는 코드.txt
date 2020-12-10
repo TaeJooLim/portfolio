@@ -1,0 +1,48 @@
+package test;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Scanner;
+
+public class Prac {
+
+	public static void main(String[] args) throws ParseException {
+		
+		Scanner sc = new Scanner(System.in);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//		String d1 = sc.next();
+//		Date dt = sdf.parse(d1);
+		
+//		Date dt = sdf.format(sc.next());
+
+		
+		String begin = sc.next();
+		String end = sc.next();
+		
+		Date stDt = sdf.parse(begin);
+        Date edDt = sdf.parse(end);
+        
+        long diff = edDt.getTime() - stDt.getTime();
+        long diffDays = diff / (24 * 60 * 60 * 1000);
+        
+        
+        Calendar c = Calendar.getInstance();
+		
+		
+        
+        
+		c.setTime(stDt);
+        for (int i = 1; i <= diffDays+1; i++) {
+        	Date dt = c.getTime();
+        	System.out.println(dt);
+        	
+        	if (i == diffDays+1) {
+        		break;
+        	}
+        	c.add(Calendar.DATE, 1);
+        }
+        
+	}
+}

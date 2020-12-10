@@ -33,7 +33,6 @@ create table product (
   p_modelnum varchar(30),           
   p_use varchar(10),                
   p_unit varchar(5) not null,      
-  p_order_num varchar(20),         
   p_size varchar(20),             
   p_currency char(1) not null,     
   p_buy int,                        
