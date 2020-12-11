@@ -6,9 +6,6 @@
     font-weight: 700;
     color: #3f51b5;
 }
-td {
-    border:1px solid #d6dce7;
-}
 
 /* .board_list{
     border: 1px solid #ccc;
@@ -32,33 +29,3 @@ td {
     line-height: 2;
 }
 
-.btn_write{
-    cursor: pointer;
-    height: 35px;
-    color: #3f51b5;
-    border: 1px solid #3f51b5;
-    border-radius: 2px;
-    background-color: #fff;
-    padding: 0 10px;
-}
-
-
-/* page_grp */
-.page {
-    display: inline-block;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    border: 1px solid #ccc;
-    margin-bottom: 30px;
-    background-color: #fff;
-    font-weight: normal;
-}
-
-.page:hover {
-    background-color: #3f51b5;
-}
-
-.page:hover a {
-    color: #fff;
-}

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../../css/reset.css">
     <link rel="stylesheet" href="../../../css/common.css">
     <link rel="stylesheet" href="../../../css/button_style.css">
-    <link rel="stylesheet" href="../../../css/table_style.css">
+    <link rel="stylesheet" href="../../../css/common_table.css">
     <link rel="stylesheet" href="../../../css/product_reg.css">
 
     <!-- FontAweSome -->
@@ -21,14 +21,6 @@
 
 </head>
 <style>
-    .input_80 {
-        padding: 5px;
-        border-radius: 2px;
-        border: 1px solid #d5d5d5;
-        width: 80%;
-        height: 35px;
-        font-size: 12px;
-    }
     .control_menu {
         width: 50px;
         height: 50px;
@@ -151,8 +143,8 @@
                     <h2 class="font_18">품목등록</h2>
                 </div>
                 <div class="main_right_info" style="padding: 30px 20px;">
-                    <div class="product_reg">
-                        <table>
+                    <div class="">
+                        <table class="input_list">
                             <tr>
                                 <td class="bg_gray weight_700 td_10 center">분류</td>
                                 <td class="p_lr3" colspan="3">
@@ -185,9 +177,9 @@
                             <tr>
                                 <td class="bg_gray weight_700 td_10 center">품명</td>
                                 <td class="p_lr3" colspan="3">
-                                    <div class="flex">
-                                        <input type="text" name="" maxlength="20" id="" class="input_80" required />
-                                        <button type="button" class="btn_ivory weight_700" style="white-space: nowrap;">코드생성</button>
+                                    <div class="">
+                                        <input type="text" name="" maxlength="20" id="" class="input_box" required style="width: calc(100% - 79px)" />
+                                        <button type="button" class="btn_ivory p_lr3 weight_700" style="white-space: nowrap;">코드생성</button>
                                     </div>
                                 </td>
                                 <td class="bg_gray weight_700 td_10 center">기준단위</td>
@@ -247,7 +239,7 @@
                             <button type="reset" class="btn_red">새로고침</button>
                         </div>
                     </div>
-                    <div class="product_reg_table m_t20" style="border-top: 1px solid #000;">
+                    <div class="m_t20" style="border-top: 1px solid #000;">
                         <div class="list_comment font_12 m_tb10" style="padding: 10px 20px; background-color: #f9f9f9;">
                             최근 등록한 <strong>10개</strong>의 상품만 보여집니다.
                         </div>

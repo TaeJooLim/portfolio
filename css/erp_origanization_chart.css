@@ -77,23 +77,3 @@ tbody td {
     text-align: center;
     font-weight: normal;
 }
-
-/* page_grp */
-.page {
-    display: inline-block;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    border: 1px solid #ccc;
-    margin-bottom: 30px;
-    background-color: #fff;
-    font-weight: normal;
-}
-
-.page:hover {
-    background-color: #3f51b5;
-}
-
-.page:hover a {
-    color: #fff;
-}
