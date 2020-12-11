@@ -66,14 +66,18 @@
 .white {
     color: #fff;
 }
-
+.gray {
+    color: gray;
+}
 .ivory {
     color: #EBEBEB;
+}
+.blue {
+    color: #063f8a;
 }
 
 .blue_1 {
     color: #223390;
-    ;
 }
 
 .blue_2 {
@@ -104,6 +108,9 @@ h5 {
 
 .bg_ivory {
     background-color: #EBEBEB;
+}
+.bg_blue {
+    background-color: #063f8a;
 }
 
 .bg_blue_1 {
@@ -144,8 +151,12 @@ h5 {
     justify-content: center;
 }
 
-.flex_fe{
+.flex_fe {
     justify-content: flex-end;
+}
+
+.flex_r {
+    justify-content: right;
 }
 
 .v_middle {
