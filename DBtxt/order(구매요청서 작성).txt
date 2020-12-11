@@ -1,0 +1,35 @@
+구매요청서 작성 테이블
+
+create table order (
+	order_id not null auto_increment primary key,		// PK
+	order_emp_team varchar(10) not null,		// 구매부서 (부서명 + 팀명 ex_인사 1팀)
+	order_emp_name varchar(30) not null,		// 구매사원 이름
+	order_date char(10) not null,			// 작성일자
+	order_p_name varchar(100) not null,			// 품명
+	order_p_amount int not null,			// 수량
+	order_p_unit varchar(5) not null,			// 규격
+	order_p_buy int not null,				// 단가
+	order_total_price int not null,			// 금액 (단가 * 수량)
+	order_purpose varchar(254),			// 용도
+
+	order_confirm char(1) default 'N',			// 결재여부
+	order_sender int not null,				// 구매사원 emp_id (정렬용)
+	order_receiver int default '총무팀장 emp_id'		// 총무팀장의 emp_id (결재용)
+);
+
+create table order (
+	order_id not null auto_increment primary key,
+	order_emp_team varchar(10) not null,
+	order_emp_name varchar(30) not null,
+	order_date char(10) not null,
+	order_p_name varchar(100) not null,
+	order_p_amount int not null,
+	order_p_unit varchar(5) not null,
+	order_p_buy int not null,
+	order_total_price int not null,
+	order_purpose varchar(254),
+
+	order_confirm char(1) default 'N',
+	order_sender int not null,
+	order_receiver int default '총무팀장 emp_id'
+);
