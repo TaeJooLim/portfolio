@@ -3,14 +3,6 @@
     cursor: pointer;
 }
 
-.table_title{
-    margin-bottom: 15px;
-    font-size: 16px;
-    font-weight: 700;
-    color: #3f51b5;
-}
-
-
 .board_left{
     width: 15%;
     margin-right: 10px;
@@ -33,18 +25,8 @@
     border: 1px solid #ccc;
 }   
 
-td {
-    border:1px solid #d6dce7;
-}
-
 .btn_write{
-    cursor: pointer;
     width: 75px;
-    height: 35px;
-    color: #3f51b5;
-    border: 1px solid #3f51b5;
-    border-radius: 2px;
-    background-color: #fff;
 }
 
 .content{

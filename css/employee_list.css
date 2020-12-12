@@ -34,12 +34,7 @@ input[type="checkbox"] {
 .search_sel_box {
     width: 85px;
 }
-.search_btn {
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    background-color: #eee;
-}
+
 
 /* 사원정보 테이블 css */
 table {

@@ -1,25 +1,5 @@
 @charset 'utf_8';
 
-.table_title{
-    margin-bottom: 10px;
-    font-size: 16px;
-    font-weight: 700;
-    color: #3f51b5;
-}
-
-td {
-    border:1px solid #d6dce7;
-}
-
-.input_100 {
-    padding:5px;
-    border-radius: 2px;
-    border:1px solid #d5d5d5;
-    width:100%;
-    height:35px;
-    font-size:12px;
-}
-
 .search_box {
     position: relative;
 }
@@ -35,26 +15,6 @@ td {
     right: 7px;
     transform: translateY(-50%);
     color: #959595;
-}
-
-.list_table thead th {
-    border: 1px solid #60718b;
-    background-color: #6f809a;
-    color: #fff;
-    padding: 8px 5px;
-    text-align: center;
-    font-weight: normal;
-}
-
-.list_table tbody tr:nth-child(2n+1) {
-    background-color: #eff3f9;
-}
-
-.list_table tbody td {
-    border: 1px solid #d6dce7;
-    padding: 8px 5px;
-    text-align: center;
-    font-weight: normal;
 }
 
 .num_auto{

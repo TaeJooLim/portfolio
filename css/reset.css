@@ -19,6 +19,7 @@ input, select {
 }
 
 a {
+    color: inherit;    /* 글자 컬러 상속 */
     text-decoration: none;
 }
 

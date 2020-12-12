@@ -81,9 +81,10 @@ button {
 .s_btn_gray {
     padding: 0 5px;
     height: 25px;
-    background-color: #ddd;
+    background-color: #9eacc6;
     border: 1px solid transparent;
     font-size: 12px;
+    color: #fff;
 }
 
 /* 게시글 및 사원수 등 표시 버튼 */
@@ -108,4 +109,12 @@ button {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 6px 5px;
+}
+
+/* 돋보기 아이콘을 사용하는 검색 버튼*/
+.search_btn {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-color: #eee;
 }

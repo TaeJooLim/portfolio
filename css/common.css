@@ -1288,6 +1288,11 @@ a {
     font-size: 12px;
 }
 
+/* select style*/
+.search_sel_box {
+    width: 85px;
+}
+
 /* page_grp */
 .page {
     display: inline-block;
@@ -1303,6 +1308,14 @@ a {
 .page:hover {
     background-color: #3f51b5;
     color:#fff;
+}
+
+/* title style */
+.table_title{
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #3f51b5;
 }
 
 /* white-spec */
