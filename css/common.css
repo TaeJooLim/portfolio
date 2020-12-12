@@ -139,6 +139,10 @@ h5 {
     display: flex;
 }
 
+.flex_col {
+    flex-direction: column;
+}
+
 .space_between {
     justify-content: space-between;
 }
@@ -1216,6 +1220,14 @@ h5 {
     vertical-align: middle;
 }
 
+/* text: 한줄이상 말줄임표 */
+.one_line_txt {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 /* text-align */
 .center {
     text-align: center;
@@ -1240,6 +1252,14 @@ a {
 }
 
 /* input, select 100% */
+.w_10 {
+    width:10%;
+}
+
+.w_90 {
+    width:90%;
+}
+
 .w_100 {
     width: 100%;
 }
