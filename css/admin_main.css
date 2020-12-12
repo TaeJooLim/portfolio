@@ -69,6 +69,15 @@
     border-radius: 50%;
     display: block;
 }
+.two_line_title {
+    white-space: normal;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .one_line_pic {
     width: 60px;
     height: 60px;
