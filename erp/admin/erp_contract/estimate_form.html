@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../css/common.css">
     <link rel="stylesheet" href="../../../css/common_table.css">
+    <link rel="stylesheet" href="../../../css/form_style.css">
 
     <!-- FontAweSome -->
     <script src="https://kit.fontawesome.com/5990def7eb.js" crossorigin="anonymous"></script>
@@ -16,70 +17,6 @@
     <!-- JQuery -->
 
 </head>
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-    }
-
-    * {
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-    }
-
-    /* A4 크기 */
-    .page_wrap {
-        width: 210mm;
-        min-height: 297mm;
-        padding: 2cm;
-        margin: 0 auto;
-        background: #eee;
-    }
-    .subpage_wrap {
-        border: 2px red solid;
-        background: #fff;
-        height: 257mm;
-    }
-    @page {
-        size: A4;
-        margin: 0;
-    }
-
-    @media print {
-
-        html,
-        body {
-            width: 210mm;
-            height: 297mm;
-        }
-
-        .page_wrap {
-            margin: 0;
-            border: initial;
-            width: initial;
-            min-height: initial;
-            box-shadow: initial;
-            background: initial;
-            page-break-after: always;
-        }
-    }
-
-    table {
-        border-collapse: collapse;
-    }
-
-    .list td {
-        border: 1px solid #000;
-        padding: 0px 5px;
-        text-align: center;
-        line-height: 150%;
-    }
-
-    input {
-        border: 1px solid transparent;
-        outline: transparent;
-    }
-</style>
 
 <body>
     <div class="page_wrap noto font_12">
@@ -114,7 +51,7 @@
                             </td>
                         </tr>
                     </table>
-                    <table class="list w_100">
+                    <table class="form_tbl w_100">
                         <tr>
                             <td class="td_6" rowspan="5">공급자</td>
                             <td class="td_20">사업자<br />등록번호</td>
@@ -176,7 +113,7 @@
                 </div>
                 <div class="m_t20">
                     <div class="table_grp">
-                        <table class="list w_100" style="border: 2px solid #000;">
+                        <table class="form_tbl w_100" style="border: 2px solid #000;">
                             <tr>
                                 <td class="td_20">
                                     <span>품명</span>
