@@ -1,7 +1,7 @@
 구매요청서 작성 테이블
 
-create table order (
-	order_id not null auto_increment primary key,		// PK
+create table order_buy (
+	order_id int not null auto_increment primary key,		// PK
 	order_emp_team varchar(10) not null,		// 구매부서 (부서명 + 팀명 ex_인사 1팀)
 	order_emp_name varchar(30) not null,		// 구매사원 이름
 	order_date char(10) not null,			// 작성일자
@@ -17,8 +17,8 @@ create table order (
 	order_receiver int default '총무팀장 emp_id'		// 총무팀장의 emp_id (결재용)
 );
 
-create table order (
-	order_id not null auto_increment primary key,
+create table order_buy (
+	order_id int not null auto_increment primary key,
 	order_emp_team varchar(10) not null,
 	order_emp_name varchar(30) not null,
 	order_date char(10) not null,

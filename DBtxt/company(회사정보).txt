@@ -1,59 +1,59 @@
 create table company(
-	com_num char(12);			// 사업자등록번호
-	com_name varchar(20);		// 회사명(한글)
-	com_name_eng varchar(20);		// 회사명(영문)
-	com_ceo varchar(20);		// 대표자명
-	com_type varchar(20);		// 업태
-	com_item varchar(20);		// 종목
-	com_post char(5);			// 우편번호
-	com_address varchar(50);		// 주소
-	com_tel char(10);			// 전화번호
-	com_cp char(13);			// 휴대번호
-	com_fax char(10);			// 팩스번호
-	com_opendate char(10);		// 개업일
-	com_erpdate char(10);		// erp시작일
-	com_corp_num char(14);		// 법인등록번호
-	com_email varchar(50);		// 이메일
-	com_url varchar(100);		// 웹사이트 URL
-	com auth int;			// 웹사이트 접근권한
-	com_logo varchar(20);		// 로고타이틀
-	com_sublogo varchar(50);		// 로고서브타이틀
-	com_web_menu varchar(100);		// 웹사이트 메뉴
-	com_web_top varchar(100);		// 메인 상단 텍스트
-	com_web_bottom varchar(100);	// 메인 하단 텍스트
-	com_web_copyright varchar(200);	// 웹사이트 Copyright
-	com_ceo_img varchar(300);		// 대표자이미지 사진파일경로
-	com_stemp_img varchar(300);		// 회사도장이미지 사진파일경로
-	com_ceo_stemp_img varchar(300);	// 대표자도장이미지 사진파일경로
-	com_ceo_sigh_img varchar(300);	// 대표자서명이미지 사진파일경로
+	com_num char(12),			// 사업자등록번호
+	com_name varchar(20),		// 회사명(한글)
+	com_name_eng varchar(20),		// 회사명(영문)
+	com_ceo varchar(20),		// 대표자명
+	com_type varchar(20),		// 업태
+	com_item varchar(20),		// 종목
+	com_post char(5),			// 우편번호
+	com_address varchar(50),		// 주소
+	com_tel char(10),			// 전화번호
+	com_cp char(13),			// 휴대번호
+	com_fax char(10),			// 팩스번호
+	com_opendate char(10),		// 개업일
+	com_erpdate char(10),		// erp시작일
+	com_corp_num char(14),		// 법인등록번호
+	com_email varchar(50),		// 이메일
+	com_url varchar(100),		// 웹사이트 URL
+	com_auth int,			// 웹사이트 접근권한
+	com_logo varchar(20),		// 로고타이틀
+	com_sublogo varchar(50),		// 로고서브타이틀
+	com_web_menu varchar(100),		// 웹사이트 메뉴
+	com_web_top varchar(100),		// 메인 상단 텍스트
+	com_web_bottom varchar(100),	// 메인 하단 텍스트
+	com_web_copyright varchar(200),	// 웹사이트 Copyright
+	com_ceo_img varchar(300),		// 대표자이미지 사진파일경로
+	com_stemp_img varchar(300),		// 회사도장이미지 사진파일경로
+	com_ceo_stemp_img varchar(300),	// 대표자도장이미지 사진파일경로
+	com_ceo_sigh_img varchar(300)	// 대표자서명이미지 사진파일경로
 );
 
 create table company(
-	com_num char(12);
-	com_name varchar(20);
-	com_name_eng varchar(20);
-	com_ceo varchar(20);
-	com_type varchar(20);
-	com_item varchar(20);
-	com_post char(5);
-	com_address varchar(50);
-	com_tel char(10);
-	com_cp char(13);
-	com_fax char(10);
-	com_opendate char(10);
-	com_erpdate char(10);
-	com_corp_num char(14);
-	com_email varchar(50);
-	com_url varchar(100);
-	com auth int;
-	com_logo varchar(20);
-	com_sublogo varchar(50);
-	com_web_menu varchar(100);
-	com_web_top varchar(100);
-	com_web_bottom varchar(100);
-	com_web_copyright varchar(200);
-	com_ceo_img varchar(300);
-	com_stemp_img varchar(300);
-	com_ceo_stemp_img varchar(300);
-	com_ceo_sigh_img varchar(300);
+ 	com_num char(12),
+ 	com_name varchar(20),
+ 	com_name_eng varchar(20),
+ 	com_ceo varchar(20),
+ 	com_type varchar(20),
+ 	com_item varchar(20),
+ 	com_post char(5),
+ 	com_address varchar(50),
+ 	com_tel char(10),
+ 	com_cp char(13),
+ 	com_fax char(10),
+ 	com_opendate char(10),
+ 	com_erpdate char(10),
+ 	com_corp_num char(14),
+ 	com_email varchar(50),
+ 	com_url varchar(100),
+ 	com_auth int,
+ 	com_logo varchar(20),
+ 	com_sublogo varchar(50),
+ 	com_web_menu varchar(100),
+ 	com_web_top varchar(100),
+ 	com_web_bottom varchar(100),
+ 	com_web_copyright varchar(200),
+ 	com_ceo_img varchar(300),
+ 	com_stemp_img varchar(300),
+ 	com_ceo_stemp_img varchar(300),
+ 	com_ceo_sigh_img varchar(300)
 );

@@ -3,14 +3,15 @@ create table department (
 	depart_code char(3),
 	depart_name varchar(20)
 );
+
 // 중앙부서 인사 경영 기획 총무 전산 지원 영업 마케팅 생산
-insert into kind_department SET depart_code='000', depart_name='중앙부서';
-insert into kind_department SET depart_code='100', depart_name='인사과';
-insert into kind_department SET depart_code='200', depart_name='경영과';
-insert into kind_department SET depart_code='300', depart_name='기획과';
-insert into kind_department SET depart_code='400', depart_name='총무과';
-insert into kind_department SET depart_code='500', depart_name='전산과';
-insert into kind_department SET depart_code='600', depart_name='지원과';
-insert into kind_department SET depart_code='700', depart_name='영업과';
-insert into kind_department SET depart_code='800', depart_name='마케팅과';
-insert into kind_department SET depart_code='900', depart_name='생산과';
+insert into department SET depart_code='000', depart_name='중앙부서';
+insert into department SET depart_code='100', depart_name='인사과';
+insert into department SET depart_code='200', depart_name='경영과';
+insert into department SET depart_code='300', depart_name='기획과';
+insert into department SET depart_code='400', depart_name='총무과';
+insert into department SET depart_code='500', depart_name='전산과';
+insert into department SET depart_code='600', depart_name='지원과';
+insert into department SET depart_code='700', depart_name='영업과';
+insert into department SET depart_code='800', depart_name='마케팅과';
+insert into department SET depart_code='900', depart_name='생산과';

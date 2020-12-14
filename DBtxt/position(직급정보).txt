@@ -3,16 +3,17 @@ create table position (
 	position_code char(2),
 	position_name varchar(20)
 );
+
 // 사원 주임 대리 과장 차장 부장 이사 상무 전무 부사장 사장 회장
-insert into kind_position SET position_code='01', position_name='사원';
-insert into kind_position SET position_code='02', position_name='주임';
-insert into kind_position SET position_code='03', position_name='대리';
-insert into kind_position SET position_code='04', position_name='과장';
-insert into kind_position SET position_code='05', position_name='차장';
-insert into kind_position SET position_code='06', position_name='부장';
-insert into kind_position SET position_code='07', position_name='이사';
-insert into kind_position SET position_code='08', position_name='상무';
-insert into kind_position SET position_code='09', position_name='전무';
-insert into kind_position SET position_code='10', position_name='부사장';
-insert into kind_position SET position_code='11', position_name='사장';
-insert into kind_position SET position_code='12', position_name='회장';
+insert into position SET position_code='01', position_name='사원';
+insert into position SET position_code='02', position_name='주임';
+insert into position SET position_code='03', position_name='대리';
+insert into position SET position_code='04', position_name='과장';
+insert into position SET position_code='05', position_name='차장';
+insert into position SET position_code='06', position_name='부장';
+insert into position SET position_code='07', position_name='이사';
+insert into position SET position_code='08', position_name='상무';
+insert into position SET position_code='09', position_name='전무';
+insert into position SET position_code='10', position_name='부사장';
+insert into position SET position_code='11', position_name='사장';
+insert into position SET position_code='12', position_name='회장';

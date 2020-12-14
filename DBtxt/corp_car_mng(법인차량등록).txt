@@ -31,4 +31,3 @@ create table corp_car(
     car_inspection date,
     car_total_mileage varchar(20)
 );
-

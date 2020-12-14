@@ -34,7 +34,7 @@ create table employee(
 	emp_email varchar(50) not null,
 	emp_regdate Date,
 	emp_headcheck char(1) default 'N',
-	emp_step	int,
+	emp_step int,
 	emp_auth int default 1,
 	emp_confirm char(1) default 'N',
 	emp_photo varchar(255),
