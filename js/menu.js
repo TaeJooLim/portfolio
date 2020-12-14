@@ -3,16 +3,19 @@ $(function () {
         $("#logout").toggle();
     });
     
-    $(".menu_tab").mouseleave(function(e) {
+    $("#sub_menu").mouseleave(function(e) {
         var showid = $(this).attr("href");
         $("#sub_menu").removeClass("sub_menu");
-        $(showid).removeClass("select");
+        $(".menu").hide();
+    });
+    $(".menu_tab").mouseleave(function(e) {
+        var showid = $(this).attr("href");
     });
 
     $(".menu_tab").mouseover(function(e) {
+        $(".menu").hide();
         var showid = $(this).attr("href");
         $("#sub_menu").addClass("sub_menu");
-        $(showid).addClass("select");
-
-    });
+        $(showid).show();
+    }); 
 });
