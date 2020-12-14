@@ -1,0 +1,22 @@
+
+-----------------------------css, image, jsp 경로설정-----------------------------
+
+	<resources location="/WEB-INF/css/, classpath=/WEB-INF/css/" mapping="/css/**" />
+	<resources location="/WEB-INF/images/, classpath=/WEB-INF/images/" mapping="/images/**" />
+	<resources location="/WEB-INF/js/, classpath=/WEB-INF/js/" mapping="/js/**" />
+
+-----------------------------css, image, jsp 경로설정-----------------------------
+
+
+-------------------------------파일 업로드 경로설정-------------------------------
+	
+	<!-- 업로드 경로 설정 -->
+	<beans:bean class="java.lang.String" id="uploadPath">
+		<beans:constructor-arg value="C:\\upload" />
+	</beans:bean>
+	<!-- 업로드 파일 용량 제한 -->
+	<beans:bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+		<beans:property name="maxUploadSize" value="5000000" />
+	</beans:bean>
+
+-------------------------------파일 업로드 경로설정-------------------------------

@@ -1,0 +1,76 @@
+★스프링 초기설정 과정
+
+1. 프로젝트 생성
+   1) 프로젝트의 이름 설정
+       - Project name : erp
+
+   2) 프로젝트 템플릿 설정
+       - Templates : Spring MVC Project
+
+   3) 도메인이름 설정(리버스 도메인)
+       - com.portfolio.erp
+
+2. pom.xml 설정
+   1) 경로
+       - erp(프로젝트이름) > pom.xml
+
+   2) java 버전 수정 ( 1.8 / 4.3.2.RELEASE )
+       - <code:11> <java-version>1.8</java-version>
+       - <code:12> <org.springframework-version>4.3.2.RELEASE</org.springframework-version>
+
+   3) dependency 추가
+       - <code:119> pom.xml에 있는 dependency들을 붙여넣은 후, 저장
+
+3. web.xml 설정
+   1) 경로
+       - erp(프로젝트이름) > src > main > webapp > WEB-INF > web.xml
+
+   2) 한글인코딩 설정
+       - <code:32> web.xml에 있는 한글인코딩 코드 붙여넣은 후, 저장
+
+4. root-context.xml
+   1) 경로
+       - erp(프로젝트이름) > src > main > webapp > WEB-INF > spring > root-context.xml
+
+   2) xml config 설정
+       - 기존의 코드를 삭제하고, root-context.xml 붙여넣은 후, 저장
+
+   3) DB연결정보 설정
+       - <code:12> driverClassName - 접속할 DB종류 지정
+       - <code:13> url - JDBC드라이버 경로 지정
+       - <code:14> username - DB관리자 아이디 지정
+       - <code:15> password - DB관리자 비밀번호 지정
+
+   4) Mapper 이름 및 경로 설정
+       - <code:20> configLocation - config XML의 경로와 이름을 지정 (예시_mybatis-config.xml)
+       - <code:21> mapperLocations - SQL문 Mapper의 경로와 이름을 지정 (예시_sqlMappers 폴더)
+
+5. servlet-context.xml
+   1) 경로
+       - erp(프로젝트이름) > src > main > webapp > WEB-INF > spring > appServlet > servlet-context.xml
+
+   2) css, image, js등의 폴더경로 지정
+       - <code:16> servlet-context.xml 붙여넣은 후, 저장
+
+   3) 파일 업로드경로 및 용량제한 설정
+       - <code:27> sevlet-context.xml 붙여넣은 후, 저장
+
+6. mybatis config
+   1) 경로
+       - erp(프로젝트이름) > src/main/resources > 생성
+
+   2) config XML 생성
+       - root-context.xml에 지정한 config이름(예시_mybatis-config.xml)으로 xml파일을 생성
+
+   3) 별칭설정 및 config 설정
+       - mybatis-config.xml 붙여넣은 후, 저장
+
+7. SQL Mapper
+   1) 경로
+       - erp(프로젝트이름) > src/main/resources > 생성
+
+   2) Mapper폴더 생성
+       - root-context.xml에 지정한 Mapper폴더이름(예시_sqlMappers)으로 폴더를 생성
+
+   3) Mapper 생성
+       - root-context.xml에 지정한 Mapper XML이름(예시_**Mapper.xml)으로 xml파일을 생성
