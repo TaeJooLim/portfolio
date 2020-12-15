@@ -115,11 +115,6 @@ nav {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     color: #555;
     font-size: 16px;
-    transition: font-size .3s;
-}
-
-.menu_tab:hover {
-    font-size:20px;
 }
 
 .sub_menu {
