@@ -1,0 +1,46 @@
+2020-12-17 (목)
+작업가능한 JSP
+
+
+1. erp_car
+   1) corp_car_log.html		> 법인차량운행일지
+   2) corp_car_management.html	> 법인차량관리
+
+2. erp_employee
+   1) employee_register		> 사원상세정보 입력/수정
+   2) employee_list			> 사원목록
+
+3. erp_product
+   1) product_reg			> 상품입력
+   2) product_list			> 상품목록
+
+4. erp_correspondent
+   1) correspondent_list		> 거래처목록
+   2) correspondent_reg		> 거래처등록
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+수정한 내용
+
+1. getDepartmentList / getPositionList
+   1) 주소 -> /register 삭제 -> erp/getDepartmentList
+   2) 구글 스프레드시트에 입력
+   3) 스크립트 departNPosition.js파일로 따로 생성
+
+2. regnlog
+   1) 경로변경 -> views > erp > regnlog
+   2) 스크립트 regnlog.js파일로 따로 생성
+
+3. admin 로고 & 메뉴 & 카피라이트
+   1) views > erp > admin > include > HEADER.jsp 생성
+       views > erp > admin > include > FOOTER.jsp 생성
+   2) admin_main.jsp 를 기본틀로 잡고 사용하면 됨
+   3) 로고 이미지 삽입
+
+4. css / jsp /controller 전체적으로 수정했으니, 압축파일안의 프로젝트를 사용해야 함
