@@ -9,7 +9,6 @@ create table product (
   p_brand varchar(50),              // 제조사
   p_group char(2) not null,         // 상품그룹명( select value=값들 / 컴퓨터(01), 전자기기(02), 스마트폰(03), 사무용품(04) )
   p_modelnum varchar(30),           // 상품의 모델번호 ( 최소 5자 이상 입력 )
-  p_use varchar(10),                // 품목상태 ( select값 그대로 한글로 저장 / 사용, 임시, 생산중지, 거래중지, 폐기 )
   p_unit varchar(5) not null,       // 기준단위 ( select값 그대로 영어로 저장 / EA, KG, SET )
   p_size varchar(20),               // 규격
   p_currency char(1) not null,      // 통화( KRW(1), USD(2) )
@@ -31,7 +30,6 @@ create table product (
   p_brand varchar(50),              
   p_group char(2) not null,        
   p_modelnum varchar(30),           
-  p_use varchar(10),                
   p_unit varchar(5) not null,      
   p_size varchar(20),             
   p_currency char(1) not null,     
