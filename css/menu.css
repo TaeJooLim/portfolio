@@ -29,6 +29,10 @@ header {
     color: #fff;
 }
 
+.logo_img_wrap img {
+    width: 80%;
+}
+
 .option {
     width: calc(100% - 250px);
     text-align: right;
