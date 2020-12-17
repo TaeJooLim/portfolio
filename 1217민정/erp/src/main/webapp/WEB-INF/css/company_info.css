@@ -1,0 +1,11 @@
+@charset 'utf_8';
+
+.photo_area {
+	height:250px;
+}
+
+.photo_area img {
+	width:100%;
+	height:100%;
+	display:inline-block;
+}
