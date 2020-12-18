@@ -3,11 +3,11 @@
 
 create table product (
   p_id int auto_increment primary key,
-  p_type char(1) not null,          // 대분류( select value=값들 / 제품(A), 원자재(B), 상품(C) )
+  p_type char(1) not null,          // 대분류( select value=값들 / 제품(A), 원자재(B), 상품(C), 비품(D) )
   p_name varchar(100) not null,     // 품명
   p_code varchar(20) not null,      // 품목코드 ( p_대분류 +  p_소분류 + p_id(pk) 자동생성 )
   p_brand varchar(50),              // 제조사
-  p_group char(2) not null,         // 상품그룹명( select value=값들 / 컴퓨터(01), 전자기기(02), 스마트폰(03), 사무용품(04) )
+  p_group char(2) not null,         // 상품그룹명( select value=값들 / 컴퓨터(01), 전자기기(02), 스마트폰(03), 사무용품(04), 비품(05) )
   p_modelnum varchar(30),           // 상품의 모델번호 ( 최소 5자 이상 입력 )
   p_unit varchar(5) not null,       // 기준단위 ( select값 그대로 영어로 저장 / EA, KG, SET )
   p_size varchar(20),               // 규격
