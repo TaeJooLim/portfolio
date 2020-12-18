@@ -2,7 +2,7 @@
 
 create table corp_car_log(
     car_pid int not null auto_increment primary key, 	// 기본키
-    car_drive_date date not null, 			// 운행일자
+    car_drive_date varchar(10) not null, 			// 운행일자
     car_destination varchar(50) not null, 		// 행선지
     car_purpose varchar(50) not null, 		// 사용목적
     car_drive_start varchar(10) not null, 			// 출발시간
@@ -23,7 +23,7 @@ create table corp_car_log(
 
 create table corp_car_log(
     car_pid int not null auto_increment primary key,
-    car_drive_date date not null,
+    car_drive_date varchar(10) not null,
     car_destination varchar(50) not null,
     car_purpose varchar(50) not null,
     car_drive_start varchar(10) not null,
