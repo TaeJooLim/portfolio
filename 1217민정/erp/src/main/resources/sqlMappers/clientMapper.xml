@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="client">
+	
+	<sql id="searchCondition">
+		<choose>
+			<when test="words==''"></when>
+			<when test="searchOpt=='all'">
+				WHERE 
+				(client_company LIKE CONCAT('%',#{words},'%')) OR 
+				(client_ceo_name LIKE CONCAT('%',#{words},'%')) OR 
+				(client_company_phone LIKE CONCAT('%',#{words},'%')) 			
+			</when>
+			<otherwise>
+				WHERE ${searchOpt} LIKE CONCAT('%',#{words},'%') 
+			</otherwise>
+		</choose>
+	</sql>
 
 	<insert id="setClientOne" parameterType="clientvo">
 		<selectKey keyProperty="ref" order="BEFORE" resultType="int">
@@ -33,7 +48,7 @@
 			client_tax_company_phone 	= #{clientTaxCompanyPhone}
 	</insert>
 	
-	<select id="getClients" resultType="clientvo">
+	<select id="getClients" parameterType="hashmap" resultType="clientvo">
 		SELECT 
 			client_license_num AS clientLicenseNum,
 			client_company AS clientCompany,
@@ -43,7 +58,9 @@
 			client_business_condition AS clientBusinessCondition,
 			client_business_type AS clientBusinessType,
 			client_note AS clientNote 
-		FROM client
+		FROM client 
+		<include refid="searchCondition"></include> 
+		ORDER BY client_id DESC LIMIT 0, 10
 	</select>
 
 </mapper>

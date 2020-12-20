@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reset.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/menu.css">
+    
+    <!-- favicon -->
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/menu/blue_erp.ico">
+    <!-- favicon -->
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -30,7 +34,7 @@
                 <i class="fas fa-bars"></i>
             </div>
             <div class="logo center font_18">
-                <a class="white" href="#">
+                <a class="white" href="${pageContext.request.contextPath}/admin_main">
                     <div class="logo_img_wrap w_100 h_100 flex flex_vc flex_hc">
                         <img src="${pageContext.request.contextPath}/images/menu/blue_erp_logo(white).png">
                     </div>
@@ -97,7 +101,7 @@
                 <div id="sub_menu" class="">
                     <ul id="hrMngmt" class="menu">
                         <h3>인사/급여관리</h3>
-                        <li><a href="../admin/erp_attend/worktime_list.html">회사정보수정</a></li>
+                        <li><a href="${pageContext.request.contextPath}">회사정보수정</a></li>
                         <li><a href="#">NOT FOUND</a></li>
                         <li><a href="#">NOT FOUND</a></li>
                         <li><a href="#">NOT FOUND</a></li>
@@ -105,8 +109,8 @@
 
                     <ul id="salesMngmt" class="menu">
                         <h3>영업관리</h3>
-                        <li><a href="erp_correspondent/correspondent_list.html">거래처목록</a></li>
-                        <li><a href="erp_correspondent/correspondent_reg.html">거래처등록</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/client_reg">거래처 등록</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/client_list">거래처 목록</a></li>
                         <li><a href="#">NOT FOUND</a></li>
                         <li><a href="#">NOT FOUND</a></li>
                     </ul>
