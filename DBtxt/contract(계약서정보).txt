@@ -14,7 +14,9 @@ create table contract (
 	cont_client_res_email varchar(50) not null,		// 거래처담당자 이메일주소 입력
 	cont_orderDate char(10) not null,			// 발주일자
 	cont_dueDate char(10) not null,			// 납기일자
-	cont_note varchar(255) not null			// 비고
+	cont_note varchar(255) not null,		// 비고
+	
+	client_license_num_fk char(12)	//거래처 사업장번호 조인
 );
 
 
@@ -33,5 +35,7 @@ create table contract (
 	cont_client_res_email varchar(50) not null,
 	cont_orderDate char(10) not null,
 	cont_dueDate char(10) not null,
-	cont_note varchar(255) not null
+	cont_note varchar(255) not null,
+	
+	client_license_num_fk char(12)
 );
