@@ -38,7 +38,7 @@ input[type="checkbox"] {
 
 /* 사원정보 테이블 css */
 table {
-    font-size: 14px;
+    font-size: 12px;
 }
 thead th {
     border: 1px solid #60718b;
