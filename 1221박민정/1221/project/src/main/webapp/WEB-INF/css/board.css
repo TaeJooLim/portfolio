@@ -1,0 +1,108 @@
+@charset 'utf-8';
+
+/* search form css */
+.mainContent h3,
+.search-box {
+    display: inline-block;
+}
+
+.search-frm {
+    vertical-align: top;
+}
+
+.sel {
+    width: 100px;
+    height: 30px;
+    border: 1px solid #ddd;
+}
+
+.input {
+    width: 200px;
+    height: 30px;
+    border: 1px solid #ddd;
+}
+
+.search-box {
+    text-align: right;
+}
+
+.btn-wrap {
+    padding: 5px 0;
+    align-items: flex-end;
+}
+
+/* table css */
+table {
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+    border:1px solid #eee;
+}
+
+/* table tr 높이 */
+tr {
+    height:40px;
+}
+
+/* table td 넓이 */
+
+.td-3 {
+    width:3%;
+}
+
+.td-5 {
+    width:5%;
+}
+
+.td-7 {
+    width:7%;
+}
+
+.td-8 {
+    width:8%;
+}
+
+.td-10 {
+    width:10%;
+}
+
+.td-12 {
+    width:12%;
+}
+
+.td-15 {
+    width:15%;
+}
+
+.td-20 {
+    width:20%;
+}
+
+.td-22 {
+    width:22%;
+}
+
+.hover {
+    background-color: #e7e7e7;
+}
+
+/* page css */
+.page-grp {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.page {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    /*line-height는 한줄만 있을 때 서야함!*/
+    border: 1px solid #ddd;
+}
+
+.active {
+    background-color:#2F7BBD;
+    color:#fff;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>업무기안</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+        .paper {
+            width: 800px;
+        }
+
+        tr {
+            height: 30px;
+        }
+
+        /* table 선색 */
+        td {
+            border: 1px solid #d6dce7;
+        }
+    </style>
+    <script src="../lib/jquery.js" type="text/javascript"></script>
+    <script src="../ckeditor/ckeditor.js"></script>
+</head>
+
+<body>
+    <div class="paper">
+        <div class="paper-title">
+            <h1 class="center noto font30">협 조 공 문</h1>
+        </div>
+        <div class="paper-approval m-t20">
+            <div class="approval-left float-l" style="width:350px;">
+                <table>
+                    <tr>
+                        <td class="center weight700 bg-gray" style="width:120px;">기안자</td>
+                        <td class="width:230px;"></td>
+                    </tr>
+                    <tr>
+                        <td class="center weight700 bg-gray" style="width:120px;">소속</td>
+                        <td class="width:230px;"></td>
+                    </tr>
+                    <tr>
+                        <td class="center weight700 bg-gray" style="width:120px;">기안일</td>
+                        <td class="width:230px;"></td>
+                    </tr>
+                    <tr>
+                        <td class="center weight700 bg-gray" style="width:120px;">문서번호</td>
+                        <td class="width:230px;"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="approval-right float-r">
+                <table style="width:130px;" class="float-l">
+                    <tr>
+                        <td class="center weight700 bg-gray" style="width:30px;" rowspan="4">신청</td>
+                        <td class="center" style="width:100px;">과장</td>
+                    </tr>
+                    <tr>
+                        <td class="center" style="width:100px;height:60px;">김그린</td>
+                    </tr>
+                    <tr>
+                        <td class="center" style="width:100px;">2</td>
+                    </tr>
+                </table>
+                <table style="width:130px;margin-left:3px;" class="float-l">
+                    <tr>
+                        <td class="center weight700 bg-gray" style="width:30px;" rowspan="4">승인</td>
+                        <td class="center" style="width:100px;">과장</td>
+                    </tr>
+                    <tr>
+                        <td class="center" style="width:100px;height:60px;">김그린</td>
+                    </tr>
+                    <tr>
+                        <td class="center" style="width:100px;">2</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="paper-content m-t30">
+            <table>
+                <tr>
+                    <td class="center weight700 bg-gray" style="width:120px;">시행일자</td>
+                    <td class="p-lr3"><input type="text" name="" id="" class="input-25" /></td>
+                    <td class="center weight700 bg-gray" style="width:120px;">협조부서</td>
+                    <td class="p-lr3"><input type="text" name="" id="" class="input-25" /></td>
+                </tr>
+                <tr>
+                    <td class="center weight700 bg-gray" style="width:120px;">합의</td>
+                    <td colspan="3"></td>
+                </tr>
+                <tr>
+                    <td class="center weight700 bg-gray" style="width:120px;">제목</td>
+                    <td class="p-lr3" colspan="3"><input type="text" name="" id="" class="input-25-1" /></td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <textarea name="" id="editor"
+                            style="width:100%;border:1px solid #ccc;padding:10px;border-radius: 2px;"
+                            class="noto"></textarea>
+                        <script>
+                            CKEDITOR.replace('editor');
+                            CKEDITOR.config.height = 200;
+                        </script>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

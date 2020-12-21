@@ -1,0 +1,174 @@
+@charset 'utf-8';
+
+header {
+    width: 100%;
+    height: 60px;
+    background-color: #005AA7;
+    border-bottom: 2px solid #eee;
+
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    min-width:150px;
+}
+
+.logo-admin {
+    color:#fff;
+    padding-left: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.logo i {
+    display: inline-block;
+    height:60px;
+    line-height: 60px;
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+}
+
+.logo-approval-home {
+    width:100%;
+    font-size:20px;
+}
+
+.logo-approval-home a {
+    color: #fff;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+}
+.userInfo, .userInfo_detail, .ch-status {
+    display:inline-block;
+    height:60px;
+    padding:5px 0;
+}
+
+.userPic img {
+    display:inline-block;
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.userInfo_detail {
+    margin-left:20px;
+    margin-right:20px;
+    color:#fff;
+    font-size:14px;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    cursor: pointer;
+}
+
+.detail-btn {
+    text-align:center;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.changeStatus {
+    position: absolute;
+    right:25px;
+    top:58px;
+
+    width:150px;
+    border: 1px solid #ccc;
+
+    display: none;
+}
+.changeStatus li {
+    padding: 15px 10px;
+    background-color:#fff;
+    display:flex;
+    justify-content: space-between;
+}
+
+.changeStatus li:hover {
+    background-color:#69A2D3;
+    color:#000;
+    font-weight:700;
+}
+
+.logout, .changePage{
+    color:#a7a7a7;
+}
+
+
+/* header Fisnish */
+/* main */
+
+main {
+    display: flex;
+    height: 100%;
+    min-height:100vh;
+}
+
+.menu-wrap {
+    width: 10%;
+    min-width: 160px;
+    height: 100%;
+    min-height:100vh;
+    border-right: 2px solid #eee;
+    padding: 10px;
+    text-align: left;
+
+    display: flex;
+    flex-direction: column;
+}
+
+main .mainContent {
+    width: 90%;
+    padding: 10px;
+    background-color: #f7f7f7;
+}
+
+.menu {
+    width: 100%;
+    line-height: 40px;
+    font-size: 14px;
+}
+
+.menu:before {
+    content: '▶';
+    font-size: 1px;
+    color: #777;
+    margin-right: 10px;
+}
+
+.menu.changed:before {
+    content: '▼';
+    font-size: 1px;
+    color: #777;
+    margin-right: 10px;
+}
+
+.menu:hover {
+    cursor: pointer;
+}
+
+.submenu {
+    display: none;
+    padding-left: 20px;
+    list-style: none;
+}
+
+.submenu > li:hover {
+    font-weight:700;
+    background-color:#eee;
+}

@@ -1,0 +1,10 @@
+//mem_oid ~ mem_hobby)
+
+SELECT mem_oid, num_fk, mem_cp, mem_tel, mem_email, mem_birth, mem_recruit, mem_addr, mem_married, mem_service, mem_hobby FROM member_others;
+
+
+// mem_speciality ~ mem_religion
+SELECT mem_oid, mem_speciality, mem_disability, mem_disability_num, mem_reward, mem_reward_num, mem_final_edu, mem_height, mem_weight, mem_religion FROM member_others;
+
+//mem_license1 ~ num_fk
+SELECT mem_oid, mem_license1,mem_license2, mem_license3, mem_license4, mem_lang1,mem_lang2, mem_lang3, mem_lang4, mem_comment, num_fk FROM member_others;

@@ -1,0 +1,352 @@
+@charset 'utf-8';
+
+/* font size */
+.font12 {
+    font-size:12px;
+}
+
+.font14 {
+    font-size:14px;
+}
+
+.font16 {
+    font-size:16px;
+}
+
+.font18 {
+    font-size:18px;
+}
+
+.font20 {
+    font-size:20px;
+}
+
+.weight700 {
+    font-weight: 700;
+}
+
+.color-red {
+    color:#f00;
+}
+
+/* margin */
+.m-t10 {
+    margin-top:10px;
+}
+
+.m-t20 {
+    margin-top: 20px;
+}
+
+.m-b5 {
+    margin-bottom:5px;
+}
+
+.m-b10 {
+    margin-bottom:10px;
+}
+.m-tb10 {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+/* padding */
+.p10 {
+    padding-top:10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.p20 {
+    padding-top:20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.p-r5 {
+	padding-right:5px;
+}
+
+.p-l5 {
+	padding-left:5px;
+}
+
+.p-b10 {
+    padding-bottom:10px;
+}
+
+.p-t10 {
+    padding-top:10px;
+}
+
+.p-tb10 {
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.p-tb15 {
+    padding-top:15px;
+    padding-bottom:15px;
+}
+
+.p-tb20 {
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.p-lr3 {
+    padding-left:3px;
+    padding-right:3px;
+}
+
+.p-lr5 {
+    padding-left:5px;
+    padding-right:5px;
+}
+
+.p-lr20 {
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.p-lr40 {
+    padding-left:40px;
+    padding-right:40px;
+}
+
+/* align */
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align:right;
+}
+
+.one_line_txt {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+
+/* flex */
+.flex {
+    display:flex;
+}
+
+.flex-justify {
+    justify-content: space-between;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+/* input */
+.input-50 {
+    padding:5px;
+    border-radius: 2px;
+    border:1px solid #eee;
+    width:50%;
+    height:35px;
+    font-size:12px;
+}
+
+.input-65 {
+    padding:5px;
+    border-radius: 2px;
+    border:1px solid #eee;
+    width:65%;
+    height:35px;
+    font-size:12px;
+}
+
+.input-40 {
+    padding:5px;
+    border-radius: 2px;
+    border:1px solid #eee;
+    width:40%;
+    height:35px;
+    font-size:12px;
+}
+
+.input-90 {
+    padding:5px;
+    border-radius: 2px;
+    border:1px solid #eee;
+    width:90%;
+    height:35px;
+    font-size:12px;
+}
+
+.input-100 {
+    padding:5px;
+    border-radius: 2px;
+    border:1px solid #eee;
+    width:100%;
+    height:35px;
+    font-size:12px;
+}
+
+.input-150 {
+    padding:5px;
+    border-radius: 2px;
+    border:1px solid #eee;
+    width:150px;
+    height:35px;
+    font-size:12px;
+}
+
+/* select */
+select {
+    font-size:12px;
+    border-radius: 2px;
+    border:1px solid #eee;
+    width:150px;
+    height:35px;
+}
+
+.sel-35 {
+    font-size:12px;
+    border-radius: 2px;
+    border:1px solid #eee;
+    width:35%;
+    height:35px;
+}
+
+.sel-75 {
+    font-size:12px;
+    border-radius: 2px;
+    border:1px solid #eee;
+    width:75%;
+    height:35px;
+}
+
+.sel-100 {
+    font-size:12px;
+    border-radius: 2px;
+    border:1px solid #eee;
+    width:100%;
+    height:35px;
+}
+
+/* button */
+button {
+    cursor: pointer;
+    font-size:12px;
+}
+
+.btn-on { /* 활성화 */
+    display:inline-block;
+    width:75px; /* 고정 타입 */
+    height:35px;
+    text-align: center;    
+    line-height: 37px;
+    border-radius: 2px;
+    background-color:#2F7BBD;
+    border:1px solid transparent;
+    color:#fff;
+}
+
+.btn-off { /* 비활성화 */
+    display:inline-block;
+    width:75px;
+    height:35px;
+    text-align: center;    
+    line-height: 37px;
+    border-radius: 2px;
+    background-color:#edeff5;
+    border:1px solid #d4d4d4;
+    color:#000;
+}
+
+.btn-del {
+    display:inline-block;
+    width:75px;
+    height:35px;
+    text-align: center;    
+    line-height: 37px;
+    border-radius: 2px;
+    background-color:#A7005A;
+    border:1px solid #d4d4d4;
+    color:#fff;
+}
+
+.s-btn-on { /* 활성화 */
+    display:inline-block;
+    width:35px;
+    height:25px;
+    text-align: center;    
+    line-height: 25px;
+    border-radius: 2px;
+    background-color:#2F7BBD;
+    border:1px solid transparent;
+    color:#fff;
+    font-size:12px;
+}
+
+.s-btn-off { /* 비활성화 */
+    display:inline-block;
+    width:35px;
+    height:25px;
+    text-align: center;    
+    line-height: 25px;
+    border-radius: 2px;
+    background-color:#edeff5;
+    border:1px solid #d4d4d4;
+    color:#000;
+    font-size:12px;
+}
+
+.s-btn-del {
+    display:inline-block;
+    width:35px;
+    height:25px;
+    text-align: center;    
+    line-height: 25px;
+    border-radius: 2px;
+    background-color:#f00;
+    border:1px solid #d4d4d4;
+    color:#fff;
+    font-size:12px;
+}
+
+.search-btn {
+    background-color: #2F7BBD;
+    width: 60px;
+    height: 29px;
+    color: #fff;
+    border: 1px solid transparent;
+    outline: 0;
+}
+
+/* background-color */
+.bg-white {
+    background-color:#fff;
+}
+
+.bg-gray {
+    background-color: #eee;
+}
+
+/* contentHead */
+.contentHead h3{
+    color:#A7005A;
+    padding-bottom:10px;
+}
+
+/* display */
+.display-no {
+    display: none;
+}

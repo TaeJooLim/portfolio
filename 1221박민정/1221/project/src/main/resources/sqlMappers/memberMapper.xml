@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+	
+	<!-- 로그인 검사 & session에 회원정보 보내기 -->
+	<select id="checkLogin" parameterType="membervo" resultType="membervo">
+		SELECT 
+		mem_id AS memID,
+		mem_name AS memName,
+		mem_num AS memNum,
+		mem_buseo AS memBuseoCode,
+		mem_grade AS memGradeCode,
+		mem_level AS memLevel,
+		mem_confirm AS memConfirm,
+		buseo_name AS memBuseoName,
+		grade_name AS memGradeName 
+		FROM member 
+		LEFT JOIN member_buseo ON mem_buseo = buseo_id 
+		LEFT JOIN member_grade ON mem_grade = grade_id 
+		WHERE mem_id = #{memID} AND mem_pwd = #{memPwd}
+	</select>
+	
+	<!-- 사용자정보 한개 불러오기 -->
+	<select id="getMemOne" parameterType="String" resultType="membervo">
+		SELECT 
+		num AS num,
+		mem_name AS memName,
+		mem_buseo AS memBuseoCode,
+		B.buseo_name AS memBuseoName,
+		mem_grade AS memGradeCode,
+		G.grade_name AS memGradeName,
+		mem_gender AS memGender,
+		mem_num AS memNum,
+		mem_entdate AS memEntdate 
+		FROM member M, member_buseo B, member_grade G 
+		WHERE M.mem_buseo = B.buseo_id AND 
+		M.mem_grade = G.grade_id AND 
+		mem_num = #{sessionNum}
+	</select>
+	
+	<!-- 사용자상세정보 한개 불러오기 -->
+	<select id="getMemOthersOne" parameterType="String" resultType="membervo">
+		SELECT 
+		mem_oid AS memOID,
+		mem_cp AS memCp,
+		mem_tel AS memTel,
+		mem_email AS memEmail,
+		mem_birth AS memBirth,
+		mem_recruit AS memRecruit,
+		mem_addr AS memAddr,
+		mem_married AS memMarried,
+		mem_service AS memService,
+		mem_hobby AS memHobby,
+		mem_speciality AS memSpeciality,
+		mem_disability AS memDisability,
+		mem_disability_num AS memDisabilityNum,
+		mem_reward AS memReward,
+		mem_reward_num AS memRewardNum,
+		mem_final_edu AS memFinalEdu,
+		mem_height AS memHeight,
+		mem_weight AS memWeight,
+		mem_religion AS memReligion,
+		mem_license1 AS memLicense1,
+		mem_license2 AS memLicense2,
+		mem_license3 AS memLicense3,
+		mem_license4 AS memLicense4,
+		mem_lang1 AS memLang1,
+		mem_lang2 AS memLang2,
+		mem_lang3 AS memLang3,
+		mem_lang4 AS memLang4,
+		mem_comment AS memComment 
+		FROM member_others 
+		WHERE num_fk = (SELECT num FROM member WHERE mem_num = #{sessionNum})
+	</select>
+	
+	<!-- 사용자상세정보테이블에 사용자정보가 있는지 확인 -->
+	<select id="existsMemOthers" parameterType="membervo" resultType="int">
+		SELECT COUNT(mem_oid) FROM member_others 
+		WHERE num_fk = #{numFK}
+	</select>
+	
+	<!-- 관리자페이지에서 사용자정보 입력하기(member_others 테이블에 추가) -->
+	<insert id="setMemOthers" parameterType="membervo">
+		INSERT INTO member_others SET 
+		mem_cp		= #{memCp},
+		mem_tel		= #{memTel},
+		mem_email	= #{memEmail},
+		mem_birth	= #{memBirth},
+		mem_recruit	= #{memRecruit},
+		mem_addr	= #{memAddr},
+		mem_married	= #{memMarried},
+		mem_service	= #{memService},
+		mem_hobby	= #{memHobby},
+		mem_speciality		= #{memSpeciality}, 
+		mem_disability		= #{memDisability},
+		mem_disability_num	= #{memDisabilityNum},
+		mem_reward		= #{memReward},
+		mem_reward_num	= #{memRewardNum},
+		mem_final_edu	= #{memFinalEdu},
+		mem_height	= #{memHeight},
+		mem_weight	= #{memWeight},
+		mem_religion	= #{memReligion},
+		mem_license1	= #{memLicense1},
+		mem_license2	= #{memLicense2},
+		mem_license3	= #{memLicense3},
+		mem_license4	= #{memLicense4},
+		mem_lang1		= #{memLang1},
+		mem_lang2		= #{memLang2},
+		mem_lang3		= #{memLang3},
+		mem_lang4		= #{memLang4},
+		mem_comment		= #{memComment},
+		num_fk			= #{numFK}
+	</insert>
+	
+	<!-- 관리자페이지에서 사용자정보 업데이트하기(member_others 테이블 업데이트) -->
+	<update id="updateMemOthers" parameterType="membervo">
+		UPDATE member_others SET 
+		mem_cp		= #{memCp},
+		mem_tel		= #{memTel},
+		mem_email	= #{memEmail},
+		mem_birth	= #{memBirth},
+		mem_recruit	= #{memRecruit},
+		mem_addr	= #{memAddr},
+		mem_married	= #{memMarried},
+		mem_service	= #{memService},
+		mem_hobby	= #{memHobby},
+		mem_speciality		= #{memSpeciality}, 
+		mem_disability		= #{memDisability},
+		mem_disability_num	= #{memDisabilityNum},
+		mem_reward		= #{memReward},
+		mem_reward_num	= #{memRewardNum},
+		mem_final_edu	= #{memFinalEdu},
+		mem_height	= #{memHeight},
+		mem_weight	= #{memWeight},
+		mem_religion	= #{memReligion},
+		mem_license1	= #{memLicense1},
+		mem_license2	= #{memLicense2},
+		mem_license3	= #{memLicense3},
+		mem_license4	= #{memLicense4},
+		mem_lang1		= #{memLang1},
+		mem_lang2		= #{memLang2},
+		mem_lang3		= #{memLang3},
+		mem_lang4		= #{memLang4},
+		mem_comment		= #{memComment} 
+		WHERE num_fk = #{numFK}
+	</update>
+	
+	<!-- 관리자페이지에서 사용자정보 업데이트하기(member 테이블 업데이트) -->
+	<update id="updateMem" parameterType="membervo">
+		UPDATE member SET 
+		mem_name = #{memName},
+		mem_buseo = #{memBuseoCode},
+		mem_grade = #{memGradeCode},
+		mem_gender = #{memGender} 
+		WHERE num = #{numFK}
+	</update>
+	
+	<!-- 미승인 회원 검색 -->
+	<sql id="search">
+		<choose>
+			<when test="words == ''"></when>
+			<when test="searchOpt == 'all'">
+				AND (
+				mem_id LIKE CONCAT('%', #{words} , '%') OR 
+				mem_name LIKE CONCAT('%', #{words} , '%') OR 
+				mem_num LIKE CONCAT('%', #{words} , '%')
+				) 
+			</when>
+			<otherwise>
+				AND ${searchOpt} LIKE CONCAT('%',#{words},'%') 
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<!-- ""미승인 회원"" 리스트 가져오기 -->
+	<select id="getMemApplicant" parameterType="hashmap" resultType="membervo">
+		SELECT 
+		mem_regdate AS memRegdate,
+		mem_id AS memID,
+		mem_name AS memName,
+		mem_num AS memNum,
+		mem_buseo AS memBuseoCode,
+		B.buseo_name AS memBuseoName,
+		mem_grade AS memGradeCode,
+		G.grade_name AS memGradeName,
+		mem_entdate AS memEntdate,
+		
+		mem_confirm AS memConfirm,
+		num AS num 
+		FROM member M, member_buseo B, member_grade G 
+		WHERE M.mem_buseo = B.buseo_id AND 
+		M.mem_grade = G.grade_id AND 
+		M.mem_confirm = 'N' 
+		<include refid="search"></include> 
+		ORDER BY num DESC 
+		LIMIT #{start}, #{end}
+	</select>
+	
+	<!-- 미승인회원 '승인'으로 업데이트 -->
+	<update id="approveConfirm" parameterType="int">
+		UPDATE member 
+		SET mem_confirm	= 'Y' 
+		WHERE num = #{num}
+	</update>
+	
+	<!-- 미승인회원 - '승인 거부'시 해당 회원 삭제 -->
+	<delete id="disapproveConfirm" parameterType="int">
+		DELETE FROM member 
+		WHERE mem_confirm = 'N' AND num = #{num}
+	</delete>
+	
+	<!-- 미승인회원 수 카운트 -->
+	<select id="getApplicantCount" parameterType="hashmap" resultType="int">
+		SELECT COUNT(num) 
+		FROM member 
+		WHERE mem_confirm = 'N' 
+		<include refid="search"></include>
+	</select>
+	
+	<!-- 체크된 미승인회원 '승인'하기 -->
+	<update id="approveAll" parameterType="int">
+	    UPDATE member 
+	    SET mem_confirm = 'Y' 
+	    WHERE num = #{num}
+	</update>
+	
+	<!-- 체크된 미승인회원 '승인거부'하기=DB에서지움 -->
+	<delete id="rejectAll" parameterType="int">
+	    DELETE FROM member  
+	    WHERE num = #{num}
+	</delete>
+	
+	<!-- "모든 회원" 리스트 가져오기 -->
+	<select id="getMemList" parameterType="hashmap" resultType="membervo">
+		SELECT 
+		num AS num,
+		mem_buseo AS memBuseoCode,
+		B.buseo_name AS memBuseoName,
+		mem_grade AS memGradeCode,
+		G.grade_name AS memGradeName,
+		mem_num AS memNum,
+		mem_name AS memName,
+		mem_id AS memID,
+		mem_gender AS memGender,
+		mem_entdate AS memEntdate,
+		mem_regdate AS memRegdate,
+		mem_level AS memLevel,
+		mem_confirm AS memConfirm 
+		FROM member M, member_buseo B, member_grade G 
+		WHERE M.mem_buseo = B.buseo_id AND 
+		M.mem_grade = G.grade_id 
+		<include refid="search"></include> 
+		ORDER BY num DESC 
+		LIMIT #{start}, #{end}
+	</select>
+	
+	<!-- 전체회원 수 카운트 -->
+	<select id="getMemCount" parameterType="hashmap" resultType="int">
+		SELECT COUNT(num) 
+		FROM member 
+		WHERE mem_confirm IS NOT NULL 
+		<include refid="search"></include>
+	</select>
+	
+	<!-- 회원 성별 바꾸기 -->
+	<update id="changeGender" parameterType="hashmap">
+		UPDATE member 
+		SET mem_gender = #{memGender} 
+		WHERE num = #{num}
+	</update>
+	
+	<!-- 회원 권한수준(레벨) 바꾸기 -->
+	<update id="changeLevel" parameterType="hashmap">
+		UPDATE member 
+		SET mem_level = #{memLevel} 
+		WHERE num = #{num}
+	</update>
+	
+	<!-- 회원 승인 여부 바꾸기 -->
+	<update id="changeConfirm" parameterType="hashmap">
+		UPDATE member 
+		SET mem_confirm = #{memConfirm} 
+		WHERE num = #{num}
+	</update>
+	
+	<!-- 회원 개별 삭제 -->
+	<delete id="deleteOne" parameterType="int">
+		DELETE FROM member WHERE num = #{num}
+	</delete>
+	
+	<!-- 회원 다중 삭제 -->
+	<delete id="deleteMemAll" parameterType="int">
+		DELETE FROM member 
+		WHERE num = #{num}
+	</delete>
+</mapper>

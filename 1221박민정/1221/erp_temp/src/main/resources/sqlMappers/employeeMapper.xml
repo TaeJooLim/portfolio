@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="employee">
+	<select id="getMyInfo" parameterType="employeevo">
+		SELECT 
+			emp_id AS empId,
+			emp_department AS empDepartment,
+			emp_position AS empPosition,
+			emp_num AS empNum,
+			emp_enter AS empEnter,
+			emp_name AS empName,
+			emp_birth AS empBirth,
+			emp_email AS empEmail,
+			emp_regdate AS empRegdate,
+			emp_headcheck AS empHeadcheck,
+			emp_step AS empStep,
+			emp_auth AS empAuth,
+			emp_confirm AS empConfirm,
+			emp_photo AS empPhoto,
+			emp_offTotal AS empOffTotal,
+			emp_off_use AS empOffUse,
+			emp_off_remain AS empOffRemain 
+		FROM employee WHERE emp_id = #{empId} 
+	</select>
+</mapper>

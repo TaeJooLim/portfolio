@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="register">
+
+	<!-- 부서 목록 가져오기 -->
+	<select id="getBuseo" resultType="buseovo">
+		SELECT * FROM member_buseo
+		ORDER BY buseo_id
+	</select>
+
+	<!-- 직급 목록 가져오기 -->
+	<select id="getGrade" resultType="gradevo">
+		SELECT * FROM member_grade
+		ORDER BY grade_id
+	</select>
+
+	<!-- 회원가입 DB에 저장하기 -->
+	<insert id="setMember" parameterType="membervo">
+		<selectKey keyProperty="ref" order="BEFORE" resultType="int">
+			SELECT IFNULL( max(num) +1 , 1 ) FROM member
+		</selectKey>
+
+		INSERT INTO member SET 
+		mem_id = #{memID},
+		mem_pwd = #{memPwd},
+		mem_name = #{memName},
+		mem_gender = #{memGender},
+		mem_jumin = CONCAT(#{memJumin},#{memJuminBack}),
+		mem_buseo = #{memBuseoCode},
+		mem_grade = #{memGradeCode},
+		mem_regdate = now(),
+		mem_entdate = #{memEntdate},
+		mem_num = CONCAT( #{memNum}, #{ref} )
+	</insert>
+	
+	<!-- 아이디 중복 확인 -->
+	<select id="checkID" parameterType="membervo" resultType="int">
+		SELECT COUNT(mem_id) FROM member 
+		WHERE mem_id = #{memID}
+	</select>
+
+</mapper>

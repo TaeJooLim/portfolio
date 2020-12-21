@@ -1,0 +1,49 @@
+use groupware;
+
+// member_buseo(테이블)에 맞게 타입 지정해아한다
+// required 지정 -> not null 로 타입지정
+// boardType value를 1,2,3.. 으로 저장 = char(1)로 설정함
+
+CREATE TABLE board(
+bid int not null auto_increment,
+boardGrp varchar(5),
+boardCode varchar(20) not null,
+boardColor varchar(20),
+boardMaker varchar(20),
+boardTitle varchar(255) not null,
+boardType char(1),
+boardRead char(1),
+boardWrite char(1),
+boardReply char(1),
+boardDownload char(1),
+boardRegdate date,
+primary key(bid)
+);
+
+// 게시판 저장 테이블 생성
+CREATE TABLE board_article_a(
+aid int not null auto_increment,
+boardType char(1),
+subject varchar(255) not null,
+writer varchar(20),
+content text,
+regdate datetime,
+hit int default 0,
+fileName varchar(3),
+fileUrl varchar(300),
+ref int,
+re_step int,
+re_level int,
+primary key(aid)
+);
+
+// 게시판 댓글 테이블 생성
+// 어떤 게시판에 달린 댓글인지 식별하기 위해 'aid'가 필요
+CREATE TABLE board_comment_a(
+cid int not null auto_increment,
+aid int not null,
+comment text,
+who varchar(20),
+regdate datetime,
+primary key(cid)
+);

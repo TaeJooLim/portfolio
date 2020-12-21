@@ -1,0 +1,47 @@
+use groupware;
+
+num/사번/아이디/비번/이름/성별/주민/부서/직급/입사일
+
+// member 테이블만들기
+create table member(
+num int not null auto_increment,
+mem_num varchar(20) not null,
+mem_id varchar(15) not null,
+mem_pwd varchar(12) not null,
+mem_name varchar(5) not null,
+mem_gender char(1) not null,
+mem_jumin varchar(13) not null,
+mem_buseo varchar(20) not null,
+mem_grade varchar(20) not null,
+mem_entdate date,
+mem_regdate date,
+mem_level char(1) default '1',
+mem_confirm char(1) default 'N',
+mem_photo varchar(100),
+primary key(num)
+);
+
+// member 부서 테이블 만들기
+create table member_buseo(
+buseo_id varchar(5) not null,
+buseo_name varchar(20) not null
+);
+	INSERT INTO member_buseo 
+	VALUES 
+	('100','관리부'),('200','기획부'),('300','인사부'),
+	('400','영업부'),('500','생산부'),('600','자재부'),('700','비서실');
+
+// member 직급 테이블 만들기
+create table member_grade(
+grade_id varchar(2) not null,
+grade_name varchar(10) not null
+);
+	INSERT INTO member_grade 
+	VALUES 
+	('1','사원'),('2','주임'),('3','대리'),
+	('4','과장'),('5','팀장'),('6','부장');
+
+// admin 계정 추가
+INSERT INTO member SET 
+mem_num = '0000', mem_id='admin', mem_pwd='admin',
+mem_name='관리자', mem_gender='F', mem_jumin='0000', mem_buseo='100', mem_grade='1', mem_entdate='2020-01-01', mem_regdate='2020-01-01', mem_level='9', mem_confirm='Y';

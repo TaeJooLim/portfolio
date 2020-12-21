@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="product">
+
+	<sql id="searchCondition">
+		<choose>
+			<when test="words == ''"></when>
+			<when test="searchOpt=='all'">
+				WHERE 	(p_name LIKE CONCAT('%', #{words}, '%')) OR 
+						(p_code LIKE CONCAT('%', #{words}, '%')) OR 
+						(p_brand LIKE CONCAT('%', #{words}, '%')) 
+			</when>
+			<otherwise>
+				WHERE ${searchOpt} LIKE CONCAT('%', #{words}, '%') 
+			</otherwise>
+		</choose>
+	</sql>
+
+	<insert id="setProductOne" parameterType="productvo">
+		<selectKey keyProperty="ref" order="BEFORE" resultType="int">
+			SELECT IFNULL( max(p_id) + 1, 1 ) FROM product
+		</selectKey>
+			INSERT INTO product SET 
+				  p_type 			= #{pType},
+				  p_name 			= #{pName},
+				  p_code 			= CONCAT(#{pCode}, #{ref}),
+				  p_brand 			= #{pBrand},
+				  p_group 			= #{pGroup},
+				  p_modelnum 		= #{pModelnum},
+				  p_unit 			= #{pUnit},
+				  p_size 			= #{pSize},
+				  p_currency 		= #{pCurrency},
+				  p_buy 			= #{pBuy},
+				  p_sell 			= #{pSell},
+				  p_tax 			= #{pTax},
+				  p_taxuse 			= #{pTaxuse},
+				  p_note 			= #{pNote},
+				  account_id_fk 	= #{accountIdFk}
+	</insert>
+	
+	<select id="getProductList" parameterType="hashmap" resultType="productvo">
+		SELECT 
+			p_id AS pId, 
+			p_type AS pType,
+			p_name AS pName,
+			p_code AS pCode,
+			p_brand AS pBrand,
+			p_group AS pGroup,
+			p_modelnum AS pModelnum,
+			p_unit AS pUnit,
+			p_size AS pSize,
+			p_currency AS pCurrency,
+			p_buy AS pBuy,
+			p_sell AS pSell,
+			p_tax AS pTax,
+			p_taxuse AS pTaxuse,
+			p_note AS pNote, 
+			client_company AS clientCompany 
+		FROM product LEFT JOIN client ON account_id_fk = client_id 
+		<include refid="searchCondition"></include> 
+		ORDER BY p_id DESC LIMIT 0, 10
+	</select>
+	<select id="getProductCnt" parameterType="hashmap" resultType="int">
+		SELECT COUNT(*) FROM product <include refid="searchCondition"></include>
+	</select>
+	
+	<delete id="deleteProductOne" parameterType="int">
+		DELETE FROM product WHERE p_id = #{pId}
+	</delete>
+
+</mapper>

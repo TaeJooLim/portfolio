@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	
+	<sql id="search">
+		<choose>
+			<when test="words == ''"></when>
+			<when test="searchOpt == 'boardCode'">
+				AND(
+				boardCode LIKE CONCAT('%', #{words} , '%')
+				) 
+			</when>
+			<when test="searchOpt == 'boardTitle'">
+				AND boardTitle LIKE CONCAT('%', #{words} , '%')  
+			</when>
+			<when test="searchOpt == 'all'">
+				AND (boardCode LIKE CONCAT('%', #{words} , '%') OR 
+				boardTitle LIKE CONCAT('%', #{words} , '%')
+				)
+			</when>
+			<otherwise>
+				AND(${searchOpt} LIKE CONCAT('%',#{words},'%') )
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<!-- 게시판 생성 -->
+	<insert id="setBoard" parameterType="boardvo">
+		INSERT INTO board SET 
+			boardGrp = #{boardGrp},
+			boardCode = #{boardCode},
+			boardColor = #{boardColor},
+			boardMaker = #{boardMaker},
+			boardTitle = #{boardTitle},
+			boardType = #{boardType},
+			boardRead = #{boardRead},
+			boardWrite = #{boardWrite},
+			boardReply = #{boardReply},
+			boardDownload = #{boardDownload},
+			boardRegdate = now()
+	</insert>
+	
+	<!-- 게시판 저장 테이블 생성 -->
+	<insert id="createArticleTbl">
+		${str}
+	</insert>
+	
+	<!-- 게시판 댓글 테이블 생성 -->
+	<insert id="createCommentTbl">
+		${str}
+	</insert>
+	
+	<!-- 게시판코드 중복 방지 -->
+	<select id="getBoardChk" parameterType="String" resultType="int">
+		SELECT COUNT(bid) FROM board WHERE boardCode = #{boardCode}
+	</select>
+	
+	<!-- 게시판 목록 가져오기 / 부서테이블과 게시판테이블의 '부서'조인 -->
+	<select id="getBoardList" parameterType="hashmap" resultType="boardvo">
+		SELECT * FROM board A, member_buseo B 
+		WHERE A.boardGrp = B.buseo_id 
+		<include refid="search"></include> 
+		ORDER BY bid DESC 
+		LIMIT #{start}, #{end}
+	</select>
+	
+	<!--	게시판 & 댓글 지우기		-->
+	<!--	지울때는 생성 순서의 역순으로! 
+			생성 순서 : boardTbl > articleTbl > commentTbl	-->
+	<delete id="setBoardDelete" parameterType="String">
+		DELETE FROM board WHERE boardCode = #{boardCode}
+	</delete>
+	
+	<!-- DROP 명령어는 INSERT로 XML 작업 -->
+	<insert id="dropArticleTbl">
+		${str}
+	</insert>
+	<insert id="dropCommentTbl">
+		${str}
+	</insert>
+	
+	<!-- 게시판 수 카운트 -->
+	<select id="getBoardCount" parameterType="hashmap" resultType="int">
+		SELECT COUNT(bid) FROM board 
+		WHERE bid IS NOT NULL <include refid="search"></include>
+	</select>
+	
+	<!-- 게시판 다중 삭제 -->
+	<delete id="deleteBoardAll" parameterType="String">
+		DELETE FROM board 
+		WHERE boardCode = #{boardCode} 
+	</delete>
+	
+	<!-- (모달) 게시판 설정 불러오기 -->
+	<select id="getBoardOne" parameterType="int" resultType="boardvo">
+		SELECT * FROM board WHERE bid = #{bid}
+	</select>
+	
+	<!-- (모달) 게시판 설정 변경 -->
+	<update id="changeBoardSet" parameterType="boardvo">
+		UPDATE board SET 
+		boardGrp	= #{MboardGrp},
+		boardCode	= #{MboardCode},
+		boardColor	= #{MboardColor},
+		boardMaker	= #{MboardMaker},
+		boardTitle	= #{MboardTitle},
+		boardType	= #{MboardType},
+		boardRead	= #{MboardRead},
+		boardWrite	= #{MboardWrite},
+		boardReply	= #{MboardReply},
+		boardDownload	= #{MboardDownload} 
+		WHERE boardCode = #{MboardCode}
+	</update>
+</mapper>

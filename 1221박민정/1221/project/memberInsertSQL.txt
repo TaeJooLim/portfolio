@@ -1,0 +1,35 @@
+**테이블 member_others 만들기 **
+
+* m 붙어있는 것은 테이블 member에 이미 있는 내용 *
+* memberInsert.jsp 페이지 참조 *
+이름m/부서m/직급m/성별m/사번m/내선번호/휴대번호/이메일/생년월일/입사일m/채용형태/주소/결혼여부/병역구분/취미/특기/장애여부/장애등록번호/보훈대상여부/보훈번호/최종학력/키/몸무게/종교/보유자격1~4/어학사항1~4/비고
+
+CREATE TABLE member_others(
+mem_oid int not null auto_increment,
+mem_cp char(14),
+mem_tel char(14),
+mem_email varchar(50),
+mem_birth char(10),
+mem_recruit char(10),
+mem_addr varchar(100),
+mem_married char(2),
+mem_service char(5),
+mem_hobby varchar(20),
+mem_speciality varchar(20),
+mem_disability char(3),
+mem_disability_num varchar(15),
+mem_reward char(3),
+mem_reward_num varchar(15),
+mem_final_edu varchar(20),
+mem_height char(3),
+mem_weight char(3),
+mem_religion char(10),
+mem_license1 varchar(20),mem_license2 varchar(20),mem_license3 varchar(20),mem_license4 varchar(20),
+mem_lang1 varchar(20),mem_lang2 varchar(20),mem_lang3 varchar(20),
+mem_lang4 varchar(20),
+mem_comment text,
+num_fk int,
+primary key(mem_oid)
+);
+
+//num_fk는 테이블 member와 조인하기 위함
