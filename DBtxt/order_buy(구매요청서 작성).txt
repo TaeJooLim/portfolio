@@ -11,6 +11,7 @@ create table order_buy (
 	order_p_buy int not null,				// 단가
 	order_total_price int not null,			// 금액 (단가 * 수량)
 	order_purpose varchar(254),			// 용도
+	order_doc_num varchar(30) not null, 		// 구매요청서 문서번호
 
 	order_confirm char(1) default 'N',			// 결재여부
 	order_sender int not null,				// 구매사원 emp_id (정렬용)
@@ -28,6 +29,7 @@ create table order_buy (
 	order_p_buy int not null,
 	order_total_price int not null,
 	order_purpose varchar(254),
+	order_doc_num varchar(30) not null, 
 
 	order_confirm char(1) default 'N',
 	order_sender int not null,
