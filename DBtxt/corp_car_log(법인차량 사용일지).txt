@@ -2,19 +2,19 @@
 
 create table corp_car_log(
     car_pid int not null auto_increment primary key, 	// 기본키
-    car_drive_date varchar(10) not null, 			// 운행일자
+    car_drive_date varchar(10) not null, 		// 운행일자
     car_destination varchar(50) not null, 		// 행선지
-    car_purpose varchar(50) not null, 		// 사용목적
-    car_drive_start varchar(10) not null, 			// 출발시간
+    car_purpose varchar(50) not null, 			// 사용목적
+    car_drive_start varchar(10) not null, 		// 출발시간
     car_drive_end varchar(10) not null,			// 도착시간
-    car_start_km varchar(20) not null,	 		// 출발전 주행거리
-    car_end_km varchar(20) not null, 			// 도착후 주행거리
+    car_start_km int not null,		 		// 출발전 주행거리
+    car_end_km int not null, 				// 도착후 주행거리
     car_driver varchar(10) not null, 			// 운전자
-    car_passenger varchar(10), 			// 동승자
+    car_passenger varchar(10), 				// 동승자
     car_key char(1) not null default 'N' , 		// 키 반납여부
     car_fuel varchar(20), 				// 주유사항
-    car_fuel_amount varchar(10),	 		// 주유금액
-    car_remark varchar(200), 			// 비고
+    car_fuel_amount int,		 		// 주유금액
+    car_remark varchar(200), 				// 비고
 
     car_id_fk int not null				// crop_car_mng 테이블의 id를 fk로 이용해서 '차종', '차량번호'를 출력
 );
@@ -28,13 +28,13 @@ create table corp_car_log(
     car_purpose varchar(50) not null,
     car_drive_start varchar(10) not null,
     car_drive_end varchar(10) not null,
-    car_start_km varchar(20) not null,
-    car_end_km varchar(20) not null,
+    car_start_km int not null,
+    car_end_km int not null,
     car_driver varchar(10) not null,
     car_passenger varchar(10),
     car_key char(1) not null default 'N',
     car_fuel varchar(20),
-    car_fuel_amount varchar(10),
+    car_fuel_amount int,
     car_remark varchar(200),
 
     car_id_fk int not null
@@ -46,13 +46,13 @@ INSERT INTO corp_car_log SET
 		car_purpose = "출장",
 		car_drive_start = "09:00",
 		car_drive_end = "16:00",
-		car_start_km = "12,000",
-		car_end_km = "12,400",
+		car_start_km = "12000",
+		car_end_km = "12400",
 		car_driver = "김철수",
 		car_passenger = "이철수",
 		car_key = "Y",
 		car_fuel = "주유",
-		car_fuel_amount = "30,000원",
+		car_fuel_amount = "30000",
 		car_remark = "-",
 		car_id_fk = 10;
 
@@ -62,13 +62,13 @@ INSERT INTO corp_car_log SET
 		car_purpose = "외부업체 컨택",
 		car_drive_start = "09:00",
 		car_drive_end = "19:00",
-		car_start_km = "12,400",
-		car_end_km = "14,600",
+		car_start_km = "12400",
+		car_end_km = "14600",
 		car_driver = "김철수",
 		car_passenger = "-",
 		car_key = "N",
 		car_fuel = "주유",
-		car_fuel_amount = "80,000원",
+		car_fuel_amount = "80000",
 		car_remark = "-",
 		car_id_fk = 10;
 
@@ -78,12 +78,12 @@ INSERT INTO corp_car_log SET
 		car_purpose = "배달",
 		car_drive_start = "09:00",
 		car_drive_end = "13:00",
-		car_start_km = "30,000",
-		car_end_km = "35,400",
+		car_start_km = "30000",
+		car_end_km = "35400",
 		car_driver = "김철수",
 		car_passenger = "이철수",
 		car_key = "Y",
 		car_fuel = "주유",
-		car_fuel_amount = "50,000원",
+		car_fuel_amount = "50000",
 		car_remark = "-",
 		car_id_fk = 9;
