@@ -1,0 +1,14 @@
+민정-작업내용
+
+* my_info 붙은거 전부
+
+* session 관련
+	regnlogDao -> session에 empId 추가
+	
+* employeeMapper
+	(204번 ~ 361번) <select id="getMyInfo" ... 부터 끝까지 
+	
+* my_info.css 추가
+
+* my_info.js 추가
+	js 따로 저장하면 왜 ajax가 오류가 날까요
