@@ -6,14 +6,14 @@ create table corp_car(
     car_name varchar(50) not null, 			// 차량명
     car_num varchar(20) not null,  			// 차량번호
     car_purchase_date varchar(10) not null,  		// 구입일자
-    car_purchase_price varchar(20) not null, 		// 구입가
-    car_use_year int, 				// 사용년수
-    car_scrap_value varchar(20), 			// 잔존가액
+    car_purchase_price int not null, 			// 구입가
+    car_use_year int, 					// 사용년수
+    car_scrap_value int, 				// 잔존가액
     car_insurance_start varchar(10), 			// 보험계약일
     car_insurance_end varchar(10), 			// 보험종료일
     car_comprehensive char(1) default 'N', 		// 종합보험여부 (Y/N)
-    car_inspection varchar(10), 				// 최근검사일
-    car_total_mileage varchar(20) 			// 총 운행거리
+    car_inspection varchar(10), 			// 최근검사일
+    car_total_mileage int	 			// 총 운행거리
 );
 
 create table corp_car(
@@ -22,14 +22,14 @@ create table corp_car(
     car_name varchar(50) not null,
     car_num varchar(20) not null,
     car_purchase_date varchar(10) not null,
-    car_purchase_price varchar(20) not null,
+    car_purchase_price int not null,
     car_use_year int,
-    car_scrap_value varchar(20),
+    car_scrap_value int,
     car_insurance_start varchar(10),
     car_insurance_end varchar(10),
     car_comprehensive char(1) default 'N',
     car_inspection varchar(10),
-    car_total_mileage varchar(20)
+    car_total_mileage int
 );
 
 
@@ -38,79 +38,79 @@ INSERT INTO corp_car SET
 		car_name = "카니발 2.2디젤",
 		car_num = "100가1010",
 		car_purchase_date = "2020.01.02",
-		car_purchase_price = "30,000,000원",
+		car_purchase_price = "30000000",
 		car_use_year = "1",
-		car_scrap_value = "20,000,000원",
+		car_scrap_value = "20000000",
 		car_insurance_start = "2020.01.03",
 		car_insurance_end = "2030.01.03",
 		car_comprehensive = "Y",
 		car_inspection = "2020.08.01",
-		car_total_mileage = "23,000";
+		car_total_mileage = "23000";
 INSERT INTO corp_car SET 
 		car_model  = "카니발",
 		car_name = "카니발 3.5가솔린",
 		car_num = "123다1010",
 		car_purchase_date = "2020.11.22",
-		car_purchase_price = "30,000,000원",
+		car_purchase_price = "30000000",
 		car_use_year = "1",
-		car_scrap_value = "20,000,000원",
+		car_scrap_value = 20000000",
 		car_insurance_start = "2020.11.23",
 		car_insurance_end = "2030.11.23",
 		car_comprehensive = "Y",
 		car_inspection = "2020.09.01",
-		car_total_mileage = "20,000";
+		car_total_mileage = "20000";
 INSERT INTO corp_car SET 
 		car_model  = "모닝",
 		car_name = "2019 모닝 1.0가솔린",
 		car_num = "222라1234",
 		car_purchase_date = "2019.01.10",
-		car_purchase_price = "10,000,000원",
+		car_purchase_price = "10000000",
 		car_use_year = "2",
-		car_scrap_value = "8,000,000원",
+		car_scrap_value = "8000000",
 		car_insurance_start = "2019.01.10",
 		car_insurance_end = "2029.01.10",
 		car_comprehensive = "Y",
 		car_inspection = "2020.08.01",
-		car_total_mileage = "30,000";
+		car_total_mileage = "30000";
 INSERT INTO corp_car SET 
 		car_model  = "모닝",
 		car_name = "2019 모닝 1.0가솔린",
 		car_num = "320마1111",
 		car_purchase_date = "2019.01.10",
-		car_purchase_price = "10,000,000원",
+		car_purchase_price = "10000000",
 		car_use_year = "2",
-		car_scrap_value = "8,000,000원",
+		car_scrap_value = "8000000",
 		car_insurance_start = "2019.01.10",
 		car_insurance_end = "2029.01.10",
 		car_comprehensive = "Y",
 		car_inspection = "2020.08.01",
-		car_total_mileage = "25,000";
+		car_total_mileage = "25000";
 INSERT INTO corp_car SET 
 		car_model  = "라보",
 		car_name = "2019 라보",
 		car_num = "234라1233",
 		car_purchase_date = "2019.01.10",
-		car_purchase_price = "9,000,000원",
+		car_purchase_price = "9000000",
 		car_use_year = "2",
-		car_scrap_value = "8,000,000원",
+		car_scrap_value = "8000000",
 		car_insurance_start = "2019.01.10",
 		car_insurance_end = "2029.01.10",
 		car_comprehensive = "Y",
 		car_inspection = "2020.08.01",
-		car_total_mileage = "37,000";
+		car_total_mileage = "37000";
 INSERT INTO corp_car SET 
 		car_model  = "라보",
 		car_name = "2019 라보",
 		car_num = "784라0805",
 		car_purchase_date = "2019.01.10",
-		car_purchase_price = "9,000,000원",
+		car_purchase_price = "9000000",
 		car_use_year = "2",
-		car_scrap_value = "8,000,000원",
+		car_scrap_value = "8000000",
 		car_insurance_start = "2019.01.10",
 		car_insurance_end = "2029.01.10",
 		car_comprehensive = "Y",
 		car_inspection = "2020.01.10",
-		car_total_mileage = "58,000";
+		car_total_mileage = "58000";
 INSERT INTO corp_car SET 
 		car_model  = "라보",
 		car_name = "2019 라보",
