@@ -11,4 +11,3 @@
 * my_info.css 추가
 
 * my_info.js 추가
-	js 따로 저장하면 왜 ajax가 오류가 날까요

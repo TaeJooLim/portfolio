@@ -16,7 +16,7 @@ function chkPwd(empNum){
 	}
 	
 	$.ajax({
-		url		: "/admin/check_pwd",
+		url		: "/erp/admin/check_pwd",
 		type	: "POST",
 		data	: {
 			pwd		: pwd,
