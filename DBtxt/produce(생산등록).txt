@@ -1,12 +1,12 @@
 ﻿1. 생산등록 DB
 create table produce (
 	prod_id int not null auto_increment primary key,	// PK
-	prod_doc_num_fk varchar(30) not null,		// 생산코드 = 문서번호 (참조키로 사용)
-	prod_process1 char(1) default 'N',			// 공정1 (Y/N으로 구분)
-	prod_process2 char(1) default 'N',			// 공정2 (Y/N으로 구분)
-	prod_process3 char(1) default 'N',			// 공정3 (Y/N으로 구분)
-	prod_process4 char(1) default 'N',			// 공정4 (Y/N으로 구분)
-	prod_process5 char(1) default 'N',			// 공정5 (Y/N으로 구분)
+	prod_doc_num_fk varchar(30) not null,			// 생산코드 = 문서번호 (참조키로 사용)
+	prod_process1 char(1),					// 공정1 (Y/N으로 구분)
+	prod_process2 char(1),					// 공정2 (Y/N으로 구분)
+	prod_process3 char(1),					// 공정3 (Y/N으로 구분)
+	prod_process4 char(1),					// 공정4 (Y/N으로 구분)
+	prod_process5 char(1),					// 공정5 (Y/N으로 구분)
 	prod_release char(1) default 'N',			// 출고여부 (Y/N으로 구분)
 	prod_process_cnt_fk int not null,			// 공정의 갯수
 );
@@ -15,11 +15,11 @@ create table produce (
 create table produce (
 	prod_id int not null auto_increment primary key,
 	prod_doc_num_fk varchar(30) not null,		
-	prod_process1 char(1) default 'N',				
-	prod_process2 char(1) default 'N',	
-	prod_process3 char(1) default 'N',				
-	prod_process4 char(1) default 'N',		
-	prod_process5 char(1) default 'N',		
+	prod_process1 char(1),				
+	prod_process2 char(1),	
+	prod_process3 char(1),				
+	prod_process4 char(1),		
+	prod_process5 char(1),		
 	prod_release char(1) default 'N',		
 	
 	prod_process_cnt_fk int not null	
