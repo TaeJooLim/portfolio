@@ -1,0 +1,168 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<%@ include file="/WEB-INF/views/erp/admin/include/HEADER.jsp" %>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common_table.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/button_style.css">
+<!-- 여기안에 내용을 복사하시면 됩니다! -->
+<style> 
+
+    /* 검색박스 */
+    .search_box {
+        position: relative;
+    }
+    .search_box input{
+        background-color: #eff3f9;
+    }
+    .search_box i{
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        right: 7px;
+        transform: translateY(-50%);
+        color: #959595;
+    }
+
+</style>
+
+    <div class="page_wrap bg_white noto font_14">
+        <div class="page_main flex space_between" style="border-bottom: 1px solid #ccc;">
+<div class="main_right bg_white" style="width: 100%;">
+                <div class="main_right_title p_10" style="height: 50px; border-bottom: 1px solid #ccc;">
+                    <h2 class="font_18">구매요청서 작성</h2>
+                </div>
+                <div class="main_right_info p_20">
+                    <div class="form_about m_tb10 font_12">
+                     <form id="" name="" action="${pageContext.request.contextPath}/admin/order_insert" method="POST">
+                        <table class="input_list">
+                            <tr>
+                                <td class="bg_gray td_8">제목</td>
+                                <td class="p_lr3">
+                                    <input id="" name="" type="text" class="input_100" value="${year}-${month} ${sessionScope.empDepartmentName} ${sessionScope.empTeam} 구매요청서" readonly />
+                                </td>
+                                <td class="bg_gray td_9">결재여부</td>
+                                <td class="p_lr3 td_5">
+                                    <select name="" id="" class="sel_100">
+                                        <option value="">미결</option>
+                                        <option value="">완료</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="reg_tbl_wrap font_12">
+                            <table class="input_list">
+                                <tr>
+                                    <td class="td_8 bg_gray">문서번호</td>
+                                    <td class="">
+                                        <div class="auto_num flex space_between">
+                                            <input type="text" id="orderDocNum" name="orderDocNum" class="input_100 m_lr3"readonly value="${sessionScope.empDepartment}_${year}${month}_buy" required />
+                                        </div>
+                                    </td>
+                                    <td class="td_8 bg_gray">작성부서</td>
+                                    <td class="p_lr3">
+                                        <input type="text" class="input_100" value="${sessionScope.empDepartmentName} " readonly />
+                                        <input type="hidden" id="orderEmpTeam" name="orderEmpTeam" value="${sessionScope.empDepartment}" />
+                                    </td>
+                                    <td class="td_8 bg_gray">작성자</td>
+                                    <td class="p_lr3">
+                                        <input type="text" id="orderEmpName" name="orderEmpName" class="input_100" value="${sessionScope.empName} " readonly/>
+                                    </td>
+                                    <td class="td_8 bg_gray">작성일자</td>
+                                    <td class="p_lr3">
+                                        <input type="text" id="orderDate" name="orderDate" class="input_100" value="${year}-${month}-${day} " readonly/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bg_gray">품명검색</td>
+                                    <td class="p_lr3">
+                                        <div class="search_box">
+                                            <input type="text" id="orderPName" name="orderPName" value="" class="input_100" required />
+                                            <i class="fas fa-search font_18"></i>
+                                        </div>
+                                    </td>
+                                    <td class="bg_gray">수량</td>
+                                    <td class="p_lr3">
+                                        <input type="text" id="orderPAmount" name="orderPAmount" class="input_100"/>
+                                    </td>
+                                    <td class="bg_gray">단위</td>
+                                    <td class="p_lr3">
+                                        <select id="orderPUnit" name="orderPUnit" class="sel_100">
+                                            <option value="EA">EA</option>
+                                            <option value="KG">KG</option>
+                                            <option value="SET">SET</option>
+                                        </select>
+                                    </td>
+                                    <td class="bg_gray">단가</td>
+                                    <td class="p_lr3">
+                                        <input type="text" id="orderPBuy" name="orderPBuy" class="input_100" value="" required />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bg_gray">용도</td>
+                                    <td class="p_lr3" colspan="7">
+                                        <input type="text" id="orderPurpose" name="orderPurpose" class="input_100" />
+                                    </td>
+                                </tr>
+                            </table>
+                            <input type="text" id="orderSender" name="orderSender" value="${sessionScope.empId}" />
+                            <input type="text" id="orderReceiver" name="orderReceiver" value="${head.empId}" />
+                            
+                            <div class="btn_grp center m_t20">
+                                <button type="submit" class="btn_blue">구매요청</button>
+                                <button type="reset" class="btn_red">새로고침</button>
+                            </div>
+                        
+                    </div>
+                    </form>
+                    <div class="list m_tb20">
+                        <table class="list font_12">
+                            <thead>
+                                <th class="td_3">번호</th>
+                                <th class="td_30">품명</th>
+                                <th class="td_5">수량</th>
+                                <th class="td_5">단위</th>
+                                <th class="td_15">단가</th>
+                                <th class="td_15">금액</th>
+                                <th>용도</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>0</td>
+                                    <td>${list.orderPname}</td>
+                                    <td>${list.orderAmount}</td>
+                                    <td>${list.orderUnit}</td>
+                                    <td>${list.orderPrice}</td>
+                                    <td>${list.orderPrice * list.orderAmount}</td>
+                                    <td>${list.orderUsage}</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>SAMSUNG 데스크탑</td>
+                                    <td>200</td>
+                                    <td>EA</td>
+                                    <td>1000000원</td>
+                                    <td>200000000원</td>
+                                    <td>인사1팀 신입사원 지급용</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="m_t20">
+                        <p>!삭제필요!</p>
+                        <p>1. 매월 구매 후, 초기화 됨</p>
+                        <p>2. 구매요청서 작성 버튼을 누르면 매월 새로운 테이블이 작성된다. ex)인사1팀의 12월 구매요청 --> insa_2012_buy</p>
+                        <p>3. 구매요청서 테이블이 없을 경우에만 테이블을 만드는 <u>프로시저</u> 필요</p>
+                        <p>4. !결재여부-완료! 가 되면 더이상 입력불가 또는 입력기한이 만료되면 입력불가 ex)12월5일까지 입력</p>
+                        <p>4-1. 입력불가는 구매요청 버튼 / 품명검색 버튼에 disabled 속성을 부여한다</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- <script> -->
+//     document.getElementById('now_date').valueAsDate = new Date();
+<!-- </script> -->
+
+<%@ include file="/WEB-INF/views/erp/admin/include/FOOTER.jsp" %>
