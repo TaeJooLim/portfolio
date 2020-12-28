@@ -4,6 +4,7 @@
    월급입력칸에 숫자를 입력한 후, BLUR기능을 이용해서 계산결과 표시
 
 create table salary_calculation (
+	salary_id int auto_increment primary key, // 기본키
 	starting_range int,		// 시작 범위
 	end_range int,		// 끝 범위
 	net_pay int,		// 실 수령액
@@ -17,6 +18,7 @@ create table salary_calculation (
 );
 
 create table salary_calculation (
+	salary_id int auto_increment primary key,
 	starting_range int,
 	end_range int,	
 	net_pay int,		
