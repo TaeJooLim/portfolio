@@ -24,8 +24,8 @@ create table company(
 	com_web_copyright varchar(200),	// 웹사이트 Copyright
 	com_ceo_img varchar(300),		// 대표자이미지 사진파일경로
 	com_stamp_img varchar(300),		// 회사도장이미지 사진파일경로
-	com_ceo_stemp_img varchar(300),	// 대표자도장이미지 사진파일경로
-	com_ceo_sigh_img varchar(300)	// 대표자서명이미지 사진파일경로
+	com_ceo_stamp_img varchar(300),	// 대표자도장이미지 사진파일경로
+	com_ceo_sign_img varchar(300)	// 대표자서명이미지 사진파일경로
 );
 
 create table company(
@@ -54,6 +54,6 @@ create table company(
  	com_web_copyright varchar(200),
  	com_ceo_img varchar(300),
  	com_stamp_img varchar(300),
- 	com_ceo_stemp_img varchar(300),
- 	com_ceo_sigh_img varchar(300)
+ 	com_ceo_stamp_img varchar(300),
+ 	com_ceo_sign_img varchar(300)
 );
