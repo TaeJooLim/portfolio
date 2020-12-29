@@ -12,6 +12,7 @@ create table order_buy (
 	order_total_price int not null,			// 금액 (단가 * 수량)
 	order_purpose varchar(254),			// 용도
 	order_doc_num varchar(30) not null, 		// 구매요청서 문서번호
+	order_subject varchar(20) not null,		// 구매요청서 제목
 
 	order_confirm char(1) default 'N',			// 결재여부
 	order_sender int not null,				// 구매사원 emp_id (정렬용)
@@ -30,30 +31,29 @@ create table order_buy (
 	order_total_price int not null,
 	order_purpose varchar(254),
 	order_doc_num varchar(30) not null, 
+	order_subject varchar(20) not null,
 
 	order_confirm char(1) default 'N',
 	order_sender int not null,
 	order_receiver int default '총무팀장 emp_id'
 );
 
-INSERT INTO order_buy SET order_emp_team='200', order_emp_name='박과장', order_date='2020-12-08', order_p_name='휴대용 충전기', order_p_amount='2', order_p_unit='EA', order_p_buy='8000', order_total_price='16000', order_purpose='기기 충전용', order_doc_num='200_2020_12_buy', order_confirm='N', order_sender='2', order_receiver='5';
+INSERT INTO order_buy SET order_emp_team='200', order_emp_name='박과장', order_date='2020-12-08', order_p_name='휴대용 충전기', order_p_amount='2', order_p_unit='EA', order_p_buy='8000', order_total_price='16000', order_purpose='기기 충전용', order_doc_num='200_2020_12_buy', order_confirm='N', order_sender='2', order_subject='2020-12 경영과 구매요청서', order_receiver='5';
 
-INSERT INTO order_buy SET order_emp_team='800', order_emp_name='하사원', order_date='2020-12-08', order_p_name='AMD CPU', order_p_amount='4', order_p_unit='EA', order_p_buy='350000', order_total_price='1400000', order_purpose='부품 교체', order_doc_num='800_2020_12_buy', order_confirm='N', order_sender='8', order_receiver='5';
+INSERT INTO order_buy SET order_emp_team='800', order_emp_name='하사원', order_date='2020-12-08', order_p_name='AMD CPU', order_p_amount='4', order_p_unit='EA', order_p_buy='350000', order_total_price='1400000', order_purpose='부품 교체', order_doc_num='800_2020_12_buy', order_confirm='N', order_sender='8', order_subject='2020-12 마케팅과 구매요청서', order_receiver='5';
 
-INSERT INTO order_buy SET order_emp_team='200', order_emp_name='박과장', order_date='2020-12-11', order_p_name='아이리버 전자사전', order_p_amount='3', order_p_unit='EA', order_p_buy='700000', order_total_price='2100000', order_purpose='업무용', order_doc_num='200_2020_12_buy', order_confirm='N', order_sender='2', order_receiver='5';
+INSERT INTO order_buy SET order_emp_team='200', order_emp_name='박과장', order_date='2020-12-11', order_p_name='아이리버 전자사전', order_p_amount='3', order_p_unit='EA', order_p_buy='700000', order_total_price='2100000', order_purpose='업무용', order_doc_num='200_2020_12_buy', order_confirm='N', order_sender='2', order_subject='2020-12 경영과 구매요청서', order_receiver='5';
 
-INSERT INTO order_buy SET order_emp_team='300', order_emp_name='김대리', order_date='2020-12-20', order_p_name='탁상용시계', order_p_amount='10', order_p_unit='EA', order_p_buy='3000', order_total_price='30000', order_purpose='업무용', order_doc_num='300_2020_12_buy', order_confirm='N', order_sender='4', order_receiver='5';
+INSERT INTO order_buy SET order_emp_team='300', order_emp_name='김대리', order_date='2020-12-20', order_p_name='탁상용시계', order_p_amount='10', order_p_unit='EA', order_p_buy='3000', order_total_price='30000', order_purpose='업무용', order_doc_num='300_2020_12_buy', order_confirm='N', order_sender='4', order_subject='2020-12 기획과 구매요청서', order_receiver='5';
 
-INSERT INTO order_buy SET order_emp_team='800', order_emp_name='하사원', order_date='2020-12-20', order_p_name='탁상용시계', order_p_amount='10', order_p_unit='EA', order_p_buy='3000', order_total_price='30000', order_purpose='업무용', order_doc_num='800_2020_12_buy', order_confirm='N', order_sender='8', order_receiver='5';
+INSERT INTO order_buy SET order_emp_team='800', order_emp_name='하사원', order_date='2020-12-20', order_p_name='탁상용시계', order_p_amount='10', order_p_unit='EA', order_p_buy='3000', order_total_price='30000', order_purpose='업무용', order_doc_num='800_2020_12_buy', order_confirm='N', order_sender='8', order_subject='2020-12 마케팅과 구매요청서', order_receiver='5';
 
-INSERT INTO order_buy SET order_emp_team='200', order_emp_name='박과장', order_date='2020-12-28', order_p_name='맥북', order_p_amount='1', order_p_unit='EA', order_p_buy='2000000', order_total_price='2000000', order_purpose='업무용', order_doc_num='200_2020_12_buy', order_confirm='N', order_sender='2', order_receiver='5';
+INSERT INTO order_buy SET order_emp_team='200', order_emp_name='박과장', order_date='2020-12-28', order_p_name='맥북', order_p_amount='1', order_p_unit='EA', order_p_buy='2000000', order_total_price='2000000', order_purpose='업무용', order_doc_num='200_2020_12_buy', order_confirm='N', order_sender='2', order_subject='2020-12 경영과 구매요청서', order_receiver='5';
 
-INSERT INTO order_buy SET order_emp_team='200', order_emp_name='박과장', order_date='2020-12-28', order_p_name='LG GRAM', order_p_amount='1', order_p_unit='KG', order_p_buy='2200000', order_total_price='2200000', order_purpose='업무용', order_doc_num='200_2020_12_buy', order_confirm='N', order_sender='2', order_receiver='5';
+INSERT INTO order_buy SET order_emp_team='200', order_emp_name='박과장', order_date='2020-12-28', order_p_name='LG GRAM', order_p_amount='1', order_p_unit='KG', order_p_buy='2200000', order_total_price='2200000', order_purpose='업무용', order_doc_num='200_2020_12_buy', order_confirm='N', order_sender='2', order_subject='2020-12 경영과 구매요청서', order_receiver='5';
 
-INSERT INTO order_buy SET order_emp_team='200', order_emp_name='박과장', order_date='2020-12-28', order_p_name='갤럭시S21', order_p_amount='1', order_p_unit='EA', order_p_buy='1500000', order_total_price='1500000', order_purpose='업무용', order_doc_num='200_2020_12_buy', order_confirm='N', order_sender='2', order_receiver='5';
+INSERT INTO order_buy SET order_emp_team='200', order_emp_name='박과장', order_date='2020-12-28', order_p_name='갤럭시S21', order_p_amount='1', order_p_unit='EA', order_p_buy='1500000', order_total_price='1500000', order_purpose='업무용', order_doc_num='200_2020_12_buy', order_confirm='N', order_sender='2', order_subject='2020-12 경영과 구매요청서', order_receiver='5';
 
-INSERT INTO order_buy SET order_emp_team='500', order_emp_name='신사원', order_date='2020-12-28', order_p_name='AMD CPU', order_p_amount='1', order_p_unit='EA', order_p_buy='350000', order_total_price='350000', order_purpose='업무용', order_doc_num='500_2020_12_buy', order_confirm='N', order_sender='6', order_receiver='5';
+INSERT INTO order_buy SET order_emp_team='500', order_emp_name='신사원', order_date='2020-12-28', order_p_name='AMD CPU', order_p_amount='1', order_p_unit='EA', order_p_buy='350000', order_total_price='350000', order_purpose='업무용', order_doc_num='500_2020_12_buy', order_confirm='N', order_sender='6', order_subject='2020-12 전산과 구매요청서', order_receiver='5';
 
-INSERT INTO order_buy SET order_emp_team='600', order_emp_name='정상무', order_date='2020-12-29', order_p_name='하우젠 에어컨', order_p_amount='1', order_p_unit='EA', order_p_buy='5000000', order_total_price='5000000', order_purpose='업무용', order_doc_num='600_2020_12_buy', order_confirm='N', order_sender='7', order_receiver='5';
-
-INSERT INTO order_buy SET order_emp_team='600', order_emp_name='정상무', order_date='2020-12-29', order_p_name='플레이스테이션5 세트', order_p_amount='1', order_p_unit='SET', order_p_buy='550000', order_total_price='550000', order_purpose='업무용', order_doc_num='600_2020_12_buy', order_confirm='N', order_sender='7', order_receiver='5';
+INSERT INTO order_buy SET order_emp_team='600', order_emp_name='정상무', order_date='2020-12-29', order_p_name='하우젠 에어컨', order_p_amount='1', order_p_unit='EA', order_p_buy='5000000', order_total_price='5000000', order_purpose='업무용', order_doc_num='600_2020_12_buy', order_confirm='N', order_sender='7', order_subject='2020-12 지원과 구매요청서', order_receiver='5';
