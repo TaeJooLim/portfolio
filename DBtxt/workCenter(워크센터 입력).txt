@@ -8,8 +8,8 @@
 		wc_floor int not null,				// 층 수
 		wc_post char(5) not null,				// 우편번호
 		wc_address varchar (100) not null,			// 소재지
-		wc_contractFromDate Date not null,			// 계약시작일자
-		wc_contractToDate Date not null,			// 계약만료일자
+		wc_contractFromDate char(10)  not null,			// 계약시작일자
+		wc_contractToDate char(10)  not null,			// 계약만료일자
 		
 		wc_contract varchar(255),				// 계약서 경로
 
@@ -25,8 +25,8 @@
 		wc_floor int not null,
 		wc_post char(5) not null,
 		wc_address varchar (100) not null,
-		wc_contractFromDate Date not null,
-		wc_contractToDate Date not null,
+		wc_contractFromDate char(10) not null,
+		wc_contractToDate char(10) not null,
 		
 		wc_contract varchar(255),
 
