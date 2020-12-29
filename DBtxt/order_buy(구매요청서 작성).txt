@@ -2,21 +2,22 @@
 
 create table order_buy (
 	order_id int not null auto_increment primary key,		// PK
-	order_emp_team varchar(10) not null,		// 구매부서 (부서명 + 팀명 ex_인사 1팀)
-	order_emp_name varchar(30) not null,		// 구매사원 이름
-	order_date char(10) not null,			// 작성일자
-	order_p_name varchar(100) not null,			// 품명
-	order_p_amount int not null,			// 수량
-	order_p_unit varchar(5) not null,			// 규격
-	order_p_buy int not null,				// 단가
-	order_total_price int not null,			// 금액 (단가 * 수량)
-	order_purpose varchar(254),			// 용도
-	order_doc_num varchar(30) not null, 		// 구매요청서 문서번호
-	order_subject varchar(20) not null,		// 구매요청서 제목
+	order_emp_team varchar(10) not null,				// 구매부서 (부서명 + 팀명 ex_인사 1팀)
+	order_emp_name varchar(30) not null,				// 구매사원 이름
+	order_date char(10) not null,					// 작성일자
+	order_p_name varchar(100) not null,				// 품명
+	order_p_amount int not null,					// 수량
+	order_p_unit varchar(5) not null,				// 규격
+	order_p_buy int not null,					// 단가
+	order_total_price int not null,					// 금액 (단가 * 수량)
+	order_purpose varchar(254),					// 용도
+	order_doc_num varchar(30) not null, 				// 구매요청서 문서번호
+	order_subject varchar(20) not null,				// 구매요청서 제목
 
-	order_confirm char(1) default 'N',			// 결재여부
-	order_sender int not null,				// 구매사원 emp_id (정렬용)
-	order_receiver int not null				// 총무팀장의 emp_id (결재용)
+	order_confirm char(1) default 'N',				// 결재여부
+	order_confirm_date char(10), 					// 결재일
+	order_sender int not null,					// 구매사원 emp_id (정렬용)
+	order_receiver int not null					// 총무팀장의 emp_id (결재용)
 );
 
 create table order_buy (
@@ -34,6 +35,7 @@ create table order_buy (
 	order_subject varchar(20) not null,
 
 	order_confirm char(1) default 'N',
+	order_confirm_date char(10),
 	order_sender int not null,
 	order_receiver int 
 );
