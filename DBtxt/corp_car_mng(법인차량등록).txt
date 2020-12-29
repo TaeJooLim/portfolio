@@ -53,7 +53,7 @@ INSERT INTO corp_car SET
 		car_purchase_date = "2020.11.22",
 		car_purchase_price = "30000000",
 		car_use_year = "1",
-		car_scrap_value = 20000000",
+		car_scrap_value = "20000000",
 		car_insurance_start = "2020.11.23",
 		car_insurance_end = "2030.11.23",
 		car_comprehensive = "Y",
