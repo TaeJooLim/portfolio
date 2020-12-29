@@ -16,7 +16,7 @@ create table order_buy (
 
 	order_confirm char(1) default 'N',			// 결재여부
 	order_sender int not null,				// 구매사원 emp_id (정렬용)
-	order_receiver int default '총무팀장 emp_id'		// 총무팀장의 emp_id (결재용)
+	order_receiver int not null				// 총무팀장의 emp_id (결재용)
 );
 
 create table order_buy (
@@ -35,7 +35,7 @@ create table order_buy (
 
 	order_confirm char(1) default 'N',
 	order_sender int not null,
-	order_receiver int default '총무팀장 emp_id'
+	order_receiver int 
 );
 
 INSERT INTO order_buy SET order_emp_team='200', order_emp_name='박과장', order_date='2020-12-08', order_p_name='휴대용 충전기', order_p_amount='2', order_p_unit='EA', order_p_buy='8000', order_total_price='16000', order_purpose='기기 충전용', order_doc_num='200_2020_12_buy', order_confirm='N', order_sender='2', order_subject='2020-12 경영과 구매요청서', order_receiver='5';
