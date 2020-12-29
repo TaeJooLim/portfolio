@@ -1,0 +1,15 @@
+create table process_mtr(
+
+	pm_amount int not null,	// 수량
+	
+	p_id_fk int not null,		// 제품PK
+	pm_id_fk int not null	// 원자재PK
+);
+
+create table process_mtr(
+
+	pm_amount int not null,
+	
+	p_id_fk int not null,
+	pm_id_fk int not null
+);
