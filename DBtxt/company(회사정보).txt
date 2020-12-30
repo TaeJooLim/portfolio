@@ -9,7 +9,7 @@ create table company(
 	com_address varchar(50),		// 주소
 	com_tel char(13),			// 전화번호
 	com_cp char(13),			// 휴대번호
-	com_fax char(10),			// 팩스번호
+	com_fax char(20),			// 팩스번호
 	com_opendate char(10),		// 개업일
 	com_erpdate char(10),		// erp시작일
 	com_corp_num char(14),		// 법인등록번호
@@ -39,7 +39,7 @@ create table company(
  	com_address varchar(50),
  	com_tel char(13),
  	com_cp char(13),
- 	com_fax char(10),
+ 	com_fax char(20),
  	com_opendate char(10),
  	com_erpdate char(10),
  	com_corp_num char(14),
