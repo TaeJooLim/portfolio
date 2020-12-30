@@ -32,3 +32,17 @@
 
 		emp_id_fk int not null
     );
+    
+    
+INSERT INTO workCenter  SET wc_name ='조립1공장', wc_usage ='조립', wc_area ='330', wc_floor='5', wc_post ='48509', wc_address='부산광역시 남구 수영로358번길 12', wc_contractFromDate ='44195', wc_contractToDate ='47488', emp_id_fk ='1', 
+INSERT INTO workCenter  SET wc_name ='조립2공장', wc_usage ='조립', wc_area ='350', wc_floor='3', wc_post ='48509', wc_address='부산광역시 남구 수영로358번길 13', wc_contractFromDate ='44196', wc_contractToDate ='47489', emp_id_fk ='2', 
+INSERT INTO workCenter  SET wc_name ='조립3공장', wc_usage ='조립', wc_area ='336', wc_floor='1', wc_post ='48509', wc_address='부산광역시 남구 수영로358번길 14', wc_contractFromDate ='44197', wc_contractToDate ='47490', emp_id_fk ='3', 
+INSERT INTO workCenter  SET wc_name ='조립4공장', wc_usage ='조립', wc_area ='500', wc_floor='2', wc_post ='48509', wc_address='부산광역시 남구 수영로358번길 15', wc_contractFromDate ='44198', wc_contractToDate ='47491', emp_id_fk ='4', 
+INSERT INTO workCenter  SET wc_name ='제조1공장', wc_usage ='제조', wc_area ='800', wc_floor='2', wc_post ='48509', wc_address='부산광역시 남구 수영로358번길 16', wc_contractFromDate ='44199', wc_contractToDate ='47492', emp_id_fk ='5', 
+INSERT INTO workCenter  SET wc_name ='제조2공장', wc_usage ='제조', wc_area ='800', wc_floor='2', wc_post ='48509', wc_address='부산광역시 남구 수영로358번길 17', wc_contractFromDate ='44200', wc_contractToDate ='47493', emp_id_fk ='6', 
+INSERT INTO workCenter  SET wc_name ='제조3공장', wc_usage ='제조', wc_area ='800', wc_floor='4', wc_post ='48509', wc_address='부산광역시 남구 수영로358번길 18', wc_contractFromDate ='44201', wc_contractToDate ='47494', emp_id_fk ='7', 
+INSERT INTO workCenter  SET wc_name ='패키징공장', wc_usage ='패키징', wc_area ='1000', wc_floor='5', wc_post ='48509', wc_address='부산광역시 남구 수영로358번길 19', wc_contractFromDate ='44202', wc_contractToDate ='47495', emp_id_fk ='8', 
+INSERT INTO workCenter  SET wc_name ='물류 1창고', wc_usage ='물류 ', wc_area ='1500', wc_floor='3', wc_post ='48509', wc_address='부산광역시 남구 수영로358번길 20', wc_contractFromDate ='44203', wc_contractToDate ='47496', emp_id_fk ='9', 
+INSERT INTO workCenter  SET wc_name ='물류 2창고', wc_usage ='물류 ', wc_area ='1500', wc_floor='3', wc_post ='48509', wc_address='부산광역시 남구 수영로358번길 21', wc_contractFromDate ='44204', wc_contractToDate ='47497', emp_id_fk ='10', 
+INSERT INTO workCenter  SET wc_name ='검수장', wc_usage ='검수장', wc_area ='500', wc_floor='5', wc_post ='48509', wc_address='부산광역시 남구 수영로358번길 22', wc_contractFromDate ='44205', wc_contractToDate ='47498', emp_id_fk ='11', 
+
