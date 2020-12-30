@@ -20,4 +20,4 @@ INSERT INTO salary_base SET salary_pay='1800000', position_code_fk='08';
 INSERT INTO salary_base SET salary_pay='1900000', position_code_fk='09';
 INSERT INTO salary_base SET salary_pay='2000000', position_code_fk='10';
 INSERT INTO salary_base SET salary_pay='2100000', position_code_fk='11';
-INSERT INTO salary_base SET salary_pay='2200000', position_code_fk='12'
+INSERT INTO salary_base SET salary_pay='2200000', position_code_fk='12';
