@@ -57,3 +57,25 @@ create table company(
  	com_ceo_stamp_img varchar(300),
  	com_ceo_sign_img varchar(300)
 );
+
+INSERT INTO company SET
+ 	com_num = '12-123-12345',
+ 	com_name = '블루 ERP 시스템',
+ 	com_name_eng = 'BLUE ERP SYSTEM',
+ 	com_ceo ='김파랑',
+ 	com_type ='업태',
+ 	com_item ='종목',
+ 	com_post = '12345',
+ 	com_address = '부산시 북구 화명대로 123',
+ 	com_tel = '051-123-4567',
+ 	com_cp ='010-1234-5678',
+ 	com_fax = '05112345678',
+ 	com_opendate ='20200101',
+ 	com_erpdate = '20200101',
+ 	com_corp_num = '1234567891011',
+ 	com_email = 'https://blue@bluerp.com',
+ 	com_url = 'www.bluerp.com',
+ 	com_auth = 2,
+ 	com_logo ='ERP',
+ 	com_sublogo = 'erp system',
+ 	com_web_copyright = 'Copyright 2020. (김진희, 박민정, 윤가희, 임태주) all rights reserved.';
