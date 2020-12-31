@@ -83,5 +83,5 @@ INSERT INTO company SET
 	com_web_menu = '회사소개;아이디어;포트폴리오;공지사항;고객센터',
 	com_web_menu_url = '#;#;#;#;#',
  	com_web_top = 'BLUE ERP',
- 	com_web_bottom 'blue erp system',
+ 	com_web_bottom = 'blue erp system',
  	com_web_copyright = 'Copyright 2020. (김진희, 박민정, 윤가희, 임태주) all rights reserved.';
