@@ -9,15 +9,15 @@ CREATE TABLE salary_base(
       position_code_fk char(2)
 );
 
-INSERT INTO salary_base SET salary_pay='1100000', position_code_fk='01';
-INSERT INTO salary_base SET salary_pay='1200000', position_code_fk='02';
-INSERT INTO salary_base SET salary_pay='1300000', position_code_fk='03';
-INSERT INTO salary_base SET salary_pay='1400000', position_code_fk='04';
-INSERT INTO salary_base SET salary_pay='1500000', position_code_fk='05';
-INSERT INTO salary_base SET salary_pay='1600000', position_code_fk='06';
-INSERT INTO salary_base SET salary_pay='1700000', position_code_fk='07';
-INSERT INTO salary_base SET salary_pay='1800000', position_code_fk='08';
-INSERT INTO salary_base SET salary_pay='1900000', position_code_fk='09';
-INSERT INTO salary_base SET salary_pay='2000000', position_code_fk='10';
-INSERT INTO salary_base SET salary_pay='2100000', position_code_fk='11';
-INSERT INTO salary_base SET salary_pay='2200000', position_code_fk='12';
+INSERT INTO salary_base SET salary_pay='2100000', position_code_fk='01';
+INSERT INTO salary_base SET salary_pay='2300000', position_code_fk='02';
+INSERT INTO salary_base SET salary_pay='2500000', position_code_fk='03';
+INSERT INTO salary_base SET salary_pay='2700000', position_code_fk='04';
+INSERT INTO salary_base SET salary_pay='2900000', position_code_fk='05';
+INSERT INTO salary_base SET salary_pay='3100000', position_code_fk='06';
+INSERT INTO salary_base SET salary_pay='3300000', position_code_fk='07';
+INSERT INTO salary_base SET salary_pay='3500000', position_code_fk='08';
+INSERT INTO salary_base SET salary_pay='3700000', position_code_fk='09';
+INSERT INTO salary_base SET salary_pay='3900000', position_code_fk='10';
+INSERT INTO salary_base SET salary_pay='4100000', position_code_fk='11';
+INSERT INTO salary_base SET salary_pay='4300000', position_code_fk='12';
