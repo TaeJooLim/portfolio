@@ -1,0 +1,33 @@
+CREATE TABLE salary (
+	salary_date char(7) not null, 			// 지급월 ( 2020-12 )
+	emp_id_fk int not null, 			// emp_id PK를 FK로 저장
+	emp_position_fk char(2) not null, 		// 급여지급당시 직급을 FK로 저장
+	emp_step_fk int not null, 			// 급여지급당시 호봉을 FK로 저장
+	emp_headcheck_fk char(1) not null,		// 급여지급당시 부서장여부를 FK로 저장
+	salary_pay_fk int, 				// 급여지급당시 기본급
+	net_pay_fk int,				// 급여지급당시 실 수령액
+	salary_nps_fk int,				// 급여지급당시 국민연금
+	salary_h_insurance_fk int,			// 급여지급당시 건강보험
+	salary_care_fk int,				// 급여지급당시 장기요양
+	salary_e_insurance_fk int,			// 급여지급당시 고용보험
+	salary_income_fk int,				// 급여지급당시 소득세
+	salary_l_income_fk int, 			// 급여지급당시 지방소득세
+	salary_totalcost_fk int			// 급여지급당시 공제액 소계
+);
+
+CREATE TABLE salary (
+	salary_date char(7) not null, 			
+	emp_id_fk int not null, 			
+	emp_position_fk char(2) not null, 		
+	emp_step_fk int not null, 			
+	emp_headcheck_fk char(1) not null,
+	salary_pay_fk int,		
+	net_pay_fk int,				
+	salary_nps_fk int,				
+	salary_h_insurance_fk int,			
+	salary_care_fk int,				
+	salary_e_insurance_fk int,			
+	salary_income_fk int,				
+	salary_l_income_fk int, 				
+	salary_totalcost_fk int				
+);
