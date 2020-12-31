@@ -1,0 +1,32 @@
+* 회사기본정보	----------------------------------------------------------------------------------------------------
+
+* views		: company_info.jsp
+
+* controller	: CompanyCtr.java
+
+* model		: CompanyVO.java
+
+* repositoly	: CompanyDao.java
+		  CompanyDaoImpl.java
+
+* service	: CompanySrv.java
+		  CompanySrvImpl.java
+
+* sqlMappers	: companyMapper.xml
+
+* js		: company.js
+
+* 메뉴링크주소	: "${pageContext.request.contextPath}/admin/company"
+
+
+* mybatis-config.xml------------------------------------------------------------------------------------------------
+
+	<typeAlias type="com.portfolio.erp.model.company.CompanyVO" alias="companyvo" />
+
+
+* 메인페이지	----------------------------------------------------------------------------------------------------
+
+* controller	: MainPageCtr.java
+* css		: main_page.css 추가
+* images	: blue_erp_logo.png 추가
+* jsp		: index.jsp (erp > common)
