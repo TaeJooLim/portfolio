@@ -1,0 +1,16 @@
+@charset 'UTF-8';
+
+
+tr:nth-child(2n+1) {
+    background-color:#ecf2fa;
+}
+
+tr:first-child {
+    background-color: #063f8a;
+    color: #fff;
+}
+
+td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

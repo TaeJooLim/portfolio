@@ -1,0 +1,48 @@
+@charset 'UTF-8';
+
+/* 레이아웃 */
+.date-page-wrap {
+    width: 100%;
+}
+.page-top {
+    width: 100%;
+}
+.page-bottom {
+    width: 100%;
+}
+.bottom-left {
+    width: 11%;
+}
+.bottom-right {
+    width: 89%;
+}
+
+/* 메뉴 */
+.tab {
+    width: 50%;
+    height: 35px;
+    border: 1px solid #eee;
+    float: left;
+    text-align: center;
+    line-height: 35px;
+    background-color: #fff;
+}
+.active {
+    /* background-color:#f2f2f2; */
+    border: 1px solid transparent;
+    color:  #063f8a;
+    font-weight: 700;
+}
+#tree img {
+    display: inline-block;
+}
+
+/* 메인페이지 내용 */
+.content-left {
+    width: 50%;
+}
+.content-right {
+    width: 50%;
+}
+
+/* 등록 */

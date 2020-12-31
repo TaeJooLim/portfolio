@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자페이지 메인</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/admin_main.css">
+
+    <script src="https://kit.fontawesome.com/a74ea2df94.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/tab.js"></script>
+
+    <style>
+        .active {
+            background-color: #063f8a;
+            border: 1px solid transparent;
+            font-weight: 700;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-main-page-wrap noto">
+        <div class="admin-main-top" style="background-color: #063f8a;">
+            <div class="logo p-l10 p-r20 p-t20 p-b20 white flex space-between flex-vertical-center">
+                <h2 class="font-20">
+                    <a href="grp_admin_main.html" style="color: #fff;">
+                        KG 그룹웨어
+                    </a>
+                </h2>
+                <h4>
+                    <a href="../login/login_form.html" class="white">
+                        <i class="fas fa-power-off font-20 p-t5 p-r5"></i>
+                    </a>
+                </h4>
+            </div>
+        </div>
+        <div class="admin-main-bottom flex">
+            <div class="admin-main-left">
+                <div class="admin-menu">
+                    <div class="admin-menu-icon" style="width: 100%;">
+                        <div class="icon-menu center p-tb10 bg-blue white">
+                            <i class="fas fa-home"></i>
+                            <p class="font-12">관리자메인</p>
+                            <!-- 1. 메인페이지 / 2. 시스템공지사항 -->
+                        </div>
+                    </div>
+                    <div class="admin-menu-icon" style="width: 100%;">
+                        <div class="icon-menu center p-tb10">
+                            <i class="far fa-calendar"></i>
+                            <p class="font-12">일정</p>
+                            <!-- 1. 일정관리 -->
+                        </div>
+                    </div>
+                    <div class="admin-menu-icon" style="width: 100%;">
+                        <div class="icon-menu center p-tb10">
+                            <i class="fas fa-business-time"></i>
+                            <p class="font-12">근태관리</p>
+                            <!-- 1. 출근기록 / 2. 소속출근통계 -->
+                        </div>
+                    </div>
+                    <div class="admin-menu-icon" style="width: 100%;">
+                        <div class="icon-menu center p-tb10">
+                            <i class="far fa-edit"></i>
+                            <p class="font-12">게시판관리</p>
+                            <!-- 1. 게시글 관리 -->
+                        </div>
+                    </div>
+                    <div class="admin-menu-icon" style="width: 100%;">
+                        <div class="icon-menu center p-tb10">
+                            <i class="fas fa-box-open "></i>
+                            <p class="font-12">자산등록</p>
+                            <!-- 1. 자산목록 / 2. 자산등록 -->
+                        </div>
+                    </div>
+                    <div class="admin-menu-icon" style="width: 100%;">
+                        <div class="icon-menu center p-tb10">
+                            <i class=" far fa-id-card"></i>
+                            <p class="font-12">사원관리</p>
+                            <!-- 1. 사원목록 / 2. 사원등록 / 3. 조직도 -->
+                        </div>
+                    </div>
+                    <div class="admin-menu-icon" style="width: 100%;">
+                        <div class="icon-menu center p-tb10">
+                            <i class="fas fa-car-side "></i>
+                            <p class="font-12">법인차량</p>
+                            <!-- 1. 법인차량 사용일지 / 2. 법인차량 관리 / 3. 법인차량 정보 -->
+                        </div>
+                    </div>
+                    <div class="admin-menu-icon" style="width: 100%;">
+                        <div class="icon-menu center p-tb10">
+                            <i class=" far fa-user"></i>
+                            <p class="font-12">마이페이지</p>
+                            <!-- 1. 내 정보 / 2. 거래처관리 -->
+                        </div>
+                    </div>
+                    <div class="submenu-box font-14 left weight-300 noto">
+                        <ul class="bd-b1 p-tb10" style="width: 100%">
+                            <li class="p-lr10"><a href="../grp/grp_admin_main.html">메인페이지 <i
+                                        class="fas fa-angle-right"></i></a></li>
+                            <li class="p-lr10"><a href="../grp/grp_admin_notice.html">공지사항 <i
+                                        class="fas fa-angle-right"></i></a></li>
+                        </ul>
+                        <ul class="bd-b1 p-tb22">
+                            <li class="p-lr10"><a href="../grp/date/grp_date_manage.html">일정관리 <i
+                                        class="fas fa-angle-right"></i></a></li>
+                        </ul>
+                        <ul class="bd-b1 p-tb12">
+                            <li class="p-lr10"><a href="../grp/attend/grp_attend_record.html">출근기록 <i
+                                        class="fas fa-angle-right"></i></a></li>
+                            <li class="p-lr10"><a href="../grp/attend/grp_attend_group.html">소속출근통계 <i
+                                        class="fas fa-angle-right"></i></a></li>
+                        </ul>
+                        <ul class="bd-b1 p-tb22">
+                            <li class="p-lr10"><a href="../grp/board/grp_board_manage.html">게시글관리 <i
+                                        class="fas fa-angle-right"></i></a></li>
+                        </ul>
+                        <ul class="bd-b1 p-tb12">
+                            <li class="p-lr10"><a href="../grp/item/grp_item_list.html">자산목록 <i
+                                        class="fas fa-angle-right"></i></a></li>
+                            <li class="p-lr10"><a href="../grp/item/grp_item_manage.html">자산등록 <i
+                                        class="fas fa-angle-right"></i></a></li>
+                        </ul>
+                        <ul class="bd-b1 p-tb2">
+                            <li class="p-lr10"><a href="../grp/member/grp_member_list.html">사원목록 <i
+                                class="fas fa-angle-right"></i></a></li>
+                            <li class="p-lr10"><a href="../grp/member/grp_member_manage.html">사원등록 <i
+                                class="fas fa-angle-right"></i></a></li>
+                            <li class="p-lr10"><a href="../grp/member/grp_member_chart.html" onclick="window.open(this.href, '_blank', 'width=1550px, height=900px, toolbars=no, scrollbars=yes'); return false">조직도 <i class="fas fa-angle-right"></i></a></li>
+                        </ul>
+                        <ul class="bd-b1 p-tb12">
+                            <li class="p-lr10"><a href="../grp/car/grp_car_usagelog.html">법인차량 사용일지 <i
+                                        class="fas fa-angle-right"></i></a></li>
+                            <li class="p-lr10"><a href="../grp/car/grp_car_manage.html">법인차량 관리 <i
+                                        class="fas fa-angle-right"></i></a></li>
+                        </ul>
+                        <ul class="p-tb12">
+                            <li class="p-lr10"><a href="../grp/myinfo/grp_myinfo.html">내 정보 <i
+                                        class="fas fa-angle-right"></i></a></li>
+                            <li class="p-lr10"><a href="../grp/myinfo/grp_customer_list.html">거래처관리 <i
+                                        class="fas fa-angle-right"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="admin-main-right p-20">
+                <div class="static-grp flex space-between m-b20">
+                    <div class="box-20x500 bg-white center">
+                        <div class="box-title p-15 m-b20" style="border-bottom: 1px solid #e7e7e7;">
+                            <h3 class="font-16">내 정보</h3>
+                        </div>
+                        <div class="userinfo font-14">
+                            <div class="userpic">
+                                <img src="../images/people/sir.png" alt="">
+                            </div>
+                            <div class="userinfo-content m-t20">
+                                <span class="blue weight-700">ㅇㅇㅇ</span>
+                                <span> 님 환영합니다.</span>
+                            </div>
+                            <p>ㅇㅇㅇ Corp.</p>
+                        </div>
+                        <div class="attend-vacation-tab flex space-between m-t20">
+                            <div id="attend" style="border-right: 1px solid #e7e7e7;" class="attend-tab p-tb10 active font-14">
+                                근태정보
+                            </div>
+                            <div id="vacation" class="vacation-tab p-tb10 font-14">휴가정보</div>
+                        </div>
+                        <div class="attend-vacation-content p-20">
+                            <div class="attend-box">
+                                <div class="attend-content p-b20" style="border-bottom: 1px solid #e7e7e7;">
+                                    <div class="current-time-box p-tb10"
+                                        style="width: 100%; border: 1px solid #e7e7e7; border-radius: 50px;">
+                                        <span class="font-14">2020-09-18 (금)</span>
+                                        <span class="font-18 weight-700">│ 12 : 12 : 12</span>
+                                    </div>
+                                </div>
+                                <div class="attend-time font-14 m-t20">
+                                    <p class="m-b10 weight-700">출·퇴근시간</p>
+                                    <table>
+                                        <tr>
+                                            <td style="border: 1px solid transparent" class="white bg-blue td-15 p-tb15">출근</td>
+                                            <td class="td-35 weight-700 font-18">09:00</td>
+                                            <td style="border: 1px solid transparent" class="white bg-blue td-15">퇴근</td>
+                                            <td class="td-35 weight-700 font-18">18:00</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="vacation-box">
+                                <div class="vacation-content p-b20">
+                                    <p class="weight-700 font-14">내 휴가정보</p>
+                                    <div class="vacation-btn-grp m-t10 font-14">
+                                        <div class="vacation-btn flex space-between p-l20 p-r20 p-t10 p-b10 m-b10">
+                                            <p class="">연차휴가</p>
+                                            <p class="blue weight-700">16일</p>
+                                        </div>
+                                        <div class="vacation-btn flex space-between p-l20 p-r20 p-t10 p-b10 m-b10">
+                                            <p class="">사용연차</p>
+                                            <p class="blue weight-700">15일</p>
+                                        </div>
+                                        <div class="vacation-btn flex space-between p-l20 p-r20 p-t10 p-b10 m-b10">
+                                            <p class="">잔여연차</p>
+                                            <p class="blue weight-700">1일</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-60x500 bg-white">
+                        <div class="box-title p-15 m-b20" style="border-bottom: 1px solid #e7e7e7;">
+                            <h3 class="noto center font-16">사내 공지사항</h3>
+                        </div>
+
+                        <div class="buseo-wrap m-20">
+                            <div class="buseo-content flex space-between p-tb20"
+                                style="border-bottom: 1px solid #e7e7e7;">
+                                <div class="content-left flex">
+                                    <div class="buseo-icon">
+                                        <img src="../images/people/man.png" alt="" />
+                                    </div>
+                                    <div class="buseo-info">
+                                        <p class="noto font-14 weight-700">[총무팀 알림] 법인차량 사용 안내의 건
+                                        </p>
+                                        <p class="noto font-14">09-15 09:50 ㅇㅇㅇ 과장</p>
+                                    </div>
+                                </div>
+                                <div class="content-right" style="width: 50px;">
+                                    <span style="font-size: 24px; color: #555;"><i
+                                            class="fas fa-angle-right"></i></span>
+                                </div>
+                            </div>
+                            <div class="buseo-content flex space-between p-tb20"
+                                style="border-bottom: 1px solid #e7e7e7;">
+                                <div class="content-left flex">
+                                    <div class="buseo-icon">
+                                        <img src="../images/people/man.png" alt="" />
+                                    </div>
+                                    <div class="buseo-info">
+                                        <p class="noto font-14 weight-700">[인사팀 알림] 펭하~</p>
+                                        <p class="noto font-14">09-15 09:50 펭수</p>
+                                    </div>
+                                </div>
+                                <div class="content-right" style="width: 50px;">
+                                    <span style="font-size: 24px; color: #555;"><i
+                                            class="fas fa-angle-right"></i></span>
+                                </div>
+                            </div>
+                            <div class="buseo-content flex space-between p-tb20"
+                                style="border-bottom: 1px solid #e7e7e7;">
+                                <div class="content-left flex">
+                                    <div class="buseo-icon">
+                                        <img src="../images/people/man.png" alt="" />
+                                    </div>
+                                    <div class="buseo-info">
+                                        <p class="noto font-14 weight-700">[관리자] 일일업무일지 작성 안내의 건
+                                        </p>
+                                        <p class="noto font-14">09-15 09:50 ㅇㅇㅇ 과장</p>
+                                    </div>
+                                </div>
+                                <div class="content-right" style="width: 50px;">
+                                    <span style="font-size: 24px; color: #555;"><i
+                                            class="fas fa-angle-right"></i></span>
+                                </div>
+                            </div>
+                            <div class="buseo-content flex space-between p-tb20"
+                                style="border-bottom: 1px solid #e7e7e7;">
+                                <div class="content-left flex">
+                                    <div class="buseo-icon">
+                                        <img src="../images/people/woman.jpg" alt="" />
+                                    </div>
+                                    <div class="buseo-info">
+                                        <p class="noto font-14 weight-700">[재무팀] MRO구매 정기구매 및 상시구매 안내의 건
+                                        </p>
+                                        <p class="noto font-14">09-15 09:50 ㅇㅇㅇ 과장</p>
+                                    </div>
+                                </div>
+                                <div class="content-right" style="width: 50px;">
+                                    <span style="font-size: 24px; color: #555;"><i
+                                            class="fas fa-angle-right"></i></span>
+                                </div>
+                            </div>
+                            <div class="buseo-content flex space-between p-tb20"
+                                style="border-bottom: 1px solid #e7e7e7;">
+                                <div class="content-left flex">
+                                    <div class="buseo-icon">
+                                        <img src="../images/people/woman.jpg" alt="" />
+                                    </div>
+                                    <div class="buseo-info">
+                                        <p class="noto font-14 weight-700">[인사팀] 9월 직책 승진 및 해임의 건
+                                        </p>
+                                        <p class="noto font-14">09-15 09:50 ㅇㅇㅇ 과장</p>
+                                    </div>
+                                </div>
+                                <div class="content-right" style="width: 50px;">
+                                    <span style="font-size: 24px; color: #555;"><i
+                                            class="fas fa-angle-right"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-20x250-grp" style="width: 20%;">
+                        <div class="box-20x250 bg-white center m-b20">
+                            <div class="box-title p-15 m-b10" style="border-bottom: 1px solid #e7e7e7;">
+                                <h3 class="noto font-16">9월 게시판 현황</h3>
+                            </div>
+                            <div class="box-content p-lr10">
+                                <table class="font-14 m-t20" style="background-color: #fff;">
+                                    <tr>
+                                        <td class="center"
+                                            style="background-color: transparent;color: #000; border: 0;">
+                                            <p class="font-12">등록</p>
+                                            <p class="weight-700">14건</p>
+                                        </td>
+                                        <td class="center"
+                                            style="background-color: transparent;color: #000; border: 0; border-left: 1px solid #e7e7e7; border-right: 1px solid #e7e7e7;">
+                                            <p class="font-12">수정</p>
+                                            <p class="weight-700">6건</p>
+                                        </td>
+                                        <td class="center"
+                                            style="background-color: transparent;color: #000; border: 0;">
+                                            <p class="font-12">삭제</p>
+                                            <p class="weight-700">3건</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table class="font-14 m-t15">
+                                    <tr>
+                                        <td class="td-40 p-tb5"
+                                            style="background-color: #e7e7e7; color: #000; border-right: 1px solid #fff;">
+                                            게시판 분류</td>
+                                        <td class=""
+                                            style="background-color: #e7e7e7; color: #000; border-right: 1px solid #fff;">
+                                            등록
+                                        </td>
+                                        <td class=""
+                                            style="background-color: #e7e7e7; color: #000; border-right: 1px solid #fff;">
+                                            수정
+                                        </td>
+                                        <td class="" style="background-color: #e7e7e7; color: #000;">삭제</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td-40 p-tb5" style="background-color: transparent; color: #000">
+                                            공지사항
+                                        </td>
+                                        <td style="background-color: transparent; color: #000">11건</td>
+                                        <td style="background-color: transparent; color: #000">5건</td>
+                                        <td style="background-color: transparent; color: #000">2건</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td-40 p-tb5" style="background-color: transparent; color: #000">자유게시판
+                                        </td>
+                                        <td style="background-color: transparent; color: #000">3건</td>
+                                        <td style="background-color: transparent; color: #000">1건</td>
+                                        <td style="background-color: transparent; color: #000">1건</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="box-20x250 bg-white center">
+                            <div class="box-title p-15 m-b10 bd-b1">
+                                <h3 class="noto font-16">9월 자산 현황</h3>
+                            </div>
+                            <div class="box-content p-lr10">
+                                <table class="font-14 m-t20" style="background-color: #fff;">
+                                    <tr>
+                                        <td class="center"
+                                            style="background-color: transparent;color: #000; border: 0;">
+                                            <p class="font-12">등록</p>
+                                            <p class="weight-700">14건</p>
+                                        </td>
+                                        <td class="center"
+                                            style="background-color: transparent;color: #000; border: 0; border-left: 1px solid #e7e7e7; border-right: 1px solid #e7e7e7;">
+                                            <p class="font-12">고장</p>
+                                            <p class="weight-700">6건</p>
+                                        </td>
+                                        <td class="center"
+                                            style="background-color: transparent;color: #000; border: 0;">
+                                            <p class="font-12">폐기</p>
+                                            <p class="weight-700">3건</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table class="font-14 m-t15">
+                                    <tr>
+                                        <td class="td-40 p-tb5"
+                                            style="background-color: #e7e7e7; color: #000; border-right: 1px solid #fff;">
+                                            지점명</td>
+                                        <td class=""
+                                            style="background-color: #e7e7e7; color: #000; border-right: 1px solid #fff;">
+                                            등록
+                                        </td>
+                                        <td class=""
+                                            style="background-color: #e7e7e7; color: #000; border-right: 1px solid #fff;">
+                                            고장
+                                        </td>
+                                        <td class="" style="background-color: #e7e7e7; color: #000;">폐기</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td-40 p-tb5" style="background-color: transparent; color: #000">
+                                            서울[본사]
+                                        </td>
+                                        <td style="background-color: transparent; color: #000">11건</td>
+                                        <td style="background-color: transparent; color: #000">5건</td>
+                                        <td style="background-color: transparent; color: #000">2건</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td-40 p-tb5" style="background-color: transparent; color: #000">부산
+                                        </td>
+                                        <td style="background-color: transparent; color: #000">3건</td>
+                                        <td style="background-color: transparent; color: #000">1건</td>
+                                        <td style="background-color: transparent; color: #000">1건</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="static-grp flex space-between">
+                    <div class="box-20x300 bg-white">
+                        <div class="box-title p-15 m-b10" style="border-bottom: 1px solid #e7e7e7;">
+                            <h3 class="center font-16">시스템 공지사항</h3>
+                        </div>
+                        <div class="car-box font-14 left m-lr20 p-tb10 bd-b1 flex space-between">
+                            <div class="">
+                                <span class="blue weight-700 m-r5">[관리자]</span>
+                                <span class="">포트폴리오 제출의 건 안내</span>
+                            </div>
+                            <div>
+                                <span class="font-12" style="color: gray;">20-09-18</span>
+                            </div>
+                        </div>
+                        <div class="car-box font-14 left m-lr20 p-tb10 bd-b1 flex space-between">
+                            <div class="">
+                                <span class="blue weight-700 m-r5">[관리자]</span>
+                                <span class="">9월 정보보안의 날 안내</span>
+                            </div>
+                            <div>
+                                <span class="font-12" style="color: gray;">20-09-17</span>
+                            </div>
+                        </div>
+                        <div class="car-box font-14 left m-lr20 p-tb10 bd-b1 flex space-between">
+                            <div class="">
+                                <span class="blue weight-700 m-r5">[관리자]</span>
+                                <span class="">9월 시스템 정기점검</span>
+                            </div>
+                            <div>
+                                <span class="font-12" style="color: gray;">20-09-01</span>
+                            </div>
+                        </div>
+                        <div class="car-box font-14 left m-lr20 p-tb10 bd-b1 flex space-between">
+                            <div class="">
+                                <span class="blue weight-700 m-r5">[관리자]</span>
+                                <span class="">8월 정보보안의 날 안내</span>
+                            </div>
+                            <div>
+                                <span class="font-12" style="color: gray;">20-08-15</span>
+                            </div>
+                        </div>
+                        <div class="car-box font-14 left m-lr20 p-tb10 bd-b1 flex space-between">
+                            <div class="">
+                                <span class="blue weight-700 m-r5">[관리자]</span>
+                                <span class="">8월 시스템 정기점검</span>
+                            </div>
+                            <div>
+                                <span class="font-12" style="color: gray;">20-08-02</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-20x300 bg-white">
+                        <div class="box-title p-15 m-b10 center" style="border-bottom: 1px solid #e7e7e7;">
+                            <h3 class="noto font-16">사내교육 진행현황</h3>
+                        </div>
+                        <div class="education-box font-14 left m-lr20 p-tb10 bd-b1">
+                            <span class="blue weight-700 m-r10">[스마트러닝]</span>
+                            <span class="">스피치스킬업! 조직에서 Good Talke...</span>
+                        </div>
+                        <div class="education-box font-14 left m-lr20 p-tb10 bd-b1">
+                            <span class="blue weight-700 m-r10">[스마트러닝]</span>
+                            <span class="">[오단기 엑셀 2013] 데이터시각화편...</span>
+                        </div>
+                        <div class="education-box font-14 left m-lr20 p-tb10 bd-b1">
+                            <span class="blue weight-700 m-r10">[스마트러닝]</span>
+                            <span class="">현장 리더를 위한 TPM</span>
+                        </div>
+                        <div class="education-box font-14 left m-lr20 p-tb10 bd-b1">
+                            <span class="blue weight-700 m-r10">[스마트러닝]</span>
+                            <span class="">[오단기 PPT 2013] 핵심꿀팁편_ 늘...</span>
+                        </div>
+                        <div class="education-box font-14 left m-lr20 p-tb10 bd-b1">
+                            <span class="blue weight-700 m-r10">[스마트러닝]</span>
+                            <span class="">습관으로 만드는 PPT Report의 품...</span>
+                        </div>
+                    </div>
+                    <div class="box-20x300 bg-white">
+                        <div class="box-title p-15 m-b10" style="border-bottom: 1px solid #e7e7e7;">
+                            <h3 class="noto center font-16">법인차량 사용일지</h3>
+                        </div>
+                        <div class="car-box font-14 left m-lr20 p-tb10 bd-b1 flex space-between">
+                            <div class="">
+                                <span class="blue weight-700 m-r5">[14가 9999 - 카니발]</span>
+                                <span class="">법인차량 사용일지</span>
+                            </div>
+                            <div>
+                                <span class="font-12" style="color: gray;">20-09-18</span>
+                            </div>
+                        </div>
+                        <div class="car-box font-14 left m-lr20 p-tb10 bd-b1 flex space-between">
+                            <div class="">
+                                <span class="blue weight-700 m-r5">[91임 9998 - 제네시스]</span>
+                                <span class="">법인차량 사용일지</span>
+                            </div>
+                            <div>
+                                <span class="font-12" style="color: gray;">20-09-17</span>
+                            </div>
+                        </div>
+                        <div class="car-box font-14 left m-lr20 p-tb10 bd-b1 flex space-between">
+                            <div class="">
+                                <span class="blue weight-700 m-r5">[90로 1111 - 아반떼]</span>
+                                <span class="">법인차량 사용일지</span>
+                            </div>
+                            <div>
+                                <span class="font-12" style="color: gray;">20-09-16</span>
+                            </div>
+                        </div>
+                        <div class="car-box font-14 left m-lr20 p-tb10 bd-b1 flex space-between">
+                            <div class="">
+                                <span class="blue weight-700 m-r5">[14가 9999 - 카니발]</span>
+                                <span class="">법인차량 사용일지</span>
+                            </div>
+                            <div>
+                                <span class="font-12" style="color: gray;">20-09-15</span>
+                            </div>
+                        </div>
+                        <div class="car-box font-14 left m-lr20 p-tb10 bd-b1 flex space-between">
+                            <div class="">
+                                <span class="blue weight-700 m-r5">[90로 1111 - 아반떼]</span>
+                                <span class="">법인차량 사용일지</span>
+                            </div>
+                            <div>
+                                <span class="font-12" style="color: gray;">20-09-14</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-40x300 bg-white">
+                        <div class="box-title p-15 m-b20" style="border-bottom: 1px solid #e7e7e7;">
+                            <h3 class="noto center font-16">결재대기</h3>
+                        </div>
+                        <div class="app-content m-t30 font-14">
+                            <div class="p-lr20 app-list flex justify-content noto weight-700"
+                                style="border-bottom: 1px solid #e7e7e7; padding-bottom: 10px;">
+                                <div style="width: 10%;" class="app-date">기안일</div>
+                                <div style="width: 10%;" class="app-form">문서양식</div>
+                                <div style="width: 70%;" class="app-subject center">결재문서제목</div>
+                                <div style="width: 10%;" class="app-file">첨부</div>
+                            </div>
+                            <div class="center p-tb10">
+                                <p class="noto weight-700">결재할 문서가 없습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="copyright white right p-r10">
+                Copyright 2020. 임태주. all rights reserved
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
