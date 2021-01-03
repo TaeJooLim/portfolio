@@ -8,7 +8,7 @@ create table produce (
 	prod_process4 char(1),					// 공정4 (Y/N으로 구분)
 	prod_process5 char(1),					// 공정5 (Y/N으로 구분)
 	prod_release char(1) default 'N',			// 출고여부 (Y/N으로 구분)
-	prod_process_cnt_fk int not null,			// 공정의 갯수
+	prod_process_cnt int not null,				// 공정의 갯수
 );
 
 
@@ -22,7 +22,7 @@ create table produce (
 	prod_process5 char(1),		
 	prod_release char(1) default 'N',		
 	
-	prod_process_cnt_fk int not null	
+	prod_process_cnt int not null	
 );
 
 상품의 공정차수(제일 높은 차수)를 받아서 그 공정의 갯수만큼만 N으로 입력될 수 있도록 하고, 나머지는 NULL로 받는다.
