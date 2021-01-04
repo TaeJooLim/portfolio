@@ -9,6 +9,7 @@ create table vacation (
 	off_type char(1) not null,		// 휴가종류 (연차,반차,휴직)
 	off_confirm char(1) default 'N',		// 결재여부 (부서장이 결재)
 	off_doc_num varchar(30), 		// 문서번호 ('vacation_' + emp_id_fk + YYYY + MM + DD + off_type)
+	off_regdate Date, 			// 연차신청일
 	
 	emp_id_fk int not null,			// employee 테이블 조인
 );
@@ -22,6 +23,7 @@ create table vacation (
 	off_type char(1) not null,		
 	off_confirm char(1) default 'N',
 	off_doc_num varchar(30), 
+	off_regdate Date, 
 	
 	emp_id_fk int not null		
 );
