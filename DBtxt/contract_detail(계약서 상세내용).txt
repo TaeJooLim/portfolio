@@ -7,7 +7,8 @@ create table contract_detail(
 	contD_p_unit varchar(5) not null,			// 단위
 	contD_p_amount int not null,			// 수량
 	contD_p_sell int not null,				// 단가
-	contD_vat char(3)				//부가세(포함,미포함)
+	contD_vat char(3),				//부가세(포함,미포함)
+	p_id_fk int not null 
 );
 
 
@@ -19,7 +20,8 @@ create table contract_detail(
 	contD_p_unit varchar(5) not null,
 	contD_p_amount int not null,
 	contD_p_sell int not null,
-	contD_vat char(3)
+	contD_vat char(3),
+	p_id_fk int not null 
 );
 
 2-1. html에는 부가세, 공급가액 컬럼이 추가되어야 함.
