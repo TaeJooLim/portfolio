@@ -1,6 +1,8 @@
 package com.portfolio.erp.controller.user;
 
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,10 +51,30 @@ public class UserMainCtr {
 		return mav;
 	}
 	
-	@RequestMapping("/user/get_starttime")
+	/*	출퇴근시간 가져오기	*/
+	@RequestMapping("/user/get_worktimes")
 	@ResponseBody
-	public String getStarttime(@ModelAttribute AttendVO avo) {
-		return "success";
+	public Map<String,String> getWorktimes(@ModelAttribute AttendVO avo) {
+		
+		AttendVO vo = attendSrv.getTimes(avo);
+		Map<String, String> map = new HashMap<String, String>();
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+		sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+		
+		if( vo.getAttendStarttime() != null ) {
+			map.put("starttime", sdf.format(vo.getAttendStarttime()));
+		}else {
+			map.put("starttime", "--:--");
+		}
+		
+		if(vo.getAttendEndtime() != null ) {
+			map.put("endtime", sdf.format(vo.getAttendEndtime()));
+		}else {
+			map.put("endtime", "--:--");
+		}
+		
+		return map;
 	}
 	
 	/*	출근시간 입력	*/

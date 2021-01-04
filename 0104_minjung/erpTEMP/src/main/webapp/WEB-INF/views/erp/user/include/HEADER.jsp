@@ -97,41 +97,41 @@
                 <div id="sub_menu" class="">
                     <ul id="hrMngmt" class="menu">
                         <h3>인사/급여관리</h3>
-                        <li><a href="${pageContext.request.contextPath}/admin/salary_list">급여 처리 내역</a></li>
-                        <li><a href="${pageContext.request.contextPath}/admin/salary_tax_list">세금 계산 테이블</a></li>
+                        <li><a href="#">급여 처리 내역</a></li>
+                        <li><a href="#">세금 계산 테이블</a></li>
                     </ul>
 
                     <ul id="salesMngmt" class="menu">
                         <h3>영업관리</h3>
-                        <li><a href="${pageContext.request.contextPath}/admin/client_list">거래처목록</a></li>
-                        <li><a href="${pageContext.request.contextPath}/admin/client_reg">거래처등록</a></li>
+                        <li><a href="#">거래처목록</a></li>
+                        <li><a href="#">거래처등록</a></li>
                     </ul>
                     <ul id="attendMngmt" class="menu">
                         <h3>근태관리</h3>
-                        <li><a href="${pageContext.request.contextPath}/admin/employee_list">사원목록</a></li>
-                        <li><a href="${pageContext.request.contextPath}/admin/employee_register">사원 상세정보등록/수정</a></li>
-                        <li><a href="#">NOT FOUND</a></li>
+                        <li><a href="#">사원목록</a></li>
+                        <li><a href="#">사원 상세정보등록/수정</a></li>
+                        <li><a href="${pageContext.request.contextPath}/user/attend_list">출퇴근기록</a></li>
                     </ul>
                     <ul id="productMngmt" class="menu">
                         <h3>생산/물류관리</h3>
-                        <li><a href="${pageContext.request.contextPath}/admin/product_reg">상품목록</a></li>
-                        <li><a href="${pageContext.request.contextPath}/admin/product_list">상품등록</a></li>
+                        <li><a href="#">상품목록</a></li>
+                        <li><a href="#">상품등록</a></li>
                     </ul>
 
                     <ul id="purchasingMngmt" class="menu">
                         <h3>구매관리</h3>
-                        <li><a href="erp_salary/salary_list.html">급상여처리하기</a></li>
+                        <li><a href="#">급상여처리하기</a></li>
                         <li><a href="#">NOT FOUND</a></li>
                     </ul>
 
                     <ul id="carMngmt" class="menu">
                         <h3>법인차량관리</h3>
-                        <li><a href="erp_stock/stock_list.html">창고별 재고관리</a></li>
+                        <li><a href="#">창고별 재고관리</a></li>
                     </ul>
 
                     <ul id="boardMngmt" class="menu">
                         <h3>게시판관리</h3>
-                        <li><a href="erp_vacation/erp_vacation_info.html">사원 연차내역 조회</a></li>
+                        <li><a href="#">사원 연차내역 조회</a></li>
                     </ul>
 
                     <ul id="userMngmt" class="menu">
@@ -141,7 +141,7 @@
 
                     <ul id="companyMngmt" class="menu">
                         <h3>회사정보관리</h3>
-                        <li><a href="erp_vacation/erp_vacation_info.html">사원 연차내역 조회</a></li>
+                        <li><a href="#">사원 연차내역 조회</a></li>
                     </ul>
                 </div>
             </nav>

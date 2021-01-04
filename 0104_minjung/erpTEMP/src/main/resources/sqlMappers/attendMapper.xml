@@ -12,7 +12,7 @@
 	
 	<select id="isStarted" parameterType="attendvo" resultType="int">
 		SELECT COUNT(attend_starttime) FROM attendance 
-		WHERE emp_id_fk = #{empIdFk} 
+		WHERE emp_id_fk = #{empIdFk} AND attend_workdate = #{attendWorkdate} 
 	</select>
 	
 	<update id="setEndtime" parameterType="attendvo">
@@ -23,7 +23,7 @@
 	
 	<select id="isEnded" parameterType="attendvo" resultType="int">
 		SELECT COUNT(attend_endtime) FROM attendance 
-		WHERE emp_id_fk = #{empIdFk} 
+		WHERE emp_id_fk = #{empIdFk} AND attend_workdate = #{attendWorkdate} 
 	</select>
 	
 	<select id="getTimes" parameterType="attendvo" resultType="attendvo">
@@ -31,7 +31,7 @@
 			attend_starttime 	AS attendStarttime,
 			attend_endtime		AS attendEndtime 
 		FROM attendance 
-		WHERE emp_id_fk = #{empIdFk} 
+		WHERE emp_id_fk = #{empIdFk} AND attend_workdate = #{attendWorkdate} 
 	</select>
 	
 </mapper>

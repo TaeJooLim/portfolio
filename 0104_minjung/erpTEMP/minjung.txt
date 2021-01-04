@@ -15,19 +15,9 @@
 
 6. css			: salary.css 삭제
 
-
-****************************
-직급별 기본급 테이블 생성해야할거같음!
-position_code를 외래키로 해서...
-예를 들면..
-	CREATE TABLE salary_base(
-		salary_pay int,
-		position_code_fk char(2)
-	);
-	
 =================================================
 
-1231 박민정 작업내용
+1231 ~ 0105 박민정 작업내용
 
 1. views/erp/user에  user_main.jsp 추가&erp_attned파일-attendance.jsp추가
 2. css	: user_main.css 추가
@@ -40,3 +30,7 @@ position_code를 외래키로 해서...
 8. SERVICE		: attend패키지 - AttendSrv & AttendSrvImpl 생성
 9. REPOSITORY	: attend패키지 - AttendDao & AttendDaoImpl 생성
 10. Mapper		: attendMapper.xml 생성 * mybatis-config에 typeAlias 설정
+11. DB Table	: create table attendance...
+12. user - erp_attend , admin - erp_attend 추가
+13. attend 관련 Ctr,Srv,Dao,Mapper..
+

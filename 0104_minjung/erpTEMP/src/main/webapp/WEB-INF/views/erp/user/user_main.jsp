@@ -39,11 +39,11 @@
                                     <div class="attend_time font_14 flex space_between p_t10">
                                         <div class="w_50">
                                             <button type="button" class="btn_attend" onClick="setStarttime(${sessionScope.empId});">출근</button>
-                                            <p class="p_tb5 weight_700 font_18">${startTime}</p>
+                                            <p class="p_tb5 weight_700 font_18" id="startTime"></p>
                                         </div>
                                         <div class="w_50">
                                             <button type="button" class="btn_attend" onClick="setEndtime(${sessionScope.empId});">퇴근</button>
-                                            <p class="p_tb5 weight_700 font_18">${endTime}</p>
+                                            <p class="p_tb5 weight_700 font_18" id="endTime"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -292,10 +292,21 @@
 <script>
 	/*	출근시간 기록	*/
 	function setStarttime(eid){
+		var currentDate = new Date();
+
+		var currentYear	= addZeros(currentDate.getFullYear(),2);
+		var currentMonth = addZeros(currentDate.getMonth()+1,2);
+		var currentDates = addZeros(currentDate.getDate(),2);
+
+		var calendar = currentYear + "-" + currentMonth + "-" + currentDates;
+		
 		$.ajax({
 			url		:	"${pageContext.request.contextPath}/user/set_starttime",
 			type	:	"POST",
-			data	:	{empIdFk	:	eid},
+			data	:	{
+				empIdFk	:	eid,
+				attendWorkdate	: calendar	
+			},
 			success	:	function(resData){
 				if( resData == "success" ){
 					alert("출근완료");
@@ -312,10 +323,21 @@
 
 	/*	퇴근시간 기록	*/
 	function setEndtime(eid){
+		var currentDate = new Date();
+
+		var currentYear	= addZeros(currentDate.getFullYear(),2);
+		var currentMonth = addZeros(currentDate.getMonth()+1,2);
+		var currentDates = addZeros(currentDate.getDate(),2);
+
+		var calendar = currentYear + "-" + currentMonth + "-" + currentDates;
+		
 		$.ajax({
 			url		:	"${pageContext.request.contextPath}/user/set_endtime",
 			type	:	"POST",
-			data	:	{empIdFk	:	eid},
+			data	:	{
+				empIdFk	:	eid,
+				attendWorkdate	: calendar
+			},
 			success	:	function(resData){
 				if( resData == "success" ){
 					alert("퇴근완료");
@@ -333,8 +355,8 @@
 	}
 
 
-	/*	출근시간 가져오기	*/
-	function getStarttime(){
+	/*	입력된 출퇴근 시간 가져오기	*/
+	function getWorktimes(){
 		var currentDate = new Date();
 
 		var currentYear	= addZeros(currentDate.getFullYear(),2);
@@ -344,14 +366,17 @@
 		var calendar = currentYear + "-" + currentMonth + "-" + currentDates
 		
 		$.ajax({
-			url		: "${pageContext.request.contextPath}/user/get_starttime",
+			url		: "${pageContext.request.contextPath}/user/get_worktimes",
 			type	: "POST",
 			data	: {
 				empIdFk			: ${sessionScope.empId},
 				attendWorkdate	: calendar
 			},
 			success	: function(resData){
-				alert("출근시간 가져올 준비 완료");
+				var startTime = document.getElementById("startTime");
+				var endTime = document.getElementById("endTime");
+				startTime.innerHTML = resData.starttime;
+				endTime.innerHTML = resData.endtime;
 			},
 			error	: function(){
 				alert("getStarttime ajax에러");
@@ -391,10 +416,8 @@
 	}
 
 	$(function(){
-		getStarttime();
+		getWorktimes();
 	});
 	
-	
-	// document.getElementById('toDate').valueAsDate = new Date();
 </script>
 <%@ include file="/WEB-INF/views/erp/user/include/FOOTER.jsp" %>
