@@ -4,8 +4,8 @@
 create table attendance(
 	attend_id int not null auto_increment primary key, //기본키
 	attend_workdate char(10), 		// 근무일
-	attend_starttime date, 		// 출근시간
-	attend_endtime date, 		// 퇴근시간
+	attend_starttime datetime, 		// 출근시간
+	attend_endtime datetime, 		// 퇴근시간
 	attend_defaulttime int default 540, 	// 소정근무시간(분으로 계산)
 	attend_overtime int,			// 초과근무시간(총근무시간-소정근무시간)
 	attend_totaltime int,			// 총근무시간(퇴근시간-출근시간)
@@ -23,8 +23,8 @@ create table attendance(
 create table attendance(
 	attend_id int not null auto_increment primary key, 
 	attend_workdate char(10), 		
-	attend_starttime date, 		
-	attend_endtime date, 		
+	attend_starttime datetime, 		
+	attend_endtime datetime, 		
 	attend_defaulttime int default 540, 
 	attend_overtime int,		
 	attend_totaltime int,		
