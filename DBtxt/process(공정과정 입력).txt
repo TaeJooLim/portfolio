@@ -7,7 +7,7 @@ create table process (
 
 	p_id_fk int not null,				// 제품정보
 	wc_id_fk int not null,			// 워크센터(공장)정보
-	emp_id_fk int not null,			// 담당자정보
+	emp_id_fk int not null			// 담당자정보
 );
 
 create table process (
@@ -19,5 +19,5 @@ create table process (
 
 	p_id_fk int not null,
 	wc_id_fk int not null,
-	emp_id_fk int not null,
+	emp_id_fk int not null
 );
