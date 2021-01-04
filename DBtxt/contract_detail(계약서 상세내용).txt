@@ -2,13 +2,13 @@
 
 create table contract_detail(
 	contD_id int auto_increment not null primary key,	// PK
-	contD_doc_num_fk varchar(30) not null,		// 문서번호 (참조키로 사용)
+	contD_doc_num_fk varchar(30) not null,			// 문서번호 (참조키로 사용)
 	contD_p_name varchar(100) not null,			// 품명
 	contD_p_unit varchar(5) not null,			// 단위
-	contD_p_amount int not null,			// 수량
+	contD_p_amount int not null,				// 수량
 	contD_p_sell int not null,				// 단가
-	contD_vat char(3),				//부가세(포함,미포함)
-	p_id_fk int not null 
+	contD_vat char(3),					// 부가세(포함,미포함)
+	p_id_fk int not null 					// 제품정보 pk를 fk로 저장하여 조인(생산등록 및 품질검사 에서 사용)
 );
 
 
