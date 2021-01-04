@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="car">
+
+	<sql id="searchCondition">
+		<choose>
+			<when test="words ==''"></when>
+			<when test = "searchOpt == 'all'">
+				WHERE carNum LIKE CONCAT('%', #{words}, '%') 
+				OR carModel LIKE CONCAT('%', #{words}, '%')  
+			</when>
+			<otherwise> 
+				WHERE ${searchOpt} LIKE CONCAT('%', #{words}, '%')
+			</otherwise>
+		</choose>
+	</sql>
+	<sql id="search">
+		<choose>
+			<when test="words ==''"></when>
+			<when test = "searchOpt == 'all'">
+				AND (car_destination LIKE CONCAT('%', #{words}, '%') 
+				OR car_drive_date LIKE CONCAT('%', #{words}, '%') 
+				OR car_driver LIKE CONCAT('%', #{words}, '%')) 
+				OR car_num LIKE CONCAT('%', #{words}, '%')) 
+				OR car_model LIKE CONCAT('%', #{words}, '%')) 
+			</when>
+			<otherwise> 
+				AND ${searchOpt} LIKE CONCAT('%', #{words}, '%')
+			</otherwise>
+		</choose>
+	</sql>
+	<sql id="listView">
+		<choose>
+			<when test = "carID == 0">
+				WHERE car_id_fk IS NOT NULL  
+			</when>
+			<otherwise> 
+				WHERE car_id_fk = #{carID} 
+			</otherwise>
+		</choose>
+	</sql>
+	
+	
+	<insert id="setCar" parameterType="carvo" >
+		INSERT INTO corp_car SET 
+			car_model  = #{carModel},
+			car_name = #{carName},
+			car_num = #{carNum},
+			car_purchase_date = #{carPurchaseDate},
+			car_purchase_price = #{carPurchasePrice},
+			car_use_year = #{carUseYear},
+			car_scrap_value = #{carScrapValue},
+			car_insurance_start = #{carInsuranceStart},
+			car_insurance_end = #{carInsuranceEnd},
+			car_comprehensive = #{carComprehensive},
+			car_inspection = #{carInspection},
+			car_total_mileage = #{carTotalMileage}
+	</insert>
+	
+	<select id="getCarOne" resultType="carvo">
+		SELECT 
+			car_id AS carID,
+			car_model AS carModel,
+			car_name AS carName,
+			car_num AS carNum,
+			car_purchase_date AS carPurchaseDate,
+			car_purchase_price AS carPurchasePrice,
+			car_use_year AS carUseYear,
+			car_scrap_value AS carScrapValue,
+			car_insurance_start AS carInsuranceStart,
+			car_insurance_end AS carInsuranceEnd,
+			car_comprehensive AS carComprehensive,
+			car_inspection AS carInspection,
+			car_total_mileage AS carTotalMileage 
+		FROM corp_car 
+		WHERE car_id = #{carID}
+	</select>
+	
+	
+	<select id ="getCarList" parameterType="hashmap" resultType="carvo">
+		SELECT 
+			car_id AS carID,
+			car_model AS carModel,
+			car_name AS carName,
+			car_num AS carNum,
+			car_purchase_date AS carPurchaseDate,
+			car_purchase_price AS carPurchasePrice,
+			car_use_year AS carUseYear,
+			car_scrap_value AS carScrapValue,
+			car_insurance_start AS carInsuranceStart,
+			car_insurance_end AS carInsuranceEnd,
+			car_comprehensive AS carComprehensive,
+			car_inspection AS carInspection,
+			car_total_mileage AS carTotalMileage 
+		FROM corp_car 
+		<include refid="searchCondition"></include>  
+	ORDER BY carID DESC
+	</select>
+	
+	<update id="getCarUpdate" parameterType="carvo" >
+		UPDATE corp_car SET 
+			car_model  = #{carModel},
+			car_name = #{carName},
+			car_num = #{carNum},
+			car_purchase_date = #{carPurchaseDate},
+			car_purchase_price = #{carPurchasePrice},
+			car_use_year = #{carUseYear},
+			car_scrap_value = #{carScrapValue},
+			car_insurance_start = #{carInsuranceStart},
+			car_insurance_end = #{carInsuranceEnd},
+			car_comprehensive = #{carComprehensive},
+			car_inspection = #{carInspection},
+			car_total_mileage = #{carTotalMileage} 
+		WHERE car_id = #{carID}
+	</update>
+	<update id="changeStartKm" parameterType="carvo">
+		UPDATE corp_car SET 
+			car_total_mileage = #{carEndKm} 
+			WHERE car_id = #{carID}
+	</update>
+	
+	<delete id="setCarDelete" parameterType="int">
+		DELETE FROM corp_car WHERE car_id = #{carID}
+	</delete>
+	
+	<insert id="setCarUse" parameterType="carvo" >
+		INSERT INTO corp_car_log SET 
+			car_drive_date  = #{carDriveDate},
+			car_destination = #{carDestination},
+			car_purpose = #{carPurpose},
+			car_drive_start = #{carDriveStart},
+			car_drive_end = #{carDriveEnd},
+			car_start_km = #{carStartKm},
+			car_end_km = #{carEndKm},
+			car_driver = #{carDriver},
+			car_passenger = #{carPassenger},
+			car_key = #{carKey},
+			car_fuel = #{carFuel},
+			car_fuel_amount = ${carFuelAmount},
+			car_remark = #{carRemark},
+			car_id_fk = #{carID}
+	</insert>
+	
+	<select id ="getCarUseList" parameterType="hashmap" resultType="carvo">
+		SELECT 
+			car_pid AS carPID,
+			car_drive_date  AS carDriveDate,
+			car_destination AS carDestination,
+			car_purpose AS carPurpose,
+			car_drive_start AS carDriveStart,
+			car_drive_end AS carDriveEnd,
+			car_start_km AS carStartKm,
+			car_end_km AS carEndKm,
+			car_driver AS carDriver,
+			car_passenger AS carPassenger,
+			car_key AS carKey,
+			car_fuel AS carFuel,
+			car_fuel_amount AS carFuelAmount,
+			car_remark AS carRemark,
+			car_id_fk AS carIDFk, 
+			car_id AS carID,
+			car_model AS carModel,
+			car_name AS carName,
+			car_num AS carNum 
+		FROM corp_car_log LEFT JOIN corp_car ON car_id_fk = car_id 
+		<include refid="listView"></include> 
+		<include refid="search"></include> 
+		ORDER BY car_pid DESC
+	</select>
+	
+	<select id="getCarUseUpdateList" resultType="carvo">
+		SELECT 
+			car_pid AS carPID,
+			car_drive_date  AS carDriveDate,
+			car_destination AS carDestination,
+			car_purpose AS carPurpose,
+			car_drive_start AS carDriveStart,
+			car_drive_end AS carDriveEnd,
+			car_start_km AS carStartKm,
+			car_end_km AS carEndKm,
+			car_driver AS carDriver,
+			car_passenger AS carPassenger,
+			car_key AS carKey,
+			car_fuel AS carFuel,
+			car_fuel_amount AS carFuelAmount,
+			car_remark AS carRemark,
+			car_id_fk AS carIDFk,
+			car_model AS carModel,
+			car_num AS carNum 
+		FROM corp_car_log LEFT JOIN corp_car ON car_id_fk = car_id  
+		WHERE car_pid = #{carPID}
+	</select>
+	
+	<update id="getCarUseUpdate"  parameterType="carvo">
+		UPDATE corp_car_log SET 
+			car_drive_date  = #{carDriveDate},
+			car_destination = #{carDestination},
+			car_purpose = #{carPurpose},
+			car_drive_start = #{carDriveStart},
+			car_drive_end = #{carDriveEnd},
+			car_start_km = #{carStartKm},
+			car_end_km = #{carEndKm},
+			car_driver = #{carDriver},
+			car_passenger = #{carPassenger},
+			car_key = #{carKey},
+			car_fuel = #{carFuel},
+			car_fuel_amount = #{carFuelAmount},
+			car_remark = #{carRemark} 
+		WHERE car_pid = #{carPID}
+	</update>
+	
+	<delete id="setCarUseDelete" parameterType="int">
+		DELETE FROM corp_car_log WHERE car_pid = #{carPID}
+	</delete>
+	
+</mapper>

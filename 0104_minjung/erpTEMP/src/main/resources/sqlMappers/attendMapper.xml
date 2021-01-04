@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="attend">
+	
+	<!-- curdate() : 2020-01-01 / now() : 2020-01-01 08:00:00 -->
+	<insert id="setStarttime" parameterType="attendvo">
+		INSERT INTO attendance SET 
+			attend_workdate		= curdate(),
+			attend_starttime	= now(),
+			emp_id_fk		= #{empIdFk} 
+	</insert>
+	
+	<select id="isStarted" parameterType="attendvo" resultType="int">
+		SELECT COUNT(attend_starttime) FROM attendance 
+		WHERE emp_id_fk = #{empIdFk} 
+	</select>
+	
+	<update id="setEndtime" parameterType="attendvo">
+		UPDATE attendance SET 
+			attend_endtime	= now() 
+		WHERE emp_id_fk	= #{empIdFk} 
+	</update>
+	
+	<select id="isEnded" parameterType="attendvo" resultType="int">
+		SELECT COUNT(attend_endtime) FROM attendance 
+		WHERE emp_id_fk = #{empIdFk} 
+	</select>
+	
+	<select id="getTimes" parameterType="attendvo" resultType="attendvo">
+		SELECT 
+			attend_starttime 	AS attendStarttime,
+			attend_endtime		AS attendEndtime 
+		FROM attendance 
+		WHERE emp_id_fk = #{empIdFk} 
+	</select>
+	
+</mapper>
