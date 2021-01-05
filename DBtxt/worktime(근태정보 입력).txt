@@ -10,7 +10,7 @@ create table attendance(
 	attend_overtime int,			// 초과근무시간(총근무시간-소정근무시간)
 	attend_totaltime int,			// 총근무시간(퇴근시간-출근시간)
 	attend_late char(1), 			// 지각 - Y/N
-	attend_workplace char(1), 			// 외근여부 - selectbox(Y/N - 내근Y)
+	attend_workplace char(1) default 'Y', 			// 외근여부 - selectbox(Y/N - 내근Y)
 	// 외근은 결재신청 후 승인필요
 	
 	attend_status int,				// 상태 (처리필요-1/정상출근-2/휴가-3/결근-4)
@@ -29,7 +29,7 @@ create table attendance(
 	attend_overtime int,		
 	attend_totaltime int,		
 	attend_late char(1), 			
-	attend_workplace char(1), 		
+	attend_workplace char(1) default 'Y', 		
 	
 	attend_status int,				
 
