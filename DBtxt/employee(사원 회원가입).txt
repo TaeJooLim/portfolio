@@ -16,10 +16,10 @@ create table employee(
 	emp_confirm char(1) default 'N'		// 승인여부 (추후 이메일로 체크가능한지)
 	emp_photo varchar(255)			// 사진경로 (추후)
 
-	// 연차정보 (int를 소숫점 받을 수 있는지 확인필요)
-	emp_off_total int,			// 연차생성(오늘 - 입사일빼서 달에 1개 자동계산)
-	emp_off_use int default 0,		// 사용한 휴가일수
-	emp_off_remain int default 0,		// 남은 휴가일수
+	// 연차정보 
+	emp_off_total double,			// 연차생성(오늘 - 입사일빼서 달에 1개 자동계산)
+	emp_off_use double default 0,		// 사용한 휴가일수
+	emp_off_remain double default 0,		// 남은 휴가일수
 );
 
 create table employee(
@@ -39,9 +39,9 @@ create table employee(
 	emp_confirm char(1) default 'N',
 	emp_photo varchar(255),
 	
-	emp_off_total int,
-	emp_off_use int default 0,
-	emp_off_remain int default 0
+	emp_off_total double,
+	emp_off_use double default 0,
+	emp_off_remain double default 0
 );
 
 INSERT INTO employee SET 
