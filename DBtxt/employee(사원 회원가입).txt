@@ -68,7 +68,7 @@ INSERT INTO employee SET
 	emp_email = 'park@blue.com',
 	emp_regdate = now();
 
-INSERT INTO employee_detail SET
+INSERT INTO employee_detail SET 
 	emp_CP = '010-1111-1111',
 	emp_bank = '하나',
 	emp_accountnum = '0101010-10-101',
