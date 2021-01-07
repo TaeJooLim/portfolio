@@ -1,4 +1,5 @@
 CREATE TABLE salary (
+	sform_id int not null auto_increment, 		// PK
 	salary_date char(7) not null, 			// 지급월 ( 2020-12 )
 	emp_id_fk int not null, 			// emp_id PK를 FK로 저장
 	emp_position_fk char(2) not null, 		// 급여지급당시 직급을 FK로 저장
@@ -16,6 +17,7 @@ CREATE TABLE salary (
 );
 
 CREATE TABLE salary (
+	sform_id int not null auto_increment,
 	salary_date char(7) not null, 			
 	emp_id_fk int not null, 			
 	emp_position_fk char(2) not null, 		
