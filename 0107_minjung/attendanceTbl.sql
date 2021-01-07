@@ -1,0 +1,60 @@
+-- MySQL dump 10.13  Distrib 8.0.19, for Win64 (x86_64)
+--
+-- Host: localhost    Database: erp
+-- ------------------------------------------------------
+-- Server version	8.0.19
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `attendance`
+--
+
+DROP TABLE IF EXISTS `attendance`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `attendance` (
+  `attend_id` int NOT NULL AUTO_INCREMENT,
+  `attend_workdate` char(10) DEFAULT NULL,
+  `attend_starttime` datetime DEFAULT NULL,
+  `attend_endtime` datetime DEFAULT NULL,
+  `attend_defaulttime` int DEFAULT '540',
+  `attend_overtime` int DEFAULT NULL,
+  `attend_totaltime` int DEFAULT NULL,
+  `attend_late` char(1) DEFAULT NULL,
+  `attend_workplace` char(1) DEFAULT 'Y',
+  `attend_status` int DEFAULT NULL,
+  `emp_id_fk` int NOT NULL,
+  PRIMARY KEY (`attend_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `attendance`
+--
+
+LOCK TABLES `attendance` WRITE;
+/*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
+INSERT INTO `attendance` VALUES (37,'2021-01-06','2021-01-06 10:00:00','2021-01-06 19:00:00',540,0,540,'N','N',2,4),(39,'2020-12-29','2020-12-29 12:00:00','2020-12-29 21:30:00',540,30,570,'N','N',2,4),(40,'2020-12-10','2020-12-10 08:12:00','2020-12-10 17:56:00',540,44,584,'N','Y',2,17),(41,'2020-12-23','2020-12-23 08:45:00','2020-12-23 17:57:00',540,12,552,'N','Y',2,16),(42,'2021-01-03','2021-01-03 08:32:00','2021-01-03 17:55:00',540,23,563,'N','Y',2,15),(43,'2020-01-03','2020-01-03 08:51:00','2020-01-03 18:04:00',540,13,553,'N','Y',2,14),(44,'2020-12-30','2020-12-30 07:58:00','2020-12-30 18:01:00',540,63,603,'N','Y',2,13),(45,'2021-01-02','2021-01-02 11:12:00','2021-01-02 16:32:00',540,-220,320,'Y','N',1,12),(46,'2021-01-03','2021-01-03 10:05:00','2021-01-03 20:46:00',540,101,641,'N','Y',2,11),(47,'2020-12-31','2020-12-31 08:30:00','2020-12-31 18:02:00',540,32,572,'N','Y',2,10),(48,'2020-12-04','2020-12-04 09:12:00','2020-12-04 17:59:00',540,-13,527,'Y','Y',1,9),(49,'2021-01-02','2021-01-02 08:55:00','2021-01-02 16:59:00',540,-56,484,'N','Y',2,8);
+/*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-01-07 16:20:04
