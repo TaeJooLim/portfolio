@@ -6,9 +6,19 @@ create table produce (
 	prod_process2 char(1),					// 공정2 (Y/N으로 구분)
 	prod_process3 char(1),					// 공정3 (Y/N으로 구분)
 	prod_process4 char(1),					// 공정4 (Y/N으로 구분)
-	prod_process5 char(1),					// 공정5 (Y/N으로 구분)
-	prod_release char(1) default 'N',			// 출고여부 (Y/N으로 구분)
+	prod_process5 char(1),					// 공정5 (Y/N으로 구분)				
+	prod_process_name1 varchar(50), 			// 공정1 공정명	
+	prod_process_name2 varchar(50), 			// 공정2 공정명
+	prod_process_name3 varchar(50), 			// 공정3 공정명
+	prod_process_name4 varchar(50), 			// 공정4 공정명
+	prod_process_name5 varchar(50),				// 공정5 공정명
 	prod_process_cnt int not null,				// 공정의 갯수
+	
+	prod_p_name varchar(100), 				// 품명
+	prod_p_unit varchar(5), 				// 단위
+	prod_p_amount varchar(5), 				// 수량
+	
+	prod_release char(1) default 'N',			// 출고여부 (Y/N으로 구분)
 );
 
 
@@ -19,10 +29,19 @@ create table produce (
 	prod_process2 char(1),	
 	prod_process3 char(1),				
 	prod_process4 char(1),		
-	prod_process5 char(1),		
-	prod_release char(1) default 'N',		
+	prod_process5 char(1),				
+	prod_process_name1 varchar(50), 				
+	prod_process_name2 varchar(50), 				
+	prod_process_name3 varchar(50), 				
+	prod_process_name4 varchar(50), 				
+	prod_process_name5 varchar(50),
+	prod_process_cnt int not null,
 	
-	prod_process_cnt int not null	
+	prod_p_name varchar(100), 
+	prod_p_unit varchar(5), 
+	prod_p_amount varchar(5), 
+	
+	prod_release char(1) default 'N'
 );
 
 상품의 공정차수(제일 높은 차수)를 받아서 그 공정의 갯수만큼만 N으로 입력될 수 있도록 하고, 나머지는 NULL로 받는다.
