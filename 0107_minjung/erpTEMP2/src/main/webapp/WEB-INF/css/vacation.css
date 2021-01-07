@@ -1,0 +1,46 @@
+@charset 'utf_8';
+
+.num_auto{
+    height: 35px;
+    background-color: #fff;
+    border: none;
+    border-bottom: 2px solid #000;
+}
+
+.vacationInfo_box{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button, input, select {
+    font-size: 12px;
+    height: 30px;
+    font-weight: normal;
+}
+
+.emp_info_tbl tr td , .vacationInfo_tbl tr td{
+    border: 1px solid #ccc;
+    font-size: 12px;
+    text-align: center;
+    height: 30px;
+}
+.emp_info_tbl tr:nth-child(2n+1){
+    background-color: #eff3f9;
+}
+.emp_info_tbl tr:first-child{
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #6f809a;
+   /* background-color: #eff3f9; */
+    color: #fff;
+}
+
+.vacationInfo_tbl{
+    line-height: 41px;
+}
+.vacationInfo_tbl tr:nth-child(2n-1){
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #eee;
+}

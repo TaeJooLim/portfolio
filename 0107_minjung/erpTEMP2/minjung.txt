@@ -1,0 +1,26 @@
+0106 박민정 작업내용
+
+controller : 
+	admin패키지	- attend패키지 - AttendCtr
+	user패키지	- UserMainCtr
+				- attend패키지 - UserAttendCtr	
+model :
+	attend패키지	- AttendVO
+repository :
+	admin패키지	- AttendDao, AttendDaoImpl
+service	:
+	admin패키지	- AttendSrv, AttendSrvImpl
+mapper :
+	attendMapper.xml 추가
+	<typeAlias type="com.portfolio.erp.model.attend.AttendVO" alias="attendvo" />
+
+views :
+	admin 	- erp_attend폴더
+	user 	- erp_attend폴더, include폴더, user_main.jsp
+
+css,js	:
+	user_main.css 추가, user_main.js 추가
+	attend_list.css 추가, attend_list.js 추가
+	
+	
+
