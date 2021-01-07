@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="employee">
+	<sql id="searchCondition">
+		<choose>
+			<when test=" words == '' "> WHERE emp_num != 'admin'</when>
+			<when test=" searchOpt == 'all' ">
+				WHERE emp_num LIKE CONCAT('%', #{words}, '%') OR emp_name LIKE CONCAT('%', #{words}, '%')  AND emp_num != 'admin' 
+			</when>
+			<otherwise>
+				WHERE ${searchOpt} LIKE CONCAT('%', #{words}, '%')  AND emp_num != 'admin' 
+			</otherwise>
+		</choose>
+	</sql>
+
+	<insert id="setEmpDetail" parameterType="employeevo">
+		INSERT INTO employee_detail SET
+			emp_company		= #{empCompany},
+			emp_team		= #{empTeam},
+			emp_gender		= #{empGender},
+			emp_CP			= #{empCP},
+			emp_extension	= #{empExtension},
+			emp_leader		= #{empLeader},
+			emp_driving		= #{empDriving},
+			emp_carlicense	= #{empCarlicense},
+			emp_mycar		= #{empMycar},
+			emp_graduated	= #{empGraduated},
+			emp_major		= #{empMajor},
+			emp_academy		= #{empAcademy},
+			emp_reward		= #{empReward},
+			emp_disability	= #{empDisability},
+			emp_army		= #{empArmy},
+			emp_religion	= #{empReligion},
+			emp_married		= #{empMarried},
+			emp_license1	= #{empLicense1},
+			emp_license2	= #{empLicense2},
+			emp_license3	= #{empLicense3},
+			emp_lang1		= #{empLang1},
+			emp_lang2		= #{empLang2},
+			emp_nation		= #{empNation},
+			emp_post		= #{empPost},
+			emp_address		= #{empAddress},
+			emp_bank		= #{empBank},
+			emp_accountnum	= #{empAccountnum},
+			emp_address_detail = #{empAddressDetail},
+			emp_career		= #{empCareer},
+			emp_id_fk		= #{empId}
+			
+	</insert>
+	
+	<delete id="setEmployeeDelete" parameterType="int">
+		DELETE FROM employee WHERE emp_id = #{empId}
+	</delete>
+	
+	<delete id="setEmployeeDetailDelete" parameterType="int">
+		DELETE FROM employee_detail WHERE emp_id_fk = #{empId}
+	</delete>
+
+	<select id="getEmpCount" resultType="int" parameterType="hashmap">
+		SELECT COUNT(emp_id) FROM employee <include refid="searchCondition"></include>
+	</select>
+	
+	<select id="getEmployeeList" resultType="employeevo" parameterType="hashmap">
+		SELECT 
+			emp_id 			AS empId,
+			emp_department 	AS empDepartment,
+			depart_name 	AS empDepartmentName,
+			emp_position 	AS empPosition,
+			position_name 	AS empPositionName,
+			emp_num 		AS empNum,
+			emp_enter 		AS empEnter,
+			emp_name 		AS empName,
+			emp_birth 		AS empBirth,
+			emp_step 		AS empStep,
+			emp_headcheck 	AS empHeadcheck,
+			emp_regdate 	AS empRegdate, 
+			emp_auth 		AS empAuth,
+			emp_confirm 	AS empConfirm,
+			emp_off_total 	AS empOffTotal, 
+			emp_off_use 	AS empOffUse, 
+			emp_off_remain 	AS empOffRemain, 
+			
+			emp_company 	AS empCompany,
+			emp_leader 		AS empLeader,
+			emp_gender 		AS empGender,
+			emp_extension 	AS empExtension,
+			emp_CP 			AS empCP,
+			emp_career 		AS empCareer 
+			
+			FROM employee LEFT JOIN department ON emp_department = depart_code 
+						  LEFT JOIN position ON emp_position = position_code  
+						  LEFT JOIN employee_detail ON emp_id = emp_id_fk 
+			<include refid="searchCondition"></include> 
+			ORDER BY emp_id DESC LIMIT #{startIndex}, #{pageSize}
+	</select>
+	<update id="headChange" parameterType="hashmap">
+		UPDATE employee SET emp_headcheck = #{headType} WHERE emp_num = #{empNum}
+	</update>
+	
+	<update id="confirmChange" parameterType="hashmap">
+		UPDATE employee SET emp_confirm = #{confirmType} WHERE emp_num = #{empNum}
+	</update>
+	
+	<update id="authChange" parameterType="hashmap">
+		UPDATE employee SET emp_auth = #{auth} WHERE emp_id = #{empId}
+	</update>
+	
+	<select id="getEmployeeOne" resultType="employeevo" parameterType="int">
+		SELECT 
+			emp_id			AS empId,
+			emp_department	AS empDepartment,
+			emp_position	AS empPosition,
+			emp_num			AS empNum,
+			emp_enter		AS empEnter,
+			emp_name		AS empName,
+			emp_birth		AS empBirth,
+			emp_step		AS empStep,
+			emp_headcheck	AS empHeadcheck,
+			emp_auth		AS empAuth,
+			emp_confirm		AS empConfirm,
+			emp_regdate		AS empRegdate,
+			emp_email		AS empEmail,
+			emp_off_total 	AS empOffTotal, 
+			emp_off_use 	AS empOffUse, 
+			emp_off_remain 	AS empOffRemain, 
+			
+			emp_company		AS empCompany,
+			emp_team		AS empTeam,
+			emp_gender		AS empGender,
+			emp_CP			AS empCP,
+			emp_extension	AS empExtension,
+			emp_leader		AS empLeader,
+			emp_driving		AS empDriving,
+			emp_carlicense	AS empCarlicense,
+			emp_mycar		AS empMycar,
+			emp_graduated	AS empGraduated,
+			emp_major		AS empMajor,
+			emp_academy		AS empAcademy,
+			emp_reward		AS empReward,
+			emp_disability	AS empDisability,
+			emp_army		AS empArmy,
+			emp_religion	AS empReligion,
+			emp_married		AS empMarried,
+			emp_license1	AS empLicense1,
+			emp_license2	AS empLicense2,
+			emp_license3	AS empLicense3,
+			emp_lang1		AS empLang1,
+			emp_lang2		AS empLang2,
+			emp_nation		AS empNation,
+			emp_post		AS empPost,
+			emp_address		AS empAddress,
+			emp_bank		AS empBank,
+			emp_accountnum	AS empAccountnum,
+			emp_address_detail AS empAddressDetail,
+			emp_career		AS empCareer 
+			
+			FROM employee LEFT JOIN employee_detail ON emp_id = emp_id_fk WHERE emp_id = #{empId}
+	</select>
+	<select id="chkFk" resultType="int" parameterType="int">
+		SELECT COUNT(*) FROM employee_detail WHERE emp_id_fk = #{empId}
+	</select>
+	
+	<update id="updateEmployee" parameterType="employeevo">
+		UPDATE employee SET 
+			emp_department = #{empDepartment},
+			emp_position = #{empPosition},
+			emp_name = #{empName},
+			emp_email = #{empEmail},
+			emp_enter = #{empEnter},
+			emp_birth = #{empBirth} 
+			
+			WHERE emp_id = #{empId}
+	</update>
+	
+	<update id="updateEmployeeDetail" parameterType="employeevo">
+		UPDATE employee_detail SET 
+			emp_company		= #{empCompany},
+			emp_team		= #{empTeam},
+			emp_gender		= #{empGender},
+			emp_CP			= #{empCP},
+			emp_extension	= #{empExtension},
+			emp_leader		= #{empLeader},
+			emp_driving		= #{empDriving},
+			emp_carlicense	= #{empCarlicense},
+			emp_mycar		= #{empMycar},
+			emp_graduated	= #{empGraduated},
+			emp_major		= #{empMajor},
+			emp_academy		= #{empAcademy},
+			emp_reward		= #{empReward},
+			emp_disability	= #{empDisability},
+			emp_army		= #{empArmy},
+			emp_religion	= #{empReligion},
+			emp_married		= #{empMarried},
+			emp_license1	= #{empLicense1},
+			emp_license2	= #{empLicense2},
+			emp_license3	= #{empLicense3},
+			emp_lang1		= #{empLang1},
+			emp_lang2		= #{empLang2},
+			emp_nation		= #{empNation},
+			emp_post		= #{empPost},
+			emp_address		= #{empAddress},
+			emp_bank		= #{empBank},
+			emp_accountnum	= #{empAccountnum},
+			emp_address_detail = #{empAddressDetail},
+			emp_career		= #{empCareer} 
+			
+			WHERE emp_id_fk = #{empId}
+	</update>
+	
+	
+	<select id="getMyInfo" resultType="employeevo" parameterType="employeevo">
+		SELECT 
+			emp_id			AS empId,
+			emp_department	AS empDepartment,
+			emp_position	AS empPosition,
+			emp_num			AS empNum,
+			emp_enter		AS empEnter,
+			emp_name		AS empName,
+			emp_birth		AS empBirth,
+			emp_step		AS empStep,
+			emp_headcheck	AS empHeadcheck,
+			emp_auth		AS empAuth,
+			emp_confirm		AS empConfirm,
+			emp_regdate		AS empRegdate,
+			emp_email		AS empEmail,
+			emp_off_total 	AS empOffTotal, 
+			emp_off_use 	AS empOffUse, 
+			emp_off_remain 	AS empOffRemain, 
+			
+			emp_company		AS empCompany,
+			emp_team		AS empTeam,
+			emp_gender		AS empGender,
+			emp_CP			AS empCP,
+			emp_extension	AS empExtension,
+			emp_leader		AS empLeader,
+			emp_driving		AS empDriving,
+			emp_carlicense	AS empCarlicense,
+			emp_mycar		AS empMycar,
+			emp_graduated	AS empGraduated,
+			emp_major		AS empMajor,
+			emp_academy		AS empAcademy,
+			emp_reward		AS empReward,
+			emp_disability	AS empDisability,
+			emp_army		AS empArmy,
+			emp_religion	AS empReligion,
+			emp_married		AS empMarried,
+			emp_license1	AS empLicense1,
+			emp_license2	AS empLicense2,
+			emp_license3	AS empLicense3,
+			emp_lang1		AS empLang1,
+			emp_lang2		AS empLang2,
+			emp_nation		AS empNation,
+			emp_post		AS empPost,
+			emp_address		AS empAddress,
+			emp_bank		AS empBank,
+			emp_accountnum	AS empAccountnum,
+			emp_address_detail AS empAddressDetail,
+			emp_career		AS empCareer,
+			
+			depart_name		AS empDepartmentName  
+			
+			FROM employee LEFT JOIN employee_detail ON emp_id = emp_id_fk 
+			LEFT JOIN department ON emp_department = depart_code 
+			WHERE emp_id = #{empId} 
+	</select>
+	
+	<insert id="setMyDetail" parameterType="employeevo">
+		INSERT INTO employee_detail SET 
+			emp_company		= #{empCompany},
+			emp_team		= #{empTeam},
+			emp_gender		= #{empGender},
+			emp_CP			= #{empCP},
+			emp_extension	= #{empExtension},
+			emp_leader		= #{empLeader},
+			emp_driving		= #{empDriving},
+			emp_carlicense	= #{empCarlicense},
+			emp_mycar		= #{empMycar},
+			emp_graduated	= #{empGraduated},
+			emp_major		= #{empMajor},
+			emp_academy		= #{empAcademy},
+			emp_reward		= #{empReward},
+			emp_disability	= #{empDisability},
+			emp_army		= #{empArmy},
+			emp_religion	= #{empReligion},
+			emp_married		= #{empMarried},
+			emp_license1	= #{empLicense1},
+			emp_license2	= #{empLicense2},
+			emp_license3	= #{empLicense3},
+			emp_lang1		= #{empLang1},
+			emp_lang2		= #{empLang2},
+			emp_nation		= #{empNation},
+			emp_post		= #{empPost},
+			emp_address		= #{empAddress},
+			emp_bank		= #{empBank},
+			emp_accountnum	= #{empAccountnum},
+			emp_address_detail = #{empAddressDetail},
+			emp_id_fk		= #{empId} 
+	</insert>
+	
+	<update id="updateMyInfo" parameterType="employeevo">
+		UPDATE employee SET 
+			emp_department = #{empDepartment},
+			emp_position = #{empPosition},
+			emp_name = #{empName},
+			emp_email = #{empEmail},
+			emp_enter = #{empEnter},
+			emp_birth = #{empBirth} 
+			
+			WHERE emp_id = #{empId}
+	</update>
+	
+	<update id="updateMyDetail" parameterType="employeevo">
+		UPDATE employee_detail SET 
+			emp_company		= #{empCompany},
+			emp_team		= #{empTeam},
+			emp_gender		= #{empGender},
+			emp_CP			= #{empCP},
+			emp_extension	= #{empExtension},
+			emp_leader		= #{empLeader},
+			emp_driving		= #{empDriving},
+			emp_carlicense	= #{empCarlicense},
+			emp_mycar		= #{empMycar},
+			emp_graduated	= #{empGraduated},
+			emp_major		= #{empMajor},
+			emp_academy		= #{empAcademy},
+			emp_reward		= #{empReward},
+			emp_disability	= #{empDisability},
+			emp_army		= #{empArmy},
+			emp_religion	= #{empReligion},
+			emp_married		= #{empMarried},
+			emp_license1	= #{empLicense1},
+			emp_license2	= #{empLicense2},
+			emp_license3	= #{empLicense3},
+			emp_lang1		= #{empLang1},
+			emp_lang2		= #{empLang2},
+			emp_nation		= #{empNation},
+			emp_post		= #{empPost},
+			emp_address		= #{empAddress},
+			emp_bank		= #{empBank},
+			emp_accountnum	= #{empAccountnum},
+			emp_address_detail = #{empAddressDetail} 
+			
+			WHERE emp_id_fk = #{empId}
+	</update>
+	
+	<select id="getCoworker" parameterType="employeevo" resultType="employeevo">
+		SELECT 
+			emp_id			AS empId,
+			emp_name		AS empName,
+			emp_department	AS empDepartment,
+			
+			emp_position	AS empPosition,
+			emp_team		AS empTeam,
+			emp_leader		AS empLeader,
+			emp_gender		AS empGender,
+			emp_extension	AS empExtension,
+			emp_CP			AS empCP,
+			
+			position_name 	AS empPositionName 
+			
+			FROM employee 
+			LEFT JOIN employee_detail	ON emp_id = emp_id_fk 
+			LEFT JOIN position			ON emp_position = position_code 
+			WHERE emp_department = #{empDepartment} 
+			ORDER BY emp_position DESC 
+	</select>
+	<select id="getEmpIdList" resultType="employeevo">
+		SELECT emp_id AS empId FROM employee
+	</select>
+	
+	<update id="updatePwd" parameterType="hashmap">
+		UPDATE employee SET emp_password = #{pwd} 
+		WHERE emp_num = #{empNum} 
+	</update>
+</mapper>

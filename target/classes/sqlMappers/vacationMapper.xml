@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vacation">
+
+	<insert id="setVacation" parameterType="vacationvo">
+		INSERT INTO vacation SET 
+			off_startDate		= #{offStartDate},
+			off_endDate			= #{offEndDate},
+			off_date			= #{offDate},
+			off_date_cnt		= #{offDateCnt},
+			off_type			= #{offType},
+			off_doc_num			= #{offDocNum}, 
+			off_regdate			= now(), 
+			emp_id_fk			= #{empIdFk} 
+	</insert>
+	
+	<update id="updateEmpOff" parameterType="employeevo">
+		UPDATE employee SET 
+			 emp_off_use	= #{empOffUse}, 
+			 emp_off_remain	= #{empOffRemain} 
+		WHERE emp_id = #{empIdFk}
+	</update>
+
+	<select id="getVacationList" parameterType="int" resultType="vacationvo">
+    	SELECT 
+			off_startDate    AS offStartDate,
+			off_endDate       AS offEndDate,
+			off_date_cnt    AS offDateCnt,
+			off_doc_num       AS offDocNum,
+			off_type       AS offType,
+   			off_confirm       AS offConfirm, 
+    		off_regdate       AS offRegdate, 
+      		emp_name       AS empName, 
+      		depart_name         AS empDepartmentName, 
+       		position_name     AS empPositionName 
+          
+		FROM vacation LEFT JOIN employee ON emp_id_fk = emp_id 
+             	LEFT JOIN department ON emp_department = depart_code 
+             	LEFT JOIN position ON emp_position = position_code  
+		WHERE emp_id_fk = #{empIdFk} GROUP BY off_doc_num ORDER BY off_id DESC
+   </select>
+	
+	<select id="getCntOffTypeA" resultType="int">
+		SELECT COUNT(if(off_type='A',off_type, null)) FROM vacation 
+	</select>
+	
+	<select id="getCntOffTypeB" resultType="int">
+		SELECT COUNT(if(off_type='B',off_type, null)) FROM vacation 
+	</select>
+	
+	<select id="getCntOffTypeC" resultType="int">
+		SELECT COUNT(if(off_type='C',off_type, null)) FROM vacation 
+	</select>
+	
+	<select id="getCntOffTypeD" resultType="int">
+		SELECT COUNT(if(off_type='D',off_type, null)) FROM vacation 
+	</select>
+	
+	<delete id="deleteVacation" parameterType="hashmap">
+    	DELETE FROM vacation WHERE off_doc_num = #{offDocNum} AND emp_id_fk = #{empId} 
+   </delete>
+
+</mapper>

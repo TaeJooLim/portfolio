@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.portfolio.erp.model.employee.EmployeeVO" alias="employeevo" />
+		<typeAlias type="com.portfolio.erp.model.product.ProductVO" alias="productvo" />
+		<typeAlias type="com.portfolio.erp.model.produce.ProduceVO" alias="producevo" />
+		<typeAlias type="com.portfolio.erp.model.client.ClientVO" alias="clientvo" />
+		<typeAlias type="com.portfolio.erp.model.car.CarVO" alias="carvo" />
+		<typeAlias type="com.portfolio.erp.model.contract.ContractVO" alias="contractvo" />
+		<typeAlias type="com.portfolio.erp.model.order.OrderVO" alias="ordervo" />
+		<typeAlias type="com.portfolio.erp.model.salary.SalaryVO" alias="salaryvo" />
+		<typeAlias type="com.portfolio.erp.model.workcenter.WorkcenterVO" alias="workcentervo" />
+		<typeAlias type="com.portfolio.erp.model.company.CompanyVO" alias="companyvo" />
+		<typeAlias type="com.portfolio.erp.model.board.BoardVO" alias="boardvo" />
+		<typeAlias type="com.portfolio.erp.model.board.ArticleVO" alias="articlevo" />
+		<typeAlias type="com.portfolio.erp.model.board.CommentVO" alias="commentvo" />
+		<typeAlias type="com.portfolio.erp.model.vacation.VacationVO" alias="vacationvo" />
+	</typeAliases>
+</configuration>

@@ -1,0 +1,40 @@
+<기존 작업 수정 사항>
+
+* vacationMapper ------------------------------------------------------------------------------------------
+
+	deleteVacation 수정
+
+* VacationVO ------------------------------------------------------------------------------------------
+
+	empOffUse, empOffRemain, empNum, empTeam, offConfirmDate 추가
+
+* DB(vacation) ------------------------------------------------------------------------------------------
+
+	offConfirmDate Date (결재완료날짜)
+
+
+
+
+ 연차신청리스트 -----------------------------------------------------------------------------------
+
+* views		: vacation_info_list.jsp
+
+* controller	: VacationCtr.java
+
+* model		: Vacation.java
+
+* repositoly	: VacationDao.java
+		  VacationDaoImpl.java
+
+* service	: VacationSrv.java
+		  VacationSrvImpl.java
+
+* sqlMappers	: vacationMapper.xml
+
+* js		: vacation_list.js
+
+* 메뉴링크주소	: "${pageContext.request.contextPath}/admin/vacation_list"
+
+ 연차신청form -----------------------------------------------------------------------------------
+
+* views		: vacation_form.jsp
