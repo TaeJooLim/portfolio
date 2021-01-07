@@ -35,3 +35,17 @@ create table attendance(
 
 	emp_id_fk int not null
 );
+
+/**	emp_id_fk는 현재 가지고 있는 employee테이블의 id에 있는걸로 일치시켜야함	**/
+
+INSERT INTO attendance SET attend_workdate='2021-01-06', attend_starttime='2021-01-06 10:00:00', attend_endtime='2021-01-06 19:00:00', attend_defaulttime='540', attend_overtime='0', attend_totaltime='540', attend_late='N', attend_workplace='N', attend_status='2', emp_id_fk='1';
+INSERT INTO attendance SET attend_workdate='2020-12-29', attend_starttime='2020-12-29 12:00:00', attend_endtime='2020-12-29 21:30:00', attend_defaulttime='540', attend_overtime='30', attend_totaltime='570', attend_late='N', attend_workplace='N', attend_status='2', emp_id_fk='2';
+INSERT INTO attendance SET attend_workdate='2020-12-10', attend_starttime='2020-12-10 08:12:00', attend_endtime='2020-12-10 17:56:00', attend_defaulttime='540', attend_overtime='44', attend_totaltime='584', attend_late='N', attend_workplace='Y', attend_status='2', emp_id_fk='3';
+INSERT INTO attendance SET attend_workdate='2020-12-23', attend_starttime='2020-12-23 08:45:00', attend_endtime='2020-12-23 17:57:00', attend_defaulttime='540', attend_overtime='12', attend_totaltime='552', attend_late='N', attend_workplace='Y', attend_status='2', emp_id_fk='4';
+INSERT INTO attendance SET attend_workdate='2021-01-03', attend_starttime='2021-01-03 08:32:00', attend_endtime='2021-01-03 17:55:00', attend_defaulttime='540', attend_overtime='23', attend_totaltime='563', attend_late='N', attend_workplace='Y', attend_status='2', emp_id_fk='5';
+INSERT INTO attendance SET attend_workdate='2020-01-03', attend_starttime='2020-01-03 08:51:00', attend_endtime='2020-01-03 18:04:00', attend_defaulttime='540', attend_overtime='13', attend_totaltime='553', attend_late='N', attend_workplace='Y', attend_status='2', emp_id_fk='6';
+INSERT INTO attendance SET attend_workdate='2020-12-30', attend_starttime='2020-12-30 07:58:00', attend_endtime='2020-12-30 18:01:00', attend_defaulttime='540', attend_overtime='63', attend_totaltime='603', attend_late='Y', attend_workplace='N', attend_status='1', emp_id_fk='7';
+INSERT INTO attendance SET attend_workdate='2021-01-02', attend_starttime='2021-01-02 11:12:00', attend_endtime='2021-01-02 16:32:00', attend_defaulttime='540', attend_overtime='-220', attend_totaltime='320', attend_late='N', attend_workplace='Y', attend_status='2', emp_id_fk='8';
+INSERT INTO attendance SET attend_workdate='2021-01-03', attend_starttime='2021-01-03 10:05:00', attend_endtime='2021-01-03 20:46:00', attend_defaulttime='540', attend_overtime='101', attend_totaltime='641', attend_late='N', attend_workplace='Y', attend_status='2', emp_id_fk='9';
+INSERT INTO attendance SET attend_workdate='2020-12-31', attend_starttime='2020-12-31 08:30:00', attend_endtime='2020-12-31 18:02:00', attend_defaulttime='540', attend_overtime='32', attend_totaltime='572', attend_late='Y', attend_workplace='Y', attend_status='1', emp_id_fk='10';
+INSERT INTO attendance SET attend_workdate='2020-12-04', attend_starttime='2020-12-04 09:12:00', attend_endtime='2020-12-04 17:59:00', attend_defaulttime='540', attend_overtime='-13', attend_totaltime='527', attend_late='N', attend_workplace='Y', attend_status='1', emp_id_fk='11';
