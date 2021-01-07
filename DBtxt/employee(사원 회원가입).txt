@@ -6,11 +6,11 @@ create table employee(
 	emp_enter char(10) not null,		// 입사년월일
 	emp_name varchar(30) not null,		// 사원이름
 	emp_birth char(10) not null,		// 생년월일
-	emp_password varchar(20) not null,		// 초기비밀번호(default : 생년월일 yymmdd 6자리)
+	emp_password varchar(20) not null,	// 초기비밀번호(default : 생년월일 yymmdd 6자리)
 						// 비밀번호는 (6자이상 20자 이하)
 	emp_email varchar(50) not null,		// 이메일주소
 	emp_regdate Date,			// erp 회원가입일
-	emp_headcheck char(1) default 'N',		// 부서장여부(*)
+	emp_headcheck char(1) default 'N',	// 부서장여부(*)
 	emp_step int,				// 호봉 (자동계산)
 	emp_auth int default 1,			// 권한
 	emp_confirm char(1) default 'N'		// 승인여부 (추후 이메일로 체크가능한지)
@@ -18,8 +18,8 @@ create table employee(
 
 	// 연차정보 
 	emp_off_total double,			// 연차생성(오늘 - 입사일빼서 달에 1개 자동계산)
-	emp_off_use double default 0,		// 사용한 휴가일수
-	emp_off_remain double default 0,		// 남은 휴가일수
+	emp_off_use double,			// 사용한 휴가일수
+	emp_off_remain double default 0,	// 남은 휴가일수
 );
 
 create table employee(
