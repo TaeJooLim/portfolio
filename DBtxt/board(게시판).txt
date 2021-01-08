@@ -1,0 +1,384 @@
+CREATE TABLE board(
+board_id int not null auto_increment primary key,
+board_department char(3) not null,			//게시판 부서
+board_code varchar(20) not null,			//게시판 코드(영어)
+board_num varchar(25) not null,			//게시판 부서+코드 (게시판&댓글 생성값)
+board_open char(1),			//게시판 공개여부
+board_manager varchar(10),		//게시판 관리자
+board_name varchar(20),			//게시판 이름
+board_type char(6),			//게시판 타입
+board_read char(1),			//읽기여부
+board_write char(1),			//쓰기여부
+board_comment char(1),			//댓글여부
+board_down char(1),			//다운여부
+board_move varchar(5) not null			//게시판 이동용
+);
+
+
+CREATE TABLE board(
+board_id int not null auto_increment primary key,
+board_department char(3) not null,		
+board_code varchar(20) not null,			
+board_num varchar(25) not null,			
+board_open char(1),			
+board_manager varchar(10),		
+board_name varchar(20),			
+board_type char(6),		
+board_read char(1),			
+board_write char(1),			
+board_comment char(1),			
+board_down char(1),			
+board_move varchar(5) not null			
+);
+
+INSERT INTO board SET 
+		board_department = '999',
+		board_code = 'notice',
+		board_num = '999notice',
+		board_open = 0,
+		board_manager = 'admin',
+		board_name = '공지사항',
+		board_type = '공지사항',
+		board_read = 0,
+		board_write = 0,
+		board_comment = 0,
+		board_down = 0,
+		board_move = '9991';
+
+INSERT INTO board SET 
+		board_department = '999',
+		board_code = 'QnA',
+		board_num = '999QnA',
+		board_open = 0,
+		board_manager = 'admin',
+		board_name = '문의사항',
+		board_type = '일반',
+		board_read = 0,
+		board_write = 0,
+		board_comment = 0,
+		board_down = 0,
+		board_move = '9992';
+
+INSERT INTO board SET 
+		board_department = '999',
+		board_code = 'freeboard',
+		board_num = '999freeboard',
+		board_open = 0,
+		board_manager = 'admin',
+		board_name = '자유게시판',
+		board_type = '일반',
+		board_read = 0,
+		board_write = 0,
+		board_comment = 0,
+		board_down = 0,
+		board_move = '9993';
+
+CREATE TABLE board_article_999notice
+		(aid int not null auto_increment primary key,
+		division char(1),
+		subject varchar(300) not null,
+		writer varchar(20) not null,
+		content text,
+		regdate datetime,
+		hit int default 0,
+		fileName varchar(300),
+		fileOriName varchar(300),
+		fileUrl varchar(500),
+		emp_id_fk int,
+		comment_hit int,
+		secret char(1));
+
+CREATE TABLE board_article_999QnA
+		(aid int not null auto_increment primary key,
+		division char(1),
+		subject varchar(300) not null,
+		writer varchar(20) not null,
+		content text,
+		regdate datetime,
+		hit int default 0,
+		fileName varchar(300),
+		fileOriName varchar(300),
+		fileUrl varchar(500),
+		emp_id_fk int,
+		comment_hit int,
+		secret char(1));
+
+CREATE TABLE board_article_999freeboard
+		(aid int not null auto_increment primary key,
+		division char(1),
+		subject varchar(300) not null,
+		writer varchar(20) not null,
+		content text,
+		regdate datetime,
+		hit int default 0,
+		fileName varchar(300),
+		fileOriName varchar(300),
+		fileUrl varchar(500),
+		emp_id_fk int,
+		comment_hit int,
+		secret char(1));
+
+CREATE TABLE board_comment_999notice
+		(cid int not null auto_increment primary key,
+		aid_fk int not null,
+		comment text,
+		who varchar(20),
+		re_emp_id_fk int,
+		ref int,
+		re_cid int,
+		re_cid_name varchar(20),
+		re_cid_depart varchar(20),
+		re_regdate datetime);
+
+CREATE TABLE board_comment_999QnA
+		(cid int not null auto_increment primary key,
+		aid_fk int not null,
+		comment text,
+		who varchar(20),
+		re_emp_id_fk int,
+		ref int,
+		re_cid int,
+		re_cid_name varchar(20),
+		re_cid_depart varchar(20),
+		re_regdate datetime);
+
+CREATE TABLE board_comment_999freeboard
+		(cid int not null auto_increment primary key,
+		aid_fk int not null,
+		comment text,
+		who varchar(20),
+		re_emp_id_fk int,
+		ref int,
+		re_cid int,
+		re_cid_name varchar(20),
+		re_cid_depart varchar(20),
+		re_regdate datetime);
+
+INSERT INTO board_article_999notice SET 
+		division = 0, 
+		subject = '인사과 공지사항 입니다.',  
+		content = '인사과 공지사항 입니다.', 
+		writer = '부사장', 
+		regdate = NOW(), 
+		fileName ='', 
+		fileOriName = NULL, 
+		fileUrl = NULL, ,
+		emp_id_fk = 9,
+		comment_hit = 0,
+		secret = 0;
+INSERT INTO board_article_999notice SET 
+		division = 0, 
+		subject = '경영과 공지사항 입니다.',  
+		content = '경영과 공지사항 입니다.', 
+		writer = '부사장', 
+		regdate = NOW(), 
+		fileName ='', 
+		fileOriName = NULL, 
+		fileUrl = NULL, ,
+		emp_id_fk = 9,
+		comment_hit = 0,
+		secret = 0;
+INSERT INTO board_article_999notice SET 
+		division = 0, 
+		subject = '기획과 공지사항 입니다.',  
+		content = '기획과 공지사항 입니다.', 
+		writer = '부사장', 
+		regdate = NOW(), 
+		fileName ='', 
+		fileOriName = NULL, 
+		fileUrl = NULL, ,
+		emp_id_fk = 9,
+		comment_hit = 0,
+		secret = 0;
+INSERT INTO board_article_999notice SET 
+		division = 0, 
+		subject = '총무과 공지사항 입니다.',  
+		content = '총무과 공지사항 입니다.', 
+		writer = '부사장', 
+		regdate = NOW(), 
+		fileName ='', 
+		fileOriName = NULL, 
+		fileUrl = NULL, ,
+		emp_id_fk = 9,
+		comment_hit = 0,
+		secret = 0;
+INSERT INTO board_article_999notice SET 
+		division = 0, 
+		subject = '전산과 공지사항 입니다.',  
+		content = '전산과 공지사항 입니다.', 
+		writer = '부사장', 
+		regdate = NOW(), 
+		fileName ='', 
+		fileOriName = NULL, 
+		fileUrl = NULL, ,
+		emp_id_fk = 9,
+		comment_hit = 0,
+		secret = 0;
+INSERT INTO board_article_999notice SET 
+		division = 0, 
+		subject = '지원과 공지사항 입니다.',  
+		content = '지원과 공지사항 입니다.', 
+		writer = '부사장', 
+		regdate = NOW(), 
+		fileName ='', 
+		fileOriName = NULL, 
+		fileUrl = NULL, ,
+		emp_id_fk = 9,
+		comment_hit = 0,
+		secret = 0;
+INSERT INTO board_article_999notice SET 
+		division = 0, 
+		subject = '영업과 공지사항 입니다.',  
+		content = '영업과 공지사항 입니다.', 
+		writer = '부사장', 
+		regdate = NOW(), 
+		fileName ='', 
+		fileOriName = NULL, 
+		fileUrl = NULL, ,
+		emp_id_fk = 9,
+		comment_hit = 0,
+		secret = 0;
+INSERT INTO board_article_999notice SET 
+		division = 0, 
+		subject = '마케팅과 공지사항 입니다.',  
+		content = '마케팅과 공지사항 입니다.', 
+		writer = '부사장', 
+		regdate = NOW(), 
+		fileName ='', 
+		fileOriName = NULL, 
+		fileUrl = NULL, ,
+		emp_id_fk = 9,
+		comment_hit = 0,
+		secret = 0;
+INSERT INTO board_article_999notice SET 
+		division = 0, 
+		subject = '생산과 공지사항 입니다.',  
+		content = '생산과 공지사항 입니다.', 
+		writer = '부사장', 
+		regdate = NOW(), 
+		fileName ='', 
+		fileOriName = NULL, 
+		fileUrl = NULL, ,
+		emp_id_fk = 9,
+		comment_hit = 0,
+		secret = 0;
+INSERT INTO board_article_999notice SET 
+		division = 0, 
+		subject = '회사일정 공지사항 입니다.',  
+		content = '회사일정 공지사항 입니다.', 
+		writer = '부사장', 
+		regdate = NOW(), 
+		fileName ='', 
+		fileOriName = NULL, 
+		fileUrl = NULL, ,
+		emp_id_fk = 9,
+		comment_hit = 0,
+		secret = 0;
+INSERT INTO board_article_999notice SET 
+		division = 0, 
+		subject = '사내서버 공지사항 입니다.',  
+		content = '사내서버 공지사항 입니다.', 
+		writer = '부사장', 
+		regdate = NOW(), 
+		fileName ='', 
+		fileOriName = NULL, 
+		fileUrl = NULL, ,
+		emp_id_fk = 9,
+		comment_hit = 0,
+		secret = 0;
+INSERT INTO board_article_999notice SET 
+		division = 0, 
+		subject = '2021년도 일정 공지사항 입니다.',  
+		content = '2021년도 일정  공지사항 입니다.', 
+		writer = '부사장', 
+		regdate = NOW(), 
+		fileName ='', 
+		fileOriName = NULL, 
+		fileUrl = NULL, ,
+		emp_id_fk = 9,
+		comment_hit = 0,
+		secret = 0;
+INSERT INTO board_article_999notice SET 
+		division = 0, 
+		subject = '2021년도 지원과 공지사항 입니다.',  
+		content = '2021년도 지원과 공지사항 입니다.', 
+		writer = '부사장', 
+		regdate = NOW(), 
+		fileName ='', 
+		fileOriName = NULL, 
+		fileUrl = NULL, ,
+		emp_id_fk = 9,
+		comment_hit = 0,
+		secret = 0;
+INSERT INTO board_article_999notice SET 
+		division = 0, 
+		subject = '2021년도 마케팅과 공지사항 입니다.',  
+		content = '2021년도 마케팅과 공지사항 입니다.', 
+		writer = '부사장', 
+		regdate = NOW(), 
+		fileName ='', 
+		fileOriName = NULL, 
+		fileUrl = NULL, ,
+		emp_id_fk = 9,
+		comment_hit = 0,
+		secret = 0;
+INSERT INTO board_article_999notice SET 
+		division = 0, 
+		subject = '2021년도 영업과 공지사항 입니다.',  
+		content = '2021년도 영업과 공지사항 입니다.', 
+		writer = '부사장', 
+		regdate = NOW(), 
+		fileName ='', 
+		fileOriName = NULL, 
+		fileUrl = NULL, ,
+		emp_id_fk = 9,
+		comment_hit = 0,
+		secret = 0;
+INSERT INTO board_article_999notice SET 
+		division = 0, 
+		subject = '2021년도 인사과 공지사항 입니다.',  
+		content = '2021년도 인사과 공지사항 입니다.', 
+		writer = '부사장', 
+		regdate = NOW(), 
+		fileName ='', 
+		fileOriName = NULL, 
+		fileUrl = NULL, ,
+		emp_id_fk = 9,
+		comment_hit = 0,
+		secret = 0;
+INSERT INTO board_article_999notice SET 
+		division = 0, 
+		subject = '2021년도 경영과 공지사항 입니다.',  
+		content = '2021년도 경영과 공지사항 입니다.', 
+		writer = '부사장', 
+		regdate = NOW(), 
+		fileName ='', 
+		fileOriName = NULL, 
+		fileUrl = NULL, ,
+		emp_id_fk = 9,
+		comment_hit = 0,
+		secret = 0;
+INSERT INTO board_article_999notice SET 
+		division = 0, 
+		subject = '2021년도 총무과 공지사항 입니다.',  
+		content = '2021년도 총무과 공지사항 입니다.', 
+		writer = '부사장', 
+		regdate = NOW(), 
+		fileName ='', 
+		fileOriName = NULL, 
+		fileUrl = NULL, ,
+		emp_id_fk = 9,
+		comment_hit = 0,
+		secret = 0;
+INSERT INTO board_article_999notice SET 
+		division = 0, 
+		subject = '2021년도 기획과 공지사항 입니다.',  
+		content = '2021년도 기획과 공지사항 입니다.', 
+		writer = '부사장', 
+		regdate = NOW(), 
+		fileName ='', 
+		fileOriName = NULL, 
+		fileUrl = NULL, ,
+		emp_id_fk = 9,
+		comment_hit = 0,
+		secret = 0;
