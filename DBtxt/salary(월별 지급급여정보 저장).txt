@@ -5,15 +5,19 @@ CREATE TABLE salary (
 	emp_position_fk char(2) not null, 		// 급여지급당시 직급을 FK로 저장
 	emp_step_fk int not null, 			// 급여지급당시 호봉을 FK로 저장
 	emp_headcheck_fk char(1) not null,		// 급여지급당시 부서장여부를 FK로 저장
+	salary_overtime_pay int not null,		// 초과근무수당
+	salary_food int not null,			// 식비(디폴트값 필요)
+	salary_nontax_totalcost int,			// 비과세항목 소계
+	
 	salary_pay_fk int, 				// 급여지급당시 기본급
-	net_pay_fk int,				// 급여지급당시 실 수령액
+	net_pay_fk int,					// 급여지급당시 실 수령액
 	salary_nps_fk int,				// 급여지급당시 국민연금
 	salary_h_insurance_fk int,			// 급여지급당시 건강보험
 	salary_care_fk int,				// 급여지급당시 장기요양
 	salary_e_insurance_fk int,			// 급여지급당시 고용보험
 	salary_income_fk int,				// 급여지급당시 소득세
 	salary_l_income_fk int, 			// 급여지급당시 지방소득세
-	salary_totalcost_fk int			// 급여지급당시 공제액 소계
+	salary_totalcost_fk int				// 급여지급당시 공제액 소계
 );
 
 CREATE TABLE salary (
@@ -23,6 +27,9 @@ CREATE TABLE salary (
 	emp_position_fk char(2) not null, 		
 	emp_step_fk int not null, 			
 	emp_headcheck_fk char(1) not null,
+	salary_overtime_pay int not null,		
+	salary_food int not null,			
+	salary_nontax_totalcost int,			
 	salary_pay_fk int,		
 	net_pay_fk int,				
 	salary_nps_fk int,				
