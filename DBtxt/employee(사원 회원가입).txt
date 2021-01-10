@@ -207,5 +207,44 @@ INSERT INTO employee SET
 	emp_confirm = 'Y', 
 	emp_off_total = 12, 
 	emp_regdate = now();
+	
+
+INSERT INTO employee SET 
+	emp_department = '300',
+	emp_position = '07',
+	emp_num ='200130015',
+	emp_enter = '2020-01-01',
+	emp_name = '진실로',
+	emp_birth = '1977-07-08',
+	emp_password = '1234',
+	emp_email = 'jin@blue.com',
+	emp_confirm = 'Y',  
+	emp_regdate = now();
 
 
+INSERT INTO employee SET 
+	emp_department = '500',
+	emp_position = '01',
+	emp_num ='200150016',
+	emp_enter = '2020-01-01',
+	emp_name = '오해영',
+	emp_birth = '1993-09-09',
+	emp_password = '1234',
+	emp_email = 'oh@blue.com',
+	emp_confirm = 'Y', 
+	emp_off_total = 12, 
+	emp_regdate = now();
+
+
+INSERT INTO employee SET 
+	emp_department = '600',
+	emp_position = '01',
+	emp_num ='200160017',
+	emp_enter = '2020-01-01',
+	emp_name = '송사리',
+	emp_birth = '1996-01-09',
+	emp_password = '1234',
+	emp_email = 'song@blue.com',
+	emp_confirm = 'Y', 
+	emp_off_total = 12, 
+	emp_regdate = now();
