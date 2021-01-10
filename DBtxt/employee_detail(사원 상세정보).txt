@@ -83,3 +83,22 @@ create table employee_detail (
 
 	emp_id_fk int 
 );
+
+
+INSERT INTO employee_detail SET 
+	emp_CP = '010-1111-1111',
+	emp_bank = '하나',
+	emp_accountnum = '0101010-10-101',
+	emp_company = '본사',
+	emp_team = '1팀',
+	emp_gender = '남',
+	emp_id_fk = 2;
+	
+INSERT INTO employee_detail SET 
+	emp_CP = '010-1111-1111',
+	emp_bank = '',
+	emp_accountnum = '0101010-10-101',
+	emp_company = '본사',
+	emp_team = '1팀',
+	emp_gender = '여',
+	emp_id_fk = 3;
