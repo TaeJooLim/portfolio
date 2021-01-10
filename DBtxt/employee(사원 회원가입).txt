@@ -40,7 +40,7 @@ create table employee(
 	emp_photo varchar(255),
 	
 	emp_off_total double,
-	emp_off_use double default,
+	emp_off_use double, 
 	emp_off_remain double default 0
 );
 
