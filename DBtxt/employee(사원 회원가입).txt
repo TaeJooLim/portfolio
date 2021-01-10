@@ -86,10 +86,12 @@ INSERT INTO employee SET
 	emp_position = '03',
 	emp_num ='19083004',
 	emp_enter = '2019-08-31',
-	emp_name = '김대리',
+	emp_name = '김대리', 
 	emp_birth = '1989-10-04',
 	emp_password = '1234',
-	emp_email = 'kim@blue.com',
+	emp_email = 'kim@blue.com', 
+	emp_off_total = 18, 
+   	emp_confirm = 'Y'
 	emp_regdate = now();
 
 INSERT INTO employee SET 
