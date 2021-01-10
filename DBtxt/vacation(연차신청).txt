@@ -29,3 +29,247 @@ create table vacation (
 	
 	emp_id_fk int not null		
 );
+
+INSERT INTO vacation SET
+	off_startDate = '2021-01-07', 
+	off_endDate = '2021-01-07',	
+	off_date = '2021-01-07', 		
+	off_date_cnt = 1, 		
+	off_type  = 'A', 		
+	off_confirm = 'Y',
+	off_doc_num = 'VA22021132021-01-07',  
+	off_regdate = '2021-01-03', 
+	off_confirm_date = '2021-01-04', 
+	
+	emp_id_fk = 2 ;	
+
+INSERT INTO vacation SET
+	off_startDate = '2021-01-21', 
+	off_endDate = '2021-01-22',	
+	off_date = '2021-01-21', 		
+	off_date_cnt = 2, 		
+	off_type  = 'A', 		
+	off_confirm = 'N',
+	off_doc_num = 'VA220211112021-01-21',  
+	off_regdate = '2021-01-11',  
+	
+	emp_id_fk = 2 ;	
+
+
+INSERT INTO vacation SET
+	off_startDate = '2021-01-21', 
+	off_endDate = '2021-01-22',	
+	off_date = '2021-01-22', 		
+	off_date_cnt = 2, 		
+	off_type  = 'A', 		
+	off_confirm = 'N',
+	off_doc_num = 'VA220211112021-01-21',  
+	off_regdate = '2021-01-11',  
+	
+	emp_id_fk = 2 ;	
+
+INSERT INTO vacation SET
+	off_startDate = '2021-01-14', 
+	off_endDate = '2021-01-14',	
+	off_date = '2021-01-14', 		
+	off_date_cnt = 0.5, 		
+	off_type  = 'B', 		
+	off_confirm = 'N',
+	off_doc_num = 'VB220211132021-01-14',  
+	off_regdate = '2021-01-13',  
+	
+	emp_id_fk = 2 ;	
+
+INSERT INTO vacation SET
+	off_startDate = '2021-01-27', 
+	off_endDate = '2021-01-27',	
+	off_date = '2021-01-27', 		
+	off_date_cnt = 0.25, 		
+	off_type  = 'C', 		
+	off_confirm = 'N',
+	off_doc_num = 'VC220211262021-01-27',  
+	off_regdate = '2021-01-26',  
+	
+	emp_id_fk = 2 ;	
+
+INSERT INTO vacation SET
+	off_startDate = '2021-01-04', 
+	off_endDate = '2021-01-04',	
+	off_date = '2021-01-04', 		
+	off_date_cnt = 1, 		
+	off_type  = 'A', 		
+	off_confirm = 'Y',
+	off_doc_num = 'VA14202012112021-01-04',  
+	off_regdate = '2020-12-11',  
+	off_confirm_date = '2020-12-12',  
+	
+	emp_id_fk = 14 ;	
+
+
+INSERT INTO vacation SET
+	off_startDate = '2021-01-11', 
+	off_endDate = '2021-01-13',	
+	off_date = '2021-01-11', 		
+	off_date_cnt = 3, 		
+	off_type  = 'A', 		
+	off_confirm = 'Y',
+	off_doc_num = 'VA142021182021-01-11',  
+	off_regdate = '2021-01-08',  
+	off_confirm_date = '2021-01-08',  
+	
+	emp_id_fk = 14 ;	
+
+INSERT INTO vacation SET
+	off_startDate = '2021-01-11', 
+	off_endDate = '2021-01-13',	
+	off_date = '2021-01-12', 		
+	off_date_cnt = 3, 		
+	off_type  = 'A', 		
+	off_confirm = 'Y',
+	off_doc_num = 'VA142021182021-01-11',  
+	off_regdate = '2021-01-08',  
+	off_confirm_date = '2021-01-08',  
+	
+	emp_id_fk = 14 ;	
+
+
+INSERT INTO vacation SET
+	off_startDate = '2021-01-11', 
+	off_endDate = '2021-01-13',	
+	off_date = '2021-01-13', 		
+	off_date_cnt = 3, 		
+	off_type  = 'A', 		
+	off_confirm = 'Y',
+	off_doc_num = 'VA142021182021-01-11',  
+	off_regdate = '2021-01-08',  
+	off_confirm_date = '2021-01-08',  
+	
+	emp_id_fk = 14 ;	
+
+
+INSERT INTO vacation SET
+	off_startDate = '2021-01-29', 
+	off_endDate = '2021-01-29',	
+	off_date = '2021-01-29', 		
+	off_date_cnt = 0.5, 		
+	off_type  = 'B', 		
+	off_confirm = 'N',
+	off_doc_num = 'VB1420211152021-01-29',  
+	off_regdate = '2021-01-15',  
+	
+	emp_id_fk = 14 ;	
+
+INSERT INTO vacation SET
+	off_startDate = '2021-01-06', 
+	off_endDate = '2021-01-06',	
+	off_date = '2021-01-06', 		
+	off_date_cnt = 1, 		
+	off_type  = 'A', 		
+	off_confirm = 'Y',
+	off_doc_num = 'VA162021142021-01-06',  
+	off_regdate = '2021-01-04',  
+	off_confirm_date = '2021-01-04',  
+	
+	emp_id_fk = 16 ;	
+
+
+INSERT INTO vacation SET
+	off_startDate = '2021-01-12', 
+	off_endDate = '2021-01-12',	
+	off_date = '2021-01-12', 		
+	off_date_cnt = 0.25, 		
+	off_type  = 'C', 		
+	off_confirm = 'N',
+	off_doc_num = 'VC1620211112021-01-12',  
+	off_regdate = '2021-01-11',  
+	
+	emp_id_fk = 16 ;	
+
+INSERT INTO vacation SET
+	off_startDate = '2021-01-28', 
+	off_endDate = '2021-01-28',	
+	off_date = '2021-01-28', 		
+	off_date_cnt = 0.25, 		
+	off_type  = 'C', 		
+	off_confirm = 'N',
+	off_doc_num = 'VC1620211112021-01-28',  
+	off_regdate = '2021-01-11',  
+	
+	emp_id_fk = 16 ;	
+
+INSERT INTO vacation SET
+	off_startDate = '2021-01-08', 
+	off_endDate = '2021-01-08',	
+	off_date = '2021-01-08', 		
+	off_date_cnt = 1, 		
+	off_type  = 'A', 		
+	off_confirm = 'Y',
+	off_doc_num = 'VA172021142021-01-08',  
+	off_regdate = '2021-01-04',  
+	off_confirm_date = '2021-01-05',  
+	
+	emp_id_fk = 17 ;	
+
+INSERT INTO vacation SET
+	off_startDate = '2021-01-12', 
+	off_endDate = '2021-01-12',	
+	off_date = '2021-01-12', 		
+	off_date_cnt = 0.5, 		
+	off_type  = 'B', 		
+	off_confirm = 'Y',
+	off_doc_num = 'VB1720211112021-01-12',  
+	off_regdate = '2021-01-11',  
+	off_confirm_date = '2021-01-11',  
+	
+	emp_id_fk = 17 ;	
+
+INSERT INTO vacation SET
+	off_startDate = '2021-01-29', 
+	off_endDate = '2021-01-29',	
+	off_date = '2021-01-29', 		
+	off_date_cnt = 0.5, 		
+	off_type  = 'B', 		
+	off_confirm = 'N',
+	off_doc_num = 'VB1720211202021-01-29',  
+	off_regdate = '2021-01-20',  
+	
+	emp_id_fk = 17 ;	
+
+
+INSERT INTO vacation SET
+	off_startDate = '2021-01-04', 
+	off_endDate = '2021-01-04',	
+	off_date = '2021-01-04', 		
+	off_date_cnt = 1, 		
+	off_type  = 'A', 		
+	off_confirm = 'Y',
+	off_doc_num = 'VA4202012202021-01-04',  
+	off_regdate = '2020-12-20',  
+	off_confirm_date = '2020-12-21',  
+	
+	emp_id_fk = 4 ;	
+
+INSERT INTO vacation SET
+	off_startDate = '2021-01-13', 
+	off_endDate = '2021-01-13',	
+	off_date = '2021-01-13', 		
+	off_date_cnt = 1, 		
+	off_type  = 'A', 		
+	off_confirm = 'Y',
+	off_doc_num = 'VA420211112021-01-13',  
+	off_regdate = '2021-01-11',  
+	off_confirm_date = '2021-01-11',  
+	
+	emp_id_fk = 4 ;	
+
+INSERT INTO vacation SET
+	off_startDate = '2021-01-28', 
+	off_endDate = '2021-01-28',	
+	off_date = '2021-01-28', 		
+	off_date_cnt = 0.5, 		
+	off_type  = 'B', 		
+	off_confirm = 'N',
+	off_doc_num = 'VB420211262021-01-28',  
+	off_regdate = '2021-01-26',  
+	
+	emp_id_fk = 4 ;	
