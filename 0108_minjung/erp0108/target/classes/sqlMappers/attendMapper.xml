@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="attend">
+
+	<!-- 검색기능 -->
+	<sql id="searchCondition">
+		<choose>
+			<when test="words == ''"></when>
+			<when test="searchOpt=='all'">
+				WHERE 	(attend_starttime LIKE CONCAT('%', #{words}, '%')) OR 
+						(attend_endtime LIKE CONCAT('%', #{words}, '%')) OR 
+						(attend_overtime LIKE CONCAT('%', #{words}, '%')) OR 
+						(attend_totaltime LIKE CONCAT('%', #{words}, '%')) OR 
+						(attend_workplace LIKE CONCAT('%', #{words}, '%')) 
+			</when>
+			<otherwise>
+				WHERE ${searchOpt} LIKE CONCAT('%', #{words}, '%') 
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<!-- 출근시간 입력하기 , curdate() : 2020-01-01 / now() : 2020-01-01 08:00:00 -->
+	<insert id="setStarttime" parameterType="attendvo">
+		INSERT INTO attendance SET 
+			attend_workdate		= curdate(),
+			attend_starttime	= now(),
+			attend_late		= #{attendLate},
+			attend_status 	= 1,
+			emp_id_fk		= #{empIdFk} 
+	</insert>
+	
+	<!-- 출근시간을 입력하였는가 -->
+	<select id="isStarted" parameterType="attendvo" resultType="int">
+		SELECT COUNT(attend_starttime) FROM attendance 
+		WHERE emp_id_fk = #{empIdFk} AND attend_workdate = #{attendWorkdate} 
+	</select>
+	
+	<!-- 퇴근시간 입력하기 -->
+	<update id="setEndtime" parameterType="attendvo">
+		UPDATE attendance SET 
+			attend_endtime	= now(),
+			attend_status	= 2  
+		WHERE emp_id_fk	= #{empIdFk} AND attend_workdate = #{attendWorkdate} 
+	</update>
+	
+	<!-- 퇴근시간을 입력하였는가 -->
+	<select id="isEnded" parameterType="attendvo" resultType="int">
+		SELECT COUNT(attend_endtime) FROM attendance 
+		WHERE emp_id_fk = #{empIdFk} AND attend_workdate = #{attendWorkdate} 
+	</select>
+	
+	<!-- 총근무시간/초과시간 업데이트하기 -->
+	<update id="setOtherTimes" parameterType="hashmap">
+		UPDATE attendance SET 
+			attend_overtime 	= #{attendOvertime},
+			attend_totaltime 	= #{attendTotaltime} 
+		WHERE emp_id_fk = #{empIdFk} AND attend_workdate = #{attendWorkdate} 
+	</update>
+	
+	<!-- 해당회원의 오늘날짜에 해당하는 출퇴근기록이 있는가 -->
+	<select id="isDataExists" parameterType="attendvo" resultType="int">
+		SELECT COUNT(attend_id) FROM attendance 
+		WHERE emp_id_fk = #{empIdFk} AND attend_workdate = #{attendWorkdate} 
+	</select>
+	
+	<!-- 출퇴근시간과 소정근무시간 가져오기 -->
+	<select id="getTimes" parameterType="attendvo" resultType="attendvo">
+		SELECT 
+			attend_starttime 	AS attendStarttime,
+			attend_endtime		AS attendEndtime,
+			attend_defaulttime AS attendDefaulttime 
+		FROM attendance 
+		WHERE emp_id_fk = #{empIdFk} AND attend_workdate = #{attendWorkdate} 
+	</select>
+	
+	<!-- (모든)출퇴근기록이 있는가 -->
+	<select id="isWorkDatas" parameterType="hashmap" resultType="int">
+		SELECT count(attend_id) 
+		FROM attendance 
+		LEFT JOIN employee 		ON 	emp_id_fk 		= emp_id 
+		LEFT JOIN department 	ON 	emp_department 	= depart_code 
+		<include refid="searchCondition"></include> 
+	</select>
+	
+	<!-- (모든)출퇴근기록 가져오기 -->
+	<select id="getWorkDatas" parameterType="hashmap" resultType="attendvo">
+		SELECT 
+			attend_id		 		AS attendId,
+			attend_workdate 		AS attendWorkdate,
+			attend_starttime	 	AS attendStarttime,
+			attend_endtime 			AS attendEndtime,
+			attend_defaulttime	 	AS attendDefaulttime,
+			attend_overtime 		AS attendOvertime,
+			attend_totaltime 		AS attendTotaltime,
+			attend_late 			AS attendLate,
+			attend_workplace 		AS attendWorkplace,
+			attend_status 			AS attendStatus,
+			emp_id_fk 				AS empIdFk,
+			
+			emp_name 				AS empName,
+			
+			depart_name 			AS departName 
+		FROM attendance 
+		LEFT JOIN employee 		ON 	emp_id_fk 		= emp_id 
+		LEFT JOIN department 	ON 	emp_department 	= depart_code 
+		<include refid="searchCondition"></include> 
+		ORDER BY attend_workdate DESC, attend_starttime DESC, emp_name DESC 
+		LIMIT #{startIndex}, #{pageSize} 
+	</select>
+	
+	<!-- 지각여부 변경하기 -->
+	<update id="changeLate" parameterType="attendvo">
+		UPDATE attendance SET 
+			attend_late = #{attendLate} 
+		WHERE attend_id = #{attendId} 
+	</update>
+	
+	<!-- 내외근여부 변경하기 -->
+	<update id="changeWorkplace" parameterType="attendvo">
+		UPDATE attendance SET 
+			attend_workplace = #{attendWorkplace} 
+		WHERE attend_id = #{attendId} 
+	</update>
+	
+	<!-- 상태 변경하기 -->
+	<update id="changeStatus" parameterType="attendvo">
+		UPDATE attendance SET 
+			attend_status = #{attendStatus} 
+		WHERE attend_id = #{attendId} 
+	</update>
+	
+	<!-- 선택한 근태기록 삭제하기 -->
+	<delete id="deleteRecords" parameterType="int">
+		DELETE FROM attendance 
+		WHERE attend_id = #{attendId} 
+	</delete>
+	
+	<!-- 수정할 근태기록 가져오기 -->
+	<select id="getRecordOne" parameterType="attendvo" resultType="attendvo">
+		SELECT 
+			attend_id AS attendId,
+			attend_workdate AS attendWorkdate,
+			attend_starttime AS attendStarttime,
+			attend_endtime AS attendEndtime,
+			
+			emp_name AS empName,
+			
+			depart_name AS departName 
+		FROM attendance 
+		LEFT JOIN employee 		ON 	emp_id_fk 		= emp_id 
+		LEFT JOIN department 	ON 	emp_department 	= depart_code 
+		WHERE attend_id = #{attendId} 
+	</select>
+	
+	<!-- 선택한 회원의 소정근무시간 가져오기 -->
+	<select id="getDefault" parameterType="attendvo" resultType="attendvo">
+		SELECT 
+			attend_defaulttime AS attendDefaulttime 
+		FROM attendance 
+		WHERE attend_id = #{attendId} 
+	</select>
+	
+	<!-- 변경된 출퇴근시간,총근무시간,초과근무시간 업데이트하기 -->
+	<update id="setChanges" parameterType="attendvo">
+		UPDATE attendance SET 
+			attend_workdate = #{attendWorkdate},
+			attend_starttime = #{attendStarttime},
+			attend_endtime	= #{attendEndtime},
+			attend_overtime = #{attendOvertime},
+			attend_totaltime = #{attendTotaltime} 
+		WHERE attend_id = #{attendId} 
+	</update>
+</mapper>

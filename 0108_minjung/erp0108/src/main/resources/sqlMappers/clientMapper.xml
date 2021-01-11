@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="client">
+	
+	<sql id="searchCondition">
+		<choose>
+			<when test="words==''"></when>
+			<when test="searchOpt=='all'">
+				WHERE 
+				(client_company LIKE CONCAT('%',#{words},'%')) OR 
+				(client_ceo_name LIKE CONCAT('%',#{words},'%')) OR 
+				(client_company_phone LIKE CONCAT('%',#{words},'%')) 			
+			</when>
+			<otherwise>
+				WHERE ${searchOpt} LIKE CONCAT('%',#{words},'%') 
+			</otherwise>
+		</choose>
+	</sql>
+
+	<insert id="setClientOne" parameterType="clientvo">
+		<selectKey keyProperty="ref" order="BEFORE" resultType="int">
+			SELECT IFNULL( max(client_id) + 1 , 1 ) FROM client 
+		</selectKey>
+		INSERT INTO client SET 
+			client_code 				= CONCAT(#{clientCode},#{ref}),
+			client_use_state 			= #{clientUseState},
+			client_company 				= #{clientCompany},
+			client_license_num 			= #{clientLicenseNum},
+			client_ceo_name				= #{clientCeoName},
+			client_business_condition	= #{clientBusinessCondition},
+			client_business_type 		= #{clientBusinessType},
+			client_regdate 				= #{clientRegdate},
+			client_company_phone 		= #{clientCompanyPhone},
+			client_company_Fax 			= #{clientCompanyFax},
+			client_company_page 		= #{clientCompanyPage},
+			client_post					= #{clientPost},
+			client_address 				= #{clientAddress},
+			client_nation 				= #{clientNation},
+			client_detail_address 		= #{clientDetailAddress},
+			client_responsibility 		= #{clientResponsibility},
+			client_res_cp 				= #{clientResCp},
+			client_res_email 			= #{clientResEmail},
+			client_payment_type 		= #{clientPaymentType},
+			client_handling 			= #{clientHandling},
+			client_note 				= #{clientNote},
+			client_tax_email 			= #{clientTaxEmail},
+			client_tax_responsibility	= #{clientTaxResponsibility},
+			client_tax_company_phone 	= #{clientTaxCompanyPhone} 
+	</insert>
+	
+	<select id="getClients" parameterType="hashmap" resultType="clientvo">
+		SELECT 
+			client_id AS clientId,
+			client_license_num AS clientLicenseNum,
+			client_company AS clientCompany,
+			client_ceo_name AS clientCeoName,
+			client_company_phone AS clientCompanyPhone,
+			client_company_fax AS clientCompanyFax,
+			client_business_condition AS clientBusinessCondition,
+			client_business_type AS clientBusinessType,
+			client_note AS clientNote 
+		FROM client 
+		<include refid="searchCondition"></include> 
+		ORDER BY client_id DESC LIMIT #{startIndex}, #{pageSize} 
+	</select>
+	
+	<select id="getClientCount" parameterType="hashmap" resultType="int">
+		SELECT count(client_id) FROM client 
+		<include refid="searchCondition"></include> 
+		ORDER BY client_id DESC LIMIT 0, 10
+	</select>
+	
+	<delete id="deleteClient" parameterType="int">
+		DELETE FROM client 
+		WHERE client_id = #{cid} 
+	</delete>
+	
+	<select id="getClientOne" parameterType="clientvo" resultType="clientvo">
+		SELECT 
+			client_id					AS clientId,
+			client_code 				AS clientCode,
+			client_use_state 			AS clientUseState,
+			client_company 				AS clientCompany,
+			client_license_num 			AS clientLicenseNum,
+			client_ceo_name				AS clientCeoName,
+			client_business_condition	AS clientBusinessCondition,
+			client_business_type 		AS clientBusinessType,
+			client_regdate 				AS clientRegdate,
+			client_company_phone 		AS clientCompanyPhone,
+			client_company_Fax 			AS clientCompanyFax,
+			client_company_page 		AS clientCompanyPage,
+			client_post					AS clientPost,
+			client_address 				AS clientAddress,
+			client_nation 				AS clientNation,
+			client_detail_address 		AS clientDetailAddress,
+			client_responsibility 		AS clientResponsibility,
+			client_res_cp 				AS clientResCp,
+			client_res_email 			AS clientResEmail,
+			client_payment_type 		AS clientPaymentType,
+			client_handling 			AS clientHandling,
+			client_note 				AS clientNote,
+			client_tax_email 			AS clientTaxEmail,
+			client_tax_responsibility	AS clientTaxResponsibility,
+			client_tax_company_phone 	AS clientTaxCompanyPhone 
+		FROM client WHERE client_id = #{clientId} 
+	</select>
+	
+	<update id="updateClient" parameterType="clientvo">
+		UPDATE client SET 
+			client_use_state 			=	#{clientUseState},
+			client_company 				=	#{clientCompany},
+			client_license_num 			=	#{clientLicenseNum},
+			client_ceo_name				=	#{clientCeoName},
+			client_business_condition	=	#{clientBusinessCondition},
+			client_business_type 		=	#{clientBusinessType},
+			client_regdate 				=	#{clientRegdate},
+			client_company_phone 		=	#{clientCompanyPhone},
+			client_company_Fax 			=	#{clientCompanyFax},
+			client_company_page 		=	#{clientCompanyPage},
+			client_post					=	#{clientPost},
+			client_address 				=	#{clientAddress},
+			client_nation 				=	#{clientNation},
+			client_detail_address 		=	#{clientDetailAddress},
+			client_responsibility 		=	#{clientResponsibility},
+			client_res_cp 				=	#{clientResCp},
+			client_res_email 			=	#{clientResEmail},
+			client_payment_type 		=	#{clientPaymentType},
+			client_handling 			=	#{clientHandling},
+			client_note 				=	#{clientNote},
+			client_tax_email 			=	#{clientTaxEmail},
+			client_tax_responsibility	=	#{clientTaxResponsibility},
+			client_tax_company_phone 	=	#{clientTaxCompanyPhone} 
+		WHERE client_id = #{clientId} 
+	</update>
+</mapper>

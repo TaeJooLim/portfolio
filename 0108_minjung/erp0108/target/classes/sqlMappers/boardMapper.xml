@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	<sql id="searchCondition">
+		<choose>
+			<when test="words ==''"></when>
+			<when test = "searchOpt == 'all'">
+				WHERE subject LIKE CONCAT('%', #{words}, '%') 
+				OR writer LIKE CONCAT('%', #{words}, '%')   
+			</when>
+			<otherwise> 
+				WHERE ${searchOpt} LIKE CONCAT('%', #{words}, '%') 
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<insert id="setBoardReg">
+	<selectKey keyProperty="ref" order="BEFORE" resultType="int">
+			SELECT IFNULL(COUNT(board_id)+1 , 1) FROM board WHERE board_department = #{boardDepartment} 
+		</selectKey>
+		INSERT INTO board SET 
+		board_department = #{boardDepartment},
+		board_code = #{boardCode},
+		board_num = CONCAT(#{boardDepartment},#{boardCode}),
+		board_open = #{boardOpen},
+		board_manager = #{boardManager},
+		board_name = #{boardName},
+		board_type = #{boardType},
+		board_read = #{boardRead},
+		board_write = #{boardWrite},
+		board_comment = #{boardComment},
+		board_down = #{boardDown},
+		board_move = CONCAT(#{boardDepartment},#{ref})
+	</insert>
+	
+	<insert id="createArticleTbl">
+		${str}
+	</insert>
+
+	<insert id="createCommentTbl">
+		${str}
+	</insert>
+	
+	<select id="boardList" resultType="boardvo">
+	 	SELECT 
+	 	board_id AS boardId,
+	 	board_department AS boardDepartment,
+		board_code AS boardCode,
+		board_num AS boardNum,
+		board_open AS boardOpen,
+		board_manager AS boardManager,
+		board_name AS boardName,
+		board_type AS boardType,
+		board_read AS boardRead,
+		board_write AS boardWrite,
+		board_comment AS boardComment,
+		board_down AS boardDown,
+		board_move AS boardMove
+		FROM board 
+		order by board_move asc 
+	</select>
+	
+	<select id="getBoardCheck" resultType="int" parameterType="hashmap">
+		SELECT COUNT(*) FROM board WHERE board_code = #{boardCode} AND board_department = #{boardDepartment} 
+	</select>
+	
+	<select id="getBoardDepartCheck" resultType="int" parameterType="hashmap">
+		SELECT COUNT(*) FROM board WHERE board_department = #{boardDepartment} 
+	</select>
+	
+	<select id="getBoardOne" resultType="boardvo" parameterType="int">
+		SELECT 
+	 	board_id AS boardId,
+	 	board_department AS boardDepartment,
+		board_code AS boardCode,
+		board_num AS boardNum,
+		board_open AS boardOpen,
+		board_manager AS boardManager,
+		board_name AS boardName,
+		board_type AS boardType,
+		board_read AS boardRead,
+		board_write AS boardWrite,
+		board_comment AS boardComment,
+		board_down AS boardDown,
+		board_move AS boardMove,
+		depart_name AS boardDepartmentName 
+		FROM board 
+		LEFT JOIN department ON board_department = depart_code
+		WHERE board_id = #{boardId}
+	</select>
+	
+	<select id="getBoardNumOne" resultType="String" parameterType="int">
+		SELECT 
+		board_num AS boardNum
+		FROM board 
+		WHERE board_id = #{boardId}
+	</select>
+	
+	<update id="setBoareUpdate" parameterType="boardvo">
+		UPDATE board SET 
+		board_open = #{boardOpen},
+		board_name = #{boardName},
+		board_type = #{boardType},
+		board_read = #{boardRead},
+		board_write = #{boardWrite},
+		board_comment = #{boardComment},
+		board_down = #{boardDown} 
+		WHERE  board_id = #{boardId} 
+	</update>
+	
+	<delete id="setBoardDelete" parameterType="int">
+		DELETE FROM board WHERE board_id = #{boardId}
+	</delete>
+	
+	<insert id="dropArticleTbl">
+		${str}
+	</insert>
+
+	<insert id="dropCommentTbl">
+		${str}
+	</insert>
+	
+	<update id="setBoardMove" parameterType="hashmap">
+		UPDATE board SET board_move = #{boardMove} WHERE board_id = #{boardId} 
+	</update>
+	
+	<update id="setChangeMove" parameterType="hashmap">
+		UPDATE board SET board_move = #{changeMove} WHERE board_move = #{boardMove} 
+	</update>
+	
+	<select id="getMoveChk" resultType="int" parameterType="hashmap">
+		SELECT COUNT(board_id) FROM board WHERE board_department = #{boardDepartment} AND board_move > #{boardMove}
+	</select>
+	
+	<select id="getBoardListOne" resultType="boardvo" parameterType="String">
+		SELECT 
+	 	board_id AS boardId,
+	 	board_department AS boardDepartment,
+		board_code AS boardCode,
+		board_num AS boardNum,
+		board_open AS boardOpen,
+		board_manager AS boardManager,
+		board_name AS boardName,
+		board_type AS boardType,
+		board_read AS boardRead,
+		board_write AS boardWrite,
+		board_comment AS boardComment,
+		board_down AS boardDown,
+		board_move AS boardMove,
+		depart_name AS boardDepartmentName 
+		FROM board 
+		LEFT JOIN department ON board_department = depart_code
+		WHERE board_num = #{boardNum}
+	</select>
+	
+	<select id="articleList" resultType="articlevo" parameterType="hashmap">
+		SELECT 
+		aid AS aId,
+		division AS division,
+		subject AS subject,
+		writer AS writer,
+		content AS content,
+		regdate AS regdate,
+		hit AS hit,
+		fileName AS fileName,
+		fileOriName AS fileOriName,
+		fileUrl AS fileUrl,
+		emp_id_fk AS empIdFk,
+		secret AS secret,
+		comment_hit AS commentHit,
+		(SELECT depart_name FROM department LEFT JOIN employee ON depart_code = emp_department WHERE emp_id = emp_id_fk) AS empDepartNameFk
+		FROM board_article_${boardNum} 
+		<include refid="searchCondition"></include> 
+		ORDER BY aid DESC 
+	</select>
+	
+	<insert id="setArticle" parameterType="articlevo">
+	
+		INSERT INTO board_article_${boardNum} SET 
+		division = #{division}, 
+		subject = #{subject},  
+		content = #{content}, 
+		writer = #{writer}, 
+		regdate = NOW(), 
+		fileName = #{fileName}, 
+		fileOriName = #{fileOriName}, 
+		fileUrl = #{fileUrl},
+		emp_id_fk = #{empIdFk},
+		comment_hit = 0,
+		secret = #{secret} 
+	</insert>
+	
+	<select id="articleCount" resultType="int" parameterType="String">
+		SELECT COUNT(*) FROM board_article_${boardNum} 
+	</select>
+	
+	<delete id="setarticleDelete" parameterType="hashmap">
+	 	DELETE FROM board_article_${boardNum} WHERE aid = #{aId}
+	</delete>
+	
+	<select id="getArticleOne" resultType="articlevo" parameterType="hashmap">
+		SELECT 
+		aid AS aId,
+		division AS division,
+		subject AS subject,
+		writer AS writer,
+		content AS content,
+		regdate AS regdate,
+		hit AS hit,
+		fileName AS fileName,
+		fileOriName AS fileOriName,
+		fileUrl AS fileUrl,
+		emp_id_fk AS empIdFk,
+		secret AS secret,
+		(SELECT COUNT(aid_fk) FROM board_comment_${boardNum} WHERE aid_fk = #{aId}) AS commentHit,
+		(SELECT depart_name FROM department LEFT JOIN employee ON depart_code = emp_department WHERE emp_id = emp_id_fk) AS empDepartNameFk
+		FROM board_article_${boardNum}  
+		WHERE aid = #{aId} 
+	</select>
+	
+	<update id="setArticleModify" parameterType="articlevo">
+		UPDATE board_article_${boardNum} SET 
+		division = #{division}, 
+		subject = #{subject},  
+		content = #{content}, 
+		writer = #{writer}, 
+		regdate = NOW(), 
+		fileName = #{fileName}, 
+		fileOriName = #{fileOriName}, 
+		fileUrl = #{fileUrl},
+		emp_id_fk = #{empIdFk},
+		secret = #{secret}
+		WHERE aid = #{aId} 
+	</update>
+	
+	<update id="hitUp" parameterType="hashmap">
+		UPDATE board_article_${boardNum} SET hit = hit + 1 WHERE aid = #{aId}
+	</update>
+	
+	<insert id="setComment" parameterType="commentvo">
+		<selectKey resultType="int" keyProperty="ref" order="BEFORE">
+			
+			SELECT IFNULL(MAX(ref), 0) + 1 FROM board_comment_${boardNum} where aid_fk = #{aIdFk}
+			  
+		</selectKey>
+		INSERT INTO board_comment_${boardNum}  
+		SET 
+		aid_fk = #{aIdFk},
+		comment = #{comment},
+		who = #{who},
+		re_emp_id_fk = #{reEmpIdFk},
+		re_regdate = now(),
+		ref = #{ref}, 
+		re_cid = 0
+	</insert>
+	<update id="CommentHitUp" parameterType="hashmap">
+		UPDATE board_article_${boardNum} SET comment_hit = comment_hit + 1 WHERE aid = #{aIdFk}
+	</update>
+
+	<update id="CommentDelete" parameterType="hashmap">
+		UPDATE board_comment_${boardNum} SET 
+			comment = "삭제된 댓글입니다.",
+			who = " ",
+			re_emp_id_fk = null,
+			re_cid_name = null,
+			re_cid_depart = null
+		WHERE cid = #{cId}
+	</update>
+	
+	<update id="commentUpdate" parameterType="commentvo">
+		UPDATE board_comment_${boardNum} SET
+			comment = #{comment}
+			WHERE cid = #{cId} 
+	</update>
+		
+	<select id="commentList" resultType="commentvo" parameterType="hashmap">
+		SELECT
+			cid AS cId,
+			aid_fk AS aIdFk,
+			comment AS comment,
+			who AS who,
+			re_emp_id_fk AS reEmpIdFk,
+			re_regdate AS reRegdate,
+			ref AS ref, 
+			re_cid AS reCId, 
+			re_cid_name AS reCIdName,
+			re_cid_depart AS reCIdDepart,
+			(SELECT depart_name FROM department LEFT JOIN employee ON depart_code = emp_department WHERE emp_id = reEmpIdFk) AS comEmpDartName 
+			FROM board_comment_${boardNum} 
+			WHERE aid_fk = #{aId} 
+			ORDER BY ref ASC, cid ASC
+	</select>
+	
+	
+	<insert id="setCommentReply" parameterType="commentvo">
+		
+		INSERT INTO board_comment_${boardNum}  
+		SET 
+		aid_fk = #{aIdFk},
+		comment = #{comment},
+		who = #{who},
+		re_emp_id_fk = #{reEmpIdFk},
+		re_regdate = now(),
+		ref = #{ref}, 
+		re_cid = #{cId},
+		re_cid_name = #{reCIdName},
+		re_cid_depart = #{reCIdDepart}
+	</insert>
+	
+	
+</mapper>
