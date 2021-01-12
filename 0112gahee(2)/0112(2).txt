@@ -1,0 +1,28 @@
+
+common.css > .page_wrap { height -> min-height } 다시 수정....
+
+/* 한페이지에 들어오도록 계산(header높이 빼기) */
+.page_wrap {
+   min-height : calc(100vh - 50px);
+}
+
+
+vacationMapper > parameterType="int" 추가 
+
+	<select id="getCntOffTypeA" resultType="int" parameterType="int">
+		SELECT COUNT(if(off_type='A',off_type, null)) FROM vacation WHERE emp_id_fk = #{empId}
+	</select>
+	
+	<select id="getCntOffTypeB" resultType="int" parameterType="int">
+		SELECT COUNT(if(off_type='B',off_type, null)) FROM vacation WHERE emp_id_fk = #{empId}
+	</select>
+	
+	<select id="getCntOffTypeC" resultType="int" parameterType="int">
+		SELECT COUNT(if(off_type='C',off_type, null)) FROM vacation WHERE emp_id_fk = #{empId}
+	</select>
+	
+	<select id="getCntOffTypeD" resultType="int" parameterType="int">
+		SELECT COUNT(if(off_type='D',off_type, null)) FROM vacation WHERE emp_id_fk = #{empId}
+	</select>
+
+VacationDao, VacationSrv, VacationCtr에도 int empId 추가
