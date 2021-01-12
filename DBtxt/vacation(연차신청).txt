@@ -31,6 +31,58 @@ create table vacation (
 );
 
 INSERT INTO vacation SET
+	off_startDate = '2020-12-28', 
+	off_endDate = '2020-12-31',	
+	off_date = '2020-12-28', 		
+	off_date_cnt = 4, 		
+	off_type  = 'A', 		
+	off_confirm = 'Y',
+	off_doc_num = 'VA2202012242020-12-28',  
+	off_regdate = '2020-12-24', 
+	off_confirm_date = '2020-12-24', 
+	
+	emp_id_fk = 2 ;	
+	
+INSERT INTO vacation SET
+	off_startDate = '2020-12-28', 
+	off_endDate = '2020-12-31',	
+	off_date = '2020-12-29', 		
+	off_date_cnt = 4, 		
+	off_type  = 'A', 		
+	off_confirm = 'Y',
+	off_doc_num = 'VA2202012242020-12-28',  
+	off_regdate = '2020-12-24', 
+	off_confirm_date = '2020-12-24', 
+	
+	emp_id_fk = 2 ;	
+
+INSERT INTO vacation SET
+	off_startDate = '2020-12-28', 
+	off_endDate = '2020-12-31',	
+	off_date = '2020-12-30', 		
+	off_date_cnt = 4, 		
+	off_type  = 'A', 		
+	off_confirm = 'Y',
+	off_doc_num = 'VA2202012242020-12-28',  
+	off_regdate = '2020-12-24', 
+	off_confirm_date = '2020-12-24', 
+	
+	emp_id_fk = 2 ;	
+
+INSERT INTO vacation SET
+	off_startDate = '2020-12-28', 
+	off_endDate = '2020-12-31',	
+	off_date = '2020-12-31', 		
+	off_date_cnt = 4, 		
+	off_type  = 'A', 		
+	off_confirm = 'Y',
+	off_doc_num = 'VA2202012242020-12-28',  
+	off_regdate = '2020-12-24', 
+	off_confirm_date = '2020-12-24', 
+	
+	emp_id_fk = 2 ;	
+
+INSERT INTO vacation SET
 	off_startDate = '2021-01-07', 
 	off_endDate = '2021-01-07',	
 	off_date = '2021-01-07', 		
