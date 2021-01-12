@@ -1,0 +1,27 @@
+common > index.jsp 이미지 경로 수정
+
+common.css > .page_wrap { min-height -> height } html에서 page_wrap에 적용된 style:height:100vh 추후 삭제
+
+/* 한페이지에 들어오도록 계산(header높이 빼기) */
+.page_wrap {
+   height : calc(100vh - 50px);
+}
+
+
+* AttendCtr
+
+	// 외근/출장 신청서
+	@RequestMapping("admin/business_trip_form")
+	public ModelAndView getBusinessTripForm() {
+		ModelAndView mav = new ModelAndView();
+		/* 현재날짜 */
+		Date now = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		mav.addObject("now", sdf.format(now));
+		mav.setViewName("/erp/admin/erp_attend/business_trip_form");
+		
+		return mav;
+	}
+
+* business_trip_form.jsp
