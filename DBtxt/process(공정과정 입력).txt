@@ -1,13 +1,13 @@
 create table process (
 	proc_id int not null auto_increment primary key,	// PK
-	proc_seq int not null,			// 공정과정 (내림차순 정렬로 표시)
-	proc_name varchar(50) not null,		// 공정이름
-	proc_workers int not null,			// 작업인원
-	proc_working_time int not null,		// 작업시간
+	proc_seq int not null,					// 공정순서 (내림차순 정렬로 표시)
+	proc_name varchar(50) not null,				// 공정이름
+	proc_workers int not null,				// 작업인원
+	proc_working_time int not null,				// 작업시간
 
-	p_id_fk int not null,				// 제품정보
-	wc_id_fk int not null,			// 워크센터(공장)정보
-	emp_id_fk int not null			// 담당자정보
+	p_id_fk int not null,					// 제품정보
+	wc_id_fk int not null,					// 워크센터(공장)정보
+	emp_id_fk int not null					// 담당자정보
 );
 
 create table process (
