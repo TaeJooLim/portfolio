@@ -43,7 +43,7 @@ create table product (
 );
 
 
-INSERT INTO product SET p_type='B', p_name='[GB1] 사각만능기판', p_code='B011', p_brand='자사제품', p_group='01', p_modelnum='TRE-03NB', p_unit='EA', p_size='50x50', p_currency='1', p_buy='900', p_sell='900', p_tax='90', p_taxuse='Y', p_note='데스크탑 부품', account_id_fk='1';
+INSERT INTO product SET p_type='B', p_name='(GB1) 사각만능기판', p_code='B011', p_brand='자사제품', p_group='01', p_modelnum='TRE-03NB', p_unit='EA', p_size='50x50', p_currency='1', p_buy='900', p_sell='900', p_tax='90', p_taxuse='Y', p_note='데스크탑 부품', account_id_fk='1';
 INSERT INTO product SET p_type='B', p_name='LED-슈퍼고휘도(투명,빨강)', p_code='B012', p_brand='자사제품', p_group='01', p_modelnum='ST-99', p_unit='EA', p_size='5파이', p_currency='1', p_buy='250', p_sell='250', p_tax='25', p_taxuse='Y', p_note='데스크탑 부품', account_id_fk='1';
 INSERT INTO product SET p_type='B', p_name='LED-슈퍼고휘도(투명,파랑)', p_code='B013', p_brand='자사제품', p_group='01', p_modelnum='ST-98', p_unit='EA', p_size='5파이', p_currency='1', p_buy='200', p_sell='200', p_tax='20', p_taxuse='Y', p_note='데스크탑 부품', account_id_fk='1';
 INSERT INTO product SET p_type='B', p_name='LED-슈퍼고휘도(투명,노랑)', p_code='B014', p_brand='자사제품', p_group='01', p_modelnum='ST-97', p_unit='EA', p_size='5파이', p_currency='1', p_buy='150', p_sell='150', p_tax='15', p_taxuse='Y', p_note='데스크탑 부품', account_id_fk='1';
