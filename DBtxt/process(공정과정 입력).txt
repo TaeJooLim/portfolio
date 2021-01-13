@@ -21,3 +21,32 @@ create table process (
 	wc_id_fk int not null,
 	emp_id_fk int not null
 );
+
+INSERT INTO process SET proc_seq='1', proc_name='가공', proc_workers='2', proc_working_time='4', p_id_fk='12', wc_id_fk='1', emp_id_fk='4';
+INSERT INTO process SET proc_seq='2', proc_name='조립', proc_workers='3', proc_working_time='1', p_id_fk='12', wc_id_fk='1', emp_id_fk='4';
+INSERT INTO process SET proc_seq='3', proc_name='포장', proc_workers='3', proc_working_time='1', p_id_fk='12', wc_id_fk='1', emp_id_fk='4';
+INSERT INTO process SET proc_seq='1', proc_name='세척', proc_workers='1', proc_working_time='1', p_id_fk='13', wc_id_fk='2', emp_id_fk='5';
+INSERT INTO process SET proc_seq='2', proc_name='포장', proc_workers='3', proc_working_time='1', p_id_fk='13', wc_id_fk='2', emp_id_fk='5';
+INSERT INTO process SET proc_seq='1', proc_name='코팅', proc_workers='3', proc_working_time='4', p_id_fk='14', wc_id_fk='3', emp_id_fk='6';
+INSERT INTO process SET proc_seq='2', proc_name='포장', proc_workers='1', proc_working_time='1', p_id_fk='14', wc_id_fk='3', emp_id_fk='6';
+INSERT INTO process SET proc_seq='1', proc_name='가공', proc_workers='2', proc_working_time='5', p_id_fk='15', wc_id_fk='4', emp_id_fk='7';
+INSERT INTO process SET proc_seq='2', proc_name='포장', proc_workers='4', proc_working_time='1', p_id_fk='15', wc_id_fk='4', emp_id_fk='7';
+INSERT INTO process SET proc_seq='1', proc_name='조립', proc_workers='5', proc_working_time='2', p_id_fk='16', wc_id_fk='5', emp_id_fk='8';
+INSERT INTO process SET proc_seq='2', proc_name='포장', proc_workers='6', proc_working_time='1', p_id_fk='16', wc_id_fk='5', emp_id_fk='8';
+INSERT INTO process SET proc_seq='1', proc_name='가공', proc_workers='2', proc_working_time='4', p_id_fk='17', wc_id_fk='1', emp_id_fk='4';
+INSERT INTO process SET proc_seq='2', proc_name='조립', proc_workers='3', proc_working_time='1', p_id_fk='17', wc_id_fk='1', emp_id_fk='4';
+INSERT INTO process SET proc_seq='3', proc_name='포장', proc_workers='3', proc_working_time='1', p_id_fk='17', wc_id_fk='1', emp_id_fk='4';
+INSERT INTO process SET proc_seq='1', proc_name='세척', proc_workers='1', proc_working_time='1', p_id_fk='18', wc_id_fk='2', emp_id_fk='9';
+INSERT INTO process SET proc_seq='2', proc_name='포장', proc_workers='3', proc_working_time='1', p_id_fk='18', wc_id_fk='2', emp_id_fk='9';
+INSERT INTO process SET proc_seq='1', proc_name='코팅', proc_workers='3', proc_working_time='4', p_id_fk='19', wc_id_fk='3', emp_id_fk='2';
+INSERT INTO process SET proc_seq='2', proc_name='포장', proc_workers='1', proc_working_time='1', p_id_fk='19', wc_id_fk='3', emp_id_fk='2';
+INSERT INTO process SET proc_seq='1', proc_name='가공', proc_workers='2', proc_working_time='5', p_id_fk='20', wc_id_fk='4', emp_id_fk='6';
+INSERT INTO process SET proc_seq='2', proc_name='조정', proc_workers='4', proc_working_time='1', p_id_fk='20', wc_id_fk='4', emp_id_fk='6';
+INSERT INTO process SET proc_seq='3', proc_name='포장', proc_workers='5', proc_working_time='2', p_id_fk='20', wc_id_fk='5', emp_id_fk='6';
+INSERT INTO process SET proc_seq='1', proc_name='세척', proc_workers='2', proc_working_time='4', p_id_fk='21', wc_id_fk='6', emp_id_fk='8';
+INSERT INTO process SET proc_seq='2', proc_name='가공', proc_workers='3', proc_working_time='1', p_id_fk='21', wc_id_fk='6', emp_id_fk='8';
+INSERT INTO process SET proc_seq='3', proc_name='조립', proc_workers='3', proc_working_time='1', p_id_fk='21', wc_id_fk='6', emp_id_fk='8';
+INSERT INTO process SET proc_seq='4', proc_name='코팅', proc_workers='1', proc_working_time='1', p_id_fk='21', wc_id_fk='6', emp_id_fk='7';
+INSERT INTO process SET proc_seq='5', proc_name='포장', proc_workers='3', proc_working_time='1', p_id_fk='21', wc_id_fk='6', emp_id_fk='7';
+INSERT INTO process SET proc_seq='1', proc_name='조립', proc_workers='1', proc_working_time='1', p_id_fk='22', wc_id_fk='7', emp_id_fk='10';
+INSERT INTO process SET proc_seq='2', proc_name='포장', proc_workers='1', proc_working_time='1', p_id_fk='22', wc_id_fk='7', emp_id_fk='10';
