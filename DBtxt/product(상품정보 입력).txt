@@ -2,7 +2,7 @@
 
 
 create table product (
-  p_id int auto_increment primary key,
+  p_id int not null auto_increment primary key,
   p_type char(1) not null,          // 대분류( select value=값들 / 제품(A), 원자재(B), 상품(C), 비품(D) )
   p_name varchar(100) not null,     // 품명
   p_code varchar(20) not null,      // 품목코드 ( p_대분류 +  p_소분류 + p_id(pk) 자동생성 )
@@ -23,7 +23,7 @@ create table product (
 
 
 create table product (
-  p_id int auto_increment primary key,
+  p_id int not null auto_increment primary key,
   p_type char(1) not null,          
   p_name varchar(100) not null,     
   p_code varchar(20) not null,     
