@@ -33,6 +33,34 @@ board_move varchar(5) not null
 
 INSERT INTO board SET 
 		board_department = '999',
+		board_code = 'com',
+		board_num = '999com',
+		board_open = 0,
+		board_manager = 'admin',
+		board_name = '사내공지사항',
+		board_type = '공지사항',
+		board_read = 1,
+		board_write = 1,
+		board_comment = 1,
+		board_down = 1,
+		board_move = '9991';
+
+INSERT INTO board SET 
+		board_department = '999',
+		board_code = 'sys',
+		board_num = '999sys',
+		board_open = 0,
+		board_manager = 'admin',
+		board_name = '시스템공지사항',
+		board_type = '공지사항',
+		board_read = 1,
+		board_write = 1,
+		board_comment = 1,
+		board_down = 1,
+		board_move = '9992';
+
+INSERT INTO board SET 
+		board_department = '999',
 		board_code = 'notice',
 		board_num = '999notice',
 		board_open = 0,
@@ -43,7 +71,7 @@ INSERT INTO board SET
 		board_write = 0,
 		board_comment = 0,
 		board_down = 0,
-		board_move = '9991';
+		board_move = '9993';
 
 INSERT INTO board SET 
 		board_department = '999',
@@ -57,7 +85,7 @@ INSERT INTO board SET
 		board_write = 0,
 		board_comment = 0,
 		board_down = 0,
-		board_move = '9992';
+		board_move = '9994';
 
 INSERT INTO board SET 
 		board_department = '999',
@@ -71,8 +99,38 @@ INSERT INTO board SET
 		board_write = 0,
 		board_comment = 0,
 		board_down = 0,
-		board_move = '9993';
+		board_move = '9995';
 
+CREATE TABLE board_article_999com
+		(aid int not null auto_increment primary key,
+		division char(1),
+		subject varchar(300) not null,
+		writer varchar(20) not null,
+		content text,
+		regdate datetime,
+		hit int default 0,
+		fileName varchar(300),
+		fileOriName varchar(300),
+		fileUrl varchar(500),
+		emp_id_fk int,
+		comment_hit int,
+		secret char(1));
+
+CREATE TABLE board_article_999sys
+		(aid int not null auto_increment primary key,
+		division char(1),
+		subject varchar(300) not null,
+		writer varchar(20) not null,
+		content text,
+		regdate datetime,
+		hit int default 0,
+		fileName varchar(300),
+		fileOriName varchar(300),
+		fileUrl varchar(500),
+		emp_id_fk int,
+		comment_hit int,
+		secret char(1));
+		
 CREATE TABLE board_article_999notice
 		(aid int not null auto_increment primary key,
 		division char(1),
@@ -117,6 +175,30 @@ CREATE TABLE board_article_999freeboard
 		emp_id_fk int,
 		comment_hit int,
 		secret char(1));
+
+CREATE TABLE board_comment_999com
+		(cid int not null auto_increment primary key,
+		aid_fk int not null,
+		comment text,
+		who varchar(20),
+		re_emp_id_fk int,
+		ref int,
+		re_cid int,
+		re_cid_name varchar(20),
+		re_cid_depart varchar(20),
+		re_regdate datetime);
+
+CREATE TABLE board_comment_999sys
+		(cid int not null auto_increment primary key,
+		aid_fk int not null,
+		comment text,
+		who varchar(20),
+		re_emp_id_fk int,
+		ref int,
+		re_cid int,
+		re_cid_name varchar(20),
+		re_cid_depart varchar(20),
+		re_regdate datetime);
 
 CREATE TABLE board_comment_999notice
 		(cid int not null auto_increment primary key,
