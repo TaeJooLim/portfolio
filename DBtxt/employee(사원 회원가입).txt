@@ -69,7 +69,8 @@ INSERT INTO employee SET
 	emp_regdate = now(), 
 	emp_off_total = 78, 
 	emp_off_remain = 70.25, 
-   	emp_confirm = 'Y';
+   	emp_confirm = 'Y', 
+	emp_step = 7 ;
 
 INSERT INTO employee SET 
 	emp_department = '100',
@@ -80,7 +81,8 @@ INSERT INTO employee SET
 	emp_birth = '1990-03-14',
 	emp_password = '1234',
 	emp_email = 'abc@email.com',
-	emp_regdate = now();
+	emp_regdate = now(), 
+	emp_step = 1 ;
 
 INSERT INTO employee SET 
 	emp_department = '300',
@@ -94,6 +96,7 @@ INSERT INTO employee SET
 	emp_off_total = 17, 
 	emp_off_remain = 14.5, 
    	emp_confirm = 'Y', 
+	emp_step = 2, 
 	emp_regdate = now();
 
 INSERT INTO employee SET 
@@ -107,6 +110,7 @@ INSERT INTO employee SET
 	emp_email = 'kang@blue.com',
 	emp_regdate = now(), 
 	emp_headcheck = 'Y', 
+	emp_step = 2,  
 	emp_confirm = 'Y';
 
 INSERT INTO employee SET 
@@ -117,7 +121,8 @@ INSERT INTO employee SET
 	emp_name = '신사원',
 	emp_birth = '1999-11-05',
 	emp_password = '1234',
-	emp_email = 'shin@blue.com',
+	emp_email = 'shin@blue.com', 
+	emp_step = 1, 
 	emp_regdate = now();
 
 INSERT INTO employee SET 
@@ -128,7 +133,8 @@ INSERT INTO employee SET
 	emp_name = '정상무',
 	emp_birth = '1972-05-05',
 	emp_password = '1234',
-	emp_email = 'jeong@blue.com',
+	emp_email = 'jeong@blue.com', 
+	emp_step = 19, 
 	emp_regdate = now();
 
 INSERT INTO employee SET 
@@ -139,7 +145,8 @@ INSERT INTO employee SET
 	emp_name = '하사원',
 	emp_birth = '2000-10-05',
 	emp_password = '1234',
-	emp_email = 'ha@blue.com',
+	emp_email = 'ha@blue.com', 
+	emp_step = 1, 
 	emp_regdate = now();
 
 INSERT INTO employee SET 
@@ -151,6 +158,7 @@ INSERT INTO employee SET
 	emp_birth = '2000-10-05',
 	emp_password = '1234',
 	emp_email = 'bu@blue.com',
+	emp_step = 20, 
 	emp_regdate = now();
 
 INSERT INTO employee SET 
@@ -161,7 +169,8 @@ INSERT INTO employee SET
 	emp_name = '위부장',
 	emp_birth = '1975-10-22',
 	emp_password = '1234',
-	emp_email = 'wee@blue.com',
+	emp_email = 'wee@blue.com', 
+	emp_step = 11, 
 	emp_regdate = now();
 
 INSERT INTO employee SET 
@@ -173,6 +182,7 @@ INSERT INTO employee SET
 	emp_birth = '1981-06-22',
 	emp_password = '1234',
 	emp_email = 'min@blue.com',
+	emp_step = 7, 
 	emp_regdate = now();
 	
 INSERT INTO employee SET 
@@ -183,6 +193,7 @@ INSERT INTO employee SET
 	emp_name = '김영희',
 	emp_birth = '1990-11-22',
 	emp_password = '1234',
+	emp_step = 3, 
 	emp_email = 'yhkim@blue.com',
 	emp_regdate = now();
 
@@ -197,6 +208,7 @@ INSERT INTO employee SET
 	emp_email = 'insa@blue.com',
 	emp_confirm = 'Y', 
 	emp_headcheck = 'Y', 
+	emp_step = 9, 
 	emp_regdate = now();
 
 INSERT INTO employee SET 
@@ -211,6 +223,7 @@ INSERT INTO employee SET
 	emp_confirm = 'Y', 
 	emp_off_total = 12, 
 	emp_off_remain = 7.5, 
+	emp_step = 1, 
 	emp_regdate = now();
 	
 
@@ -224,6 +237,7 @@ INSERT INTO employee SET
 	emp_password = '1234',
 	emp_email = 'jin@blue.com',
 	emp_confirm = 'Y',  
+	emp_step = 1, 
 	emp_regdate = now();
 
 
@@ -239,6 +253,7 @@ INSERT INTO employee SET
 	emp_confirm = 'Y', 
 	emp_off_total = 12, 
 	emp_off_remain = 10.5, 
+	emp_step = 1, 
 	emp_regdate = now();
 
 
@@ -254,4 +269,5 @@ INSERT INTO employee SET
 	emp_confirm = 'Y', 
 	emp_off_total = 12, 
 	emp_off_remain = 10, 
+	emp_step = 1, 
 	emp_regdate = now();
