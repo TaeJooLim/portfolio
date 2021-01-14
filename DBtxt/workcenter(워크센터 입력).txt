@@ -1,6 +1,6 @@
 1. 워크센터(공장) 설계 테이블
 
-    create table workCenter (
+    create table workcenter (
 		wc_id int not null auto_increment primary key,	// pk
 		wc_name varchar(20) not null,			// 워크센터 이름
 		wc_usage varchar(20) not null,			// 용도
@@ -17,7 +17,7 @@
     );
 
 
-    create table workCenter (
+    create table workcenter (
 		wc_id int not null auto_increment primary key,
 		wc_name varchar(20) not null,
 		wc_usage varchar(20) not null,
