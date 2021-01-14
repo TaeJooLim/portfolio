@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="message">
+
+	<sql id="searchCondition">
+		<choose>
+			<when test="words == ''"> WHERE </when>
+			<when test="searchOpt == 'all'">
+				WHERE (msg_subject LIKE CONCAT('%', #{words}, '%') OR 
+				emp_name LIKE CONCAT('%', #{words}, '%')) AND 
+			</when>
+			<otherwise>
+				WHERE ${searchOpt} LIKE CONCAT('%', #{words}, '%') AND
+			</otherwise>
+		</choose>
+	</sql>
+
+	<insert id="setMessage" parameterType="hashmap">
+		INSERT INTO msg_info SET 
+			msg_send_id_fk = #{msgSendId}, 
+			msg_from_id_fk = #{msgFromId}, 
+			msg_subject = #{msgSubject}, 
+			msg_content = #{msgContent}, 
+			msg_regdate = now()
+	</insert>
+
+	<update id="changeMsgConfirm" parameterType="int">
+		UPDATE msg_info SET msg_confirm = 'Y' WHERE msg_id = #{msgId}
+	</update>
+	<update id="changeMsgSendDel" parameterType="int">
+		UPDATE msg_info SET msg_send_del = 'Y' WHERE msg_id = ${msgId}
+	</update>
+	<update id="changeMsgFromDel" parameterType="int">
+		UPDATE msg_info SET msg_from_del = 'Y' WHERE msg_id = ${msgId}
+	</update>
+
+	<select id="getSendMessageOne" parameterType="int" resultType="com.portfolio.erp.model.message.MessageVO">
+		SELECT 
+			emp_name 										AS empName,
+			depart_name 									AS empDepartmentName, 
+			position_name 									AS empPositionName, 
+			msg_subject 									AS msgSubject, 
+			msg_content 									AS msgContent 
+		FROM msg_info 	LEFT JOIN employee ON msg_from_id_fk = emp_id 
+						LEFT JOIN department ON emp_department = depart_code 
+						LEFT JOIN position ON emp_position = position_code 
+						WHERE msg_id = #{msgId} 
+	</select>
+	<select id="getFromMessageOne" parameterType="int" resultType="com.portfolio.erp.model.message.MessageVO">
+		SELECT 
+			emp_name 										AS empName,
+			depart_name 									AS empDepartmentName, 
+			position_name 									AS empPositionName, 
+			msg_subject 									AS msgSubject, 
+			msg_content 									AS msgContent 
+		FROM msg_info 	LEFT JOIN employee ON msg_send_id_fk = emp_id 
+						LEFT JOIN department ON emp_department = depart_code 
+						LEFT JOIN position ON emp_position = position_code 
+						WHERE msg_id = #{msgId} 
+	</select>
+	<select id="getSendMessageCnt" parameterType="hashmap" resultType="int">
+		SELECT COUNT(*) 
+		FROM msg_info 	LEFT JOIN employee ON msg_send_id_fk = emp_id 
+						LEFT JOIN department ON emp_department = depart_code 
+						LEFT JOIN position ON emp_position = position_code 
+						<include refid="searchCondition"></include> msg_from_id_fk = #{empId} AND msg_send_del = 'N' AND msg_from_del = 'N' 
+						ORDER BY msg_id DESC 
+	</select>
+	<select id="getSendMessageList" parameterType="hashmap" resultType="com.portfolio.erp.model.message.MessageVO">
+		SELECT 
+			msg_id 											AS msgId, 
+			msg_send_id_fk 									AS msgSendId, 
+			emp_name 										AS empName,
+			depart_name 									AS empDepartmentName, 
+			position_name 									AS empPositionName, 
+			msg_from_id_fk 									AS msgFromId, 
+			msg_subject 									AS msgSubject, 
+			msg_content 									AS msgContent,
+			DATE_FORMAT(msg_regdate, '%Y-%m-%d %H:%i:%s') 	AS regDateFormat,  
+			msg_confirm 									AS msgConfirm, 
+			msg_send_del 									AS msgSendDel, 
+			msg_from_del 									AS msgFromDel  
+		FROM msg_info 	LEFT JOIN employee ON msg_send_id_fk = emp_id 
+						LEFT JOIN department ON emp_department = depart_code 
+						LEFT JOIN position ON emp_position = position_code 
+						<include refid="searchCondition"></include> msg_from_id_fk = #{empId} AND msg_send_del = 'N' AND msg_from_del = 'N' 
+						ORDER BY msg_id DESC 
+	</select>
+	<select id="getFromMessageCnt" parameterType="hashmap" resultType="int">
+		SELECT COUNT(*) 
+		FROM msg_info 	LEFT JOIN employee 		ON msg_from_id_fk = emp_id 
+						LEFT JOIN department 	ON depart_code = emp_department 
+						LEFT JOIN position 		ON position_code = emp_position 
+						<include refid="searchCondition"></include> msg_send_id_fk = #{empId} 
+						ORDER BY msg_id DESC  
+	</select>
+	<select id="getFromMessageList" parameterType="hashmap" resultType="com.portfolio.erp.model.message.MessageVO">
+		SELECT 
+			msg_id 											AS msgId, 
+			msg_send_id_fk 									AS msgSendId, 
+			emp_name 										AS empName,
+			depart_name 									AS empDepartmentName, 
+			position_name 									AS empPositionName, 
+			msg_from_id_fk 									AS msgFromId, 
+			msg_subject 									AS msgSubject, 
+			msg_content 									AS msgContent,
+			DATE_FORMAT(msg_regdate, '%Y-%m-%d %H:%i:%s') 	AS regDateFormat,  
+			msg_confirm 									AS msgConfirm, 
+			msg_send_del 									AS msgSendDel, 
+			msg_from_del 									AS msgFromDel 
+		FROM msg_info 	LEFT JOIN employee 		ON msg_from_id_fk = emp_id 
+						LEFT JOIN department 	ON depart_code = emp_department 
+						LEFT JOIN position 		ON position_code = emp_position 
+						<include refid="searchCondition"></include> msg_send_id_fk = #{empId} AND msg_send_del = 'N' AND msg_from_del = 'N' 
+						ORDER BY msg_id DESC  
+	</select>
+	
+	<select id="getFromUnreadCnt" parameterType="hashmap" resultType="int">
+		SELECT COUNT(*) 
+		FROM msg_info 	LEFT JOIN employee 		ON msg_from_id_fk = emp_id 
+						LEFT JOIN department 	ON depart_code = emp_department 
+						LEFT JOIN position 		ON position_code = emp_position 
+						<include refid="searchCondition"></include> msg_send_id_fk = #{empId} 
+						AND msg_confirm = 'N' 
+						ORDER BY msg_id DESC  
+	</select>
+	
+	<select id="getFromUnreadList" parameterType="hashmap" resultType="com.portfolio.erp.model.message.MessageVO">
+		SELECT 
+			msg_id 											AS msgId, 
+			msg_send_id_fk 									AS msgSendId, 
+			emp_name 										AS empName,
+			depart_name 									AS empDepartmentName, 
+			position_name 									AS empPositionName, 
+			msg_from_id_fk 									AS msgFromId, 
+			msg_subject 									AS msgSubject, 
+			msg_content 									AS msgContent,
+			DATE_FORMAT(msg_regdate, '%Y-%m-%d %H:%i:%s') 	AS regDateFormat,  
+			msg_confirm 									AS msgConfirm, 
+			msg_send_del 									AS msgSendDel, 
+			msg_from_del 									AS msgFromDel 
+		FROM msg_info 	LEFT JOIN employee 		ON msg_from_id_fk = emp_id 
+						LEFT JOIN department 	ON depart_code = emp_department 
+						LEFT JOIN position 		ON position_code = emp_position 
+						<include refid="searchCondition"></include> msg_send_id_fk = #{empId} 
+						AND msg_send_del = 'N' AND msg_from_del = 'N' 
+						AND msg_confirm = 'N' 
+						ORDER BY msg_id DESC  
+	</select>
+</mapper>

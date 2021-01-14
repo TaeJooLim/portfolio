@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="order">
+
+	<sql id="searchCondition">
+		<choose>
+			<when test="searchOpt == 'all'"> WHERE order_emp_name != 'admin' </when>
+			<when test="searchOpt == 'emp_name'"> WHERE order_emp_name LIKE CONCAT('%', #{words}, '%') </when>
+			<otherwise> WHERE order_emp_team = ${searchOpt} </otherwise>
+		</choose>
+	</sql>
+
+	<insert id="setOrderList" parameterType="ordervo">
+		INSERT INTO order_buy SET 
+			order_subject 		= #{orderSubject}, 
+			order_emp_team		= #{orderEmpTeam},
+			order_emp_name		= #{orderEmpName},
+			order_date			= #{orderDate},
+			order_p_name		= #{orderPName},
+			order_p_amount		= #{orderPAmount},
+			order_p_unit		= #{orderPUnit},
+			order_p_buy			= #{orderPBuy},
+			order_total_price	= #{orderTotalPrice},
+			order_purpose		= #{orderPurpose},
+			order_doc_num		= #{orderDocNum},
+			order_sender		= #{orderSender},
+			order_receiver		= #{orderReceiver}	
+	</insert>
+
+	<select id="getOrderList" resultType="ordervo" parameterType="hashmap">
+		SELECT 
+			order_id			AS orderId, 
+			order_emp_team		AS orderEmpTeam,
+			order_emp_name		AS orderEmpName,
+			order_date			AS orderDate,
+			order_p_name		AS orderPName,
+			order_p_amount		AS orderPAmount,
+			order_p_unit		AS orderPUnit,
+			order_p_buy			AS orderPBuy,
+			order_total_price	AS orderTotalPrice,
+			order_purpose		AS orderPurpose,
+			order_doc_num		AS orderDocNum,
+			order_sender		AS orderSender,
+			order_confirm		AS orderConfirm  
+		FROM order_buy WHERE order_doc_num = #{orderDocNum} 
+		ORDER BY order_id DESC 
+	</select>
+	<select id="getProdUnit" resultType="String" parameterType="String">
+		SELECT 
+			p_unit	AS orderPUnit   
+		FROM product WHERE p_name = #{orderPName}
+	</select>
+	<select id="getProdBuy" resultType="int" parameterType="String">
+		SELECT 
+			p_buy	AS orderPBuy 
+		FROM product WHERE p_name = #{orderPName}
+	</select>
+	<select id="getOrderFormInfo" parameterType="hashmap" resultType="ordervo">
+		SELECT 
+			(select position_name FROM employee LEFT JOIN position ON emp_position = position_code WHERE emp_id = order_sender) AS empPositionName, 
+			(select depart_name FROM employee LEFT JOIN department ON emp_department = depart_code WHERE emp_id = order_sender) AS empDepartmentName, 
+			(select emp_name FROM employee WHERE emp_id = order_sender) AS orderEmpName,  
+			order_date 			AS orderDate, 
+			order_doc_num 		AS orderDocNum, 
+			order_subject 		AS orderSubject, 
+			order_p_name		AS orderPName,
+			order_p_amount		AS orderPAmount,
+			order_p_unit		AS orderPUnit,
+			order_p_buy			AS orderPBuy,
+			order_total_price	AS orderTotalPrice,
+			order_purpose		AS orderPurpose, 
+			order_confirm 		AS orderConfirm, 
+			order_confirm_date 	AS orderConfirmDate 
+		FROM order_buy  LEFT JOIN department ON order_emp_team = depart_code 
+		WHERE order_doc_num = #{orderDocNum} 
+	</select>
+	<select id="getOrderSubjectList" parameterType="hashmap" resultType="ordervo">
+		SELECT 
+			order_subject 		AS orderSubject, 
+			order_emp_team 		AS orderEmpTeam, 
+			(select position_name FROM employee LEFT JOIN position ON emp_position = position_code WHERE emp_id = order_sender) AS empPositionName, 
+			(select depart_name FROM employee LEFT JOIN department ON emp_department = depart_code WHERE emp_id = order_sender) AS empDepartmentName, 
+			(select emp_name FROM employee WHERE emp_id = order_sender) AS orderEmpName, 
+			order_p_name 		AS orderPName, 
+			order_doc_num 		AS orderDocNum, 
+			order_confirm 		AS orderConfirm, 
+			order_confirm_date 	AS orderConfirmDate, 
+			order_date 			AS orderDate 
+		FROM order_buy 
+		<include refid="searchCondition"></include> GROUP BY order_subject ORDER by order_id DESC LIMIT ${startIndex}, ${pageSize}  
+	</select>
+	<select id="getCntOrderList" parameterType="hashmap" resultType="int">
+		SELECT COUNT(DISTINCT order_doc_num) FROM order_buy 
+		<include refid="searchCondition"></include>
+	</select>
+	<select id="getAppOrderListCnt" parameterType="hashmap" resultType="int">
+		SELECT COUNT(DISTINCT order_doc_num) FROM order_buy 
+		<include refid="searchCondition"></include> AND order_confirm = #{confirmChk}
+	</select>
+	<select id="getAppOrderList" parameterType="hashmap" resultType="ordervo">
+		SELECT 
+			order_subject 		AS orderSubject, 
+			order_emp_team 		AS orderEmpTeam, 
+			(select position_name FROM employee LEFT JOIN position ON emp_position = position_code WHERE emp_id = order_sender) AS empPositionName, 
+			(select depart_name FROM employee LEFT JOIN department ON emp_department = depart_code WHERE emp_id = order_sender) AS empDepartmentName, 
+			(select emp_name FROM employee WHERE emp_id = order_sender) AS orderEmpName, 
+			order_p_name 		AS orderPName, 
+			order_doc_num 		AS orderDocNum, 
+			order_confirm 		AS orderConfirm, 
+			order_confirm_date 	AS orderConfirmDate, 
+			order_date 			AS orderDate 
+		FROM order_buy 
+		<include refid="searchCondition"></include> AND order_confirm = #{confirmChk} GROUP BY order_subject ORDER by order_id DESC LIMIT ${startIndex}, ${pageSize}  
+	</select>
+	<select id="getAppOrderSendListCnt" parameterType="hashmap" resultType="int">
+		SELECT COUNT(DISTINCT order_doc_num) FROM order_buy 
+		<include refid="searchCondition"></include> AND order_sender = #{empId}
+	</select>
+	<select id="getAppOrderSendList" parameterType="hashmap" resultType="ordervo">
+		SELECT 
+			order_subject 		AS orderSubject, 
+			order_emp_team 		AS orderEmpTeam, 
+			(select position_name FROM employee LEFT JOIN position ON emp_position = position_code WHERE emp_id = order_sender) AS empPositionName, 
+			(select depart_name FROM employee LEFT JOIN department ON emp_department = depart_code WHERE emp_id = order_sender) AS empDepartmentName, 
+			(select emp_name FROM employee WHERE emp_id = order_sender) AS orderEmpName, 
+			order_p_name 		AS orderPName, 
+			order_doc_num 		AS orderDocNum, 
+			order_confirm 		AS orderConfirm, 
+			order_confirm_date 	AS orderConfirmDate, 
+			order_date 			AS orderDate 
+		FROM order_buy 
+		<include refid="searchCondition"></include> AND order_sender = #{empId} GROUP BY order_subject ORDER by order_id DESC LIMIT ${startIndex}, ${pageSize}  
+	</select>
+	<delete id="deleteOne" parameterType="int">
+		DELETE FROM order_buy WHERE order_id = #{orderId}
+	</delete>
+
+	<update id="orderSignConfirm" parameterType="hashmap">
+		UPDATE order_buy SET 
+			order_confirm 		= 'Y', 
+			order_confirm_date 	= #{orderConfirmDate} 
+			WHERE order_doc_num = #{orderDocNum} 
+	</update>
+</mapper>

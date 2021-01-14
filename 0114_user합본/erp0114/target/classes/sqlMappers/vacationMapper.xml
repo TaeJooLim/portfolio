@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vacation">
+<sql id="searchCondition">
+	<choose>
+		<when test="words == ''"> WHERE emp_id_fk != 0 </when>
+		<when test="searchOpt=='all'">
+			WHERE 	(emp_name LIKE CONCAT('%', #{words}, '%')) OR 
+					(emp_num LIKE CONCAT('%', #{words}, '%')) OR 
+					(off_date LIKE CONCAT('%', #{words}, '%')) OR 
+					(off_type LIKE CONCAT('%', #{words}, '%')) OR 
+					(off_confirm LIKE CONCAT('%', #{words}, '%'))  
+		</when>
+		<otherwise>
+			WHERE ${searchOpt} LIKE CONCAT('%', #{words}, '%') 
+		</otherwise>
+	</choose>
+</sql>
+
+	<insert id="setVacation" parameterType="vacationvo">
+		INSERT INTO vacation SET 
+			off_startDate		= #{offStartDate},
+			off_endDate			= #{offEndDate},
+			off_date			= #{offDate},
+			off_date_cnt		= #{offDateCnt},
+			off_type			= #{offType},
+			off_doc_num			= #{offDocNum}, 
+			off_regdate			= now(), 
+			emp_id_fk			= #{empIdFk} 
+	</insert>
+	
+	<update id="updateEmpOff" parameterType="employeevo">
+		UPDATE employee SET 
+			 emp_off_use	= #{empOffUse}, 
+			 emp_off_remain	= #{empOffRemain} 
+		WHERE emp_id = #{empIdFk}
+	</update>
+	
+	<update id="updateConfirm" parameterType="String">
+		UPDATE vacation SET off_confirm = 'Y', off_confirm_date = now() WHERE off_doc_num = #{offDocNum}
+	</update>
+
+	<select id="getVacationList" parameterType="hashmap" resultType="vacationvo">
+		SELECT 
+			off_startDate	 AS offStartDate,
+			off_endDate		 AS offEndDate,
+			off_date_cnt	 AS offDateCnt,
+			off_doc_num		 AS offDocNum,
+			off_type		 AS offType,
+			off_confirm		 AS offConfirm, 
+			off_regdate		 AS offRegdate,  
+			emp_name		 AS empName, 
+			depart_name	  	 AS empDepartmentName, 
+			position_name 	 AS empPositionName 
+			 
+		FROM vacation LEFT JOIN employee ON emp_id_fk = emp_id 
+					  LEFT JOIN department ON emp_department = depart_code 
+					  LEFT JOIN position ON emp_position = position_code  
+		WHERE emp_id_fk = #{empIdFk} GROUP BY off_doc_num 
+		ORDER BY off_id DESC LIMIT ${startIndex}, ${pageSize}
+	</select>
+	
+	<select id="getVacationCntOne" parameterType="int" resultType="int"> 
+		SELECT COUNT(DISTINCT off_doc_num) FROM vacation WHERE emp_id_fk = #{empIdFk}
+	</select>
+	
+	<select id="getVacationListAll" resultType="vacationvo" parameterType="hashmap">
+		SELECT 
+			off_startDate	 AS offStartDate, 
+			off_endDate		 AS offEndDate,
+			off_date		 AS offDate,
+			off_doc_num		 AS offDocNum,
+			off_type		 AS offType,
+			off_confirm		 AS offConfirm, 
+			off_date_cnt	 AS offDateCnt, 
+			off_regdate		 AS offRegdate, 
+			off_confirm_date AS offConfirmDate, 
+			emp_id_fk		 AS empIdFk, 
+			emp_name		 AS empName, 
+			emp_num			 AS empNum, 
+			depart_name	  	 AS empDepartmentName, 
+			position_name 	 AS empPositionName,
+			emp_off_use		 AS empOffUse, 
+			emp_off_remain	 AS empOffRemain 
+			 
+		FROM vacation LEFT JOIN employee ON emp_id_fk = emp_id 
+					  LEFT JOIN department ON emp_department = depart_code 
+					  LEFT JOIN position ON emp_position = position_code  
+		<include refid="searchCondition"></include> GROUP BY off_doc_num 
+		ORDER BY off_id DESC LIMIT #{startIndex}, #{pageSize}
+	</select>
+		
+	<select id="getVacationForm" resultType="vacationvo" parameterType="String">
+		SELECT 
+			off_startDate	 AS offStartDate, 
+			off_endDate		 AS offEndDate,
+			off_doc_num		 AS offDocNum,
+			off_type		 AS offType,
+			off_confirm		 AS offConfirm, 
+			off_date_cnt	 AS offDateCnt, 
+			off_regdate		 AS offRegdate, 
+			off_confirm_date AS offConfirmDate, 
+			V.emp_id_fk		 AS empIdFk, 
+			emp_name		 AS empName, 
+			emp_num			 AS empNum, 
+			depart_name	  	 AS empDepartmentName, 
+			position_name 	 AS empPositionName, 
+			emp_team		 AS empTeam 
+			 
+		FROM vacation V LEFT JOIN employee ON V.emp_id_fk = emp_id 
+						LEFT JOIN employee_detail D ON V.emp_id_fk = D.emp_id_fk
+					  LEFT JOIN department ON emp_department = depart_code 
+					  LEFT JOIN position ON emp_position = position_code 
+		WHERE off_doc_num = #{offDocNum} LIMIT 1
+	</select>
+	
+	<select id="getVacationCnt" parameterType="hashmap" resultType="int">
+		SELECT COUNT(DISTINCT off_doc_num) FROM vacation 
+					LEFT JOIN employee ON emp_id_fk = emp_id 
+					LEFT JOIN department ON emp_department = depart_code 
+					LEFT JOIN position ON emp_position = position_code 
+		<include refid="searchCondition"></include> 
+	</select>
+	
+	<select id="getCntOffTypeA" resultType="int">
+		SELECT COUNT(if(off_type='A',off_type, null)) FROM vacation 
+	</select>
+	
+	<select id="getCntOffTypeB" resultType="int">
+		SELECT COUNT(if(off_type='B',off_type, null)) FROM vacation 
+	</select>
+	
+	<select id="getCntOffTypeC" resultType="int">
+		SELECT COUNT(if(off_type='C',off_type, null)) FROM vacation 
+	</select>
+	
+	<select id="getCntOffTypeD" resultType="int">
+		SELECT COUNT(if(off_type='D',off_type, null)) FROM vacation 
+	</select>
+	
+	<select id="getAppVacationListCnt" parameterType="hashmap" resultType="int">
+		SELECT COUNT(DISTINCT off_doc_num) FROM vacation 
+		<include refid="searchCondition"></include> AND off_confirm = #{confirmChk} 
+		ORDER BY off_id DESC
+	</select>
+	<select id="getAppVacationList" parameterType="hashmap" resultType="ordervo">
+		SELECT 
+			off_doc_num		 AS orderDocNum,
+			depart_name	  	 AS empDepartmentName, 
+			position_name 	 AS empPositionName,
+			emp_name		 AS orderEmpName, 
+			off_regdate		 AS orderDate, 
+			off_confirm		 AS orderConfirm, 
+			off_confirm_date AS orderConfirmDate 
+			 
+		FROM vacation LEFT JOIN employee ON emp_id_fk = emp_id 
+					  LEFT JOIN department ON emp_department = depart_code 
+					  LEFT JOIN position ON emp_position = position_code  
+		<include refid="searchCondition"></include> AND off_confirm = #{confirmChk} GROUP BY off_doc_num 
+		ORDER BY off_id DESC LIMIT #{startIndex}, #{pageSize}
+	</select>
+	<select id="getAppVacationSendListCnt" parameterType="hashmap" resultType="int">
+		SELECT COUNT(DISTINCT off_doc_num) FROM vacation 
+		<include refid="searchCondition"></include> AND emp_id_fk = #{empId} 
+		ORDER BY off_id DESC
+	</select>
+	<select id="getAppVacationSendList" parameterType="hashmap" resultType="ordervo">
+		SELECT 
+			off_doc_num		 AS orderDocNum,
+			depart_name	  	 AS empDepartmentName, 
+			position_name 	 AS empPositionName,
+			emp_name		 AS orderEmpName, 
+			off_regdate		 AS orderDate, 
+			off_confirm		 AS orderConfirm, 
+			off_confirm_date AS orderConfirmDate 
+			 
+		FROM vacation LEFT JOIN employee ON emp_id_fk = emp_id 
+					  LEFT JOIN department ON emp_department = depart_code 
+					  LEFT JOIN position ON emp_position = position_code  
+		<include refid="searchCondition"></include> AND emp_id_fk = #{empId} GROUP BY off_doc_num 
+		ORDER BY off_id DESC LIMIT #{startIndex}, #{pageSize}
+	</select>
+	
+	<delete id="deleteVacation" parameterType="hashmap">
+		DELETE FROM vacation WHERE off_doc_num = #{offDocNum} AND emp_id_fk = #{empId} 
+	</delete>
+
+
+</mapper>

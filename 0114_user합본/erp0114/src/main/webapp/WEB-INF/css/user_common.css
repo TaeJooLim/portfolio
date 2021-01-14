@@ -1,0 +1,72 @@
+@charset 'UTF-8';
+
+/* button style */
+.btn_white {
+    width: 75px;
+    height: 35px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    border-radius: 2px;
+}
+
+.btn_white:focus {
+    outline: none;
+}
+
+.btn_white:active {
+    box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+/* table style */
+.user_table {
+    border: 2px solid #ececec;
+}
+
+.user_table tr {
+    border-bottom: 1px solid #ececec;
+    background-color: #fff;
+}
+
+.user_table thead tr {
+    background-color: #eee;
+}
+
+.shadow_box {
+    padding: 30px 25px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #ececec;
+    box-shadow: 4px 4px 4px #ececec;
+}
+
+/* page_btn style */
+
+    /* 현재 페이지 스타일 */
+.pg_selected {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid transparent;
+    margin-bottom: 30px;
+    background-color: #0099a4;
+    color: #fff;
+}
+    /* hover 스타일 */
+.pg_hover:hover {
+	border: 1px solid transparent;
+    background-color: #0099a4;
+    color:#fff;
+}
+
+/* footer style */
+
+.user_footer {
+    width: 100%;
+    padding: 40px 0;
+    text-align: center;
+    background-color: #dfdfdf;
+    color: #555;
+}
