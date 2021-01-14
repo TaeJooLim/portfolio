@@ -101,6 +101,146 @@ INSERT INTO board SET
 		board_down = 0,
 		board_move = '9995';
 
+INSERT INTO board SET 
+		board_department = '000',
+		board_code = 'notice',
+		board_num = '000notice',
+		board_open = 0,
+		board_manager = 'admin',
+		board_name = '공지사항',
+		board_type = '공지사항',
+		board_read = 1,
+		board_write = 1,
+		board_comment = 1,
+		board_down = 1,
+		board_move = '1';
+
+INSERT INTO board SET 
+		board_department = '100',
+		board_code = 'notice',
+		board_num = '100notice',
+		board_open = 0,
+		board_manager = 'admin',
+		board_name = '공지사항',
+		board_type = '공지사항',
+		board_read = 1,
+		board_write = 1,
+		board_comment = 1,
+		board_down = 1,
+		board_move = '1001';
+
+INSERT INTO board SET 
+		board_department = '200',
+		board_code = 'notice',
+		board_num = '200notice',
+		board_open = 0,
+		board_manager = 'admin',
+		board_name = '공지사항',
+		board_type = '공지사항',
+		board_read = 1,
+		board_write = 1,
+		board_comment = 1,
+		board_down = 1,
+		board_move = '2001';
+
+INSERT INTO board SET 
+		board_department = '300',
+		board_code = 'notice',
+		board_num = '300notice',
+		board_open = 0,
+		board_manager = 'admin',
+		board_name = '공지사항',
+		board_type = '공지사항',
+		board_read = 1,
+		board_write = 1,
+		board_comment = 1,
+		board_down = 1,
+		board_move = '3001';
+
+INSERT INTO board SET 
+		board_department = '400',
+		board_code = 'notice',
+		board_num = '400notice',
+		board_open = 0,
+		board_manager = 'admin',
+		board_name = '공지사항',
+		board_type = '공지사항',
+		board_read = 1,
+		board_write = 1,
+		board_comment = 1,
+		board_down = 1,
+		board_move = '4001';
+
+INSERT INTO board SET 
+		board_department = '500',
+		board_code = 'notice',
+		board_num = '500notice',
+		board_open = 0,
+		board_manager = 'admin',
+		board_name = '공지사항',
+		board_type = '공지사항',
+		board_read = 1,
+		board_write = 1,
+		board_comment = 1,
+		board_down = 1,
+		board_move = '5001';
+
+INSERT INTO board SET 
+		board_department = '600',
+		board_code = 'notice',
+		board_num = '600notice',
+		board_open = 0,
+		board_manager = 'admin',
+		board_name = '공지사항',
+		board_type = '공지사항',
+		board_read = 1,
+		board_write = 1,
+		board_comment = 1,
+		board_down = 1,
+		board_move = '6001';
+
+INSERT INTO board SET 
+		board_department = '700',
+		board_code = 'notice',
+		board_num = '700notice',
+		board_open = 0,
+		board_manager = 'admin',
+		board_name = '공지사항',
+		board_type = '공지사항',
+		board_read = 1,
+		board_write = 1,
+		board_comment = 1,
+		board_down = 1,
+		board_move = '7001';
+
+INSERT INTO board SET 
+		board_department = '800',
+		board_code = 'notice',
+		board_num = '800notice',
+		board_open = 0,
+		board_manager = 'admin',
+		board_name = '공지사항',
+		board_type = '공지사항',
+		board_read = 1,
+		board_write = 1,
+		board_comment = 1,
+		board_down = 1,
+		board_move = '8001';
+
+INSERT INTO board SET 
+		board_department = '900',
+		board_code = 'notice',
+		board_num = '900notice',
+		board_open = 0,
+		board_manager = 'admin',
+		board_name = '공지사항',
+		board_type = '공지사항',
+		board_read = 1,
+		board_write = 1,
+		board_comment = 1,
+		board_down = 1,
+		board_move = '9001';
+
 CREATE TABLE board_article_999com
 		(aid int not null auto_increment primary key,
 		division char(1),
