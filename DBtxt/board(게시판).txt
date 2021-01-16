@@ -361,6 +361,21 @@ CREATE TABLE board_article_200notice
 		comment_hit int,
 		secret char(1));
 
+CREATE TABLE board_article_300notice
+		(aid int not null auto_increment primary key,
+		division char(1),
+		subject varchar(300) not null,
+		writer varchar(20) not null,
+		content text,
+		regdate datetime,
+		hit int default 0,
+		fileName varchar(300),
+		fileOriName varchar(300),
+		fileUrl varchar(500),
+		emp_id_fk int,
+		comment_hit int,
+		secret char(1));
+
 CREATE TABLE board_article_400notice
 		(aid int not null auto_increment primary key,
 		division char(1),
