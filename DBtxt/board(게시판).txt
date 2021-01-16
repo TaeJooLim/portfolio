@@ -113,7 +113,7 @@ INSERT INTO board SET
 		board_write = 1,
 		board_comment = 1,
 		board_down = 1,
-		board_move = '1';
+		board_move = '0001';
 
 INSERT INTO board SET 
 		board_department = '100',
