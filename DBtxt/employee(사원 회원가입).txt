@@ -69,6 +69,7 @@ INSERT INTO employee SET
 	emp_regdate = now(), 
 	emp_off_total = 78, 
 	emp_off_remain = 70.25, 
+	emp_off_use = 7.75, 
    	emp_confirm = 'Y', 
 	emp_step = 7 ;
 
@@ -95,6 +96,7 @@ INSERT INTO employee SET
 	emp_email = 'kim@blue.com', 
 	emp_off_total = 17, 
 	emp_off_remain = 14.5, 
+	emp_off_use = 2.5, 
    	emp_confirm = 'Y', 
 	emp_step = 2, 
 	emp_regdate = now();
@@ -223,6 +225,7 @@ INSERT INTO employee SET
 	emp_confirm = 'Y', 
 	emp_off_total = 12, 
 	emp_off_remain = 7.5, 
+	emp_off_use = 4.5, 
 	emp_step = 1, 
 	emp_regdate = now();
 	
@@ -253,6 +256,7 @@ INSERT INTO employee SET
 	emp_confirm = 'Y', 
 	emp_off_total = 12, 
 	emp_off_remain = 10.5, 
+	emp_off_use = 1.5, 
 	emp_step = 1, 
 	emp_regdate = now();
 
@@ -269,6 +273,7 @@ INSERT INTO employee SET
 	emp_confirm = 'Y', 
 	emp_off_total = 12, 
 	emp_off_remain = 10, 
+	emp_off_use = 2, 
 	emp_step = 1, 
 	emp_regdate = now();
 	
