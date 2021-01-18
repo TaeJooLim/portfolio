@@ -111,3 +111,30 @@ INSERT INTO employee_detail SET
 	emp_team = '1팀',
 	emp_gender = '여',
 	emp_id_fk = 4;
+	
+INSERT INTO employee_detail SET 
+	emp_CP = '010-4242-4242',
+	emp_bank = '하나',
+	emp_accountnum = '0101010-10-101',
+	emp_company = '본사',
+	emp_team = '2팀',
+	emp_gender = '남',
+	emp_id_fk = 17;
+
+INSERT INTO employee_detail SET 
+	emp_CP = '010-4242-4242',
+	emp_bank = '우리',
+	emp_accountnum = '0101010-10-101',
+	emp_company = '본사',
+	emp_team = '1팀',
+	emp_gender = '여',
+	emp_id_fk = 16;
+
+INSERT INTO employee_detail SET 
+	emp_CP = '010-2020-2020',
+	emp_bank = '기업',
+	emp_accountnum = '0101010-10-101',
+	emp_company = '본사',
+	emp_team = '1팀',
+	emp_gender = '남',
+	emp_id_fk = 15;
