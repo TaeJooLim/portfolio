@@ -4,7 +4,7 @@ create table msg_info (
 	msg_from_id_fk int not null, 			// 보낸사람 (emp_id 저장)
 	msg_subject varchar(50),			// 제목
 	msg_content varchar(300),			// 내용
-	msg_regdate Date,				// 보낸시간
+	msg_regdate ,				// 보낸시간
 	msg_confirm char(1) default 'N', 		// 읽음 유/무 확인
 	msg_send_del char(1) default 'N', 		// 보낸메세지 표시 유/무 (삭제기능) 
 	msg_from_del char(1) default 'N' 		// 받은메세지 표시 유/무 (삭제기능)
