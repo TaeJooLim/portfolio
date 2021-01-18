@@ -237,21 +237,3 @@ INSERT INTO employee_detail SET
 	emp_team = '2팀',
 	emp_gender = '남',
 	emp_id_fk = 27;
-	
-INSERT INTO employee_detail SET 
-	emp_CP = '010-4858-8454',
-	emp_bank = 'NH농협',
-	emp_accountnum = '120633-10-206854',
-	emp_company = '본사',
-	emp_team = '1팀',
-	emp_gender = '남',
-	emp_id_fk = 28;
-	
-INSERT INTO employee_detail SET 
-	emp_CP = '010-5895-9416',
-	emp_bank = 'NH농협',
-	emp_accountnum = '120633-10-206854',
-	emp_company = '본사',
-	emp_team = '1팀',
-	emp_gender = '남',
-	emp_id_fk = 29;
