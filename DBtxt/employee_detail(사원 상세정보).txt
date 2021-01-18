@@ -138,3 +138,120 @@ INSERT INTO employee_detail SET
 	emp_team = '1팀',
 	emp_gender = '남',
 	emp_id_fk = 15;
+
+INSERT INTO employee_detail SET 
+	emp_CP = '010-1515-1414',
+	emp_bank = 'NH농협',
+	emp_accountnum = '0101010-10-101',
+	emp_company = '본사',
+	emp_team = '1팀',
+	emp_gender = '남',
+	emp_id_fk = 14;
+	
+INSERT INTO employee_detail SET 
+	emp_CP = '010-1515-1414',
+	emp_bank = 'NH농협',
+	emp_accountnum = '0101010-10-101',
+	emp_company = '본사',
+	emp_team = '1팀',
+	emp_gender = '남',
+	emp_id_fk = 18;
+	
+INSERT INTO employee_detail SET 
+	emp_CP = '010-1515-1414',
+	emp_bank = 'NH농협',
+	emp_accountnum = '0101010-10-101',
+	emp_company = '본사',
+	emp_team = '1팀',
+	emp_gender = '여',
+	emp_id_fk = 19;
+	
+INSERT INTO employee_detail SET 
+	emp_CP = '010-1515-1414',
+	emp_bank = 'NH농협',
+	emp_accountnum = '1211145-10-101',
+	emp_company = '본사',
+	emp_team = '2팀',
+	emp_gender = '여',
+	emp_id_fk = 20;
+
+INSERT INTO employee_detail SET 
+	emp_CP = '010-1515-1414',
+	emp_bank = 'NH농협',
+	emp_accountnum = '0101010-10-101',
+	emp_company = '본사',
+	emp_team = '3팀',
+	emp_gender = '여',
+	emp_id_fk = 21;
+	
+INSERT INTO employee_detail SET 
+	emp_CP = '010-8585-1666',
+	emp_bank = 'NH농협',
+	emp_accountnum = '0101010-10-101',
+	emp_company = '본사',
+	emp_team = '3팀',
+	emp_gender = '여',
+	emp_id_fk = 22;
+	
+INSERT INTO employee_detail SET 
+	emp_CP = '010-8585-1666',
+	emp_bank = '우리',
+	emp_accountnum = '0101010-10-101',
+	emp_company = '본사',
+	emp_team = '1팀',
+	emp_gender = '남',
+	emp_id_fk = 23;
+	
+INSERT INTO employee_detail SET 
+	emp_CP = '010-8585-1666',
+	emp_bank = '하나',
+	emp_accountnum = '32458-10-101',
+	emp_company = '본사',
+	emp_team = '1팀',
+	emp_gender = '여',
+	emp_id_fk = 24;
+	
+INSERT INTO employee_detail SET 
+	emp_CP = '010-7951-8456',
+	emp_bank = '하나',
+	emp_accountnum = '32458-10-101',
+	emp_company = '본사',
+	emp_team = '2팀',
+	emp_gender = '여',
+	emp_id_fk = 25;
+	
+INSERT INTO employee_detail SET 
+	emp_CP = '010-8008-4654',
+	emp_bank = '신한',
+	emp_accountnum = '45548-10-101',
+	emp_company = '본사',
+	emp_team = '1팀',
+	emp_gender = '여',
+	emp_id_fk = 26;
+	
+INSERT INTO employee_detail SET 
+	emp_CP = '010-8008-4654',
+	emp_bank = 'NH농협',
+	emp_accountnum = '120633-10-101',
+	emp_company = '본사',
+	emp_team = '2팀',
+	emp_gender = '남',
+	emp_id_fk = 27;
+	
+INSERT INTO employee_detail SET 
+	emp_CP = '010-4858-8454',
+	emp_bank = 'NH농협',
+	emp_accountnum = '120633-10-206854',
+	emp_company = '본사',
+	emp_team = '1팀',
+	emp_gender = '남',
+	emp_id_fk = 28;
+	
+INSERT INTO employee_detail SET 
+	emp_CP = '010-5895-9416',
+	emp_bank = 'NH농협',
+	emp_accountnum = '120633-10-206854',
+	emp_company = '본사',
+	emp_team = '1팀',
+	emp_gender = '남',
+	emp_id_fk = 29;
