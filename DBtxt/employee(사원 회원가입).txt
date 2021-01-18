@@ -275,7 +275,7 @@ INSERT INTO employee SET
 INSERT INTO employee SET 
 	emp_department = '000',
 	emp_position = '06',
-	emp_num ='120300019',
+	emp_num ='120300017',
 	emp_enter = '2012-03-08',
 	emp_name = '중부장',
 	emp_birth = '1975-10-22',
@@ -290,7 +290,7 @@ INSERT INTO employee SET
 INSERT INTO employee SET 
 	emp_department = '100',
 	emp_position = '06',
-	emp_num ='120310020',
+	emp_num ='120310018',
 	emp_enter = '2012-03-01',
 	emp_name = '인부장',
 	emp_birth = '1975-10-23',
@@ -305,7 +305,7 @@ INSERT INTO employee SET
 INSERT INTO employee SET 
 	emp_department = '200',
 	emp_position = '06',
-	emp_num ='120320021',
+	emp_num ='120320019',
 	emp_enter =  '2012-03-08',
 	emp_name = '경부장',
 	emp_birth = '1975-10-24',
@@ -320,7 +320,7 @@ INSERT INTO employee SET
 INSERT INTO employee SET 
 	emp_department = '300',
 	emp_position = '06',
-	emp_num ='120330022',
+	emp_num ='120330020',
 	emp_enter =  '2012-03-08',
 	emp_name = '기부장',
 	emp_birth = '1975-10-25',
@@ -335,7 +335,7 @@ INSERT INTO employee SET
 INSERT INTO employee SET 
 	emp_department = '400',
 	emp_position = '06',
-	emp_num ='120340023',
+	emp_num ='120340021',
 	emp_enter =  '2012-03-08',
 	emp_name = '총부장',
 	emp_birth = '1975-10-26',
@@ -350,7 +350,7 @@ INSERT INTO employee SET
 INSERT INTO employee SET 
 	emp_department = '500',
 	emp_position = '06',
-	emp_num ='120350024',
+	emp_num ='120350022',
 	emp_enter =  '2012-03-08',
 	emp_name = '전부장',
 	emp_birth = '1975-10-27',
@@ -365,7 +365,7 @@ INSERT INTO employee SET
 INSERT INTO employee SET 
 	emp_department = '600',
 	emp_position = '06',
-	emp_num ='120360025',
+	emp_num ='120360023',
 	emp_enter =  '2012-03-08',
 	emp_name = '지부장',
 	emp_birth = '1975-10-28',
@@ -380,7 +380,7 @@ INSERT INTO employee SET
 INSERT INTO employee SET 
 	emp_department = '700',
 	emp_position = '06',
-	emp_num ='120370026',
+	emp_num ='120370024',
 	emp_enter = '2012-03-08',
 	emp_name = '영부장',
 	emp_birth = '1975-10-29',
@@ -395,7 +395,7 @@ INSERT INTO employee SET
 INSERT INTO employee SET 
 	emp_department = '800',
 	emp_position = '06',
-	emp_num ='120380027',
+	emp_num ='120380025',
 	emp_enter =  '2012-03-08',
 	emp_name = '마부장',
 	emp_birth = '1975-10-30',
@@ -410,7 +410,7 @@ INSERT INTO employee SET
 INSERT INTO employee SET 
 	emp_department = '900',
 	emp_position = '06',
-	emp_num ='120390028',
+	emp_num ='120390026',
 	emp_enter =  '2012-03-08',
 	emp_name = '생부장',
 	emp_birth = '1975-10-31',
