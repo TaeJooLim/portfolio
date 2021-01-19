@@ -79,27 +79,13 @@ INSERT INTO board SET
 		board_num = '999QnA',
 		board_open = 0,
 		board_manager = 'admin',
-		board_name = '고객센터',
+		board_name = '',
 		board_type = '일반',
 		board_read = 0,
 		board_write = 0,
 		board_comment = 0,
 		board_down = 0,
 		board_move = '9994';
-
-INSERT INTO board SET 
-		board_department = '999',
-		board_code = 'customer',
-		board_num = '999customer',
-		board_open = 0,
-		board_manager = 'admin',
-		board_name = '고객센터',
-		board_type = '일반',
-		board_read = 0,
-		board_write = 0,
-		board_comment = 0,
-		board_down = 0,
-		board_move = '9995';
 
 INSERT INTO board SET 
 		board_department = '000',
@@ -301,21 +287,6 @@ CREATE TABLE board_article_999QnA
 		comment_hit int,
 		secret char(1));
 
-CREATE TABLE board_article_999freeboard
-		(aid int not null auto_increment primary key,
-		division char(1),
-		subject varchar(300) not null,
-		writer varchar(20) not null,
-		content text,
-		regdate datetime,
-		hit int default 0,
-		fileName varchar(300),
-		fileOriName varchar(300),
-		fileUrl varchar(500),
-		emp_id_fk int,
-		comment_hit int,
-		secret char(1));
-
 CREATE TABLE board_article_000notice
 		(aid int not null auto_increment primary key,
 		division char(1),
@@ -503,18 +474,6 @@ CREATE TABLE board_comment_999notice
 		re_regdate datetime);
 
 CREATE TABLE board_comment_999QnA
-		(cid int not null auto_increment primary key,
-		aid_fk int not null,
-		comment text,
-		who varchar(20),
-		re_emp_id_fk int,
-		ref int,
-		re_cid int,
-		re_cid_name varchar(20),
-		re_cid_depart varchar(20),
-		re_regdate datetime);
-
-CREATE TABLE board_comment_999freeboard
 		(cid int not null auto_increment primary key,
 		aid_fk int not null,
 		comment text,
