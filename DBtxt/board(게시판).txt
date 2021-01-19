@@ -89,11 +89,11 @@ INSERT INTO board SET
 
 INSERT INTO board SET 
 		board_department = '999',
-		board_code = 'freeboard',
-		board_num = '999freeboard',
+		board_code = 'customer',
+		board_num = '999customer',
 		board_open = 0,
 		board_manager = 'admin',
-		board_name = '자유',
+		board_name = '고객센터',
 		board_type = '일반',
 		board_read = 0,
 		board_write = 0,
