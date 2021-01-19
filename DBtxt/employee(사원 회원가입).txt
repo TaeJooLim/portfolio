@@ -111,7 +111,6 @@ INSERT INTO employee SET
 	emp_password = '1234',
 	emp_email = 'kang@blue.com',
 	emp_regdate = now(), 
-	emp_headcheck = 'Y', 
 	emp_step = 2,  
 	emp_confirm = 'Y';
 
@@ -208,8 +207,7 @@ INSERT INTO employee SET
 	emp_birth = '1978-08-07',
 	emp_password = '1234',
 	emp_email = 'insa@blue.com',
-	emp_confirm = 'Y', 
-	emp_headcheck = 'Y', 
+	emp_confirm = 'Y',  
 	emp_step = 9, 
 	emp_regdate = now();
 
