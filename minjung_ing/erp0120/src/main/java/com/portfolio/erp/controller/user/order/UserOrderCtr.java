@@ -76,6 +76,56 @@ public class UserOrderCtr {
 		return mav;		
 	}
 	
+	// 구매요청서 수정 JSP연결
+	@RequestMapping("/user/order_modify")
+	public ModelAndView getOrderModify(@RequestParam String orderDocNum) {
+		ModelAndView mav = new ModelAndView();
+		
+		// 날짜자동계산
+		Calendar cal = Calendar.getInstance();
+		int year = cal.get(Calendar.YEAR);
+		int month = cal.get(Calendar.MONTH) + 1;
+		int day = cal.get(Calendar.DAY_OF_MONTH);
+		
+		// 구매요청서 문서번호를 "_" 언더바를 기준으로 자름 (예.900_2021_1_buy : 부서번호_년도_월_buy) 
+		String[] array = orderDocNum.split("_");
+		String departNum = array[0]; // 부서번호
+		String empDepartmentName = commonSrv.getDepartmentOne(departNum);
+		
+		// 품명 불러오기
+		int listCnt = productSrv.getProductCnt("p_name", "");
+		List<ProductVO> pList = productSrv.getProductList("p_name", "", 0, listCnt);
+		
+		// 문서번호로 리스트 불러오기
+		List<OrderVO> orderList = orderSrv.getOrderList(orderDocNum);
+		
+		// 총무부 부서장 emp_id검색
+		EmployeeVO evo = commonSrv.getHeadInfo("400");	
+		
+		mav.addObject("year", year);
+		mav.addObject("month", month);
+		mav.addObject("day", day);
+		
+		mav.addObject("prodList", pList);
+		mav.addObject("orderDocNum", orderDocNum);
+		mav.addObject("empDepartmentName", empDepartmentName);
+		mav.addObject("orderList",orderList);
+		
+		// orderDocNum의 구매요청서 정보 중 최초에 만들어진 정보들 가져오기(orderEmpName/orderSender/orderSubject)
+		mav.addObject("firstOrderList", orderList.get(0));
+				
+		mav.addObject("headInfo", evo);
+		
+		// 구매요청서 작성을 하지 않았을 경우, 예외처리
+		if(orderList.size() != 0) {
+			mav.addObject("orderConfirm", orderList.get(0).getOrderConfirm());
+		}
+		
+		mav.setViewName("erp/user/erp_order/order_modify");
+		
+		return mav;		
+	}
+	
 	// 구매요청서 FORM JSP연결
 	@RequestMapping("/user/orderForm")
 	public ModelAndView getOrderForm(@RequestParam String orderDocNum) {

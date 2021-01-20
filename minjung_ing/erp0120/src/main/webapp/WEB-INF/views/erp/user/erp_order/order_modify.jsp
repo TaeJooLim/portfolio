@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@ include file="/WEB-INF/views/erp/admin/include/HEADER.jsp" %>
+<%@ include file="/WEB-INF/views/erp/user/include/HEADER.jsp" %>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common_table.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/button_style.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/user_common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/user_button_style.css">
 <!-- 여기안에 내용을 복사하시면 됩니다! -->
 <style> 
     /* 검색박스 */
@@ -22,16 +24,16 @@
     }
 
 </style>
-
     <div class="page_wrap bg_white noto font_14">
         <div class="page_main flex space_between">
 			<div class="main_right bg_white" style="width: 100%;">
                 <div class="main_right_title p_10" style="height: 50px; border-bottom: 1px solid #ccc;">
-                    <h2 class="font_18">구매관리<i class="fas fa-chevron-right p_lr10"></i>2-2. 구매요청서 수정</h2>
+                    <h2 class="font_18">구매관리<i class="fas fa-chevron-right p_lr10"></i>1. 구매요청서작성</h2>
                 </div>
                 <div class="main_right_info p_20">
+                	<div class="table_wrap_box">
 					<form method="POST" action="" name="setOrderFrm" id="setOrderFrm">
-                    	<div class="form_about m_tb10">
+                    	<div class="form_about m_b10">
 	                        <table class="input_list">
 	                            <tr>
 	                                <td class="bg_gray td_8">제목</td>
@@ -48,24 +50,24 @@
 	                            </tr>
 	                        </table>
                     	</div>
-                    	<div class="reg_tbl_wrap ">
+                    	<div class="reg_tbl_wrap">
                             <table class="input_list">
                                 <tr>
                                     <td class="td_8 bg_gray">문서번호</td>
                                     <td class="">
                                         <div class="auto_num flex space_between">
-                                            <input type="text" id="orderDocNum" name="orderDocNum" class="input_100 m_lr3" value="${orderDocNum}" required />
+                                            <input type="text" id="orderDocNum" name="orderDocNum" class="input_100 m_lr3" readonly value="${orderDocNum}" required />
                                         </div>
                                     </td>
                                     <td class="td_8 bg_gray">작성부서</td>
                                     <td class="p_lr3">
-                                        <input type="text" class="input_100" value="${empDepartmentName} " readonly />
-                                        <input type="hidden" id="orderEmpTeam" name="orderEmpTeam" value="" />
-                                    </td>
+                                        <input type="text" class="input_100" value="${empDepartmentName}" readonly />
+                                        <input type="hidden" id="orderEmpTeam" name="orderEmpTeam" value="${sessionScope.empDepartment}" />
+                                    </td> 	
                                     <td class="td_8 bg_gray">최근작성자</td>
                                     <td class="p_lr3">
-                                        <input type="text" id="" name="" class="input_100" value="${firstOrderList.orderEmpName}" readonly/>
-                                        <input type="hidden" id="orderEmpName" name="orderEmpName" value="${sessionScope.empName}" />
+                                        <input type="text" id="" name="" class="input_100" value="${firstOrderList.orderEmpName} " readonly/>
+                                        <input type="hidden" id="orderEmpName" name="orderEmpName" value="${sessionScope.empName}" /> 
                                     </td>
                                     <td class="td_8 bg_gray">최근작성일</td>
                                     <td class="p_lr3">
@@ -105,7 +107,7 @@
                                     </td>
                                 </tr>
                             </table>
-                            <input type="hidden" id="orderSender" name="orderSender" value="${sessionScope.empId}"  />
+                            <input type="hidden" id="orderSender" name="orderSender" value="${sessionScope.empId}" />
                             <input type="hidden" id="orderReceiver" name="orderReceiver" value="${headInfo.empId}" />
                             
                             <c:choose>
@@ -118,12 +120,12 @@
 	                            	</div>
 	                        	</c:otherwise>	                        	
                             </c:choose>
-                    	</div>
+                    </div>
                     </form>
                     <div class="list m_tb20">
-                    <div class="flex space_between">
+                    	<div class="flex space_between">
 		                    <div class="flex space_between">
-			                    <form method="POST" id="orderDepartFrm" name="" action="${pageContext.request.contextPath}/admin/order_insert" >
+			                    <form method="POST" id="orderDepartFrm" name="" action="${pageContext.request.contextPath}/user/order_insert" >
 			                    	<c:if test="${sessionScope.empDepartment eq '400' && sessionScope.empHeadcheck eq 'Y' }">
 			                    		<div class="" >
 					                    	<select class="input_box" id="empDepartment" name="empDepartment" style="width:150px;" >
@@ -137,19 +139,19 @@
 			                    </form>
 		                    </div>
 		                </div>
-                        <table class="list">
+                        <table class="user_table_list" >
                             <thead>
                             <tr>
-                                <th class="td_3">번호</th>
-                                <th class="td_20">품명</th>
-                                <th class="td_5">수량</th>
-                                <th class="td_5">단위</th>
-                                <th class="td_15">단가</th>
-                                <th class="td_15">금액</th>
-                                <th>용도</th>
-                                <th class="td_5">작성자</th>
-                                <th class="td_10">작성날짜</th>
-                                <th class="td_10">관리</th>
+                                <th class="td_3" style="color:#000; font-weight: 700">번호</th>
+                                <th class="td_20" style="color:#000; font-weight: 700">품명</th>
+                                <th class="td_5" style="color:#000; font-weight: 700">수량</th>
+                                <th class="td_5" style="color:#000; font-weight: 700">단위</th>
+                                <th class="td_15" style="color:#000; font-weight: 700">단가</th>
+                                <th class="td_15" style="color:#000; font-weight: 700">금액</th>
+                                <th style="color:#000; font-weight: 700">용도</th>
+                                <th class="td_5" style="color:#000; font-weight: 700">작성자</th>
+                                <th class="td_10" style="color:#000; font-weight: 700">작성날짜</th>
+                                <th class="td_10" style="color:#000; font-weight: 700">관리</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -166,10 +168,10 @@
                                     <td>${list.orderPAmount}</td>
                                     <td>${list.orderPUnit}</td>
                                     <td>
-                                    	<fmt:formatNumber value="${list.orderPBuy}" pattern="#,###,###"/>
+                                    	<fmt:formatNumber value="${list.orderPBuy}" pattern="#,###"/>
                                     </td>
                                     <td>
-                                    	<fmt:formatNumber value="${list.orderTotalPrice}" pattern="#,###,###"/>
+                                    	<fmt:formatNumber value="${list.orderTotalPrice}" pattern="#,###"/>
                                     </td>
                                     <td>${list.orderPurpose}</td>
                                     <td>${list.orderEmpName}</td>
@@ -180,7 +182,7 @@
     	                                		<button class="s_btn_red">수정불가</button>
 	                                    	</c:when>
 	                                    	<c:otherwise>
-    	                                		<button class="s_btn_gray" onClick="deleteOne(${list.orderId});">삭제</button>
+    	                                		<button class="s_btn_red" onClick="deleteOne(${list.orderId});">삭제</button>
 	                                    	</c:otherwise>
                                     	</c:choose>
                                     </td>
@@ -195,6 +197,5 @@
             </div>
         </div>
     </div>
-
-<script src = " ${pageContext.request.contextPath}/js/order_buy.js"></script> 
-<%@ include file="/WEB-INF/views/erp/admin/include/FOOTER.jsp" %>
+    <%@ include file="/WEB-INF/views/erp/user/include/USER_FOOTER.jsp" %>
+	<script src = " ${pageContext.request.contextPath}/js/order_buy.js"></script> 

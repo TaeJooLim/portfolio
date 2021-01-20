@@ -65,7 +65,7 @@
 	                                <tr style="height: 40px;">
 	                                    <td>${(listCnt - status.index) - ((pagingvo.curPage - 1) * pagingvo.pageSize)}</td>
 	                                    <td>${slist.orderDocNum}</td>
-	                                    <td><a class="under weight_700" href="${pageContext.request.contextPath}/user/order_insert?empDepartment=${slist.orderEmpTeam}">${slist.orderSubject}</a></td>
+	                                    <td><a class="under weight_700" href="${pageContext.request.contextPath}/user/order_modify?orderDocNum=${slist.orderDocNum}">${slist.orderSubject}</a></td>
 	                                    <td>${slist.empDepartmentName} ${slist.orderEmpName} ${slist.empPositionName}</td>
 	                                    <td>
 	                                    	<c:choose>
