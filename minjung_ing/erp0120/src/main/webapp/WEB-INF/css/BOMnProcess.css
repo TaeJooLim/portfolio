@@ -1,0 +1,58 @@
+@charset 'utf-8';
+
+.search_box {
+    position: relative;
+}
+
+.search_box input {
+    background-color: #eff3f9;
+}
+
+.search_box i {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 7px;
+    transform: translateY(-50%);
+    color: #959595;
+}
+
+.search_wrap {
+    height: 300px;
+    border: 1px solid #ccc;
+    border-top: none;
+    overflow-y: scroll;
+}
+
+.search_list {
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.search_list th,
+td {
+    border-bottom: 1px solid #ccc;
+}
+
+
+.input_box {
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    height: 35px;
+    font-size: 14px;
+}
+
+.sel_box {
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    height: 35px;
+    font-size: 14px;
+}
+
+.open {
+    display: block;
+}

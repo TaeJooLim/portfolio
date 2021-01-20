@@ -1,0 +1,4 @@
+1. 디비) msg_info 테이블 수정
+(msg_regdate datetime으로 수정)
+2. 관리자) msg_fromList, msg_sendList.jsp 수정
+3. 관리자) order 관련 jsp, ctr, mapper(order, common) 수정

@@ -1,0 +1,92 @@
+@charset 'UTF-8';
+
+.info_left {
+    width: 12%;
+    border-right: 1px solid #ccc;
+}
+
+.info_right {
+    width: 88%;
+}
+
+.board_left {
+    padding-right: 5px;
+    line-height: 2;
+}
+
+.board_left ul li {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
+}
+
+.board_left ul li:hover {
+	font-weight:700;
+	transition: all .2s;
+}
+
+.board_left ul li a {
+    display: inline-block;
+    width: 100%;
+}
+
+.board_left ul li:last-child {
+    border-bottom: none;
+}
+
+.board_left ul span {
+    color: #000;
+}
+
+.board_left ul li {
+    color: #4c4c4c;
+}
+
+.left_depart {
+    background-color: #565e8c;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 6px 5px;
+
+}
+
+.left_team {
+    background-color: #9eacc6;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 6px 5px;
+
+}
+
+.right_radius_btn {
+    background-color: #ededed;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 6px 5px;
+
+}
+
+.org_info_right select {
+    height: 30px;
+    color: #3F51B5;
+    border: 1px solid #3F51B5;
+}
+
+.user_img {
+    width: 65px;
+    height: 65px;
+    position: relative;
+    overflow: hidden;
+}
+
+.user_img img {
+    width: 100%;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    right: -9999px;
+    bottom: -9999px;
+    margin: auto;
+
+}
+
