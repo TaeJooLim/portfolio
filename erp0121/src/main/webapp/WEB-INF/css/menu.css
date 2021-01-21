@@ -1,0 +1,167 @@
+@charset 'utf-8';
+
+header {
+    width: 100%;
+    height: 50px;
+    background-color: #33428c;
+    display: flex;
+    color: #fff;
+    align-items: center;
+}
+
+.nav_icon,
+.logo {
+    height: inherit;
+    line-height: 50px;
+}
+
+.nav_icon {
+    width: 50px;
+    background-color: #555;
+    cursor: pointer;
+}
+
+.logo {
+    width: 200px;
+    height: inherit;
+    background-color: #00136f;
+    box-shadow: 2px 0 3px -2px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+.logo_img_wrap img {
+    width: 80%;
+}
+
+.option {
+    width: calc(100% - 250px);
+    text-align: right;
+    padding-right: 15px;
+}
+
+.home {
+    display: inline-block;
+}
+
+.admin, .admin_sub{
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 5px;
+    font-size: 14px;
+    text-align: left;
+}
+
+
+.admin {
+    display: inline-block;
+    background-color: #B39DDB;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+}
+
+.admin:hover {
+    background-color: #D1C4E9;
+}
+
+.admin_sub {
+    display: block;
+    margin-top:1px;
+    background-color: #D1C4E9;
+    position: absolute;
+    left: 0;
+    display: none;
+}
+
+.admin_sub a {
+    display: inline-block;
+    width: 100%;
+}
+
+.btn_down {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    background-color: #e0e0e0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+}
+
+/**/
+.main {
+    min-height: calc(100% - 50px);
+}
+
+nav {
+    min-height: calc(100% - 50px);
+}
+
+.active {
+    background-color: #fff;
+}
+
+.main_menu {
+    width: 50px;
+    min-height: calc(100% - 50px);
+    background-color: #eee;
+}
+
+.menu_tab {
+    display: inline-block;
+    width: inherit;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: #555;
+    font-size: 16px;
+}
+
+.sub_menu {
+    width: 200px;
+    min-height: calc(100% - 50px);
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 2px 0 3px -2px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+
+.menu {
+    position: absolute;
+    display: none;
+}
+
+.menu h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.menu li {
+    font-size: 14px;
+    line-height: 1.8;
+    padding-left: 5px;
+}
+
+.menu li:hover {
+    color: #512DA8;
+}
+
+.select {
+    display: block;
+}
+
+/* main-content */
+.main_wrap {
+    width: 100%;
+    min-height: 90%;
+    height: 100%;
+    background-color: #fafafa;
+}
+
+
+/*******************************************************/
