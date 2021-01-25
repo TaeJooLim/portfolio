@@ -1,0 +1,59 @@
+1. VirtualBox 윈도우버전 설치
+   -> https://dev.mysql.com/downloads/repo/yum/
+
+
+2. vagrant window버전 설치
+   -> https://www.vagrantup.com/downloads
+   -> vagrant --version 		// 입력해서 설치가 되었는지 확인
+   -> vagrant box add centos/7	// centOS 7버전 설치
+   -> vagrantfile의 경로를 지정		// ex_) D:\java\vagrant
+   -> vagrant init centos/7		// 옮긴 경로에 vagrantfile 저장
+   -> vagrant up			// 베이그란트 실행
+   -> virtualBOX 열어서 확인
+   -> vagrant ssh 			// centOS 사용
+   -> rpm --query centos-release	// centOS 버전확인
+   -> sudo passwd root		// 리눅스 로그인계정 비밀번호 설정(2번 입력)
+   -> yum install			// 명령어 설치
+   -> yum update			// 명령어 최신화
+   -> yum install firewalld		// 방화벽/접근허용 명령어 설치
+   -> systemctl status firewalld		// 포트상태 확인
+   -> firewall-cmd --zone=public --add-port=3306/tcp --permanent	// 3306포트(mySQL포트)에 대한 접근허용
+   -> firewall-cmd --reload		// 포트재시작
+   -> systemctl start firewalld		// 허용 시작
+
+
+3. vagrantFile 설정
+   -> vagrantfile이 설치된 경로에 들어가서 열기
+   -> 7번째줄부터 복사
+   -> config.vm.box = "centos/7"	// centos/7 박스생성(위의 작업에서 완료함)
+   -> config.vm.hostname = "hosttest"	// hostname 변경
+
+        // 내가사용할 고정IP로 변경(192.168.0.100)
+   -> config.vm.network "public_network", ip: "192.168.0.100", netmask: "255.255.255.0", bridge: "Realtek PCIe GbE Family Controller"
+
+       // 포트변경	
+   -> config.vm.network "forwarded_port", guest: 80, host: 8080
+
+
+4. MySQL 8.0버전 설치
+   -> sudo yum localinstall https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
+   -> centOS 버전에따라 리눅스 버전을 맞춤 (centOS 7 = linux 7.x)
+   -> yum repolist							// 잘 설치되었는지 확인
+   -> yum install mysql-community-server				// mysql server 설치
+   -> 리눅스 로그인 후, systemctl start mysqld				// mysql 시작
+   -> sudo cat /var/log/mysqld.log					// root계정의 임시비밀번호 확인
+   -> ALTER USER 'root'@'localhost' IDENTIFIED BY '새로 설정할 비밀번호';	//로그인 후, 비밀번호 변경 (특수문자, 숫자, 대소문자 포함)
+   -> create user 'root'@'%' identified by 'Root1234!';			// 원격접속허용 계정 생성
+   -> grant privileges on *.* to 'root'@'%';				// 원격접속계정에 권한부여
+
+
+5. WAS 설치
+   -> yum install httpd			// Apache 2.2.4 설치
+   -> service httpd start			// Apache 실행
+   -> http://아이피주소			// Apache 연결되었는지 확인
+   -> 제어판->시스템 및 보안->Windows방화벽	// 인바운드규칙 추가 (mysqld.exe)
+
+
+6. centOS
+   -> ifconfig > eth1 : inet > 접속할 수 있는 내 IP주소			// IP주소 확인 후 알려주기
+   -> mysql -u계정 -h 아이피주소 -p					// 로그인해보기
