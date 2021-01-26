@@ -19,7 +19,7 @@ create table company(
 	com_logo varchar(20),		// 로고타이틀
 	com_sublogo varchar(50),		// 로고서브타이틀
 	com_web_menu varchar(100),		// 웹사이트 메뉴
-	com_web_menu_url varchar(100),		// 웹사이트 메뉴 페이지 연결주소
+	com_web_menu_url varchar(255),		// 웹사이트 메뉴 페이지 연결주소
 	com_web_top varchar(100),		// 메인 상단 텍스트
 	com_web_bottom varchar(100),	// 메인 하단 텍스트
 	com_web_copyright varchar(200),	// 웹사이트 Copyright
