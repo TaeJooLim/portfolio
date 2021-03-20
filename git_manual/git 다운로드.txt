@@ -24,6 +24,8 @@
 2. 다운로드 한 이후에 작업내용을 최신화하는 방법
 
   ① 깃 로그인 (본인아이디 / 이메일 사용)
+    - git config user.name "아이디"
+    - git config user.email "이메일주소"
 
   ② .git폴더가 있는 디렉토리로 이동
     - ex) cd c:\git\project
